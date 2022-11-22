@@ -1,15 +1,13 @@
-package feup.ldts.tanktrouble.gui;
+package feup.ldts.flappy.gui;
 
-import feup.ldts.tanktrouble.model.Position;
+import feup.ldts.flappy.model.Position;
 
 import java.io.IOException;
 
 public interface GUI {
     ACTION getNextAction() throws IOException;
 
-    void drawTank(Position position);
-
-    void drawWall(Position position);
+    void drawPlayer(Position position);
 
     void drawText(Position position, String text, String color);
 

@@ -1,6 +1,5 @@
-package feup.ldts.tanktrouble.gui;
+package feup.ldts.flappy.gui;
 
-import feup.ldts.tanktrouble.model.Position;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -11,6 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import feup.ldts.flappy.model.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -82,11 +82,10 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawTank(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#FFD700");
+    public void drawPlayer(Position position) {
+        drawCharacter(position.getX(), position.getY(), 'H', "#FFD700");
     }
 
-    @Override
     public void drawWall(Position position) {
         drawCharacter(position.getX(), position.getY(), '#', "#3333FF");
     }
