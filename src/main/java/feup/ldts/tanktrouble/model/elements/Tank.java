@@ -1,10 +1,15 @@
 package feup.ldts.tanktrouble.model.elements;
 
-public class Tank extends Element {
-    private int energy;
+import feup.ldts.tanktrouble.model.Color;
+import feup.ldts.tanktrouble.model.Position;
+import feup.ldts.tanktrouble.model.Vector;
 
-    public Tank(int x, int y) {
-        super(x, y);
+public class Tank extends DynamicElement {
+    private int energy;
+    private Color color;
+
+    public Tank(Position position) {
+        super(position, new Vector(10, 0), 0);
         this.energy = 10;
     }
 

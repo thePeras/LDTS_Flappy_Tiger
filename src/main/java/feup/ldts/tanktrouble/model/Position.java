@@ -3,10 +3,10 @@ package feup.ldts.tanktrouble.model;
 import java.util.Objects;
 
 public class Position {
-    private final int x;
-    private final int y;
+    private double x;
+    private double y;
 
-    public Position(int x, int y) {
+    public Position(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -27,13 +27,13 @@ public class Position {
         return new Position(x, y + 1);
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
+    public void setX(int x){this.x = x;}
 
-    public int getY() {
-        return y;
-    }
+    public double getY() { return y; }
+    public void setY(double y){this.y = y; }
 
     @Override
     public boolean equals(Object o) {
