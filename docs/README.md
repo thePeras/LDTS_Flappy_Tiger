@@ -45,6 +45,7 @@ The game shouldn't depend on the specific implementation of the GUI library (Lan
 The Facade pattern was ideal for this problem, as it provides a unified interface to a set of diverse interfaces in a choosed library. This way, the rest of the code doesn't need to know the specifics of the library, and can be easily changed.
 
 **Implementation**
+
 ![img](./images/Facade%20Pattern.png)
 
 These classes can be found in the following files:
@@ -79,55 +80,36 @@ Also the fame can easily change the state by calling the setState method.
 
 **Consequences**
 
-The game state is defined in a centralize place, the Game class. This is usefull because we can change the state of the game by calling the setState method. But for that to work, we need to have access to the Game class context.
+The game state is defined in the Game class. This is usefull because we can change the state of the game by calling the setState method. 
+The downside is that we need to have access to the Game class context in order to use the setState method.
 
 ------
 
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+#### Singleton Sound Manager
 
 **Problem in Context**
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+Music and sound effects are a shared resource amond the game states and classes. Dealing with sound effects in the independet classes is not a good idea because it would be hard to manage and change the sound effects. Also, the music should be played in the background and not be interrupted by independet game elements.
+So, the music and sound effects should be managed by a single class. 
+This can be done by using a singleton pattern. In this pattern we only need to create a class to be responsible for playing the music and sound effects. 
 
 **The Pattern**
 
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+Singleton pattern ensures that only one instance of the class managing the music and sound effects is created. This object is also accessible from everywhere.
+In resume, there is onyl a single point to access the music and sound effects.
 
 **Implementation**
 
-The following figure shows how the pattern’s roles were mapped to the application classes.
-
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
-
-These classes can be found in the following files:
-
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
+![img](./images/Singleton%20Pattern.png)
 
 **Consequences**
 
-The use of the State Pattern in the current design allows the following benefits:
-
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
-
-#### KNOWN CODE SMELLS AND REFACTORING SUGGESTIONS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation, and suggest ways in which the code could be refactored to eliminate them. Each smell and refactoring suggestions should be described in its own subsection.
-
-**Example of such a subsection**:
+One big good consequence of using the singleton pattern is that the code would be isolated from the music and sound effects and we can be easily access them from anywhere in the code. 
+Also, because there is only a single object of the class, it is imposible to have two background musics playing at the same time, for example.
+Changing the music and sound effects turns out to be a easy task now.
 
 ------
 
-#### DATA CLASS
-
-The `PlatformSegment` class is a **Data Class**, as it contains only fields, and no behavior. This is problematic because […].
-
-A way to improve the code would be to move the `isPlatformSegmentSolid()` method to the `PlatformSegment` class, as this logic is purely concerned with the `PlatformSegment` class.
 
 ### TESTING
 
