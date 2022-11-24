@@ -34,6 +34,27 @@ This project was developed by *John Doe* (*john.doe*@fe.up.pt) and *Jane Doe* (*
 
 ------
 
+#### Lanterna Library Facade
+
+**Problem in Context**
+
+The game shouldn't depend on the specific implementation of the GUI library (Lanterna). The appllication UI framework should be easily interchangeable without affecting the rest of the code.
+
+**The Pattern**
+
+The Facade pattern was ideal for this problem, as it provides a unified interface to a set of diverse interfaces in a choosed library. This way, the rest of the code doesn't need to know the specifics of the library, and can be easily changed.
+
+**Implementation**
+![img](./images/Facade%20Pattern.png)
+
+**Consequences**
+
+By declaring a unified interface, the code is more readable and maintainable.
+Another point is that we only need to implement the methods that we need and not the whole GUI library.
+The code is also more flexible by the possibility of changing the GUI library.
+
+------
+
 #### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
 
 **Problem in Context**
