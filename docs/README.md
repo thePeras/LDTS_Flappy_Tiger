@@ -47,11 +47,39 @@ The Facade pattern was ideal for this problem, as it provides a unified interfac
 **Implementation**
 ![img](./images/Facade%20Pattern.png)
 
+These classes can be found in the following files:
+
+- [GUI](../src/main/java/feup/ldts/flappy/gui/GUI.java)
+- [LanternaGUI](../src/main/java/feup/ldts/flappy/gui/LanternaGUI.java)
+- [Game](../src/main/java/feup/ldts/flappy/Game.java)
+
 **Consequences**
 
 By declaring a unified interface, the code is more readable and maintainable.
 Another point is that we only need to implement the methods that we need and not the whole GUI library.
 The code is also more flexible by the possibility of changing the GUI library.
+
+------
+
+#### Game State
+
+**Problem in Context**
+
+It easy to see that the whole game has several states, such as the main menu, the game itself, the game over screen, leaderboard screen, etc. So, the program should be able to handle these states in a simple and efficient way.
+Also we need to easily change the game state when the user interacts with the game. For example, if the player has died, the game state should be set to the game over screen.
+
+**The Pattern**
+
+The State pattern allows the program to change the behavior of the application depending on the current state. For example, the main controller and viewer is defined depending on the current state and each state has its own controller and viewer.
+Also the fame can easily change the state by calling the setState method.
+
+**Implementation**
+
+![img](./images/State%20Pattern.png)
+
+**Consequences**
+
+The game state is defined in a centralize place, the Game class. This is usefull because we can change the state of the game by calling the setState method. But for that to work, we need to have access to the Game class context.
 
 ------
 
