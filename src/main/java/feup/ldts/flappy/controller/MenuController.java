@@ -1,8 +1,12 @@
 package feup.ldts.flappy.controller;
 
-import feup.ldts.flappy.Game;
+import feup.ldts.flappy.App;
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.Menu;
+import feup.ldts.flappy.model.menu.Menu;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static feup.ldts.flappy.state.AppState.GameState;
 
@@ -14,7 +18,7 @@ public class MenuController extends Controller {
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action){
+    public void step(App game, GUI.ACTION action) throws IOException, URISyntaxException, FontFormatException {
         switch (action) {
             case UP:
                 menu.previousOption();

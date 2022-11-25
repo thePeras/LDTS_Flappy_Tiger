@@ -5,10 +5,11 @@ import feup.ldts.flappy.controller.GameController;
 import feup.ldts.flappy.controller.MenuController;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.Menu;
+import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.state.AppState;
-import feup.ldts.flappy.view.GameViewer;
-import feup.ldts.flappy.view.MenuViewer;
+import feup.ldts.flappy.view.game.GameViewer;
+import feup.ldts.flappy.view.menu.MenuViewer;
 import feup.ldts.flappy.view.Viewer;
 
 import java.awt.*;
@@ -17,29 +18,32 @@ import java.net.URISyntaxException;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
 
-public class Game {
+public class App {
     private final LanternaGUI gui;
     private Controller controller;
     private Viewer viewer;
     private AppState state;
+    private Menu menu;
+    private Game game;
 
-    public Game() throws IOException, URISyntaxException, FontFormatException {
+    public App() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(20, 20);
         this.state = MenuState;
-        this.controller = new MenuController(new feup.ldts.flappy.model.Menu());
+        this.menu = new Menu();
+        this.controller = new MenuController(menu);
         this.viewer = new MenuViewer();
     }
 
     public static void main(String[] args){
         try{
-            new Game().start();
+            new App().start();
         }
         catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public void setState(AppState state){
+    public void setState(AppState state) throws IOException, URISyntaxException, FontFormatException {
         this.state = state;
         switch(state){
             case MenuState:
@@ -47,8 +51,9 @@ public class Game {
                 this.viewer = new MenuViewer();
                 break;
             case GameState:
-                this.controller = new GameController(new feup.ldts.flappy.model.Game());
-                this.viewer = new GameViewer();
+                this.game = new Game();
+                this.controller = new GameController(game);
+                this.viewer = new GameViewer(game);
                 break;
         }
     }
@@ -70,7 +75,6 @@ public class Game {
             } catch (InterruptedException e) {
             }
         }
-
         gui.close();
     }
 }

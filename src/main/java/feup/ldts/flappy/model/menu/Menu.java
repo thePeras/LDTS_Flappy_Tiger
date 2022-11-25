@@ -1,4 +1,4 @@
-package feup.ldts.flappy.model;
+package feup.ldts.flappy.model.menu;
 
 import java.util.Arrays;
 import java.util.List;
