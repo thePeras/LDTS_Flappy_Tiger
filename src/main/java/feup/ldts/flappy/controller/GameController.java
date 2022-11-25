@@ -10,8 +10,9 @@ import java.net.URISyntaxException;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
 
-public class GameController extends Controller{
-    private Game game;
+public class GameController extends Controller {
+    private final Game game;
+
     public GameController(Game game) {
         this.game = game;
     }

@@ -10,10 +10,10 @@ import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.state.AppState;
+import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
 import feup.ldts.flappy.view.menu.LeaderboardViewer;
 import feup.ldts.flappy.view.menu.MenuViewer;
-import feup.ldts.flappy.view.Viewer;
 
 import java.awt.*;
 import java.io.IOException;
@@ -39,18 +39,17 @@ public class App {
         this.viewer = new MenuViewer(menu);
     }
 
-    public static void main(String[] args){
-        try{
+    public static void main(String[] args) {
+        try {
             new App().start();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void setState(AppState state) throws IOException, URISyntaxException, FontFormatException {
         this.state = state;
-        switch(state){
+        switch (state) {
             case MenuState:
                 this.menu = new Menu();
                 this.controller = new MenuController(menu);
@@ -63,9 +62,9 @@ public class App {
                 break;
             case LeaderboardState:
                 //Create a string vector with the names of the players and scores
-                String [] names = readLeaderboard("/home/evans24/Desktop/project-l04gr02/src/main/java/feup/ldts/flappy/leaderboard.txt");
+                String[] names = readLeaderboard("/home/evans24/Desktop/project-l04gr02/src/main/java/feup/ldts/flappy/leaderboard.txt");
                 this.menu = new Leaderboard(names);
-                this.controller = new LeaderboardController((Leaderboard)menu);
+                this.controller = new LeaderboardController((Leaderboard) menu);
                 this.viewer = new LeaderboardViewer((Leaderboard) menu);
                 break;
         }
@@ -77,7 +76,7 @@ public class App {
         return contents.split("\n");
     }
 
-    private void start() throws Exception{
+    private void start() throws Exception {
         int FPS = 10;
         int frameTime = 1000 / FPS;
         while (this.state != null) {

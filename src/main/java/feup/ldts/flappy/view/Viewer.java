@@ -16,10 +16,11 @@ public abstract class Viewer<T> {
         return model;
     }
 
-    public void draw(GUI gui) throws IOException{
+    public void draw(GUI gui) throws IOException {
         gui.clear();
         drawElements(gui);
         gui.refresh();
     }
+
     protected abstract void drawElements(GUI gui);
 }

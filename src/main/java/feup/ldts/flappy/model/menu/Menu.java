@@ -17,7 +17,7 @@ public class Menu {
             option = 0;
     }
 
-    public void previousOption(){
+    public void previousOption() {
         option--;
         if (option < 0)
             option = this.options.size() - 1;
@@ -34,9 +34,11 @@ public class Menu {
     public boolean isSelectedStart() {
         return isSelected(0);
     }
+
     public boolean isSelectedLeaderboard() {
         return isSelected(1);
     }
+
     public int getNumberEntries() {
         return this.options.size();
     }

@@ -7,19 +7,21 @@ import feup.ldts.flappy.model.menu.Leaderboard;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
-import static feup.ldts.flappy.state.AppState.*;
+import static feup.ldts.flappy.state.AppState.MenuState;
 
-public class LeaderboardController extends Controller{
-    private Leaderboard leaderboard;
+public class LeaderboardController extends Controller {
+    private final Leaderboard leaderboard;
+
     public LeaderboardController(Leaderboard leaderboard) {
         this.leaderboard = leaderboard;
     }
+
     @Override
     public void step(App game, GUI.ACTION action) throws IOException, URISyntaxException, FontFormatException {
-        switch (action) {
-            case ESCAPE :
-                game.setState(MenuState);
+        if (Objects.requireNonNull(action) == GUI.ACTION.ESCAPE) {
+            game.setState(MenuState);
         }
     }
 }

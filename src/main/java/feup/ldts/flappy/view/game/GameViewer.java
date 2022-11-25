@@ -5,16 +5,15 @@ import feup.ldts.flappy.model.game.Element;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
 import java.util.List;
 
 public class GameViewer extends Viewer<Game> {
-    public GameViewer(Game model){
+    public GameViewer(Game model) {
         super(model);
     }
 
     @Override
-    public void drawElements(GUI gui){
+    public void drawElements(GUI gui) {
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
     }
 

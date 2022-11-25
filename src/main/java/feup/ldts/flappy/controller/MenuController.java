@@ -12,7 +12,7 @@ import static feup.ldts.flappy.state.AppState.GameState;
 import static feup.ldts.flappy.state.AppState.LeaderboardState;
 
 public class MenuController extends Controller {
-    private Menu menu;
+    private final Menu menu;
 
     public MenuController(Menu menu) {
         this.menu = menu;

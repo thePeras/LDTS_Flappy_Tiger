@@ -22,7 +22,11 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(2, 7), ">" + getModel().getTop10()[0], "#FFD700");
+        gui.drawText(new Position(5, 5), "Leaderboard", "#FFFFFF");
+        for (int i = 0; i < getModel().getSize(); i++) {
+            gui.drawText(new Position(4, 7 + i), getModel().getEntry(i), "#FFD700");
+
+        }
     }
 }
 
