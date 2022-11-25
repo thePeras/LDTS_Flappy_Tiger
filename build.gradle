@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'feup.ldts.tanktrouble'
@@ -7,6 +8,10 @@ version '1.0'
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass.set("App")
 }
 
 dependencies {
