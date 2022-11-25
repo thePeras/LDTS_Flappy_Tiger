@@ -35,7 +35,7 @@ public class App {
     private Game game;
 
     public App() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI();
+        this.gui = new LanternaGUI(); 
         this.state = MenuState;
         this.menu = new Menu();
         this.controller = new MenuController(menu);
