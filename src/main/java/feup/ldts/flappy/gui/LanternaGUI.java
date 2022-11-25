@@ -19,9 +19,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI {
-    private final Screen screen;
-
     public static final int height = 30, width = 30, fontSize = 17;
+    private final Screen screen;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
@@ -59,7 +58,6 @@ public class LanternaGUI implements GUI {
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-
         Font loadedFont = font.deriveFont(Font.PLAIN, fontSize);
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
@@ -67,7 +65,8 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-
+        //If pressed escape, return ACTION.ESCAPE;
+        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
 
@@ -76,7 +75,7 @@ public class LanternaGUI implements GUI {
 
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
-        if(keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
 
         return ACTION.NONE;
     }
@@ -84,9 +83,9 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawPlayer(Position position) {
         drawCharacter(position.getX(), position.getY(), 'T', "#FFD700");
-        drawCharacter(position.getX(), position.getY()+1, 'T', "#FFD700");
-        drawCharacter(position.getX()+1, position.getY(), 'T', "#FFD700");
-        drawCharacter(position.getX()+1, position.getY()+1, 'T', "#FFD700");
+        drawCharacter(position.getX(), position.getY() + 1, 'T', "#FFD700");
+        drawCharacter(position.getX() + 1, position.getY(), 'T', "#FFD700");
+        drawCharacter(position.getX() + 1, position.getY() + 1, 'T', "#FFD700");
     }
 
     public void drawWall(Position position) {

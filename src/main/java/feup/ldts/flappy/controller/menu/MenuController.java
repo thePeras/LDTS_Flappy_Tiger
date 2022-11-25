@@ -9,10 +9,11 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.GameState;
+import static feup.ldts.flappy.state.AppState.*;
+import static java.awt.SystemColor.menu;
 
 public class MenuController extends Controller<Menu> {
-
+    
     public MenuController(Menu menu) {
         super(menu);
     }
@@ -27,8 +28,10 @@ public class MenuController extends Controller<Menu> {
                 getModel().nextOption();
                 break;
             case SELECT:
+                if (getModel().isSelectedExit()) game.exit();
                 if (getModel().isSelectedStart()) game.setState(GameState);
-                if (getModel().isSelectedExit()) game.setState(null);
+                if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);
+                if (getModel().isSelectedInstructions()) game.setState(InstructionsState);
         }
     }
 }
