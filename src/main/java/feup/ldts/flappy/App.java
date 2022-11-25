@@ -1,8 +1,8 @@
 package feup.ldts.flappy;
 
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.GameController;
-import feup.ldts.flappy.controller.MenuController;
+import feup.ldts.flappy.controller.game.GameController;
+import feup.ldts.flappy.controller.menu.MenuController;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
@@ -28,10 +28,17 @@ public class App {
 
     public App() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(20, 20);
+        /*
         this.state = MenuState;
         this.menu = new Menu();
         this.controller = new MenuController(menu);
-        this.viewer = new MenuViewer();
+        this.viewer = new MenuViewer(menu);
+         */
+
+        this.state = AppState.GameState;
+        this.game = new Game();
+        this.controller = new GameController(game);
+        this.viewer = new GameViewer(game);
     }
 
     public static void main(String[] args){
@@ -47,8 +54,8 @@ public class App {
         this.state = state;
         switch(state){
             case MenuState:
-                this.controller = new MenuController(new Menu());
-                this.viewer = new MenuViewer();
+                this.controller = new MenuController(menu);
+                this.viewer = new MenuViewer(menu);
                 break;
             case GameState:
                 this.game = new Game();
@@ -73,6 +80,7 @@ public class App {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
         gui.close();
