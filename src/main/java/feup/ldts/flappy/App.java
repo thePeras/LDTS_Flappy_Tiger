@@ -1,17 +1,16 @@
 package feup.ldts.flappy;
 
-import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.GameController;
-import feup.ldts.flappy.controller.LeaderboardController;
-import feup.ldts.flappy.controller.MenuController;
+import feup.ldts.flappy.controller.*;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.menu.Instructions;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
+import feup.ldts.flappy.view.menu.InstructionsViewer;
 import feup.ldts.flappy.view.menu.LeaderboardViewer;
 import feup.ldts.flappy.view.menu.MenuViewer;
 
@@ -21,6 +20,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static feup.ldts.flappy.state.AppState.InstructionsState;
 import static feup.ldts.flappy.state.AppState.MenuState;
 
 public class App {
@@ -32,7 +32,7 @@ public class App {
     private Game game;
 
     public App() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(20, 20);
+        this.gui = new LanternaGUI(30, 30);
         this.state = MenuState;
         this.menu = new Menu();
         this.controller = new MenuController(menu);
@@ -67,6 +67,10 @@ public class App {
                 this.controller = new LeaderboardController((Leaderboard) menu);
                 this.viewer = new LeaderboardViewer((Leaderboard) menu);
                 break;
+            case InstructionsState:
+                this.menu = new Instructions();
+                this.controller = new InstructionsController((Instructions) menu);
+                this.viewer = new InstructionsViewer((Instructions)menu);
         }
     }
 

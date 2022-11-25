@@ -8,8 +8,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.GameState;
-import static feup.ldts.flappy.state.AppState.LeaderboardState;
+import static feup.ldts.flappy.state.AppState.*;
 
 public class MenuController extends Controller {
     private final Menu menu;
@@ -31,6 +30,7 @@ public class MenuController extends Controller {
                 if (menu.isSelectedExit()) game.exit();
                 if (menu.isSelectedStart()) game.setState(GameState);
                 if (menu.isSelectedLeaderboard()) game.setState(LeaderboardState);
+                if (menu.isSelectedInstructions()) game.setState(InstructionsState);
         }
     }
 }

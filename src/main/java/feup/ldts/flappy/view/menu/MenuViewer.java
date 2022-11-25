@@ -22,14 +22,14 @@ public class MenuViewer extends Viewer<Menu> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(5, 5), "Menu", "#FFFFFF");
+        gui.drawText(new Position(8,11), "Menu", "#FC6A03");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
 
             if (getModel().isSelected(i)) {
-                gui.drawText(new Position(4, 7 + i), ">" + getModel().getEntry(i), "#FFD700");
+                gui.drawText(new Position(8, 13 + i), ">" + getModel().getEntry(i), "#FC6A03");
             } else {
-                gui.drawText(new Position(5, 7 + i), getModel().getEntry(i), "#FFFFFF");
+                gui.drawText(new Position(9, 13 + i), getModel().getEntry(i), "#FFFFFF");
             }
         }
     }
