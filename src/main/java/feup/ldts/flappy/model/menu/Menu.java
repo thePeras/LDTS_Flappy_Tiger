@@ -8,7 +8,7 @@ public class Menu {
     private int option = 0;
 
     public Menu() {
-        this.options = Arrays.asList("Start", "Exit");
+        this.options = Arrays.asList("Start", "Leaderboard", "Exit");
     }
 
     public void nextOption() {
@@ -28,14 +28,20 @@ public class Menu {
     }
 
     public boolean isSelectedExit() {
-        return isSelected(1);
+        return isSelected(2);
     }
 
     public boolean isSelectedStart() {
         return isSelected(0);
     }
-
+    public boolean isSelectedLeaderboard() {
+        return isSelected(1);
+    }
     public int getNumberEntries() {
         return this.options.size();
+    }
+
+    public String getEntry(int i) {
+        return this.options.get(i);
     }
 }

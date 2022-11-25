@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import static feup.ldts.flappy.state.AppState.GameState;
+import static feup.ldts.flappy.state.AppState.LeaderboardState;
 
 public class MenuController extends Controller {
     private Menu menu;
@@ -27,8 +28,9 @@ public class MenuController extends Controller {
                 menu.nextOption();
                 break;
             case SELECT:
-                if (menu.isSelectedExit()) game.setState(null);
+                if (menu.isSelectedExit()) game.exit();
                 if (menu.isSelectedStart()) game.setState(GameState);
+                if (menu.isSelectedLeaderboard()) game.setState(LeaderboardState);
         }
     }
 }

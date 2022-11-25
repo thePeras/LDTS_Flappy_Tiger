@@ -2,19 +2,24 @@ package feup.ldts.flappy;
 
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.GameController;
+import feup.ldts.flappy.controller.LeaderboardController;
 import feup.ldts.flappy.controller.MenuController;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.game.GameViewer;
+import feup.ldts.flappy.view.menu.LeaderboardViewer;
 import feup.ldts.flappy.view.menu.MenuViewer;
 import feup.ldts.flappy.view.Viewer;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
 
@@ -31,7 +36,7 @@ public class App {
         this.state = MenuState;
         this.menu = new Menu();
         this.controller = new MenuController(menu);
-        this.viewer = new MenuViewer();
+        this.viewer = new MenuViewer(menu);
     }
 
     public static void main(String[] args){
@@ -47,16 +52,31 @@ public class App {
         this.state = state;
         switch(state){
             case MenuState:
-                this.controller = new MenuController(new Menu());
-                this.viewer = new MenuViewer();
+                this.menu = new Menu();
+                this.controller = new MenuController(menu);
+                this.viewer = new MenuViewer(menu);
                 break;
             case GameState:
                 this.game = new Game();
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
                 break;
+            case LeaderboardState:
+                //Create a string vector with the names of the players and scores
+                String [] names = readLeaderboard("/home/evans24/Desktop/project-l04gr02/src/main/java/feup/ldts/flappy/leaderboard.txt");
+                this.menu = new Leaderboard(names);
+                this.controller = new LeaderboardController((Leaderboard)menu);
+                this.viewer = new LeaderboardViewer((Leaderboard) menu);
+                break;
         }
     }
+
+    private String[] readLeaderboard(String s) throws IOException {
+        //Read the contents of a file and return a string vector with the names and scores
+        String contents = Files.readString(Path.of(s));
+        return contents.split("\n");
+    }
+
     private void start() throws Exception{
         int FPS = 10;
         int frameTime = 1000 / FPS;
@@ -76,5 +96,12 @@ public class App {
             }
         }
         gui.close();
+    }
+
+    public void exit() {
+        this.state = null;
+    }
+
+    public void showLeaderboard() {
     }
 }
