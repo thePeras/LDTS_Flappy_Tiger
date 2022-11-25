@@ -1,25 +1,33 @@
-## LPOO_<T><G> - <PROJECT NAME>
+## LPOO_0402 - Flappy Tiger
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
 
-**Example**:
 
-In this exciting platform game you can help KangarooBoy save the world, by collecting all the coins throughout ten different levels in which you will […].
+This project was developed as a project for the Software Design and Testing Laboratory course, at FEUP. It is a remake of the well known flappy bird game, with a few twists.
 
-This project was developed by *John Doe* (*john.doe*@fe.up.pt) and *Jane Doe* (*jane.doe*@fe.up.pt) for LPOO 2018⁄19.
-
-### IMPLEMENTED FEATURES
-
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *João Pereira* (*up202108848*@fe.up.pt) and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+- **Playable Character** - The game character is a **Tiger**, that jumps when the space bar key is pressed.
+- **Random Walls** - The walls are randomly generated, with a minimum distance between them.
+- **Leaderboard** - The game keeps track of the top 10 scores, and displays them in a leaderboard.
+- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by pressing the space bar key.
+- **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.
+- **Sound effects** - The game has sound effects. The sound effects can be turned on and off by pressing the 's' key.
+- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the player and the collectable objects. When the player collides with the walls or floor, the game ends.
+- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor.
+- **Collectable Objects** - The game has collectable objects, that can be collected by the player:
+    -  **Deer** and **Boar** - The deer can be collected by the player, and gives the player 5 points.
+    - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased, making the game easier.
+- **Curiosities** - There is curiosities about animals that can  be found on the main menu.
+- **Main Menu** - The game has a main menu, that can be accessed by pressing the escape key. The main menu has the following options:
+    - **Play** - Starts a new game.
+    - **Leaderboard** - Displays the top 10 scores.
+    - **Exit** - Exits the game.
+
+### IMPLEMENTED FEATURES
+
+> This section is similar to the previous one but should list the features that are implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
 
 ### DESIGN
 
