@@ -17,10 +17,7 @@ public class PlayerController extends Controller<Game> {
 
     public void jumpPlayer() {
         if(!getModel().isPlaying()) getModel().startPlaying();
-
-        Position position = player.getPosition();
         player.setVelocity(-3);
-
     }
 
     public void updatePosition() {
