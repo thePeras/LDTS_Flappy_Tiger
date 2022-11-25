@@ -3,6 +3,7 @@ package feup.ldts.flappy.controller.game;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.gui.GUI;
+import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.Position;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
@@ -16,7 +17,8 @@ public class PlayerController extends Controller<Game> {
     }
 
     public void jumpPlayer() {
-        if(!getModel().isPlaying()) getModel().startPlaying();
+        if(!getModel().isPlaying())
+            getModel().startPlaying();
         player.setVelocity(-3);
     }
 
@@ -26,7 +28,7 @@ public class PlayerController extends Controller<Game> {
         position.setY(position.getY() + player.getVelocity());
         player.setVelocity(player.getVelocity() + player.getGravity());
 
-        if(position.getY() > 29){
+        if(position.getY() > LanternaGUI.height - 1) {
             position.setY(29);
             player.setVelocity(0);
         }
