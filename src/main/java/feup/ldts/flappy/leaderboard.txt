@@ -1,5 +1,5 @@
-Evans - 10
-Dobby - 5
-Flutterius - 20
-Ginny - 7
-Hermione - 9
+10 - Evans
+5 - Dobby
+20 - Flutterius
+7 - Ginny
+9 - Hermione

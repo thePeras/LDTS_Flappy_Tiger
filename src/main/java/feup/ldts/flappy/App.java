@@ -73,7 +73,19 @@ public class App {
     private String[] readLeaderboard(String s) throws IOException {
         //Read the contents of a file and return a string vector with the names and scores
         String contents = Files.readString(Path.of(s));
-        return contents.split("\n");
+        //sort the contents
+        String[] names = contents.split("\n");
+        for (int i = 0; i < names.length; i++) {
+            for (int j = i + 1; j < names.length; j++) {
+                if (Integer.parseInt(names[i].split(" ")[0]) < Integer.parseInt(names[j].split(" ")[0])) {
+                    String temp = names[i];
+                    names[i] = names[j];
+                    names[j] = temp;
+                }
+            }
+        }
+        //print the contents of the file
+        return names;
     }
 
     private void start() throws Exception {
