@@ -1,26 +1,33 @@
 plugins {
     id 'java'
     id 'application'
+    id 'info.solidsoft.pitest' version '1.7.4'
 }
 
-group 'feup.ldts.tanktrouble'
+group 'feup.ldts.flappy'
 version '1.0'
 
 repositories {
     mavenCentral()
 }
 
+pitest {
+    junit5PluginVersion = '0.12'
+}
+
 application {
-    mainClass.set("App")
+    mainClass.set('feup.ldts.flappy.App')
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
-    testImplementation 'org.mockito:mockito-core:4.8.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.mockito:mockito-core:3.7.7'
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
 }
 
 test {
-    useJUnitPlatform()
+    useJUnitPlatform {
+        includeEngines('junit-jupiter')
+    }
 }
