@@ -5,18 +5,21 @@ import feup.ldts.flappy.controller.game.GameController;
 import feup.ldts.flappy.controller.menu.InstructionsController;
 import feup.ldts.flappy.controller.menu.LeaderboardController;
 import feup.ldts.flappy.controller.menu.MenuController;
+import feup.ldts.flappy.controller.menu.PauseController;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.menu.Instructions;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.model.menu.Menu;
+import feup.ldts.flappy.model.menu.Pause;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
 import feup.ldts.flappy.view.menu.InstructionsViewer;
 import feup.ldts.flappy.view.menu.LeaderboardViewer;
 import feup.ldts.flappy.view.menu.MenuViewer;
+import feup.ldts.flappy.view.menu.PauseViewer;
 
 import java.awt.*;
 import java.io.IOException;
@@ -25,6 +28,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
+import static feup.ldts.flappy.state.AppState.PauseState;
 
 public class App {
     private final LanternaGUI gui;
@@ -51,6 +55,7 @@ public class App {
     }
 
     public void setState(AppState state) throws IOException, URISyntaxException, FontFormatException {
+
         this.state = state;
         switch (state) {
             case MenuState:
@@ -74,6 +79,11 @@ public class App {
                 this.menu = new Instructions();
                 this.controller = new InstructionsController((Instructions) menu);
                 this.viewer = new InstructionsViewer((Instructions) menu);
+            case PauseState:
+                this.menu = new Pause();
+                this.controller = new PauseController((Pause)menu);
+                this.viewer = new PauseViewer((Pause)menu );
+                break;
         }
     }
 

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
+import static feup.ldts.flappy.state.AppState.PauseState;
 
 public class GameController extends Controller<Game> {
 
@@ -24,6 +25,9 @@ public class GameController extends Controller<Game> {
     public void step(App app, GUI.ACTION action) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT)
             app.setState(MenuState);
+        if (action == GUI.ACTION.ESCAPE){
+            app.setState(PauseState);
+        }
         else {
             playerController.step(app, action);
         }
