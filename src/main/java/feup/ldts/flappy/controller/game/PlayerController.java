@@ -15,29 +15,28 @@ public class PlayerController extends Controller<Game> {
         this.player = game.getPlayer();
     }
 
-    private void jumpPlayer() {
-        if(!getModel().isPlaying()){
-            getModel().startPlaying();
-        }
+    public void jumpPlayer() {
+        if(!getModel().isPlaying()) getModel().startPlaying();
+
         Position position = player.getPosition();
-        player.setSpeed(-2);
-        position.setY(position.getY() + player.getSpeed());
+        player.setVelocity(-3);
+
     }
 
     public void updatePosition() {
         if(!getModel().isPlaying()) return;
         Position position = player.getPosition();
-        position.setY(position.getY() + player.getSpeed());
-        player.setSpeed(player.getSpeed() + player.getGravity());
+        position.setY(position.getY() + player.getVelocity());
+        player.setVelocity(player.getVelocity() + player.getGravity());
 
-        if(position.getY() > 19){
-            position.setY(19);
-            player.setSpeed(0);
+        if(position.getY() > 29){
+            position.setY(29);
+            player.setVelocity(0);
         }
 
         if(position.getY() < 0){
             position.setY(0);
-            player.setSpeed(0);
+            player.setVelocity(0);
         }
     }
 

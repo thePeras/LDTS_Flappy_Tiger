@@ -4,19 +4,19 @@ import feup.ldts.flappy.model.Position;
 
 public class Player extends Element {
 
-    private final int gravity = 1;
-    private int speed = 1;
+    private static int gravity = 1;
+    private int velocity = 1;
 
     public Player(Position position) {
         super(position);
     }
 
-    public int getSpeed() {
-        return speed;
+    public int getVelocity() {
+        return velocity;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
+    public void setVelocity(int velocity) {
+        this.velocity = velocity;
     }
 
     public int getGravity() {

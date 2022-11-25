@@ -20,6 +20,7 @@ public class Game {
     public boolean isPlaying() {
         return isPlaying;
     }
+    public void setPlaying(boolean playing){this.isPlaying = playing; }
 
     public void startPlaying() {
         isPlaying = true;

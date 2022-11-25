@@ -28,7 +28,7 @@ public class App {
     private Game game;
 
     public App() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(20, 20);
+        this.gui = new LanternaGUI(30, 30);
         this.state = GameState;
         this.game = new Game();
         this.controller = new GameController(game);
@@ -59,7 +59,7 @@ public class App {
         }
     }
     private void start() throws Exception{
-        int FPS = 10;
+        int FPS = 14;
         int frameTime = 1000 / FPS;
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
