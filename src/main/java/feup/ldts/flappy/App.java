@@ -16,6 +16,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static feup.ldts.flappy.state.AppState.GameState;
 import static feup.ldts.flappy.state.AppState.MenuState;
 
 public class App {
@@ -28,10 +29,10 @@ public class App {
 
     public App() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI(20, 20);
-        this.state = MenuState;
-        this.menu = new Menu();
-        this.controller = new MenuController(menu);
-        this.viewer = new MenuViewer(menu);
+        this.state = GameState;
+        this.game = new Game();
+        this.controller = new GameController(game);
+        this.viewer = new GameViewer(game);
     }
 
     public static void main(String[] args){
