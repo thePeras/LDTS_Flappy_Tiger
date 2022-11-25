@@ -1,14 +1,15 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
+import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.view.Viewer;
 
 import java.io.IOException;
 
 public class MenuViewer extends Viewer {
 
-    public MenuViewer() {
-        super(null);
+    public MenuViewer(Menu menu) {
+        super(menu);
     }
 
     @Override

@@ -1,8 +1,8 @@
 package feup.ldts.flappy;
 
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.GameController;
-import feup.ldts.flappy.controller.MenuController;
+import feup.ldts.flappy.controller.game.GameController;
+import feup.ldts.flappy.controller.menu.MenuController;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
@@ -16,6 +16,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static feup.ldts.flappy.state.AppState.GameState;
 import static feup.ldts.flappy.state.AppState.MenuState;
 
 public class App {
@@ -27,11 +28,11 @@ public class App {
     private Game game;
 
     public App() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(20, 20);
+        this.gui = new LanternaGUI();
         this.state = MenuState;
         this.menu = new Menu();
         this.controller = new MenuController(menu);
-        this.viewer = new MenuViewer();
+        this.viewer = new MenuViewer(menu);
     }
 
     public static void main(String[] args){
@@ -47,8 +48,8 @@ public class App {
         this.state = state;
         switch(state){
             case MenuState:
-                this.controller = new MenuController(new Menu());
-                this.viewer = new MenuViewer();
+                this.controller = new MenuController(menu);
+                this.viewer = new MenuViewer(menu);
                 break;
             case GameState:
                 this.game = new Game();
@@ -58,7 +59,7 @@ public class App {
         }
     }
     private void start() throws Exception{
-        int FPS = 10;
+        int FPS = 14;
         int frameTime = 1000 / FPS;
         while (this.state != null) {
             long startTime = System.currentTimeMillis();
@@ -73,6 +74,7 @@ public class App {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
         gui.close();

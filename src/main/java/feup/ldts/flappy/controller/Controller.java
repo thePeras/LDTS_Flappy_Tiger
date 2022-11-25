@@ -7,9 +7,16 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public abstract class Controller {
-    public Controller() {
+public abstract class Controller<T> {
+
+    private final T model;
+    public Controller(T model) {
+        this.model = model;
     }
 
-    public abstract void step(App main, GUI.ACTION gui) throws IOException, URISyntaxException, FontFormatException;
+    public T getModel() {
+        return model;
+    }
+
+    public abstract void step(App app, GUI.ACTION gui) throws IOException, URISyntaxException, FontFormatException;
 }
