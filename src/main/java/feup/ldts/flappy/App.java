@@ -29,10 +29,10 @@ public class App {
 
     public App() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
-        this.state = GameState;
-        this.game = new Game();
-        this.controller = new GameController(game);
-        this.viewer = new GameViewer(game);
+        this.state = MenuState;
+        this.menu = new Menu();
+        this.controller = new MenuController(menu);
+        this.viewer = new MenuViewer(menu);
     }
 
     public static void main(String[] args){
