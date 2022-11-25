@@ -65,7 +65,7 @@ public class App {
                 break;
             case LeaderboardState:
                 //Create a string vector with the names of the players and scores
-                String[] names = readLeaderboard("/home/evans24/Desktop/project-l04gr02/src/main/java/feup/ldts/flappy/leaderboard.txt");
+                String[] names = readLeaderboard();
                 this.menu = new Leaderboard(names);
                 this.controller = new LeaderboardController((Leaderboard) menu);
                 this.viewer = new LeaderboardViewer((Leaderboard) menu);
@@ -77,9 +77,10 @@ public class App {
         }
     }
 
-    private String[] readLeaderboard(String s) throws IOException {
+    private String[] readLeaderboard() throws IOException {
         //Read the contents of a file and return a string vector with the names and scores
-        String contents = Files.readString(Path.of(s));
+        Path path = Path.of("src/main/resources/leaderboard.txt");
+        String contents = Files.readString(path);
         //sort the contents
         String[] names = contents.split("\n");
         for (int i = 0; i < names.length; i++) {
