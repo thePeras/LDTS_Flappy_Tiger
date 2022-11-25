@@ -10,6 +10,8 @@ import feup.ldts.flappy.model.game.Player;
 
 public class PlayerController extends Controller<Game> {
 
+    private int waitingCounter = 0;
+
     private final Player player;
     public PlayerController(Game game) {
         super(game);
@@ -23,8 +25,15 @@ public class PlayerController extends Controller<Game> {
     }
 
     public void updatePosition() {
-        if(!getModel().isPlaying()) return;
         Position position = player.getPosition();
+        if(!getModel().isPlaying()) {
+            if(waitingCounter == 0){
+                player.setVelocity(-player.getVelocity());
+                position.setY(position.getY() + player.getVelocity());
+            }
+            waitingCounter = (waitingCounter + 1) % 11;
+            return;
+        }
         position.setY(position.getY() + player.getVelocity());
         player.setVelocity(player.getVelocity() + player.getGravity());
 

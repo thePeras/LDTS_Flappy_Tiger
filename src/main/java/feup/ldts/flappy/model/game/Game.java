@@ -1,5 +1,6 @@
 package feup.ldts.flappy.model.game;
 
+import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.Position;
 
 public class Game {
@@ -10,7 +11,7 @@ public class Game {
 
     public Game() {
         this.isPlaying = false;
-        this.player = new Player(new Position(9, 9));
+        this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
     }
 
     public Player getPlayer() {
