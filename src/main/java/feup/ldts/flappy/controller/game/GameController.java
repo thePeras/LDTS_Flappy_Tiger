@@ -4,7 +4,9 @@ import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.state.AppState;
 
+import javax.swing.plaf.nimbus.State;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;

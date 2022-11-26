@@ -26,7 +26,7 @@ public class PauseController extends Controller<Pause> {
                 getModel().nextOption();
                 break;
             case SELECT:
-                if (getModel().isSelectedResume()) game.exit();
+                if (getModel().isSelectedResume()){ game.setState(PrevGameState);}
                 if (getModel().isSelectedRestart()) game.setState(GameState);
                 if (getModel().isSelectedExit()) game.setState(MenuState);
         }
