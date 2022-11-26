@@ -121,8 +121,8 @@ Changing the music and sound effects turns out to be a easy task now.
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+![img](images/pitest.png)
+[Pitest report](pitest/index.html)
 
 ### SELF-EVALUATION
 

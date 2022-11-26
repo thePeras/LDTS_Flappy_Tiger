@@ -24,13 +24,6 @@ public class Instructions extends Menu {
         inst[16] = "wine, you enter god mode";
         inst[17] = "and the gap between walls";
         inst[18] = "will be bigger.";
-
-
-
-
-
-
-
     }
 
     public int getNumberEntries() {
@@ -39,5 +32,9 @@ public class Instructions extends Menu {
 
     public String getEntry(int i) {
         return this.inst[i];
+    }
+
+    public String[] getInstructions() {
+        return inst;
     }
 }

@@ -25,7 +25,6 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
         gui.drawText(new Position(8, 11), "Leaderboard", "#FFFFFF");
         for (int i = 0; i < getModel().getSize(); i++) {
             gui.drawText(new Position(8, 13 + i), getModel().getEntry(i), "#FC6A03");
-
         }
     }
 }
