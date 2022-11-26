@@ -29,19 +29,19 @@ public class PlayerControllerTest {
 
     @Test
     public void testUpdatePosition() {
-        assertEquals(9, player.getPosition().getY());
+        assertEquals(14, player.getPosition().getY());
         assertEquals(1, player.getVelocity());
 
         playerController.updatePosition();
-        assertEquals(9, player.getPosition().getY());
-        assertEquals(1, player.getVelocity());
+        assertEquals(13, player.getPosition().getY());
+        assertEquals(-1, player.getVelocity());
 
         game.setPlaying(true);
 
         playerController.updatePosition();
-        assertEquals(2, player.getVelocity());
+        assertEquals(0, player.getVelocity());
 
-        assertEquals(10, player.getPosition().getY());
+        assertEquals(12, player.getPosition().getY());
         playerController.updatePosition();
         assertEquals(12, player.getPosition().getY());
 
