@@ -30,7 +30,7 @@ This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *Joã
 - **Leaderboard** - The game keeps track of the top 10 scores, and displays them in a leaderboard.
 - **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by pressing the space bar key.
 
-![img](./images/Main Menu.png)
+![img](./images/Main_Menu.png)
 ![img](./images/Instructions.png)
 ![img](./images/Leaderboard.png)
 
