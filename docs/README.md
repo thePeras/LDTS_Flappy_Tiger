@@ -1,14 +1,24 @@
-## LPOO_0402 - Flappy Tiger
+## LDTS_0402 - Flappy Tiger
 
 
 
 This project was developed as a project for the Software Design and Testing Laboratory course, at FEUP. It is a remake of the well known flappy bird game, with a few twists.
 
-This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *João Pereira* (*up202108848*@fe.up.pt) and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
+This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *João Torre Pereira* (*up202108848*@fe.up.pt) and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
+
+### IMPLEMENTED FEATURES
+
+- **Playable Character** - Currently the game chracter already jumps, but it is not a tiger.
+- **Main Menu** - The game has a main menu, that can be accessed by pressing the escape key. The main menu has the following options:
+    - **Play** - Starts a new game.
+    - **Leaderboard** - Displays the top 10 scores.
+    - **Instructions** - Displays the instructions of the game.
+    - **Exit** - Exits the game.
+- **Leaderboard** - The game keeps track of the top 10 scores, and displays them in a leaderboard.
+- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by pressing the space bar key.
 
 ### PLANNED FEATURES
 
-- **Playable Character** - The game character is a **Tiger**, that jumps when the space bar key is pressed.
 - **Random Walls** - The walls are randomly generated, with a minimum distance between them.
 - **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.
 - **Sound effects** - The game has sound effects. The sound effects can be turned on and off by pressing the 's' key.
@@ -19,34 +29,42 @@ This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *Joã
     - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased, making the game easier.
 - **Curiosities** - There is curiosities about animals that can  be found on the main menu.
 
+### MOCKUPS
 
-### IMPLEMENTED FEATURES
-- **Playable Character** - Currently the game chracter already jumps, but it is not a tiger.
-- **Main Menu** - The game has a main menu, that can be accessed by pressing the escape key. The main menu has the following options:
-  - **Play** - Starts a new game.
-  - **Leaderboard** - Displays the top 10 scores.
-  - **Instructions** - Displays the instructions of the game.
-  - **Exit** - Exits the game.
-- **Leaderboard** - The game keeps track of the top 10 scores, and displays them in a leaderboard.
-- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by pressing the space bar key.
+![img](./images/mockups/Main_Menu2.png)
+![img](./images/mockups/Leaderboard.png)
+![img](./images/mockups/Instructions.png)
+![img](./images/mockups/Game.png)
 
-![img](./images/Main_Menu.png)
-![img](./images/Instructions.png)
-![img](./images/Leaderboard.png)
+### UML
 
+### DESIGN 
 
-### DESIGN
+#### Sctructure of the code
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
+**Problem in Context**
 
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+With the increase of the complexity of the game, the code will become more difficult to understand and maintain.
+So, we need to find an appropriate pattern to organize it. 
 
-**Example of one of such subsections**:
+**The Pattern**
 
-------
+The MVC is usefull because it divides the code in three parts: the model, the view and the controller. The model is responsible for the data, the view is responsible for the visual interface and the controller for the logic of the game.
+All of the three packages are independent and work together to make the game work.
+
+**Implementation**
+
+![img](./images/patterns/MVC.png)
+
+These packages can be found in the following folders:
+
+- [Model](../src/main/java/feup/ldts/flappy/model/)
+- [Controller](../src/main/java/feup/ldts/flappy/controller/)
+- [View](../src/main/java/feup/ldts/flappy/view/)
+
+**Consequences**
+
+A modular sctructure of the code allowing us to divide the code in different files, can be very usefull for many reasons but it can be also a not easy task to do. This means that when we are developing the code we need to think about the structure of the code and how we are going to divide it. This is in fact a problem for people not used to work with this kind of structure. However, as the times goes on we will get used to it and benefit from it.
 
 #### Lanterna Library Facade
 
@@ -60,7 +78,7 @@ The Facade pattern was ideal for this problem, as it provides a unified interfac
 
 **Implementation**
 
-![img](./images/Facade%20Pattern.png)
+![img](./images/patterns/Facade%20Pattern.png)
 
 These classes can be found in the following files:
 
@@ -90,7 +108,7 @@ Also the fame can easily change the state by calling the setState method.
 
 **Implementation**
 
-![img](./images/State%20Pattern.png)
+![img](./images/patterns/State%20Pattern.png)
 
 **Consequences**
 
@@ -114,7 +132,7 @@ In resume, there is onyl a single point to access the music and sound effects.
 
 **Implementation**
 
-![img](./images/Singleton%20Pattern.png)
+![img](./images/patterns/Singleton%20Pattern.png)
 
 **Consequences**
 
@@ -132,9 +150,6 @@ Changing the music and sound effects turns out to be a easy task now.
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Francisco da Ana: 33.3%
+- João Torre Pereira: 33.3%
+- José Pedro Evans: 33.3%
