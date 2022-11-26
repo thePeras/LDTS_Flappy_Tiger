@@ -38,6 +38,8 @@ This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *Joã
 
 ### UML
 
+![img](./images/UML/basic_model_structure.png)
+
 ### DESIGN 
 
 #### Sctructure of the code
