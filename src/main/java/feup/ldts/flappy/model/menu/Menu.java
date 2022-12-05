@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Menu {
-    private final List<String> options;
-    private int option = 0;
+    protected List<String> options;
+    protected int option = 0;
 
     public Menu() {
         this.options = Arrays.asList("Start", "Leaderboard", "Instructions", "Exit");
