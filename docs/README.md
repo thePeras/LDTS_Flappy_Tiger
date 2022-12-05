@@ -148,7 +148,12 @@ Changing the music and sound effects turns out to be a easy task now.
 ### TESTING
 
 ![img](images/pitest.png)
+
 [Pitest report](pitest/index.html)
+
+![img](images/jacoco.png)
+
+[Jacoco report](jacoco/index.html)
 
 ### SELF-EVALUATION
 

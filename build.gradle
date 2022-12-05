@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'info.solidsoft.pitest' version '1.7.4'
+    id 'jacoco'
 }
 
 group 'feup.ldts.flappy'
@@ -9,6 +10,10 @@ version '1.0'
 
 repositories {
     mavenCentral()
+}
+
+jacocoTestReport {
+    dependsOn test
 }
 
 pitest {
@@ -30,4 +35,5 @@ test {
     useJUnitPlatform {
         includeEngines('junit-jupiter')
     }
+    finalizedBy jacocoTestReport
 }
