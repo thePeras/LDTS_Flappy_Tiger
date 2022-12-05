@@ -1,0 +1,48 @@
+name: Build test reports
+
+on:
+  push:
+    branches: [ tests ]
+
+jobs:
+  build-reports:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '16'
+          distribution: 'zulu'
+
+      - name: Setup environment
+        run: bash ${GITHUB_WORKSPACE}/.github/setup_packages.sh
+
+      - name: Pitest test report
+        run: gradle pitest
+
+      - name: Jacoco test report
+        run: gradle test jacocoTestReport
+
+      - name: Saving Jacoco test report
+        run: |
+          rm -rf docs/jacoco/*
+          mv build/reports/jacoco/test/html/* docs/jacoco/
+        
+      - name: Saving Pitest test report
+        run: |
+          rm -rf docs/pitest/*
+          mv build/reports/pitest/*/* docs/pitest/
+          
+      - name: Install phantomjs
+        run: bash ${GITHUB_WORKSPACE}/.github/phantomjs_install.sh
+
+      - name: Generate images
+        run: |
+          cd ~
+          phantomjs/bin/phantomjs ${GITHUB_WORKSPACE}/.github/screenshot.js ${GITHUB_WORKSPACE}/docs/pitest/index.html ${GITHUB_WORKSPACE}/docs/images/pitest.png
+          phantomjs/bin/phantomjs ${GITHUB_WORKSPACE}/.github/screenshot.js ${GITHUB_WORKSPACE}/docs/jacoco/index.html ${GITHUB_WORKSPACE}/docs/images/jacoco.png
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Test reports generated"      
