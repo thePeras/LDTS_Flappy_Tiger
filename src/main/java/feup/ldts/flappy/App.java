@@ -1,6 +1,7 @@
 package feup.ldts.flappy;
 
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.controller.game.GameController;
 import feup.ldts.flappy.controller.menu.InstructionsController;
 import feup.ldts.flappy.controller.menu.LeaderboardController;
@@ -13,6 +14,7 @@ import feup.ldts.flappy.model.menu.Instructions;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.model.menu.Pause;
+import feup.ldts.flappy.model.sound.Musics;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
@@ -48,6 +50,7 @@ public class App {
         this.menu = new Menu();
         this.controller = new MenuController(menu);
         this.viewer = new MenuViewer(menu);
+        SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
     }
 
     public static void main(String[] args) {
@@ -65,17 +68,18 @@ public class App {
         this.state = state;
         switch (state) {
             case MenuState:
+                SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
                 this.menu = new Menu();
                 this.controller = new MenuController(menu);
                 this.viewer = new MenuViewer(menu);
                 break;
             case GameState:
+                SoundManager.getInstance().setBackgroundSound(Musics.GAME_MUSIC);
                 this.game = new Game();
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
                 break;
             case LeaderboardState:
-                //Create a string vector with the names of the players and scores
                 String[] names = readLeaderboard();
                 this.menu = new Leaderboard(names);
                 this.controller = new LeaderboardController((Leaderboard) menu);
@@ -87,12 +91,13 @@ public class App {
                 this.viewer = new InstructionsViewer((Instructions) menu);
                 break;
             case PauseState:
-                //I want to save the previous state to return later
+                SoundManager.getInstance().pauseBackgroundSound();
                 this.menu = new Pause();
                 this.controller = new PauseController((Pause)menu);
                 this.viewer = new PauseViewer((Pause)menu );
                 break;
             case PrevGameState:
+                SoundManager.getInstance().resumeBackgroundSound();
                 this.game = this.prevGame;
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
@@ -143,6 +148,7 @@ public class App {
 
     public void exit() {
         this.state = null;
+        SoundManager.getInstance().stopAll();
     }
 
     public void showLeaderboard() {

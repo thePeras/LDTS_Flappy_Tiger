@@ -2,11 +2,13 @@ package feup.ldts.flappy.controller.game;
 
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.Position;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
+import feup.ldts.flappy.model.sound.SoundEffects;
 
 public class PlayerController extends Controller<Game> {
 
@@ -22,6 +24,7 @@ public class PlayerController extends Controller<Game> {
         if(!getModel().isPlaying())
             getModel().startPlaying();
         player.setVelocity(-3);
+        SoundManager.getInstance().playSoundEffect(SoundEffects.FLAP);
     }
 
     public void updatePosition() {
