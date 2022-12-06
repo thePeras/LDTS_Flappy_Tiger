@@ -21,7 +21,6 @@ import feup.ldts.flappy.view.menu.LeaderboardViewer;
 import feup.ldts.flappy.view.menu.MenuViewer;
 import feup.ldts.flappy.view.menu.PauseViewer;
 
-import javax.swing.plaf.nimbus.State;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -75,7 +74,6 @@ public class App {
                 this.viewer = new GameViewer(game);
                 break;
             case LeaderboardState:
-                //Create a string vector with the names of the players and scores
                 String[] names = readLeaderboard();
                 this.menu = new Leaderboard(names);
                 this.controller = new LeaderboardController((Leaderboard) menu);
@@ -87,7 +85,6 @@ public class App {
                 this.viewer = new InstructionsViewer((Instructions) menu);
                 break;
             case PauseState:
-                //I want to save the previous state to return later
                 this.menu = new Pause();
                 this.controller = new PauseController((Pause)menu);
                 this.viewer = new PauseViewer((Pause)menu );

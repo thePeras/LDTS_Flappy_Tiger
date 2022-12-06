@@ -9,9 +9,12 @@ public class Game {
 
     private final Player player;
 
+    private final Wall wall;
+
     public Game() {
         this.isPlaying = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
+        this.wall = new Wall();
     }
 
     public Player getPlayer() {
@@ -25,5 +28,9 @@ public class Game {
 
     public void startPlaying() {
         isPlaying = true;
+    }
+
+    public Wall getWall() {
+        return wall;
     }
 }

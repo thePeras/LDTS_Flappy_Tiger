@@ -41,11 +41,6 @@ public class PlayerController extends Controller<Game> {
             position.setY(29);
             player.setVelocity(0);
         }
-
-        if(position.getY() < 0){
-            position.setY(0);
-            player.setVelocity(0);
-        }
     }
 
     @Override

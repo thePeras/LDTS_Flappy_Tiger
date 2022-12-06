@@ -17,10 +17,12 @@ import static feup.ldts.flappy.state.AppState.PauseState;
 public class GameController extends Controller<Game> {
 
     private final PlayerController playerController;
+    private final WallController wallController;
 
     public GameController(Game game) {
         super(game);
         this.playerController = new PlayerController(game);
+        this.wallController = new WallController(game);
     }
 
     @Override
@@ -32,6 +34,7 @@ public class GameController extends Controller<Game> {
         }
         else {
             playerController.step(app, action);
+            wallController.step(app, action);
         }
     }
 }

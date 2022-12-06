@@ -65,7 +65,6 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-        //If pressed escape, return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
@@ -88,8 +87,15 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX() + 1, position.getY() + 1, 'T', "#FFD700");
     }
 
-    public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), '#', "#3333FF");
+    public void drawWall(int x, int h, int space) {
+        for (int y = -1; y < h; y++) {
+            drawCharacter(x, y, '#', "#FF0000");
+            drawCharacter(x+1, y, '#', "#FF0000");
+        }
+        for (int y = h + space; y < height; y++) {
+            drawCharacter(x, y, '#', "#FF0000");
+            drawCharacter(x+1, y, '#', "#FF0000");
+        }
     }
 
     @Override

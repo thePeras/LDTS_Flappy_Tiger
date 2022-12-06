@@ -9,6 +9,8 @@ public interface GUI {
 
     void drawPlayer(Position position);
 
+    void drawWall(int x, int h, int space);
+
     void drawText(Position position, String text, String color);
 
     void clear();
