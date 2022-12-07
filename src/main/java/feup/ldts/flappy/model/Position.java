@@ -29,7 +29,8 @@ public class Position {
         return new Position(this.x, this.y);
     }
 
-    public void addY(int y) {
+    public Position addY(int y) {
         this.y += y;
+        return new Position(this.x, this.y);
     }
 }

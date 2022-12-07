@@ -4,13 +4,13 @@ import feup.ldts.flappy.model.Position;
 
 public class Wall extends Element {
     private static int speed = -1;
-    private final int height;
+    private int height;
     private int space;
 
-    public Wall(){
-        super(new Position(30,0));
-        this.height = 8;
-        this.space = 12;
+    public Wall(int x) {
+        super(new Position(x, 0));
+        this.height = (int) (Math.random() * 15) + 3;
+        this.space = 11;
     }
 
     public int getHeight() {
@@ -29,7 +29,11 @@ public class Wall extends Element {
         return speed;
     }
 
-    public static void setSpeed(int speed) {
-        Wall.speed = speed;
+    public void setX(int x) {
+        this.setPosition(new Position(x, this.getPosition().getY()));
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

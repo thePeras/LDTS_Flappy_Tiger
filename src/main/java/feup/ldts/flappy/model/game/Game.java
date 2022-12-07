@@ -9,12 +9,15 @@ public class Game {
 
     private final Player player;
 
-    private final Wall wall;
+    private final Wall wall1, wall2;
+
+    public static int distanceBetweenWalls = 20;
 
     public Game() {
         this.isPlaying = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
-        this.wall = new Wall();
+        this.wall1 = new Wall(LanternaGUI.width);
+        this.wall2 = new Wall(LanternaGUI.width + distanceBetweenWalls);
     }
 
     public Player getPlayer() {
@@ -30,7 +33,11 @@ public class Game {
         isPlaying = true;
     }
 
-    public Wall getWall() {
-        return wall;
+    public Wall getWall1() {
+        return wall1;
+    }
+
+    public Wall getWall2() {
+        return wall2;
     }
 }

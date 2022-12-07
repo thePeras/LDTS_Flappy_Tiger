@@ -30,6 +30,7 @@ public class GameController extends Controller<Game> {
         if (action == GUI.ACTION.QUIT)
             app.setState(MenuState);
         if (action == GUI.ACTION.ESCAPE){
+            getModel().setPlaying(false);
             app.setState(PauseState);
         }
         else {

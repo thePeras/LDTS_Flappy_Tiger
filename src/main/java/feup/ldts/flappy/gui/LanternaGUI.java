@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI {
-    public static final int height = 30, width = 30, fontSize = 17;
+    public static final int height = 35, width = 30, fontSize = 17;
     private final Screen screen;
 
     public LanternaGUI(Screen screen) {
@@ -88,7 +88,7 @@ public class LanternaGUI implements GUI {
     }
 
     public void drawWall(int x, int h, int space) {
-        for (int y = -1; y < h; y++) {
+        for (int y = 0; y < h; y++) {
             drawCharacter(x, y, '#', "#FF0000");
             drawCharacter(x+1, y, '#', "#FF0000");
         }
