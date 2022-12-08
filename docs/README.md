@@ -9,7 +9,7 @@ This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *Joã
 ### IMPLEMENTED FEATURES
 
 - **Playable Character** - Currently the game chracter already jumps, but it is not a tiger.
-- **Main Menu** - The game has a main menu, that can be accessed by pressing the escape key. The main menu has the following options:
+- **Main Menu** - The game has a main mainMenu, that can be accessed by pressing the escape key. The main mainMenu has the following options:
     - **Play** - Starts a new game.
     - **Leaderboard** - Displays the top 10 scores.
     - **Instructions** - Displays the instructions of the game.
@@ -27,7 +27,7 @@ This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *Joã
 - **Collectable Objects** - The game has collectable objects, that can be collected by the player:
     - **Deer** and **Boar** - The deer can be collected by the player, and gives the player 5 points.
     - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased, making the game easier.
-- **Curiosities** - There is curiosities about animals that can  be found on the main menu.
+- **Curiosities** - There is curiosities about animals that can  be found on the main mainMenu.
 
 ### MOCKUPS
 
@@ -100,7 +100,7 @@ The code is also more flexible by the possibility of changing the GUI library.
 
 **Problem in Context**
 
-It easy to see that the whole game has several states, such as the main menu, the game itself, the game over screen, leaderboard screen, etc. So, the program should be able to handle these states in a simple and efficient way.
+It easy to see that the whole game has several states, such as the main mainMenu, the game itself, the game over screen, leaderboard screen, etc. So, the program should be able to handle these states in a simple and efficient way.
 Also we need to easily change the game state when the user interacts with the game. For example, if the player has died, the game state should be set to the game over screen.
 
 **The Pattern**

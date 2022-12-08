@@ -84,7 +84,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.menu.InstructionsController;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.mainMenu.InstructionsController;</span></pre></td></tr>
 
 
 <tr>
@@ -99,7 +99,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.menu.LeaderboardController;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.mainMenu.LeaderboardController;</span></pre></td></tr>
 
 
 <tr>
@@ -114,7 +114,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.menu.MenuController;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.mainMenu.MenuController;</span></pre></td></tr>
 
 
 <tr>
@@ -129,7 +129,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.menu.PauseController;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.controller.mainMenu.PauseController;</span></pre></td></tr>
 
 
 <tr>
@@ -189,7 +189,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.model.menu.Instructions;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.model.mainMenu.Instructions;</span></pre></td></tr>
 
 
 <tr>
@@ -204,7 +204,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.model.menu.Leaderboard;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.model.mainMenu.Leaderboard;</span></pre></td></tr>
 
 
 <tr>
@@ -219,7 +219,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.model.menu.Menu;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.model.menu.MainMenuMenu;</span></pre></td></tr>
 
 
 <tr>
@@ -234,7 +234,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.model.menu.Pause;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.model.mainMenu.Pause;</span></pre></td></tr>
 
 
 <tr>
@@ -294,7 +294,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.view.menu.InstructionsViewer;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.view.mainMenu.InstructionsViewer;</span></pre></td></tr>
 
 
 <tr>
@@ -309,7 +309,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.view.menu.LeaderboardViewer;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.view.mainMenu.LeaderboardViewer;</span></pre></td></tr>
 
 
 <tr>
@@ -324,7 +324,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.view.menu.MenuViewer;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.view.mainMenu.MenuViewer;</span></pre></td></tr>
 
 
 <tr>
@@ -339,7 +339,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>import feup.ldts.flappy.view.menu.PauseViewer;</span></pre></td></tr>
+<td class=''><pre><span  class=''>import feup.ldts.flappy.view.mainMenu.PauseViewer;</span></pre></td></tr>
 
 
 <tr>
@@ -609,7 +609,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private Menu menu;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private Menu mainMenu;</span></pre></td></tr>
 
 
 <tr>
@@ -729,7 +729,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.menu = new Menu();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>        this.mainMenu = new Menu();</span></pre></td></tr>
 
 
 <tr>
@@ -744,7 +744,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.controller = new MenuController(menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>        this.controller = new MenuController(mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -759,7 +759,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.viewer = new MenuViewer(menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>        this.viewer = new MenuViewer(mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1035,7 +1035,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.menu = new Menu();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.mainMenu = new Menu();</span></pre></td></tr>
 
 
 <tr>
@@ -1050,7 +1050,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.controller = new MenuController(menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.controller = new MenuController(mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1065,7 +1065,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.viewer = new MenuViewer(menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.viewer = new MenuViewer(mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1215,7 +1215,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.menu = new Leaderboard(names);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.mainMenu = new Leaderboard(names);</span></pre></td></tr>
 
 
 <tr>
@@ -1230,7 +1230,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.controller = new LeaderboardController((Leaderboard) menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.controller = new LeaderboardController((Leaderboard) mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1245,7 +1245,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.viewer = new LeaderboardViewer((Leaderboard) menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.viewer = new LeaderboardViewer((Leaderboard) mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1290,7 +1290,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.menu = new Instructions();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.mainMenu = new Instructions();</span></pre></td></tr>
 
 
 <tr>
@@ -1305,7 +1305,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.controller = new InstructionsController((Instructions) menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.controller = new InstructionsController((Instructions) mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1320,7 +1320,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.viewer = new InstructionsViewer((Instructions) menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.viewer = new InstructionsViewer((Instructions) mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1380,7 +1380,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.menu = new Pause();</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.mainMenu = new Pause();</span></pre></td></tr>
 
 
 <tr>
@@ -1395,7 +1395,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.controller = new PauseController((Pause)menu);</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.controller = new PauseController((Pause)mainMenu);</span></pre></td></tr>
 
 
 <tr>
@@ -1410,7 +1410,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>                this.viewer = new PauseViewer((Pause)menu );</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>                this.viewer = new PauseViewer((Pause)mainMenu );</span></pre></td></tr>
 
 
 <tr>

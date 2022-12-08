@@ -1,5 +1,7 @@
 package feup.ldts.flappy.model.menu;
 
+import feup.ldts.flappy.model.Menu;
+
 import java.util.Arrays;
 
 public class Pause extends Menu {
@@ -7,10 +9,6 @@ public class Pause extends Menu {
     public Pause() {
         super();
         this.options = Arrays.asList("Resume", "Restart", "Main Menu");
-    }
-
-    public boolean isSelected(int i) {
-        return option == i;
     }
 
     public boolean isSelectedExit() {
