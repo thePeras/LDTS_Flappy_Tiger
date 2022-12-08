@@ -1,7 +1,7 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.view.Viewer;
 

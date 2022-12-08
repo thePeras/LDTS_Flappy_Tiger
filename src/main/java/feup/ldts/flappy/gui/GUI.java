@@ -1,6 +1,6 @@
 package feup.ldts.flappy.gui;
 
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Position;
 
 import java.io.IOException;
 

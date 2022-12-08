@@ -1,4 +1,4 @@
-package feup.ldts.flappy.model;
+package feup.ldts.flappy.model.game;
 
 public class Position {
 
@@ -32,5 +32,17 @@ public class Position {
     public Position addY(int y) {
         this.y += y;
         return new Position(this.x, this.y);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Position)) {
+            return false;
+        }
+        Position position = (Position) obj;
+        return position.getX() == this.getX() && position.getY() == this.getY();
     }
 }

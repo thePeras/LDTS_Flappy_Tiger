@@ -1,7 +1,5 @@
 package feup.ldts.flappy.model.game;
 
-import feup.ldts.flappy.model.Position;
-
 public abstract class Element {
     private Position position;
 

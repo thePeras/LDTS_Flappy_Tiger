@@ -1,11 +1,16 @@
 package feup.ldts.flappy.model.game;
 
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Collectables.Collectable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
-
     private boolean isPlaying;
+    private boolean isInGameMode;
+
+    private List<Collectable> collectablesList;
 
     private final Player player;
 
@@ -15,6 +20,7 @@ public class Game {
 
     public Game() {
         this.isPlaying = false;
+        this.isInGameMode = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
         this.wall1 = new Wall(LanternaGUI.width);
         this.wall2 = new Wall(LanternaGUI.width + distanceBetweenWalls);
@@ -39,5 +45,16 @@ public class Game {
 
     public Wall getWall2() {
         return wall2;
+    }
+
+    public List<Wall> getWalls(){
+        return List.of(wall1, wall2);
+    }
+
+    public List<Collectable> getCollectables(){
+        return new ArrayList<>();
+    }
+    public void removeCollectable(Collectable collectable){
+        collectablesList.remove(collectable);
     }
 }

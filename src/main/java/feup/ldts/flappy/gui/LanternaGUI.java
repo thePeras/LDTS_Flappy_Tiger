@@ -10,7 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -88,13 +88,11 @@ public class LanternaGUI implements GUI {
     }
 
     public void drawWall(int x, int h, int space) {
-        for (int y = 0; y < h; y++) {
-            drawCharacter(x, y, '#', "#FF0000");
-            drawCharacter(x+1, y, '#', "#FF0000");
-        }
-        for (int y = h + space; y < height; y++) {
-            drawCharacter(x, y, '#', "#FF0000");
-            drawCharacter(x+1, y, '#', "#FF0000");
+        for(int y = 0; y < height; y++) {
+            if(y < h || y > h + space) {
+                drawCharacter(x, y, '#', "#FF0000");
+                drawCharacter(x+1, y, '#', "#FF0000");
+            }
         }
     }
 
