@@ -2,24 +2,24 @@
 
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.game.GameController;
-import feup.ldts.flappy.controller.menu.InstructionsController;
-import feup.ldts.flappy.controller.menu.LeaderboardController;
-import feup.ldts.flappy.controller.menu.MenuController;
-import feup.ldts.flappy.controller.menu.PauseController;
+import feup.ldts.flappy.controller.mainMenu.InstructionsController;
+import feup.ldts.flappy.controller.mainMenu.LeaderboardController;
+import feup.ldts.flappy.controller.mainMenu.MenuController;
+import feup.ldts.flappy.controller.mainMenu.PauseController;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.menu.Instructions;
-import feup.ldts.flappy.model.menu.Leaderboard;
-import feup.ldts.flappy.model.menu.Menu;
-import feup.ldts.flappy.model.menu.Pause;
+import feup.ldts.flappy.model.mainMenu.Instructions;
+import feup.ldts.flappy.model.mainMenu.Leaderboard;
+import feup.ldts.flappy.model.menu.MainMenuMenu;
+import feup.ldts.flappy.model.mainMenu.Pause;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
-import feup.ldts.flappy.view.menu.InstructionsViewer;
-import feup.ldts.flappy.view.menu.LeaderboardViewer;
-import feup.ldts.flappy.view.menu.MenuViewer;
-import feup.ldts.flappy.view.menu.PauseViewer;
+import feup.ldts.flappy.view.mainMenu.InstructionsViewer;
+import feup.ldts.flappy.view.mainMenu.LeaderboardViewer;
+import feup.ldts.flappy.view.mainMenu.MenuViewer;
+import feup.ldts.flappy.view.mainMenu.PauseViewer;
 
 import javax.swing.plaf.nimbus.State;
 import java.awt.*;
@@ -37,7 +37,7 @@ public class App {
 
     private Viewer viewer;
     private AppState state;
-    private Menu menu;
+    private Menu mainMenu;
     private Game game;
     private Game prevGame;
 
@@ -45,9 +45,9 @@ public class App {
 <span class="nc" id="L45">    public App() throws IOException, URISyntaxException, FontFormatException {</span>
 <span class="nc" id="L46">        this.gui = new LanternaGUI(); </span>
 <span class="nc" id="L47">        this.state = MenuState;</span>
-<span class="nc" id="L48">        this.menu = new Menu();</span>
-<span class="nc" id="L49">        this.controller = new MenuController(menu);</span>
-<span class="nc" id="L50">        this.viewer = new MenuViewer(menu);</span>
+<span class="nc" id="L48">        this.mainMenu = new Menu();</span>
+<span class="nc" id="L49">        this.controller = new MenuController(mainMenu);</span>
+<span class="nc" id="L50">        this.viewer = new MenuViewer(mainMenu);</span>
 <span class="nc" id="L51">    }</span>
 
     public static void main(String[] args) {
@@ -65,9 +65,9 @@ public class App {
 <span class="nc" id="L65">        this.state = state;</span>
 <span class="nc bnc" id="L66" title="All 7 branches missed.">        switch (state) {</span>
             case MenuState:
-<span class="nc" id="L68">                this.menu = new Menu();</span>
-<span class="nc" id="L69">                this.controller = new MenuController(menu);</span>
-<span class="nc" id="L70">                this.viewer = new MenuViewer(menu);</span>
+<span class="nc" id="L68">                this.mainMenu = new Menu();</span>
+<span class="nc" id="L69">                this.controller = new MenuController(mainMenu);</span>
+<span class="nc" id="L70">                this.viewer = new MenuViewer(mainMenu);</span>
 <span class="nc" id="L71">                break;</span>
             case GameState:
 <span class="nc" id="L73">                this.game = new Game();</span>
@@ -77,20 +77,20 @@ public class App {
             case LeaderboardState:
                 //Create a string vector with the names of the players and scores
 <span class="nc" id="L79">                String[] names = readLeaderboard();</span>
-<span class="nc" id="L80">                this.menu = new Leaderboard(names);</span>
-<span class="nc" id="L81">                this.controller = new LeaderboardController((Leaderboard) menu);</span>
-<span class="nc" id="L82">                this.viewer = new LeaderboardViewer((Leaderboard) menu);</span>
+<span class="nc" id="L80">                this.mainMenu = new Leaderboard(names);</span>
+<span class="nc" id="L81">                this.controller = new LeaderboardController((Leaderboard) mainMenu);</span>
+<span class="nc" id="L82">                this.viewer = new LeaderboardViewer((Leaderboard) mainMenu);</span>
 <span class="nc" id="L83">                break;</span>
             case InstructionsState:
-<span class="nc" id="L85">                this.menu = new Instructions();</span>
-<span class="nc" id="L86">                this.controller = new InstructionsController((Instructions) menu);</span>
-<span class="nc" id="L87">                this.viewer = new InstructionsViewer((Instructions) menu);</span>
+<span class="nc" id="L85">                this.mainMenu = new Instructions();</span>
+<span class="nc" id="L86">                this.controller = new InstructionsController((Instructions) mainMenu);</span>
+<span class="nc" id="L87">                this.viewer = new InstructionsViewer((Instructions) mainMenu);</span>
 <span class="nc" id="L88">                break;</span>
             case PauseState:
                 //I want to save the previous state to return later
-<span class="nc" id="L91">                this.menu = new Pause();</span>
-<span class="nc" id="L92">                this.controller = new PauseController((Pause)menu);</span>
-<span class="nc" id="L93">                this.viewer = new PauseViewer((Pause)menu );</span>
+<span class="nc" id="L91">                this.mainMenu = new Pause();</span>
+<span class="nc" id="L92">                this.controller = new PauseController((Pause)mainMenu);</span>
+<span class="nc" id="L93">                this.viewer = new PauseViewer((Pause)mainMenu );</span>
 <span class="nc" id="L94">                break;</span>
             case PrevGameState:
 <span class="nc" id="L96">                this.game = this.prevGame;</span>

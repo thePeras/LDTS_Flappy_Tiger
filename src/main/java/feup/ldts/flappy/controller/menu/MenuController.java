@@ -3,19 +3,18 @@ package feup.ldts.flappy.controller.menu;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.menu.Menu;
+import feup.ldts.flappy.model.menu.MainMenu;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 import static feup.ldts.flappy.state.AppState.*;
-import static java.awt.SystemColor.menu;
 
-public class MenuController extends Controller<Menu> {
+public class MenuController extends Controller<MainMenu> {
     
-    public MenuController(Menu menu) {
-        super(menu);
+    public MenuController(MainMenu mainMenu) {
+        super(mainMenu);
     }
 
     @Override

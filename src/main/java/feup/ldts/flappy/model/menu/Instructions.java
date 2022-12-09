@@ -1,6 +1,6 @@
 package feup.ldts.flappy.model.menu;
 
-public class Instructions extends Menu {
+public class Instructions {
     private final String[] inst = new String[19];
 
     public Instructions() {
