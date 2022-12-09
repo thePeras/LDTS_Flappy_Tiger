@@ -10,7 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -78,6 +78,7 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
+
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();

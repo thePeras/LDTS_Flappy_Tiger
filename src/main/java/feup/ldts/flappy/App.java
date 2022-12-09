@@ -1,6 +1,7 @@
 package feup.ldts.flappy;
 
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.controller.game.GameController;
 import feup.ldts.flappy.controller.menu.InstructionsController;
 import feup.ldts.flappy.controller.menu.LeaderboardController;
@@ -14,6 +15,7 @@ import feup.ldts.flappy.model.menu.Instructions;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.model.menu.MainMenu;
 import feup.ldts.flappy.model.menu.Pause;
+import feup.ldts.flappy.model.sound.Musics;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
@@ -51,6 +53,7 @@ public class App {
         this.mainMenu = new MainMenu(curiosities.readCuriosities());
         this.controller = new MenuController(mainMenu);
         this.viewer = new MenuViewer(mainMenu);
+        SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
     }
 
     public static void main(String[] args) {
@@ -68,12 +71,13 @@ public class App {
         this.state = state;
         switch (state) {
             case MenuState:
-
+                SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
                 this.mainMenu = new MainMenu(curiosities.readCuriosities());
                 this.controller = new MenuController(mainMenu);
                 this.viewer = new MenuViewer(mainMenu);
                 break;
             case GameState:
+                SoundManager.getInstance().setBackgroundSound(Musics.GAME_MUSIC);
                 this.game = new Game();
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
@@ -91,11 +95,13 @@ public class App {
                 this.viewer = new InstructionsViewer(instructions);
                 break;
             case PauseState:
+                SoundManager.getInstance().pauseBackgroundSound();
                 this.pause = new Pause();
                 this.controller = new PauseController(pause);
                 this.viewer = new PauseViewer(pause);
                 break;
             case PrevGameState:
+                SoundManager.getInstance().resumeBackgroundSound();
                 this.game = this.prevGame;
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
@@ -126,6 +132,7 @@ public class App {
 
     public void exit() {
         this.state = null;
+        SoundManager.getInstance().stopAll();
     }
 
     public void showLeaderboard() {

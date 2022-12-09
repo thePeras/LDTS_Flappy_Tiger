@@ -3,8 +3,12 @@ package feup.ldts.flappy.gui;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+<<<<<<< HEAD
 import feup.ldts.flappy.model.Position;
 import feup.ldts.flappy.view.game.PlayerViewer;
+=======
+import feup.ldts.flappy.model.game.Position;
+>>>>>>> main
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
