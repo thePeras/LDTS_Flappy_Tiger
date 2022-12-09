@@ -5,7 +5,7 @@ import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
 import feup.ldts.flappy.model.sound.SoundEffects;
@@ -42,11 +42,6 @@ public class PlayerController extends Controller<Game> {
 
         if(position.getY() > LanternaGUI.height - 1) {
             position.setY(29);
-            player.setVelocity(0);
-        }
-
-        if(position.getY() < 0){
-            position.setY(0);
             player.setVelocity(0);
         }
     }

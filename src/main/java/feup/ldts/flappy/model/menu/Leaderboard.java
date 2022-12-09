@@ -1,6 +1,6 @@
 package feup.ldts.flappy.model.menu;
 
-public class Leaderboard extends Menu {
+public class Leaderboard {
     //Vector that stores the top 10 scores and the names of the players
     private final String[] top5;
 
