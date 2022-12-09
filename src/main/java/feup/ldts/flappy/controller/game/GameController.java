@@ -15,14 +15,16 @@ import static feup.ldts.flappy.state.AppState.PauseState;
 public class GameController extends Controller<Game> {
 
     private final PlayerController playerController;
-    private final WallController wallController;
     private final CollisionController collisionController;
+    private final ElementsFactory elementsFactory;
+    private final MovingElementsController movingElementsController;
 
     public GameController(Game game) {
         super(game);
         this.playerController = new PlayerController(game);
-        this.wallController = new WallController(game);
         this.collisionController = new CollisionController(game);
+        this.elementsFactory = new ElementsFactory(game);
+        this.movingElementsController = new MovingElementsController(game);
     }
 
     @Override
@@ -35,7 +37,8 @@ public class GameController extends Controller<Game> {
         }
         else {
             playerController.step(app, action);
-            wallController.step(app, action);
+            elementsFactory.step();
+            movingElementsController.step(app, action);
             collisionController.step(app, action);
         }
     }

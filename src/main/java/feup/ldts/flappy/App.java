@@ -25,8 +25,6 @@ import feup.ldts.flappy.view.menu.PauseViewer;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
 import static feup.ldts.flappy.state.AppState.PauseState;

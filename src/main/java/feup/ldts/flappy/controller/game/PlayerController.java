@@ -8,14 +8,20 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class PlayerController extends Controller<Game> {
 
     private int waitingCounter = 0;
+    private CollisionController collisionController;
 
     private final Player player;
     public PlayerController(Game game) {
         super(game);
         this.player = game.getPlayer();
+        this.collisionController = new CollisionController(game);
     }
 
     public void jumpPlayer() {

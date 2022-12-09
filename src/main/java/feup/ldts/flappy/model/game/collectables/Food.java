@@ -17,6 +17,10 @@ public class Food extends Collectable {
 
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-        return false;
+        for(Position position : player.getPositions()) {
+            System.out.println("Player: " + position.getX() + " " + position.getY());
+        }
+        System.out.println("Food: " + this.getPosition().getX() + " " + this.getPosition().getY());
+        return player.getPositions().contains(this.getPosition());
     }
 }

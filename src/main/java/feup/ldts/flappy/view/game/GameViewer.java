@@ -15,8 +15,8 @@ public class GameViewer extends Viewer<Game> {
     @Override
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
-        drawElement(gui, getModel().getWall1(), new WallViewer());
-        drawElement(gui, getModel().getWall2(), new WallViewer());
+        drawElements(gui, getModel().getWalls(), new WallViewer());
+        drawElements(gui, getModel().getCollectables(), new FoodViewer());
     }
 
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer) {

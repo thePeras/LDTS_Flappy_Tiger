@@ -4,26 +4,23 @@ import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Game {
     private boolean isPlaying;
     private boolean isInGameMode;
-
+    private List<Wall> wallsList;
     private List<Collectable> collectablesList;
-
     private final Player player;
-
-    private final Wall wall1, wall2;
-
     public static int distanceBetweenWalls = 20;
 
     public Game() {
         this.isPlaying = false;
         this.isInGameMode = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
-        this.wall1 = new Wall(LanternaGUI.width);
-        this.wall2 = new Wall(LanternaGUI.width + distanceBetweenWalls);
+        this.wallsList = new ArrayList<>();
+        this.collectablesList = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -39,22 +36,15 @@ public class Game {
         isPlaying = true;
     }
 
-    public Wall getWall1() {
-        return wall1;
-    }
-
-    public Wall getWall2() {
-        return wall2;
-    }
-
     public List<Wall> getWalls(){
-        return List.of(wall1, wall2);
+        return wallsList;
     }
+    public void addWall(Wall wall){ wallsList.add(wall);}
+    public void removeWall(Iterator<Wall> iterator){ iterator.remove();}
 
     public List<Collectable> getCollectables(){
-        return new ArrayList<>();
+        return collectablesList;
     }
-    public void removeCollectable(Collectable collectable){
-        collectablesList.remove(collectable);
-    }
+    public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}
+    public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
 }

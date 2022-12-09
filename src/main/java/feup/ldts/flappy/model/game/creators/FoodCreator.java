@@ -1,12 +1,12 @@
 package feup.ldts.flappy.model.game.creators;
 
-import feup.ldts.flappy.model.game.Element;
+import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Food;
 
 import java.util.Random;
 
-public class FoodCreator extends Creator {
+public class FoodCreator extends Creator<Food> {
     private final static int margin = 5;
     private Random random;
 
@@ -15,10 +15,11 @@ public class FoodCreator extends Creator {
     }
 
     @Override
-    public Element create() {
-        int randomY = random.nextInt(35 - 2*margin) + margin;
-        Position randomPosition = new Position(30, randomY);
+    public Food create() {
+        int randomY = random.nextInt(LanternaGUI.height - 2*margin) + margin;
+        Position randomPosition = new Position(LanternaGUI.width, randomY);
 
+        //TODO: add type of food (deer or bear)
         return new Food(randomPosition, 5);
     }
 }
