@@ -1,4 +1,4 @@
-package feup.ldts.flappy.model.game.Collectables;
+package feup.ldts.flappy.model.game.collectables;
 
 import feup.ldts.flappy.model.game.Collidable;
 import feup.ldts.flappy.model.game.Position;

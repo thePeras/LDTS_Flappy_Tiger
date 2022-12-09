@@ -3,7 +3,7 @@ package feup.ldts.flappy.controller.game;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.game.Collectables.Collectable;
+import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Wall;
 import feup.ldts.flappy.state.AppState;

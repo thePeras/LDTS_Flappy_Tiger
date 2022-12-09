@@ -1,13 +1,14 @@
-package feup.ldts.flappy.model.game.Collectables;
+package feup.ldts.flappy.model.game.collectables;
 
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Player;
 
-public class Deer extends Collectable {
-    final static int points = 10;
+public class Food extends Collectable {
+    private int points;
 
-    public Deer(Position position) {
+    public Food(Position position, int points) {
         super(position);
+        this.points = points;
     }
     @Override
     public void consume() {

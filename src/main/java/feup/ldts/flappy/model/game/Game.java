@@ -1,7 +1,7 @@
 package feup.ldts.flappy.model.game;
 
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Collectables.Collectable;
+import feup.ldts.flappy.model.game.collectables.Collectable;
 
 import java.util.ArrayList;
 import java.util.List;
