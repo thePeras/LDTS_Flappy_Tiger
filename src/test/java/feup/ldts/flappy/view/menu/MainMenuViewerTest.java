@@ -11,13 +11,15 @@ import org.mockito.Mockito;
 import java.io.IOException;
 
 public class MainMenuViewerTest {
+
+    private String[] curiosities = {"Curiosity 1", "Curiosity 2", "Curiosity 3", "Curiosity 4", "Curiosity 5"};
     private MenuViewer menuViewer;
     private MainMenu mainMenu;
     private GUI gui;
 
     @BeforeEach
     public void setUp() {
-        mainMenu = new MainMenu();
+        mainMenu = new MainMenu(curiosities);
         menuViewer = new MenuViewer(mainMenu);
         gui = Mockito.mock(GUI.class);
     }

@@ -78,26 +78,6 @@ public class LanternaGUI implements GUI {
 
         return ACTION.NONE;
     }
-
-    @Override
-    public void drawPlayer(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'T', "#FFD700");
-        drawCharacter(position.getX(), position.getY() + 1, 'T', "#FFD700");
-        drawCharacter(position.getX() + 1, position.getY(), 'T', "#FFD700");
-        drawCharacter(position.getX() + 1, position.getY() + 1, 'T', "#FFD700");
-    }
-
-    public void drawWall(int x, int h, int space) {
-        for (int y = 0; y < h; y++) {
-            drawCharacter(x, y, '#', "#FF0000");
-            drawCharacter(x+1, y, '#', "#FF0000");
-        }
-        for (int y = h + space; y < height; y++) {
-            drawCharacter(x, y, '#', "#FF0000");
-            drawCharacter(x+1, y, '#', "#FF0000");
-        }
-    }
-
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -105,10 +85,21 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, char c, String color) {
+    @Override
+    public void drawPixel(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     @Override

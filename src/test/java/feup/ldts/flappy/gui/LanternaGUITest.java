@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.view.game.PlayerViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -27,7 +28,7 @@ public class LanternaGUITest {
     }
     @Test
     void drawPlayerTest(){
-        gui.drawPlayer(new Position(9,9));
+        PlayerViewer.drawPlayer(new Position(9,9), gui);
     }
 
     @Test
