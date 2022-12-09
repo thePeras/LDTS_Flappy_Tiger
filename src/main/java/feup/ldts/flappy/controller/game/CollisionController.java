@@ -33,7 +33,7 @@ public class CollisionController extends Controller<Game> {
         List<Wall> arenaWalls = getModel().getWalls();
         for(Wall wall : arenaWalls){
             if(wall.isCollidingWithPlayer(getModel().getPlayer())){
-                app.setState(AppState.MenuState);
+                app.setState(AppState.GameOverState);
             }
         }
 

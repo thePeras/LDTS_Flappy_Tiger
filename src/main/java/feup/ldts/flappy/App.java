@@ -3,32 +3,21 @@ package feup.ldts.flappy;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.controller.game.GameController;
-import feup.ldts.flappy.controller.menu.InstructionsController;
-import feup.ldts.flappy.controller.menu.LeaderboardController;
-import feup.ldts.flappy.controller.menu.MenuController;
-import feup.ldts.flappy.controller.menu.PauseController;
+import feup.ldts.flappy.controller.menu.*;
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.File;
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.menu.Instructions;
-import feup.ldts.flappy.model.menu.Leaderboard;
-import feup.ldts.flappy.model.menu.MainMenu;
-import feup.ldts.flappy.model.menu.Pause;
+import feup.ldts.flappy.model.menu.*;
 import feup.ldts.flappy.model.sound.Musics;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
-import feup.ldts.flappy.view.menu.InstructionsViewer;
-import feup.ldts.flappy.view.menu.LeaderboardViewer;
-import feup.ldts.flappy.view.menu.MenuViewer;
-import feup.ldts.flappy.view.menu.PauseViewer;
+import feup.ldts.flappy.view.menu.*;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
 import static feup.ldts.flappy.state.AppState.PauseState;
@@ -105,6 +94,12 @@ public class App {
                 this.game = this.prevGame;
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
+                break;
+
+            case GameOverState:
+                GameOver gameOver = new GameOver();
+                this.controller = new GameOverController(gameOver);
+                this.viewer = new GameOverViewer(gameOver);
                 break;
         }
     }

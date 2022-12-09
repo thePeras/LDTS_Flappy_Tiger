@@ -13,6 +13,7 @@ import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import feup.ldts.flappy.model.game.Position;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -75,7 +76,7 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
-
+        if (keyStroke.getCharacter() >= '0' && keyStroke.getCharacter() <= '9');
         return ACTION.NONE;
     }
 

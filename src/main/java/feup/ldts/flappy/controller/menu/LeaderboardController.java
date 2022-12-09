@@ -12,7 +12,7 @@ import java.util.Objects;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
 
-public class LeaderboardController extends Controller {
+public class LeaderboardController extends Controller<Leaderboard> {
     private final Leaderboard leaderboard;
 
     public LeaderboardController(Leaderboard leaderboard) {
