@@ -2,7 +2,7 @@ package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.model.game.Position;
-import feup.ldts.flappy.model.menu.Menu;
+import feup.ldts.flappy.model.menu.MainMenu;
 import feup.ldts.flappy.view.Viewer;
 
 import java.io.IOException;
