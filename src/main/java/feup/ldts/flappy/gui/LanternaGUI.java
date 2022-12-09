@@ -96,17 +96,28 @@ public class LanternaGUI implements GUI {
         }
     }
 
-    @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(position.getX(), position.getY(), text);
     }
 
+    public void drawLine(Position position, String text, String color){
+        drawPixel(position, color);
+        Position startTextPosition = new Position(position.getX() + 2, position.getY());
+        drawText(startTextPosition, text, color);
+    }
+
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.putString(x, y + 1, "" + c);
+    }
+
+    private void drawPixel(Position position, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), " ");
     }
 
     @Override

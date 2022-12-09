@@ -35,12 +35,8 @@ public class MenuViewer extends Viewer<MainMenu> {
         String[] curiosity = getModel().getCuriosity().split("\n");
 
         gui.drawText(new Position(1, 20), "L", "#FC6A03");
-
-        for (int i = 0; i < curiosity.length; i++) {
-            if(i>1) {
-                gui.drawText(new Position(1, 20 + i), "O", "#FFFFFF");
-            }
-            gui.drawText(new Position(3, 20 + i), curiosity[i], "#FC6A03");
+        for (int i = 1; i < curiosity.length; i++) {
+            gui.drawLine(new Position(1, 20+i), curiosity[i], "#FC6A03");
         }
     }
 }

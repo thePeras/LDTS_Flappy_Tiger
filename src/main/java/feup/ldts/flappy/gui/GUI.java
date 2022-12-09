@@ -12,6 +12,7 @@ public interface GUI {
     void drawWall(int x, int h, int space);
 
     void drawText(Position position, String text, String color);
+    void drawLine(Position position, String text, String color);
 
     void clear();
 
