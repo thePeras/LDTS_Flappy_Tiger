@@ -10,7 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import feup.ldts.flappy.model.Position;
+import feup.ldts.flappy.model.game.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI {
-    public static final int height = 30, width = 30, fontSize = 17;
+    public static final int height = 35, width = 30, fontSize = 17;
     private final Screen screen;
 
     public LanternaGUI(Screen screen) {
@@ -65,7 +65,6 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-        //If pressed escape, return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
@@ -88,8 +87,13 @@ public class LanternaGUI implements GUI {
         drawCharacter(position.getX() + 1, position.getY() + 1, (char) 131, "#FFD700");
     }
 
-    public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), '#', "#3333FF");
+    public void drawWall(int x, int h, int space) {
+        for(int y = 0; y < height; y++) {
+            if(y < h || y > h + space) {
+                drawCharacter(x, y, '#', "#FF0000");
+                drawCharacter(x+1, y, '#', "#FF0000");
+            }
+        }
     }
 
     @Override

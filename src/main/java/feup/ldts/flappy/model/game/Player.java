@@ -1,6 +1,6 @@
 package feup.ldts.flappy.model.game;
 
-import feup.ldts.flappy.model.Position;
+import java.util.List;
 
 public class Player extends Element {
 
@@ -22,5 +22,18 @@ public class Player extends Element {
 
     public int getGravity() {
         return gravity;
+    }
+
+    public List<Position> getPositions(){
+        return List.of(
+                new Position(this.getPosition().getX(), this.getPosition().getY()),
+                new Position(this.getPosition().getX(), this.getPosition().getY() + 1),
+                new Position(this.getPosition().getX() + 1, this.getPosition().getY()),
+                new Position(this.getPosition().getX() + 1, this.getPosition().getY() + 1)
+        );
+    }
+
+    public boolean isColliding(Player player) {
+        return this.getPositions().stream().anyMatch(player.getPositions()::contains);
     }
 }
