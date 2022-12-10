@@ -45,12 +45,15 @@ public class SoundManager {
         }
         menuBackgroundMusic.setVolume(0.05);
     }
+
     public void pauseBackgroundSound() {
         gameBackgroundMusic.stop();
     }
-    public void resumeBackgroundSound(){
+
+    public void resumeBackgroundSound() {
         gameBackgroundMusic.resume();
     }
+
     public void playSoundEffect(SoundEffects effect) {
         switch (effect) {
             case MENU_SELECT:
@@ -70,6 +73,7 @@ public class SoundManager {
                 break;
         }
     }
+
     public void stopAll() {
         menuBackgroundMusic.stop();
         gameBackgroundMusic.stop();

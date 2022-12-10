@@ -1,11 +1,11 @@
 package feup.ldts.flappy.controller.game;
 
+import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Wall;
+import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.state.AppState;
 
 import java.awt.*;
@@ -19,11 +19,11 @@ public class CollisionController extends Controller<Game> {
     }
 
     @Override
-    public void step(App app, GUI.ACTION gui) throws IOException, URISyntaxException, FontFormatException {
+    public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         List<Collectable> arenaCollectables = getModel().getCollectables();
 
         //For each element detects if it collides with the player
-        for(Collectable collectable : arenaCollectables){
+        for (Collectable collectable : arenaCollectables) {
             //if(collectable.isCollidingWithPlayer(getModel().getPlayer())){
             //
             //    getModel().removeCollectable(collectable);
@@ -31,9 +31,9 @@ public class CollisionController extends Controller<Game> {
         }
 
         List<Wall> arenaWalls = getModel().getWalls();
-        for(Wall wall : arenaWalls){
-            if(wall.isCollidingWithPlayer(getModel().getPlayer())){
-                app.setState(AppState.MenuState);
+        for (Wall wall : arenaWalls) {
+            if (wall.isCollidingWithPlayer(getModel().getPlayer())) {
+                app.setState(AppState.GameOverState);
             }
         }
 

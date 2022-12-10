@@ -1,9 +1,10 @@
 package feup.ldts.flappy.controller.menu;
 
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
-import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.model.menu.MainMenu;
 import feup.ldts.flappy.model.sound.SoundEffects;
 
@@ -14,32 +15,32 @@ import java.net.URISyntaxException;
 import static feup.ldts.flappy.state.AppState.*;
 
 public class MenuController extends Controller<MainMenu> {
-    
+
     public MenuController(MainMenu mainMenu) {
         super(mainMenu);
     }
 
     @Override
-    public void step(App game, GUI.ACTION action) throws IOException, URISyntaxException, FontFormatException {
-        switch (action) {
-            case UP:
-                SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_SELECT);
-                getModel().previousOption();
-                break;
-            case DOWN:
-                SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_SELECT);
-                getModel().nextOption();
-                break;
-            case SELECT:
-                if (getModel().isSelectedStart()){
-                    game.setState(GameState);
-                    SoundManager.getInstance().playSoundEffect(SoundEffects.GAME_START);
-                    return;
-                }
-                if (getModel().isSelectedExit()) game.exit();
-                if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);
-                if (getModel().isSelectedInstructions()) game.setState(InstructionsState);
-                SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
+    public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
+        if (key == null) return;
+        if (key.getKeyType() == KeyType.ArrowUp) {
+            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_SELECT);
+            getModel().previousOption();
+        } else if (key.getKeyType() == KeyType.ArrowDown) {
+            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_SELECT);
+            getModel().nextOption();
+        } else if (key.getKeyType() == KeyType.Enter) {
+            if (getModel().isSelectedStart()) {
+                game.setState(GameState);
+                SoundManager.getInstance().playSoundEffect(SoundEffects.GAME_START);
+                return;
+            }
+            if (getModel().isSelectedExit()) game.exit();
+            if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);
+            if (getModel().isSelectedInstructions()) game.setState(InstructionsState);
+            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
         }
     }
+
+
 }

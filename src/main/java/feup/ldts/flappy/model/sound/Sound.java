@@ -14,7 +14,7 @@ public class Sound {
         setVolume(0.1);
     }
 
-    private Clip load(String soundFile) throws NullPointerException{
+    private Clip load(String soundFile) throws NullPointerException {
         try {
             File file = new File(soundFile);
 
@@ -32,19 +32,23 @@ public class Sound {
         return null;
     }
 
-    public void play(){
+    public void play() {
         sound.setFramePosition(0);
         sound.start();
     }
-    public void loop(){
+
+    public void loop() {
         sound.loop(Clip.LOOP_CONTINUOUSLY);
     }
-    public void stop(){
+
+    public void stop() {
         sound.stop();
     }
-    public void resume(){
+
+    public void resume() {
         sound.start();
     }
+
     public void setVolume(double volume) {
         if (volume < 0.0 || volume > 1.0) throw new IllegalArgumentException("Volume not valid: " + volume);
         FloatControl gainControl = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);

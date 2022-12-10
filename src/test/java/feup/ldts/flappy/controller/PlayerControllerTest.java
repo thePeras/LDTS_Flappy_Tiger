@@ -53,7 +53,7 @@ public class PlayerControllerTest {
     }
 
     @Test
-    public void jumpStartPlaying(){
+    public void jumpStartPlaying() {
         assertEquals(false, game.isPlaying());
         playerController.jumpPlayer();
         assertEquals(true, game.isPlaying());

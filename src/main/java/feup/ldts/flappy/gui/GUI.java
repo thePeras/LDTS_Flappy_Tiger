@@ -1,11 +1,12 @@
 package feup.ldts.flappy.gui;
 
+import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.model.game.Position;
 
 import java.io.IOException;
 
 public interface GUI {
-    ACTION getNextAction() throws IOException;
+    KeyStroke getNextAction() throws IOException;
 
     void drawPlayer(Position position);
 
