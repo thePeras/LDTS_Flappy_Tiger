@@ -13,6 +13,8 @@ public class Game {
     private List<Wall> wallsList;
     private List<Collectable> collectablesList;
     private final Player player;
+
+    private int score;
     public static int distanceBetweenWalls = 20;
 
     public Game() {
@@ -21,6 +23,7 @@ public class Game {
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
         this.wallsList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
+        this.score = 0;
     }
 
     public Player getPlayer() {
@@ -47,4 +50,8 @@ public class Game {
     }
     public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}
     public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
+
+    public void incrementScore(){ score++; }
+
+    public int getScore(){ return score; }
 }

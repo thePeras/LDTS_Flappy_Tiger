@@ -27,6 +27,25 @@ public class GameController extends Controller<Game> {
         this.movingElementsController = new MovingElementsController(game);
     }
 
+    private void updateScore() {
+
+        int playerX = getModel().getPlayer().getPosition().getX();
+
+        var walls = getModel().getWalls();
+
+
+        for (var wall : walls) {
+            int wallX = wall.getPosition().getX();
+
+            if (playerX == wallX+1) {
+                getModel().incrementScore();
+                System.out.println(">>>>>>>> Score: " + getModel().getScore());
+                break;
+            }
+        }
+    }
+
+
     @Override
     public void step(App app, GUI.ACTION action) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT)
@@ -40,6 +59,7 @@ public class GameController extends Controller<Game> {
             elementsFactory.step();
             movingElementsController.step(app, action);
             collisionController.step(app, action);
+            updateScore();
         }
     }
 }
