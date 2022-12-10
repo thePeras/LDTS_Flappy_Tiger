@@ -66,40 +66,6 @@ public class LanternaGUI implements GUI {
 
     }
 
-    /**
-     * KeyStroke keyStroke = screen.pollInput();
-     * if (keyStroke == null) return ACTION.NONE;
-     * if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
-     * if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-     * if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
-     * <p>
-     * if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-     * if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-     * <p>
-     * if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-     * <p>
-     * if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
-     * if (keyStroke.getCharacter() >= '0' && keyStroke.getCharacter() <= '9');
-     * return ACTION.NONE;
-     **/
-
-    @Override
-    public void drawPlayer(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'T', "#FFD700");
-        drawCharacter(position.getX(), position.getY() + 1, 'T', "#FFD700");
-        drawCharacter(position.getX() + 1, position.getY(), 'T', "#FFD700");
-        drawCharacter(position.getX() + 1, position.getY() + 1, 'T', "#FFD700");
-    }
-
-    public void drawWall(int x, int h, int space) {
-        for (int y = 0; y < height; y++) {
-            if (y < h || y > h + space) {
-                drawCharacter(x, y, '#', "#FF0000");
-                drawCharacter(x + 1, y, '#', "#FF0000");
-            }
-        }
-    }
-
     @Override
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -107,10 +73,21 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, char c, String color) {
+    @Override
+    public void drawPixel(Position position, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
+        tg.putString(position.getX(), position.getY(), "" + c);
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     @Override

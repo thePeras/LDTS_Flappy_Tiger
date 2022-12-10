@@ -1,6 +1,4 @@
 package feup.ldts.flappy.view.menu;
-
-
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.MainMenu;
@@ -16,7 +14,7 @@ public class MainMenuViewerTest {
     private GUI gui;
 
     @BeforeEach
-    public void setUp() throws IOException {
+void setUp() throws IOException {
         mainMenu = new MainMenu();
         menuViewer = new MenuViewer(mainMenu);
         gui = Mockito.mock(GUI.class);

@@ -44,7 +44,7 @@ public class Wall extends Element implements Collidable {
         for (int y = 0; y < 35; y++) {
             // print player positions
 
-            if (isGapHeight(y)) continue;
+            if(isGapHeight(y)) continue;
             if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||
                     player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
                 System.out.println("COLLIDING2");

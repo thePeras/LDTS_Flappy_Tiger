@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class LanternaGUITest {
     private LanternaGUI gui;
-
     private Screen screen;
     private TextGraphics textGraphics;
 
@@ -24,11 +23,6 @@ public class LanternaGUITest {
         Mockito.when(screen.newTextGraphics()).thenReturn(textGraphics);
 
         gui = new LanternaGUI(screen);
-    }
-
-    @Test
-    void drawPlayerTest() {
-        gui.drawPlayer(new Position(9, 9));
     }
 
     @Test
