@@ -16,6 +16,10 @@ public class Wall extends Element implements Collidable {
         return height;
     }
 
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
     public int getSpace() {
         return space;
     }
@@ -28,12 +32,8 @@ public class Wall extends Element implements Collidable {
         this.setPosition(new Position(x, this.getPosition().getY()));
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
     public boolean isGapHeight(int y) {
-        return y > this.height && y < this.height + this.space;
+        return y > this.height && y <= this.height + this.space;
     }
 
     public boolean isOutOfScreen() {
@@ -48,6 +48,9 @@ public class Wall extends Element implements Collidable {
             if(isGapHeight(y)) continue;
             if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||
                     player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
+                return true;
+            }
+            if(player.getPosition().getY() < 0 && this.getPosition().getX() == player.getPosition().getX()) {
                 return true;
             }
         }

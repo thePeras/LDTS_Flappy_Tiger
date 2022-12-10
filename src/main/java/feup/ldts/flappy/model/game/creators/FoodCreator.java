@@ -18,7 +18,6 @@ public class FoodCreator extends Creator<Food> {
     public Food create() {
         int randomY = random.nextInt(LanternaGUI.height - 2*margin) + margin;
         Position randomPosition = new Position(LanternaGUI.width, randomY);
-
         //TODO: add type of food (deer or bear)
         return new Food(randomPosition, 5);
     }

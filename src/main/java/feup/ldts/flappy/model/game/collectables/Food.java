@@ -1,7 +1,8 @@
 package feup.ldts.flappy.model.game.collectables;
 
-import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
+import feup.ldts.flappy.model.game.Position;
 
 public class Food extends Collectable {
     private int points;
@@ -10,17 +11,14 @@ public class Food extends Collectable {
         super(position);
         this.points = points;
     }
-    @Override
-    public void consume() {
 
+    @Override
+    public void consume(Game game) {
+        game.incrementScore(points);
     }
 
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-        for(Position position : player.getPositions()) {
-            System.out.println("Player: " + position.getX() + " " + position.getY());
-        }
-        System.out.println("Food: " + this.getPosition().getX() + " " + this.getPosition().getY());
         return player.getPositions().contains(this.getPosition());
     }
 }

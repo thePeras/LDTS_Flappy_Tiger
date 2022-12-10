@@ -1,5 +1,6 @@
 package feup.ldts.flappy.controller.game;
 
+import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.gui.GUI;
@@ -7,6 +8,7 @@ import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -45,7 +47,7 @@ public class MovingElementsController extends Controller<Game> {
     }
 
     @Override
-    public void step(App app, GUI.ACTION gui) throws IOException, URISyntaxException, FontFormatException {
+    public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         if(!getModel().isPlaying()) return;
         moveWalls();
         moveCollectables();

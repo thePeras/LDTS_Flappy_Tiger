@@ -29,6 +29,4 @@ public class Menu {
     public boolean isSelected(int i) {
         return option == i;
     }
-
-
 }

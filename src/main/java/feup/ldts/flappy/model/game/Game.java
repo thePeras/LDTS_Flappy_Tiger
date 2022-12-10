@@ -8,14 +8,13 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Game {
+    public static int distanceBetweenWalls = 20;
+    private final Player player;
     private boolean isPlaying;
     private boolean isInGameMode;
     private List<Wall> wallsList;
     private List<Collectable> collectablesList;
-    private final Player player;
-
     private int score;
-    public static int distanceBetweenWalls = 20;
 
     public Game() {
         this.isPlaying = false;
@@ -33,7 +32,10 @@ public class Game {
     public boolean isPlaying() {
         return isPlaying;
     }
-    public void setPlaying(boolean playing){this.isPlaying = playing; }
+
+    public void setPlaying(boolean playing) {
+        this.isPlaying = playing;
+    }
 
     public void startPlaying() {
         isPlaying = true;
@@ -49,9 +51,14 @@ public class Game {
         return collectablesList;
     }
     public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}
+
     public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
 
-    public void incrementScore(){ score++; }
+    public void consumeCollectable(Collectable collectable){
+        collectable.consume(this);
+    }
+
+    public void incrementScore(int points){ score += points; }
 
     public int getScore(){ return score; }
 }

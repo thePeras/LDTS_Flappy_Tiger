@@ -24,7 +24,7 @@ public class Player extends Element {
         return gravity;
     }
 
-    public List<Position> getPositions(){
+    public List<Position> getPositions() {
         return List.of(
                 new Position(this.getPosition().getX(), this.getPosition().getY()),
                 new Position(this.getPosition().getX(), this.getPosition().getY() + 1),
