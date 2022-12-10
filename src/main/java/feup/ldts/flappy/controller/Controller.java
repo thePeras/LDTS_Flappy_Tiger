@@ -1,7 +1,7 @@
 package feup.ldts.flappy.controller;
 
+import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
-import feup.ldts.flappy.gui.GUI;
 
 import java.awt.*;
 import java.io.IOException;
@@ -10,6 +10,7 @@ import java.net.URISyntaxException;
 public abstract class Controller<T> {
 
     private final T model;
+
     public Controller(T model) {
         this.model = model;
     }
@@ -18,5 +19,5 @@ public abstract class Controller<T> {
         return model;
     }
 
-    public abstract void step(App app, GUI.ACTION gui) throws IOException, URISyntaxException, FontFormatException;
+    public abstract void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException;
 }

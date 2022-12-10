@@ -11,8 +11,16 @@ public class Wall extends Element implements Collidable {
         this.space = 11;
     }
 
+    public static int getSpeed() {
+        return speed;
+    }
+
     public int getHeight() {
         return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public int getSpace() {
@@ -23,16 +31,8 @@ public class Wall extends Element implements Collidable {
         this.space = space;
     }
 
-    public static int getSpeed() {
-        return speed;
-    }
-
     public void setX(int x) {
         this.setPosition(new Position(x, this.getPosition().getY()));
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public boolean isGapHeight(int y) {

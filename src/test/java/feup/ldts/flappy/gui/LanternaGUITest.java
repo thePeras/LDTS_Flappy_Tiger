@@ -3,12 +3,7 @@ package feup.ldts.flappy.gui;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-<<<<<<< HEAD
-import feup.ldts.flappy.model.Position;
-import feup.ldts.flappy.view.game.PlayerViewer;
-=======
 import feup.ldts.flappy.model.game.Position;
->>>>>>> main
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,7 +12,6 @@ import java.io.IOException;
 
 public class LanternaGUITest {
     private LanternaGUI gui;
-
     private Screen screen;
     private TextGraphics textGraphics;
 
@@ -29,10 +23,6 @@ public class LanternaGUITest {
         Mockito.when(screen.newTextGraphics()).thenReturn(textGraphics);
 
         gui = new LanternaGUI(screen);
-    }
-    @Test
-    void drawPlayerTest(){
-        PlayerViewer.drawPlayer(new Position(9,9), gui);
     }
 
     @Test

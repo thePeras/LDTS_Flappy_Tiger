@@ -1,7 +1,7 @@
 package feup.ldts.flappy.model.game.collectables;
 
-import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Player;
+import feup.ldts.flappy.model.game.Position;
 
 public class Food extends Collectable {
     private int points;
@@ -10,6 +10,7 @@ public class Food extends Collectable {
         super(position);
         this.points = points;
     }
+
     @Override
     public void consume() {
 

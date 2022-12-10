@@ -9,22 +9,14 @@ import java.io.IOException;
 
 public class InstructionsViewer extends Viewer<Instructions> {
 
-        public InstructionsViewer(Instructions model) {
-            super(model);
-        }
-    @Override
-    public void draw(GUI gui) throws IOException {
-        gui.clear();
-        drawElements(gui);
-        gui.refresh();
+    public InstructionsViewer(Instructions model) {
+        super(model);
     }
 
-        @Override
-        public void drawElements(GUI gui) {
-            //Draw instructions
-            gui.drawText(new Position (2, 5), "Instructions", "#FFFFFF");
-            for (int i = 0; i < getModel().getNumberEntries(); i++) {
-                gui.drawText(new Position(2, 7 + i), getModel().getEntry(i),"#FC6A03");
-            }
+    public void drawElements(GUI gui) {
+        gui.drawText(new Position(2, 5), "Instructions", "#FFFFFF");
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+            gui.drawText(new Position(2, 7 + i), getModel().getEntry(i), "#FC6A03");
         }
+    }
 }

@@ -1,9 +1,7 @@
 package feup.ldts.flappy.view.menu;
-
-
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.model.game.Position;
-import feup.ldts.flappy.model.menu.Menu;
+import feup.ldts.flappy.model.menu.MainMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,15 +9,13 @@ import org.mockito.Mockito;
 import java.io.IOException;
 
 public class MainMenuViewerTest {
-
-    private String[] curiosities = {"Curiosity 1", "Curiosity 2", "Curiosity 3", "Curiosity 4", "Curiosity 5"};
     private MenuViewer menuViewer;
     private MainMenu mainMenu;
     private GUI gui;
 
     @BeforeEach
-    public void setUp() {
-        mainMenu = new MainMenu(curiosities);
+void setUp() throws IOException {
+        mainMenu = new MainMenu();
         menuViewer = new MenuViewer(mainMenu);
         gui = Mockito.mock(GUI.class);
     }
