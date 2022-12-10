@@ -25,12 +25,12 @@ public class LeaderboardViewerTest {
     @Test
     public void testDraw() throws IOException {
         leaderboardViewer.draw(gui);
-        Mockito.verify(gui, Mockito.times(names.length+1)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
+        Mockito.verify(gui, Mockito.times(names.length + 1)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
     }
 
     @Test
     public void testDrawElements() {
         leaderboardViewer.drawElements(gui);
-        Mockito.verify(gui, Mockito.times(names.length+1)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
+        Mockito.verify(gui, Mockito.times(names.length + 1)).drawText(Mockito.any(), Mockito.anyString(), Mockito.anyString());
     }
 }

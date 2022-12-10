@@ -11,8 +11,16 @@ public class Wall extends Element implements Collidable {
         this.space = 11;
     }
 
+    public static int getSpeed() {
+        return speed;
+    }
+
     public int getHeight() {
         return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public int getSpace() {
@@ -23,16 +31,8 @@ public class Wall extends Element implements Collidable {
         this.space = space;
     }
 
-    public static int getSpeed() {
-        return speed;
-    }
-
     public void setX(int x) {
         this.setPosition(new Position(x, this.getPosition().getY()));
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public boolean isGapHeight(int y) {
@@ -44,7 +44,7 @@ public class Wall extends Element implements Collidable {
         for (int y = 0; y < 35; y++) {
             // print player positions
 
-            if(isGapHeight(y)) continue;
+            if (isGapHeight(y)) continue;
             if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||
                     player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
                 System.out.println("COLLIDING2");

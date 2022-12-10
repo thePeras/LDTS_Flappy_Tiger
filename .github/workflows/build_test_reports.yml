@@ -28,12 +28,12 @@ jobs:
         run: |
           rm -rf docs/jacoco/*
           mv build/reports/jacoco/test/html/* docs/jacoco/
-        
+
       - name: Saving Pitest test report
         run: |
           rm -rf docs/pitest/*
           mv build/reports/pitest/*/* docs/pitest/
-          
+
       - name: Install phantomjs
         run: bash ${GITHUB_WORKSPACE}/.github/phantomjs_install.sh
 

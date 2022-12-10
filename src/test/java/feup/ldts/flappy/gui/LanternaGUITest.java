@@ -25,9 +25,10 @@ public class LanternaGUITest {
 
         gui = new LanternaGUI(screen);
     }
+
     @Test
-    void drawPlayerTest(){
-        gui.drawPlayer(new Position(9,9));
+    void drawPlayerTest() {
+        gui.drawPlayer(new Position(9, 9));
     }
 
     @Test

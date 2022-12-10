@@ -22,7 +22,7 @@ public class MenuViewer extends Viewer<MainMenu> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(8,11), "Menu", "#FC6A03");
+        gui.drawText(new Position(8, 11), "Menu", "#FC6A03");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
 
@@ -37,7 +37,7 @@ public class MenuViewer extends Viewer<MainMenu> {
         gui.drawText(new Position(1, 20), "L", "#FC6A03");
 
         for (int i = 0; i < curiosity.length; i++) {
-            if(i>1) {
+            if (i > 1) {
                 gui.drawText(new Position(1, 20 + i), "O", "#FFFFFF");
             }
             gui.drawText(new Position(3, 20 + i), curiosity[i], "#FC6A03");

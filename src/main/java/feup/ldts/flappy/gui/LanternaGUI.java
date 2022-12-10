@@ -4,7 +4,6 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -13,7 +12,6 @@ import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import feup.ldts.flappy.model.game.Position;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -63,22 +61,27 @@ public class LanternaGUI implements GUI {
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
-    public ACTION getNextAction() throws IOException {
-        KeyStroke keyStroke = screen.pollInput();
-        if (keyStroke == null) return ACTION.NONE;
-        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
-        if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
+    public KeyStroke getNextAction() throws IOException {
+        return screen.pollInput();
 
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-
-        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
-        if (keyStroke.getCharacter() >= '0' && keyStroke.getCharacter() <= '9');
-        return ACTION.NONE;
     }
+
+    /**
+     * KeyStroke keyStroke = screen.pollInput();
+     * if (keyStroke == null) return ACTION.NONE;
+     * if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
+     * if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
+     * if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
+     * <p>
+     * if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
+     * if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
+     * <p>
+     * if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
+     * <p>
+     * if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
+     * if (keyStroke.getCharacter() >= '0' && keyStroke.getCharacter() <= '9');
+     * return ACTION.NONE;
+     **/
 
     @Override
     public void drawPlayer(Position position) {
@@ -89,10 +92,10 @@ public class LanternaGUI implements GUI {
     }
 
     public void drawWall(int x, int h, int space) {
-        for(int y = 0; y < height; y++) {
-            if(y < h || y > h + space) {
+        for (int y = 0; y < height; y++) {
+            if (y < h || y > h + space) {
                 drawCharacter(x, y, '#', "#FF0000");
-                drawCharacter(x+1, y, '#', "#FF0000");
+                drawCharacter(x + 1, y, '#', "#FF0000");
             }
         }
     }

@@ -16,7 +16,7 @@ public class FoodCreator extends Creator {
 
     @Override
     public Element create() {
-        int randomY = random.nextInt(35 - 2*margin) + margin;
+        int randomY = random.nextInt(35 - 2 * margin) + margin;
         Position randomPosition = new Position(30, randomY);
 
         return new Food(randomPosition, 5);
