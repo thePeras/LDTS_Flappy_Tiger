@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import static feup.ldts.flappy.state.AppState.MenuState;
@@ -26,7 +28,7 @@ public class GameOverController extends Controller<GameOver> {
         if (key.getKeyType() == KeyType.Escape) {
             game.setState(MenuState);
         }
-        if (isLetter(key) || isNumber(key)) {
+        if (isLetter(key) || isNumber(key) || isSpace(key)) {
             getModel().addChar(key.getCharacter());
         }
         if (key.getKeyType() == KeyType.Backspace) {
@@ -39,42 +41,37 @@ public class GameOverController extends Controller<GameOver> {
     }
 
     public void updateLeaderboard() throws IOException {
-        File leaderboard = new File("src/main/resources/leaderboard.txt");
+        File leaderboard = new File("src/main/resources/text/leaderboard.txt");
         Scanner scanner = new Scanner(leaderboard);
-        String[] scores = new String[5];
-        int i = 0;
+        ArrayList<Integer> scores = new ArrayList<>();
+        ArrayList<String> usernames = new ArrayList<>();
         while (scanner.hasNextLine()) {
-            scores[i] = scanner.nextLine();
-            i++;
+            String line = scanner.nextLine();
+            String[] parts = line.split("-");
+            scores.add(Integer.parseInt(parts[0].trim()));
+            usernames.add(parts[1].trim());
         }
 
-        if (scores[4] == null) {
+        if(scores.size() < 5){
             FileWriter writer = new FileWriter(leaderboard, true);
-            writer.write(getModel().getScore() + " - " + getModel().getName() + "\n");
+            writer.write(getModel().getScore() + " - " + getModel().getUsername() + "\n");
             writer.close();
+            return;
+        }
 
-        } else {
-            int min = Integer.parseInt(scores[0].split(" ")[0]);
-            int minIndex = 0;
-            for (int j = 1; j < scores.length; j++) {
-                int score = Integer.parseInt(scores[j].split(" ")[0]);
-                if (score < min) {
-                    min = score;
-                    minIndex = j;
-                }
-            }
-            if (getModel().getScoreInt() > min) {
-                scores[minIndex] = getModel().getScore() + " - " + getModel().getName();
-                FileWriter writer = new FileWriter(leaderboard);
-                for (String score : scores) {
-                    writer.write(score + "\n");
-                }
-                writer.close();
-            }
+        int minimumScore = Collections.min(scores);
+        int minimumScoreIndex = scores.indexOf(minimumScore);
 
+        if(getModel().getScore() > minimumScore){
+            scores.set(minimumScoreIndex, getModel().getScore());
+            usernames.set(minimumScoreIndex, getModel().getUsername());
+            FileWriter writer = new FileWriter(leaderboard);
+            for(int i = 0; i < scores.size(); i++){
+                writer.write(scores.get(i) + " - " + usernames.get(i) + "\n");
+            }
+            writer.close();
         }
     }
-
 
     private boolean isNumber(KeyStroke key) {
         return (key.getCharacter() >= '0' && key.getCharacter() <= '9');
@@ -83,5 +80,9 @@ public class GameOverController extends Controller<GameOver> {
     private boolean isLetter(KeyStroke key) {
         return (key.getCharacter() >= 'a' && key.getCharacter() <= 'z')
                 || (key.getCharacter() >= 'A' && key.getCharacter() <= 'Z');
+    }
+
+    private boolean isSpace(KeyStroke key) {
+        return key.getCharacter() == ' ';
     }
 }

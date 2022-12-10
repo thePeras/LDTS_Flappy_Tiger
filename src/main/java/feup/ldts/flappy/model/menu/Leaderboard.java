@@ -2,41 +2,38 @@ package feup.ldts.flappy.model.menu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Leaderboard {
-    //Vector that stores the top 5 scores and the names of the players
-    private final String[] top5 = new String[5];
+    private final ArrayList<String> top5players = new ArrayList<>();
 
-    public Leaderboard(File leaderboardFile) throws FileNotFoundException {
+    public Leaderboard() throws FileNotFoundException {
+        File leaderboardFile = new File("src/main/resources/text/leaderboard.txt");
         fillLeaderboard(leaderboardFile);
     }
 
     private void fillLeaderboard(File leaderboardFile) throws FileNotFoundException {
         Scanner scanner = new Scanner(leaderboardFile);
-        for (int i = 0; i < 5; i++) {
-            top5[i] = scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            top5players.add(scanner.nextLine());
         }
         sortLeaderboard();
     }
 
     private void sortLeaderboard() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = i + 1; j < 5; j++) {
-                if (Integer.parseInt(top5[i].split(" ")[0]) < Integer.parseInt(top5[j].split(" ")[0])) {
-                    String aux = top5[i];
-                    top5[i] = top5[j];
-                    top5[j] = aux;
-                }
-            }
-        }
+        top5players.sort((s1, s2) -> {
+            String[] s1Split = s1.split(" ");
+            String[] s2Split = s2.split(" ");
+            return Integer.parseInt(s2Split[0]) - Integer.parseInt(s1Split[0]);
+        });
     }
 
     public int getSize() {
-        return top5.length;
+        return top5players.size();
     }
 
     public String getEntry(int i) {
-        return top5[i];
+        return top5players.get(i);
     }
 }

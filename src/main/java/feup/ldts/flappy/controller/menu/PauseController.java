@@ -21,11 +21,11 @@ public class PauseController extends Controller<Pause> {
     @Override
     public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         if (key == null) return;
-        if (key.equals(KeyType.ArrowUp)) {
+        if (key.getKeyType() == KeyType.ArrowUp) {
             getModel().previousOption();
-        } else if (key.equals(KeyType.ArrowDown)) {
+        } else if (key.getKeyType() == KeyType.ArrowDown) {
             getModel().nextOption();
-        } else if (key.equals(KeyType.Enter)) {
+        } else if (key.getKeyType() == KeyType.Enter) {
             if (getModel().isSelectedResume()) {
                 game.setState(PrevGameState);
             }

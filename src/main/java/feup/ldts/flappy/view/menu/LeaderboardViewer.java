@@ -13,14 +13,6 @@ public class LeaderboardViewer extends Viewer<Leaderboard> {
         super(model);
     }
 
-    @Override
-    public void draw(GUI gui) throws IOException {
-        gui.clear();
-        drawElements(gui);
-        gui.refresh();
-    }
-
-    @Override
     protected void drawElements(GUI gui) {
         gui.drawText(new Position(8, 11), "Leaderboard", "#FFFFFF");
         for (int i = 0; i < getModel().getSize(); i++) {

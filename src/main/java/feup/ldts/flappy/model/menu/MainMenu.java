@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MainMenu extends Menu {
-
     String curiosity;
 
     public MainMenu() throws IOException {
@@ -18,10 +17,9 @@ public class MainMenu extends Menu {
     }
 
     private void fillCuriosity() throws IOException {
-        Path path_ = Path.of("src/main/resources/curiosities.txt");
+        Path path_ = Path.of("src/main/resources/text/curiosities.txt");
         String contents = Files.readString(path_);
         String[] curiosities = contents.split("###");
-        //print the curiosities
         Random random = new Random();
         int randomValue = random.nextInt(curiosities.length);
         this.curiosity = curiosities[randomValue];
@@ -46,6 +44,4 @@ public class MainMenu extends Menu {
     public String getCuriosity() {
         return curiosity;
     }
-
-
 }

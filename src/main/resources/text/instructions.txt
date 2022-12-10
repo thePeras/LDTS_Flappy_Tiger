@@ -1,0 +1,19 @@
+The goal of the game is to
+avoid colliding with the
+walls and the ground.
+
+The player can jump by
+pressing the space bar.
+Otherwise, the tiger will
+fall and hit the floor.
+
+You can collect boar and
+lamb to get extra points.
+
+Boar - 3 Points
+Lamb - 5 Points
+
+If you collect a bottle of
+wine, you enter god mode
+and the gap between walls
+will be bigger.

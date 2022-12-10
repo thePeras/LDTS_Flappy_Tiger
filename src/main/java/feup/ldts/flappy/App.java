@@ -9,6 +9,7 @@ import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.menu.*;
 import feup.ldts.flappy.model.sound.Musics;
+import feup.ldts.flappy.model.sound.SoundEffects;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
@@ -101,9 +102,14 @@ public class App {
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
                 break;
+            case PrevGameState:
+                SoundManager.getInstance().resumeBackgroundSound();
+                this.game = this.prevGame;
+                this.controller = new GameController(game);
+                this.viewer = new GameViewer(game);
+                break;
             case LeaderboardState:
-                File leaderboard_ = new File("src/main/resources/leaderboard.txt");
-                Leaderboard leaderboard = new Leaderboard(leaderboard_);
+                Leaderboard leaderboard = new Leaderboard();
                 this.controller = new LeaderboardController(leaderboard);
                 this.viewer = new LeaderboardViewer(leaderboard);
                 break;
@@ -118,14 +124,8 @@ public class App {
                 this.controller = new PauseController(pause);
                 this.viewer = new PauseViewer(pause);
                 break;
-            case PrevGameState:
-                SoundManager.getInstance().resumeBackgroundSound();
-                this.game = this.prevGame;
-                this.controller = new GameController(game);
-                this.viewer = new GameViewer(game);
-                break;
-
             case GameOverState:
+                SoundManager.getInstance().pauseBackgroundSound();
                 GameOver gameOver = new GameOver(this.game.getScore());
                 this.controller = new GameOverController(gameOver);
                 this.viewer = new GameOverViewer(gameOver);
