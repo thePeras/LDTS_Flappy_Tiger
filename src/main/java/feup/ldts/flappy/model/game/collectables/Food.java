@@ -4,7 +4,7 @@ import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
 import feup.ldts.flappy.model.game.Position;
 
-public class Food extends Collectable {
+public abstract class Food extends Collectable {
     private int points;
 
     public Food(Position position, int points) {

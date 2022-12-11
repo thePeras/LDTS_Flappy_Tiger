@@ -8,13 +8,13 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Game {
-    public static int distanceBetweenWalls = 20;
     private final Player player;
     private boolean isPlaying;
     private boolean isInGameMode;
     private List<Wall> wallsList;
     private List<Collectable> collectablesList;
     private int score;
+    private int steps;
 
     public Game() {
         this.isPlaying = false;
@@ -23,6 +23,7 @@ public class Game {
         this.wallsList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
         this.score = 0;
+        this.steps = 0;
     }
 
     public Player getPlayer() {
@@ -61,4 +62,12 @@ public class Game {
     public void incrementScore(int points){ score += points; }
 
     public int getScore(){ return score; }
+
+    public int getSteps() {
+       return steps;
+    }
+    public void incrementSteps() {
+        steps++;
+        if(steps == 20) steps = 0;
+    }
 }

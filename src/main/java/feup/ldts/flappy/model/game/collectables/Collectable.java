@@ -10,11 +10,9 @@ public abstract class Collectable extends Element implements Collidable {
     public Collectable(Position position) {
         super(position);
     }
-
     public void move(){
         this.setPosition(this.getPosition().addX(speed));
     }
-
     public boolean isOutOfScreen() {
         return this.getPosition().getX() < -1;
     }
