@@ -28,18 +28,14 @@ public class GameController extends Controller<Game> {
     }
 
     private void updateScore() {
-
         int playerX = getModel().getPlayer().getPosition().getX();
-
         var walls = getModel().getWalls();
-
 
         for (var wall : walls) {
             int wallX = wall.getPosition().getX();
 
             if (playerX == wallX+1) {
                 getModel().incrementScore(1);
-                System.out.println(">>>>>>>> Score: " + getModel().getScore());
                 break;
             }
         }

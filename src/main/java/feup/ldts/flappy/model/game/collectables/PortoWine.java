@@ -4,17 +4,14 @@ import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
 import feup.ldts.flappy.model.game.Position;
 
-public abstract class Food extends Collectable {
-    private final int points;
-
-    public Food(Position position, int points) {
+public class PortoWine extends Collectable{
+    public PortoWine(Position position) {
         super(position);
-        this.points = points;
     }
 
     @Override
     public void consume(Game game) {
-        game.incrementScore(points);
+        game.setGodMode(true);
     }
 
     @Override

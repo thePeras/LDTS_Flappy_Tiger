@@ -7,6 +7,7 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Boar;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.model.game.collectables.Lamb;
+import feup.ldts.flappy.model.game.collectables.PortoWine;
 import feup.ldts.flappy.view.Viewer;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class GameViewer extends Viewer<Game> {
     public void drawElements(GUI gui) {
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());
-        drawElements(gui, getModel().getCollectables(), new FoodViewer());
+        //drawElements(gui, getModel().getCollectables(), new FoodViewer());
         drawCollectables(gui, getModel().getCollectables());
         drawScore(gui);
     }
@@ -45,6 +46,9 @@ public class GameViewer extends Viewer<Game> {
             }
             else if(collectable.getClass() == Boar.class){
                 new BoarViewer().draw((Boar) collectable, gui);
+            }
+            else if(collectable.getClass() == PortoWine.class){
+                new PortoWineViewer().draw((PortoWine) collectable, gui);
             }
         }
     }

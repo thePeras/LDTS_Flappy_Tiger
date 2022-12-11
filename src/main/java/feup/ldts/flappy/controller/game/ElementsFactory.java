@@ -1,22 +1,22 @@
 package feup.ldts.flappy.controller.game;
 
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.creators.FoodCreator;
+import feup.ldts.flappy.model.game.creators.CollectableCreator;
 import feup.ldts.flappy.model.game.creators.WallCreator;
 
 public class ElementsFactory {
-    private Game game;
-    private WallCreator wallCreator;
-    private FoodCreator foodCreator;
+    private final Game game;
+    private final WallCreator wallCreator;
+    private final CollectableCreator collectableCreator;
 
     public ElementsFactory(Game game) {
         this.game = game;
         this.wallCreator = new WallCreator();
-        this.foodCreator = new FoodCreator();
+        this.collectableCreator = new CollectableCreator();
     }
 
     public void generateCollectable(){
-        game.addCollectable(foodCreator.create());
+        game.addCollectable(collectableCreator.create());
     }
 
     public void generateWall(){

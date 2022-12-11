@@ -10,15 +10,15 @@ import java.util.List;
 public class Game {
     private final Player player;
     private boolean isPlaying;
-    private boolean isInGameMode;
-    private List<Wall> wallsList;
-    private List<Collectable> collectablesList;
+    private boolean isInGodMode;
+    private final List<Wall> wallsList;
+    private final List<Collectable> collectablesList;
     private int score;
     private int steps;
 
     public Game() {
         this.isPlaying = false;
-        this.isInGameMode = false;
+        this.isInGodMode = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
         this.wallsList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
@@ -69,5 +69,13 @@ public class Game {
     public void incrementSteps() {
         steps++;
         if(steps == 20) steps = 0;
+    }
+
+    public boolean isInGodMode() {
+        return isInGodMode;
+    }
+
+    public void setGodMode(boolean godMode) {
+        isInGodMode = godMode;
     }
 }
