@@ -11,7 +11,7 @@ import feup.ldts.flappy.state.AppState;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.List;
+import java.util.Iterator;
 
 public class CollisionController extends Controller<Game> {
     public CollisionController(Game model) {
@@ -20,23 +20,19 @@ public class CollisionController extends Controller<Game> {
 
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-        List<Collectable> arenaCollectables = getModel().getCollectables();
-
-        //For each element detects if it collides with the player
-        for (Collectable collectable : arenaCollectables) {
-            //if(collectable.isCollidingWithPlayer(getModel().getPlayer())){
-            //
-            //    getModel().removeCollectable(collectable);
-            //}
-        }
-
-        List<Wall> arenaWalls = getModel().getWalls();
-        for (Wall wall : arenaWalls) {
-            if (wall.isCollidingWithPlayer(getModel().getPlayer())) {
-                app.setState(AppState.GameOverState);
+        Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
+        while (collectableIterator.hasNext()){
+            Collectable collectable = collectableIterator.next();
+            if(collectable.isCollidingWithPlayer(getModel().getPlayer())){
+                getModel().consumeCollectable(collectable);
+                collectableIterator.remove();
             }
         }
 
-
+        for(Wall wall : getModel().getWalls()){
+            if(wall.isCollidingWithPlayer(getModel().getPlayer())){
+                app.setState(AppState.GameOverState);
+            }
+        }
     }
 }

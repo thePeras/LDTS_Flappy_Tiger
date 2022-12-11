@@ -1,5 +1,5 @@
-17 - H
-25 - Gto
-16 - Kev
-30 - fff
-20 - John
+34 - Goat
+25 - Horse
+29 - Rabbit
+30 - Sheep
+42 - Pig

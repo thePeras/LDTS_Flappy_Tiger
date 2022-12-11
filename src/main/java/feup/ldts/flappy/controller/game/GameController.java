@@ -15,26 +15,49 @@ import static feup.ldts.flappy.state.AppState.PauseState;
 public class GameController extends Controller<Game> {
 
     private final PlayerController playerController;
-    private final WallController wallController;
     private final CollisionController collisionController;
+    private final ElementsFactory elementsFactory;
+    private final MovingElementsController movingElementsController;
 
     public GameController(Game game) {
         super(game);
         this.playerController = new PlayerController(game);
-        this.wallController = new WallController(game);
         this.collisionController = new CollisionController(game);
+        this.elementsFactory = new ElementsFactory(game);
+        this.movingElementsController = new MovingElementsController(game);
     }
+
+    private void updateScore() {
+
+        int playerX = getModel().getPlayer().getPosition().getX();
+
+        var walls = getModel().getWalls();
+
+
+        for (var wall : walls) {
+            int wallX = wall.getPosition().getX();
+
+            if (playerX == wallX+1) {
+                getModel().incrementScore(1);
+                System.out.println(">>>>>>>> Score: " + getModel().getScore());
+                break;
+            }
+        }
+    }
+
 
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-
         if (key != null && key.getKeyType() == KeyType.Escape) {
             getModel().setPlaying(false);
             app.setState(PauseState);
-        } else {
+        }
+        else {
             playerController.step(app, key);
-            wallController.step(app, key);
+            elementsFactory.step();
+            movingElementsController.step(app, key);
             collisionController.step(app, key);
+            updateScore();
         }
     }
 }

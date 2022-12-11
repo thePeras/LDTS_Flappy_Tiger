@@ -11,14 +11,20 @@ import feup.ldts.flappy.model.game.Player;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.sound.SoundEffects;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class PlayerController extends Controller<Game> {
 
     private final Player player;
     private int waitingCounter = 0;
+    private CollisionController collisionController;
 
     public PlayerController(Game game) {
         super(game);
         this.player = game.getPlayer();
+        this.collisionController = new CollisionController(game);
     }
 
     public void jumpPlayer() {

@@ -4,23 +4,26 @@ import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Game {
-    public static int distanceBetweenWalls = 20;
     private final Player player;
-    private final Wall wall1, wall2;
     private boolean isPlaying;
     private boolean isInGameMode;
+    private List<Wall> wallsList;
     private List<Collectable> collectablesList;
-    private int score = 12;
+    private int score;
+    private int steps;
 
     public Game() {
         this.isPlaying = false;
         this.isInGameMode = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
-        this.wall1 = new Wall(LanternaGUI.width);
-        this.wall2 = new Wall(LanternaGUI.width + distanceBetweenWalls);
+        this.wallsList = new ArrayList<>();
+        this.collectablesList = new ArrayList<>();
+        this.score = 0;
+        this.steps = 0;
     }
 
     public Player getPlayer() {
@@ -39,28 +42,32 @@ public class Game {
         isPlaying = true;
     }
 
-    public Wall getWall1() {
-        return wall1;
+    public List<Wall> getWalls(){
+        return wallsList;
+    }
+    public void addWall(Wall wall){ wallsList.add(wall);}
+    public void removeWall(Iterator<Wall> iterator){ iterator.remove();}
+
+    public List<Collectable> getCollectables(){
+        return collectablesList;
+    }
+    public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}
+
+    public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
+
+    public void consumeCollectable(Collectable collectable){
+        collectable.consume(this);
     }
 
-    public Wall getWall2() {
-        return wall2;
-    }
+    public void incrementScore(int points){ score += points; }
 
-    public List<Wall> getWalls() {
-        return List.of(wall1, wall2);
-    }
+    public int getScore(){ return score; }
 
-    public List<Collectable> getCollectables() {
-        return new ArrayList<>();
+    public int getSteps() {
+       return steps;
     }
-
-    public void removeCollectable(Collectable collectable) {
-        collectablesList.remove(collectable);
-    }
-
-    public int getScore() {
-        return score;
+    public void incrementSteps() {
+        steps++;
+        if(steps == 20) steps = 0;
     }
 }
-
