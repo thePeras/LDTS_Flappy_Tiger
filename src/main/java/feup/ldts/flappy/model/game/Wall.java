@@ -3,25 +3,27 @@ package feup.ldts.flappy.model.game;
 import feup.ldts.flappy.gui.LanternaGUI;
 
 public class Wall extends Element implements Collidable {
+
+    private final static int normalSpace = 11;
     private final static int speed = -1;
     private int height;
-    private final static int space = 11;
+    private int space;
+
 
     public Wall(int height) {
         super(new Position(LanternaGUI.width, 0));
         this.height = height;
+        this.space = normalSpace;
+    }
+
+    public void setSpace(int newSpace) {
+        this.space = newSpace;
+        int newHeight = this.getHeight() - newSpace/2;
+        this.height = newHeight > 0 ? newHeight : 1;
     }
 
     public int getHeight() {
         return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getSpace() {
-        return space;
     }
 
     public static int getSpeed() {

@@ -8,17 +8,21 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Game {
+    private static final int GOD_MODE_MAX_STEPS = 60;
+    private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
     private boolean isPlaying;
-    private boolean isInGameMode;
-    private List<Wall> wallsList;
-    private List<Collectable> collectablesList;
+    private boolean isInGodMode;
+    private final List<Wall> wallsList;
+    private final List<Collectable> collectablesList;
     private int score;
     private int steps;
 
+    private int godModeSteps = 0;
+
     public Game() {
         this.isPlaying = false;
-        this.isInGameMode = false;
+        this.isInGodMode = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
         this.wallsList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
@@ -66,8 +70,31 @@ public class Game {
     public int getSteps() {
        return steps;
     }
+
+    private void updateWalls(){
+        for (Wall wall : wallsList) {
+            if(wall.getPosition().getX() > player.getPosition().getX()) {
+                wall.setSpace(GOD_MODE_WALL_SPACE);
+            }
+        }
+    }
+
     public void incrementSteps() {
         steps++;
         if(steps == 20) steps = 0;
+
+        if(isInGodMode) {
+            godModeSteps++;
+            updateWalls();
+            if(godModeSteps == GOD_MODE_MAX_STEPS) {
+                isInGodMode = false;
+            }
+        }
+    }
+
+    public void startGodMode() {
+        isInGodMode = true;
+        godModeSteps = 0;
+        updateWalls();
     }
 }

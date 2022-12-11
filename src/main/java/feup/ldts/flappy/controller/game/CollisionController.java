@@ -3,6 +3,7 @@ package feup.ldts.flappy.controller.game;
 import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
@@ -28,6 +29,8 @@ public class CollisionController extends Controller<Game> {
                 collectableIterator.remove();
             }
         }
+
+        // TODO: Check if the player is colliding with the ground
 
         for(Wall wall : getModel().getWalls()){
             if(wall.isCollidingWithPlayer(getModel().getPlayer())){

@@ -1,22 +1,30 @@
 package feup.ldts.flappy.controller.game;
 
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.creators.FoodCreator;
+import feup.ldts.flappy.model.game.creators.CollectableCreator;
 import feup.ldts.flappy.model.game.creators.WallCreator;
 
+import java.util.Random;
+
 public class ElementsFactory {
-    private Game game;
-    private WallCreator wallCreator;
-    private FoodCreator foodCreator;
+
+    private static final int GENERATE_COLLECTABLE_PROBABILITY = 60;
+    private final Game game;
+    private final WallCreator wallCreator;
+    private final CollectableCreator collectableCreator;
 
     public ElementsFactory(Game game) {
         this.game = game;
         this.wallCreator = new WallCreator();
-        this.foodCreator = new FoodCreator();
+        this.collectableCreator = new CollectableCreator();
     }
 
     public void generateCollectable(){
-        game.addCollectable(foodCreator.create());
+        // TODO: refactor probabilities and creators classes
+        int randomNum = new Random().nextInt(100);
+        if(randomNum < GENERATE_COLLECTABLE_PROBABILITY) {
+            game.addCollectable(collectableCreator.create());
+        }
     }
 
     public void generateWall(){

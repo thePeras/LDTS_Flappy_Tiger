@@ -13,6 +13,7 @@ public class WallCreator extends Creator<Wall> {
 
     public WallCreator() {this.random = new Random();}
 
+
     @Override
     public Wall create() {
         int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;
