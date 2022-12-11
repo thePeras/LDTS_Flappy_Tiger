@@ -4,7 +4,9 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.menu.Pause;
+import feup.ldts.flappy.model.sound.SoundEffects;
 
 import java.awt.*;
 import java.io.IOException;
@@ -26,6 +28,7 @@ public class PauseController extends Controller<Pause> {
         } else if (key.getKeyType() == KeyType.ArrowDown) {
             getModel().nextOption();
         } else if (key.getKeyType() == KeyType.Enter) {
+            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
             if (getModel().isSelectedResume()) {
                 game.setState(PrevGameState);
             }

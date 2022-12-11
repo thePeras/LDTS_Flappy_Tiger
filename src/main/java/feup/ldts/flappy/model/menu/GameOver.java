@@ -1,8 +1,11 @@
 package feup.ldts.flappy.model.menu;
 
 import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.Menu;
 
-public class GameOver {
+import java.util.Arrays;
+
+public class GameOver extends Menu {
     public static final int MARGIN = 6;
     private static final int MAXLENGTH = LanternaGUI.width - 2*MARGIN;
     private String username;
@@ -11,6 +14,7 @@ public class GameOver {
     public GameOver(int score) {
         this.username = "";
         this.score = score;
+        this.options = Arrays.asList("Restart", "Main Menu");
     }
 
     public String getUsername() {
@@ -32,4 +36,8 @@ public class GameOver {
     public Integer getScore() {
         return score;
     }
+    public boolean isSelectedRestart() {
+        return isSelected(0);
+    }
+    public boolean isSelectedExit() { return isSelected(1); }
 }
