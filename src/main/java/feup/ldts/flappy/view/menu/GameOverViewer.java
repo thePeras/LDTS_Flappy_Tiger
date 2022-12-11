@@ -16,5 +16,13 @@ public class GameOverViewer extends Viewer<GameOver> {
         gui.drawText(new Position(getModel().MARGIN, 15), "Score: " + getModel().getScore(), "#FFFFFF");
         gui.drawText(new Position(getModel().MARGIN, 17), "Enter your name:", "#FFFFFF");
         gui.drawText(new Position(getModel().MARGIN, 19), getModel().getUsername(), "#FC6A03");
+
+        for (int i = 0; i < getModel().getNumberEntries(); i++) {
+            if (getModel().isSelected(i)) {
+                gui.drawText(new Position(getModel().MARGIN-1, 21 + i), ">" + getModel().getEntry(i), "#FC6A03");
+            } else {
+                gui.drawText(new Position(getModel().MARGIN, 21 + i), getModel().getEntry(i), "#FFFFFF");
+            }
+        }
     }
 }

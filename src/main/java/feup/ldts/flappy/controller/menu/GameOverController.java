@@ -4,7 +4,9 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.menu.GameOver;
+import feup.ldts.flappy.model.sound.SoundEffects;
 
 import java.awt.*;
 import java.io.File;
@@ -15,28 +17,35 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import static feup.ldts.flappy.state.AppState.MenuState;
+import static feup.ldts.flappy.state.AppState.*;
 
 public class GameOverController extends Controller<GameOver> {
 
     public GameOverController(GameOver model) {
         super(model);
     }
-
     public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         if (key == null) return;
+        if(key.getKeyType() == KeyType.ArrowUp) {
+            getModel().previousOption();
+        }
+        if (key.getKeyType() == KeyType.ArrowDown) {
+            getModel().nextOption();
+        }
         if (key.getKeyType() == KeyType.Escape) {
             game.setState(MenuState);
         }
-        if (isLetter(key) || isNumber(key) || isSpace(key)) {
+        if (key.getCharacter() != null && (isLetter(key) || isNumber(key) || isSpace(key))) {
             getModel().addChar(key.getCharacter());
         }
         if (key.getKeyType() == KeyType.Backspace) {
             getModel().removeChar();
         }
         if (key.getKeyType() == KeyType.Enter) {
-            updateLeaderboard();
-            game.setState(MenuState);
+            if(getModel().getUsername().trim().length() > 0) updateLeaderboard();
+            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
+            if (getModel().isSelectedRestart()) game.setState(GameState);
+            if (getModel().isSelectedExit()) game.setState(MenuState);
         }
     }
 

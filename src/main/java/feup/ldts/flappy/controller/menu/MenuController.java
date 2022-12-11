@@ -24,12 +24,11 @@ public class MenuController extends Controller<MainMenu> {
     public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         if (key == null) return;
         if (key.getKeyType() == KeyType.ArrowUp) {
-            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_SELECT);
             getModel().previousOption();
         } else if (key.getKeyType() == KeyType.ArrowDown) {
-            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_SELECT);
             getModel().nextOption();
         } else if (key.getKeyType() == KeyType.Enter) {
+            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
             if (getModel().isSelectedStart()) {
                 game.setState(GameState);
                 SoundManager.getInstance().playSoundEffect(SoundEffects.GAME_START);
@@ -38,7 +37,6 @@ public class MenuController extends Controller<MainMenu> {
             if (getModel().isSelectedExit()) game.exit();
             if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);
             if (getModel().isSelectedInstructions()) game.setState(InstructionsState);
-            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
         }
     }
 
