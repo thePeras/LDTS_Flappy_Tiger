@@ -4,28 +4,22 @@ import feup.ldts.flappy.gui.LanternaGUI;
 
 public class Wall extends Element implements Collidable {
 
-    private final static int normalSpace = 11, godModeSpace = 28;
+    private final static int normalSpace = 11;
     private final static int speed = -1;
     private int height;
     private int space;
 
-    private boolean godMode;
 
     public Wall(int height) {
         super(new Position(LanternaGUI.width, 0));
         this.height = height;
         this.space = normalSpace;
-        this.godMode = false;
     }
 
-    public void changeToGodMode() {
-        this.godMode = true;
-        this.space = godModeSpace;
-        this.height = this.getHeight() - godModeSpace/2 > 0 ? this.getHeight() - godModeSpace/2 : 1;
-    }
-
-    public boolean isGodMode() {
-        return godMode;
+    public void setSpace(int newSpace) {
+        this.space = newSpace;
+        int newHeight = this.getHeight() - newSpace/2;
+        this.height = newHeight > 0 ? newHeight : 1;
     }
 
     public int getHeight() {

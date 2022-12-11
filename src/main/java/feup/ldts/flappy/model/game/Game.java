@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Game {
     private static final int GOD_MODE_MAX_STEPS = 60;
+    private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
     private boolean isPlaying;
     private boolean isInGodMode;
@@ -72,11 +73,12 @@ public class Game {
 
     private void updateWalls(){
         for (Wall wall : wallsList) {
-            if(wall.getPosition().getX() > player.getPosition().getX() && !wall.isGodMode()) {
-                wall.changeToGodMode();
+            if(wall.getPosition().getX() > player.getPosition().getX()) {
+                wall.setSpace(GOD_MODE_WALL_SPACE);
             }
         }
     }
+
     public void incrementSteps() {
         steps++;
         if(steps == 20) steps = 0;
@@ -86,18 +88,13 @@ public class Game {
             updateWalls();
             if(godModeSteps == GOD_MODE_MAX_STEPS) {
                 isInGodMode = false;
-                godModeSteps = 0;
             }
         }
     }
 
-    public boolean isInGodMode() {
-        return isInGodMode;
-    }
-
     public void startGodMode() {
-        updateWalls();
         isInGodMode = true;
         godModeSteps = 0;
+        updateWalls();
     }
 }

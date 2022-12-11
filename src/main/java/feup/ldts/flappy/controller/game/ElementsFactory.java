@@ -4,7 +4,11 @@ import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.creators.CollectableCreator;
 import feup.ldts.flappy.model.game.creators.WallCreator;
 
+import java.util.Random;
+
 public class ElementsFactory {
+
+    private static final int GENERATE_COLLECTABLE_PROBABILITY = 60;
     private final Game game;
     private final WallCreator wallCreator;
     private final CollectableCreator collectableCreator;
@@ -16,7 +20,11 @@ public class ElementsFactory {
     }
 
     public void generateCollectable(){
-        game.addCollectable(collectableCreator.create());
+        // TODO: refactor probabilities and creators classes
+        int randomNum = new Random().nextInt(100);
+        if(randomNum < GENERATE_COLLECTABLE_PROBABILITY) {
+            game.addCollectable(collectableCreator.create());
+        }
     }
 
     public void generateWall(){
@@ -29,7 +37,5 @@ public class ElementsFactory {
             else if(game.getSteps() == 10) generateCollectable();
             game.incrementSteps();
         }
-        game.getWalls().removeIf(wall -> wall.getPosition().getX() < -1);
-        game.getCollectables().removeIf(collectable -> collectable.getPosition().getX() < 0);
     }
 }
