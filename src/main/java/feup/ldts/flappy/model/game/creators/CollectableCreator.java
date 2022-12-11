@@ -28,7 +28,6 @@ public class CollectableCreator extends Creator<Collectable> {
 
         int randomType = random.nextInt(100);
 
-        /*
         if(randomType < portoWineProbability) {
             return new PortoWine(randomPosition);
         }
@@ -38,7 +37,6 @@ public class CollectableCreator extends Creator<Collectable> {
         else {
             return new Boar(randomPosition);
         }
-        */
-        return new PortoWine(randomPosition);
+
     }
 }
