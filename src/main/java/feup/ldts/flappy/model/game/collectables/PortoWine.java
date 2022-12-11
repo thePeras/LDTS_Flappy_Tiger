@@ -11,7 +11,7 @@ public class PortoWine extends Collectable{
 
     @Override
     public void consume(Game game) {
-        game.setGodMode(true);
+        game.startGodMode();
     }
 
     @Override

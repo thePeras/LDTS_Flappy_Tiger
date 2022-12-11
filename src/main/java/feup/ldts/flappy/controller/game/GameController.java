@@ -5,6 +5,7 @@ import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.game.Wall;
 
 import java.awt.*;
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class GameController extends Controller<Game> {
         var walls = getModel().getWalls();
 
         for (var wall : walls) {
-            int wallX = wall.getPosition().getX();
+            int wallX = wall.getPosition().getX() + 1;
 
             if (playerX == wallX+1) {
                 getModel().incrementScore(1);
@@ -40,7 +41,6 @@ public class GameController extends Controller<Game> {
             }
         }
     }
-
 
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {

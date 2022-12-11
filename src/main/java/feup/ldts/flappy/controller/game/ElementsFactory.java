@@ -29,5 +29,7 @@ public class ElementsFactory {
             else if(game.getSteps() == 10) generateCollectable();
             game.incrementSteps();
         }
+        game.getWalls().removeIf(wall -> wall.getPosition().getX() < -1);
+        game.getCollectables().removeIf(collectable -> collectable.getPosition().getX() < 0);
     }
 }

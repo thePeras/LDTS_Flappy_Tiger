@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Game {
+    private static final int GOD_MODE_MAX_STEPS = 60;
     private final Player player;
     private boolean isPlaying;
     private boolean isInGodMode;
@@ -15,6 +16,8 @@ public class Game {
     private final List<Collectable> collectablesList;
     private int score;
     private int steps;
+
+    private int godModeSteps = 0;
 
     public Game() {
         this.isPlaying = false;
@@ -66,16 +69,35 @@ public class Game {
     public int getSteps() {
        return steps;
     }
+
+    private void updateWalls(){
+        for (Wall wall : wallsList) {
+            if(wall.getPosition().getX() > player.getPosition().getX() && !wall.isGodMode()) {
+                wall.changeToGodMode();
+            }
+        }
+    }
     public void incrementSteps() {
         steps++;
         if(steps == 20) steps = 0;
+
+        if(isInGodMode) {
+            godModeSteps++;
+            updateWalls();
+            if(godModeSteps == GOD_MODE_MAX_STEPS) {
+                isInGodMode = false;
+                godModeSteps = 0;
+            }
+        }
     }
 
     public boolean isInGodMode() {
         return isInGodMode;
     }
 
-    public void setGodMode(boolean godMode) {
-        isInGodMode = godMode;
+    public void startGodMode() {
+        updateWalls();
+        isInGodMode = true;
+        godModeSteps = 0;
     }
 }
