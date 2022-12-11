@@ -13,7 +13,7 @@ public class CollectableCreator extends Creator<Collectable> {
     private final static int margin = 5;
     private final static int lambProbability = 20;
 
-    private final static int portoWineProbability = 60;
+    private final static int portoWineProbability = 10;
 
     private final Random random;
 
