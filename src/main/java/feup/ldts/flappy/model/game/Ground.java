@@ -1,13 +1,19 @@
 package feup.ldts.flappy.model.game;
 
-public class Ground extends Element {
+public class Ground extends Element implements Collidable {
 
     public Ground(int y) {
         super(new Position(0, y));
     }
 
-    public Boolean isCollidingWithPlayer(Player player) {
-        return player.getPosition().getY() == this.getPosition().getY();
+    @Override
+    public boolean isCollidingWithPlayer(Player player) {
+        for (Position position : player.getPositions()) {
+            if (position.getY() == this.getPosition().getY()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getY() {
