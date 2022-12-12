@@ -31,6 +31,11 @@ public class CollisionController extends Controller<Game> {
         }
 
         // TODO: Check if the player is colliding with the ground
+        int groundY = getModel().getGround().getY();
+
+        if(getModel().getPlayer().getPosition().getY() + 1 >= groundY){
+            app.setState(AppState.GameOverState);
+        }
 
         for(Wall wall : getModel().getWalls()){
             if(wall.isCollidingWithPlayer(getModel().getPlayer())){

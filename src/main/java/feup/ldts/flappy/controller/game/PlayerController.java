@@ -48,7 +48,7 @@ public class PlayerController extends Controller<Game> {
         player.setVelocity(player.getVelocity() + player.getGravity());
 
         if (position.getY() > LanternaGUI.height - 1) {
-            position.setY(29);
+            position.setY(LanternaGUI.height - 1);
             player.setVelocity(0);
         }
     }
