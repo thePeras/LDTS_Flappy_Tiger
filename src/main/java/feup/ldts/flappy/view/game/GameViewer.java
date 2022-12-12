@@ -23,6 +23,7 @@ public class GameViewer extends Viewer<Game> {
         drawSky(gui);
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());
+        drawElement(gui, getModel().getGround(), new GroundViewer());
         drawCollectables(gui, getModel().getCollectables());
         drawScore(gui);
     }

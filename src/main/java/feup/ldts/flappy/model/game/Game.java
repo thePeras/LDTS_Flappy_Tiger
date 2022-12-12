@@ -15,6 +15,8 @@ public class Game {
     private boolean isInGodMode;
     private final List<Wall> wallsList;
     private final List<Collectable> collectablesList;
+
+    private Ground ground;
     private int score;
     private int steps;
 
@@ -28,6 +30,7 @@ public class Game {
         this.collectablesList = new ArrayList<>();
         this.score = 0;
         this.steps = 0;
+        this.ground = new Ground(LanternaGUI.height);
     }
 
     public Player getPlayer() {
@@ -69,6 +72,10 @@ public class Game {
 
     public int getSteps() {
        return steps;
+    }
+
+    public Ground getGround() {
+        return ground;
     }
 
     private void updateWalls(){
