@@ -1,26 +1,29 @@
 package feup.ldts.flappy.model.game;
 
+import feup.ldts.flappy.gui.LanternaGUI;
+
 public class Wall extends Element implements Collidable {
-    private static int speed = -1;
+
+    private final static int normalSpace = 11;
+    private final static int speed = -1;
     private int height;
     private int space;
 
-    public Wall(int x) {
-        super(new Position(x, 0));
-        this.height = (int) (Math.random() * 15) + 3;
-        this.space = 11;
+
+    public Wall(int height) {
+        super(new Position(LanternaGUI.width, 0));
+        this.height = height;
+        this.space = normalSpace;
+    }
+
+    public void setSpace(int newSpace) {
+        this.space = newSpace;
+        int newHeight = this.getHeight() - newSpace/2;
+        this.height = newHeight > 0 ? newHeight : 1;
     }
 
     public int getHeight() {
         return height;
-    }
-
-    public int getSpace() {
-        return space;
-    }
-
-    public void setSpace(int space) {
-        this.space = space;
     }
 
     public static int getSpeed() {
@@ -31,23 +34,25 @@ public class Wall extends Element implements Collidable {
         this.setPosition(new Position(x, this.getPosition().getY()));
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public boolean isGapHeight(int y) {
+        return y > this.height && y <= this.height + this.space;
     }
 
-    public boolean isGapHeight(int y) {
-        return y > this.height && y < this.height + this.space;
+    public boolean isOutOfScreen() {
+        return this.getPosition().getX() < -1;
+    }
+    public void move() {
+        this.setX(this.getPosition().getX() + getSpeed());
     }
 
     public boolean isCollidingWithPlayer(Player player) {
-        //TODO: remove hardcoded 35 value
-        for (int y = 0; y < 35; y++) {
-            // print player positions
-
+        for (int y = 0; y < LanternaGUI.height; y++) {
             if(isGapHeight(y)) continue;
             if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||
                     player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
-                System.out.println("COLLIDING2");
+                return true;
+            }
+            if(player.getPosition().getY() < 0 && this.getPosition().getX() == player.getPosition().getX()) {
                 return true;
             }
         }

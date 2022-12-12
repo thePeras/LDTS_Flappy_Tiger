@@ -1,8 +1,8 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Player;
+import feup.ldts.flappy.model.game.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -27,6 +27,6 @@ public class PlayerViewerTest {
     @Test
     void testDraw() {
         viewer.draw(player, gui);
-        Mockito.verify(gui, Mockito.times(1)).drawPlayer(player.getPosition());
+        Mockito.verify(viewer, Mockito.times(1)).drawPlayer(player.getPosition(), gui);
     }
 }

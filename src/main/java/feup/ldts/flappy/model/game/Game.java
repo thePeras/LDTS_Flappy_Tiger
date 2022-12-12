@@ -4,26 +4,30 @@ import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Game {
-    private boolean isPlaying;
-    private boolean isInGameMode;
-
-    private List<Collectable> collectablesList;
-
+    private static final int GOD_MODE_MAX_STEPS = 60;
+    private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
+    private boolean isPlaying;
+    private boolean isInGodMode;
+    private final List<Wall> wallsList;
+    private final List<Collectable> collectablesList;
+    private int score;
+    private int steps;
 
-    private final Wall wall1, wall2;
-
-    public static int distanceBetweenWalls = 20;
+    private int godModeSteps = 0;
 
     public Game() {
         this.isPlaying = false;
-        this.isInGameMode = false;
+        this.isInGodMode = false;
         this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
-        this.wall1 = new Wall(LanternaGUI.width);
-        this.wall2 = new Wall(LanternaGUI.width + distanceBetweenWalls);
+        this.wallsList = new ArrayList<>();
+        this.collectablesList = new ArrayList<>();
+        this.score = 0;
+        this.steps = 0;
     }
 
     public Player getPlayer() {
@@ -33,28 +37,64 @@ public class Game {
     public boolean isPlaying() {
         return isPlaying;
     }
-    public void setPlaying(boolean playing){this.isPlaying = playing; }
+
+    public void setPlaying(boolean playing) {
+        this.isPlaying = playing;
+    }
 
     public void startPlaying() {
         isPlaying = true;
     }
 
-    public Wall getWall1() {
-        return wall1;
-    }
-
-    public Wall getWall2() {
-        return wall2;
-    }
-
     public List<Wall> getWalls(){
-        return List.of(wall1, wall2);
+        return wallsList;
     }
+    public void addWall(Wall wall){ wallsList.add(wall);}
+    public void removeWall(Iterator<Wall> iterator){ iterator.remove();}
 
     public List<Collectable> getCollectables(){
-        return new ArrayList<>();
+        return collectablesList;
     }
-    public void removeCollectable(Collectable collectable){
-        collectablesList.remove(collectable);
+    public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}
+
+    public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
+
+    public void consumeCollectable(Collectable collectable){
+        collectable.consume(this);
+    }
+
+    public void incrementScore(int points){ score += points; }
+
+    public int getScore(){ return score; }
+
+    public int getSteps() {
+       return steps;
+    }
+
+    private void updateWalls(){
+        for (Wall wall : wallsList) {
+            if(wall.getPosition().getX() > player.getPosition().getX()) {
+                wall.setSpace(GOD_MODE_WALL_SPACE);
+            }
+        }
+    }
+
+    public void incrementSteps() {
+        steps++;
+        if(steps == 20) steps = 0;
+
+        if(isInGodMode) {
+            godModeSteps++;
+            updateWalls();
+            if(godModeSteps == GOD_MODE_MAX_STEPS) {
+                isInGodMode = false;
+            }
+        }
+    }
+
+    public void startGodMode() {
+        isInGodMode = true;
+        godModeSteps = 0;
+        updateWalls();
     }
 }

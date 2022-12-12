@@ -4,7 +4,6 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -62,38 +61,8 @@ public class LanternaGUI implements GUI {
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
-    public ACTION getNextAction() throws IOException {
-        KeyStroke keyStroke = screen.pollInput();
-        if (keyStroke == null) return ACTION.NONE;
-        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.ESCAPE;
-        if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
-
-        if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
-
-        if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
-
-        return ACTION.NONE;
-    }
-
-    @Override
-    public void drawPlayer(Position position) {
-        drawCharacter(position.getX(), position.getY(), (char) 128, "#FFD700");
-        drawCharacter(position.getX() + 1, position.getY(), (char) 129, "#FFD700");
-        drawCharacter(position.getX(), position.getY() + 1, (char) 130, "#FFD700");
-        drawCharacter(position.getX() + 1, position.getY() + 1, (char) 131, "#FFD700");
-    }
-
-    public void drawWall(int x, int h, int space) {
-        for(int y = 0; y < height; y++) {
-            if(y < h || y > h + space) {
-                drawCharacter(x, y, '#', "#FF0000");
-                drawCharacter(x+1, y, '#', "#FF0000");
-            }
-        }
+    public KeyStroke getNextAction() throws IOException {
+        return screen.pollInput();
     }
 
     public void drawText(Position position, String text, String color) {
@@ -108,10 +77,21 @@ public class LanternaGUI implements GUI {
         drawText(startTextPosition, text, color);
     }
 
-    private void drawCharacter(int x, int y, char c, String color) {
+    @Override
+    public void drawPixel(Position position, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
+        tg.putString(position.getX(), position.getY(), "" + c);
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 
     private void drawPixel(Position position, String color) {

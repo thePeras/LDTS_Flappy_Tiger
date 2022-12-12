@@ -1,27 +1,34 @@
 package feup.ldts.flappy.controller.game;
 
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
-import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Player;
+import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.sound.SoundEffects;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class PlayerController extends Controller<Game> {
 
-    private int waitingCounter = 0;
-
     private final Player player;
+    private int waitingCounter = 0;
+    private CollisionController collisionController;
+
     public PlayerController(Game game) {
         super(game);
         this.player = game.getPlayer();
+        this.collisionController = new CollisionController(game);
     }
 
     public void jumpPlayer() {
-        if(!getModel().isPlaying())
+        if (!getModel().isPlaying())
             getModel().startPlaying();
         player.setVelocity(-3);
         SoundManager.getInstance().playSoundEffect(SoundEffects.FLAP);
@@ -29,8 +36,8 @@ public class PlayerController extends Controller<Game> {
 
     public void updatePosition() {
         Position position = player.getPosition();
-        if(!getModel().isPlaying()) {
-            if(waitingCounter == 0){
+        if (!getModel().isPlaying()) {
+            if (waitingCounter == 0) {
                 player.setVelocity(-player.getVelocity());
                 position.setY(position.getY() + player.getVelocity());
             }
@@ -40,16 +47,18 @@ public class PlayerController extends Controller<Game> {
         position.setY(position.getY() + player.getVelocity());
         player.setVelocity(player.getVelocity() + player.getGravity());
 
-        if(position.getY() > LanternaGUI.height - 1) {
+        if (position.getY() > LanternaGUI.height - 1) {
             position.setY(29);
             player.setVelocity(0);
         }
     }
 
     @Override
-    public void step(App app, GUI.ACTION action) {
+    public void step(App app, KeyStroke key) {
         updatePosition();
-        if (action == GUI.ACTION.JUMP)
+        if (key == null) return;
+        if (key.getKeyType() == KeyType.Character && key.getCharacter() == ' ') {
             jumpPlayer();
+        }
     }
 }
