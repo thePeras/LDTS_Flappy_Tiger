@@ -1,6 +1,7 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
+import feup.ldts.flappy.model.Colors;
 import feup.ldts.flappy.model.game.Element;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Position;
@@ -19,9 +20,9 @@ public class GameViewer extends Viewer<Game> {
 
     @Override
     public void drawElements(GUI gui) {
+        drawSky(gui);
         drawElement(gui, getModel().getPlayer(), new PlayerViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());
-        //drawElements(gui, getModel().getCollectables(), new FoodViewer());
         drawCollectables(gui, getModel().getCollectables());
         drawScore(gui);
     }
@@ -36,7 +37,9 @@ public class GameViewer extends Viewer<Game> {
     }
 
     private void drawScore(GUI gui) {
-        gui.drawText(new Position(0,0), "Score: " + getModel().getScore(), "#FC6A03");
+        String scoreText = "SCORE: " + getModel().getScore();
+        gui.drawRectangle(new Position(0, 0), scoreText.length() + 2,3, Colors.WHITE.getHex());
+        gui.drawText(new Position(1,1), scoreText, "#FC6A03", Colors.WHITE.getHex());
     }
 
     private void drawCollectables(GUI gui, List<Collectable> collectables) {
@@ -51,5 +54,9 @@ public class GameViewer extends Viewer<Game> {
                 new PortoWineViewer().draw((PortoWine) collectable, gui);
             }
         }
+    }
+
+    private void drawSky(GUI gui) {
+        gui.paintBackground(Colors.BLUE.getHex());
     }
 }

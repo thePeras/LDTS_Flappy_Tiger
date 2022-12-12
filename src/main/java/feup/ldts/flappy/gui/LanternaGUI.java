@@ -1,5 +1,6 @@
 package feup.ldts.flappy.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -9,6 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import feup.ldts.flappy.model.Colors;
 import feup.ldts.flappy.model.game.Position;
 
 import java.awt.*;
@@ -63,20 +65,42 @@ public class LanternaGUI implements GUI {
 
     public KeyStroke getNextAction() throws IOException {
         return screen.pollInput();
-
     }
 
-    @Override
-    public void drawText(Position position, String text, String color) {
+    public void drawText(Position position, String text, String color, String backgroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
         tg.putString(position.getX(), position.getY(), text);
     }
 
+    public void drawMenuText(Position position, String text, String color) {
+        drawText(position, text, color, Colors.MENU_BACKGROUND.getHex());
+    }
+
+    public void drawLine(Position position, String text, String color) {
+        drawPixel(position, (char) 138, Colors.ORANGE.getHex(), Colors.MENU_BACKGROUND.getHex());
+        Position startTextPosition = new Position(position.getX() + 1, position.getY());
+        drawText(startTextPosition, text, color, Colors.MENU_BACKGROUND.getHex());
+    }
+
+    public void paintBackground(String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height+1), ' ');
+    }
+
+    public void drawRectangle(Position position, int width, int height, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.drawRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), ' ');
+    }
+
     @Override
-    public void drawPixel(Position position, char c, String color) {
+    public void drawPixel(Position position, char c, String color, String backgroundColor) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
         tg.putString(position.getX(), position.getY(), "" + c);
     }
 
@@ -88,6 +112,12 @@ public class LanternaGUI implements GUI {
     @Override
     public int getHeight() {
         return height;
+    }
+
+    public void paintPixel(Position position, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.putString(position.getX(), position.getY(), " ");
     }
 
     @Override
