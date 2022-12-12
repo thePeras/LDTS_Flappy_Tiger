@@ -1,6 +1,7 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
+import feup.ldts.flappy.model.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Pause;
 import feup.ldts.flappy.view.Viewer;
@@ -14,13 +15,15 @@ public class PauseViewer extends Viewer<Pause> {
     }
 
     protected void drawElements(GUI gui) {
-        gui.drawText(new Position(8, 11), "Pause", "#FC6A03");
+        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());
+
+        gui.drawMenuText(new Position(8, 11), "Pause", "#FC6A03");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             if (getModel().isSelected(i)) {
-                gui.drawText(new Position(8, 13 + i), ">" + getModel().getEntry(i), "#FC6A03");
+                gui.drawMenuText(new Position(8, 13 + i), ">" + getModel().getEntry(i), "#FC6A03");
             } else {
-                gui.drawText(new Position(9, 13 + i), getModel().getEntry(i), "#FFFFFF");
+                gui.drawMenuText(new Position(9, 13 + i), getModel().getEntry(i), "#FFFFFF");
             }
         }
     }

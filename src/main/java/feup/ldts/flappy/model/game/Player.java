@@ -27,13 +27,9 @@ public class Player extends Element {
     public List<Position> getPositions() {
         return List.of(
                 new Position(this.getPosition().getX(), this.getPosition().getY()),
-                new Position(this.getPosition().getX(), this.getPosition().getY() + 1),
                 new Position(this.getPosition().getX() + 1, this.getPosition().getY()),
+                new Position(this.getPosition().getX(), this.getPosition().getY() + 1),
                 new Position(this.getPosition().getX() + 1, this.getPosition().getY() + 1)
         );
-    }
-
-    public boolean isColliding(Player player) {
-        return this.getPositions().stream().anyMatch(player.getPositions()::contains);
     }
 }

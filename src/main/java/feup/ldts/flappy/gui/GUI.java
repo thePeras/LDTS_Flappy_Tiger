@@ -8,9 +8,13 @@ import java.io.IOException;
 public interface GUI {
     KeyStroke getNextAction() throws IOException;
 
-    void drawPixel(Position position, char c, String color);
-    void drawText(Position position, String text, String color);
+    void drawPixel(Position position, char c, String color, String backgroundColor);
+    void paintPixel(Position position, String color);
+    void drawText(Position position, String text, String color, String backgroundColor);
+    void drawMenuText(Position position, String text, String color);
     void drawLine(Position position, String text, String color);
+    void paintBackground(String color);
+    void drawRectangle(Position position, int width, int height, String color);
 
     void clear();
 
