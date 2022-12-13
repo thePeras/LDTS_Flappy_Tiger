@@ -4,6 +4,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Wall;
 
@@ -44,16 +45,32 @@ public class GameController extends Controller<Game> {
 
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-        if (key != null && key.getKeyType() == KeyType.Escape) {
-            getModel().setPlaying(false);
-            app.setState(PauseState);
+        if (key != null) {
+            if(key.getKeyType() == KeyType.Escape) {
+                getModel().setPlaying(false);
+                app.setState(PauseState);
+            }
+            if(key.getKeyType() == KeyType.Character) {
+                if(key.getCharacter() == 'p') {
+                    getModel().setPlaying(false);
+                    app.setState(PauseState);
+                }
+                if(key.getCharacter() == 'q') {
+                    getModel().setPlaying(false);
+                    app.setState(PauseState);
+                }
+                if(key.getCharacter() == 'm') {
+                    SoundManager.getInstance().toggleGameMusicMute();
+                }
+                if(key.getCharacter() == 's') {
+                    SoundManager.getInstance().toggleSoundMute();
+                }
+            }
         }
-        else {
-            playerController.step(app, key);
-            elementsFactory.step();
-            movingElementsController.step(app, key);
-            collisionController.step(app, key);
-            updateScore();
-        }
+        playerController.step(app, key);
+        elementsFactory.step();
+        movingElementsController.step(app, key);
+        collisionController.step(app, key);
+        updateScore();
     }
 }

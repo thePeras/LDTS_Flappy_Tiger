@@ -8,9 +8,13 @@ import java.io.File;
 
 public class Sound {
     private Clip sound;
+    private float volume;
+
+    private FloatControl floatControl;
 
     public Sound(String soundFile) {
         this.sound = load(soundFile);
+        this.floatControl = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);
         setVolume(0.2);
     }
 
@@ -51,11 +55,20 @@ public class Sound {
 
     public void setVolume(double volume) {
         if (volume < 0.0 || volume > 1.0) throw new IllegalArgumentException("Volume not valid: " + volume);
-        FloatControl gainControl = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue((float) (Math.log(volume) / Math.log(10.0) * 20.0));
+        float value = (float) (Math.log(volume) / Math.log(10.0) * 20.0);
+        floatControl.setValue(value);
+        this.volume = value;
     }
 
     public boolean isRunning() {
         return sound.isRunning();
+    }
+
+    public void toggleMute() {
+        if(floatControl.getValue() == -80.0) {
+            floatControl.setValue(volume);
+        } else {
+            floatControl.setValue(-80.0f);
+        }
     }
 }

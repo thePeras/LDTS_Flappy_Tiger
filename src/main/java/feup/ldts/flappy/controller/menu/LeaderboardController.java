@@ -4,6 +4,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.menu.Leaderboard;
 
 import java.awt.*;
@@ -24,6 +25,14 @@ public class LeaderboardController extends Controller<Leaderboard> {
         if (key == null) return;
         if (key.getKeyType() == KeyType.Escape) {
             game.setState(MenuState);
+        }
+        if(key.getKeyType() == KeyType.Character) {
+            if(key.getCharacter() == 'm') {
+                SoundManager.getInstance().toggleMenuMusicMute();
+            }
+            if(key.getCharacter() == 's') {
+                SoundManager.getInstance().toggleSoundMute();
+            }
         }
     }
 }
