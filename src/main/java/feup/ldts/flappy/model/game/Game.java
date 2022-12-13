@@ -1,7 +1,9 @@
 package feup.ldts.flappy.model.game;
 
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.collectables.Collectable;
+import feup.ldts.flappy.model.sound.SoundEffects;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -63,6 +65,7 @@ public class Game {
     public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
 
     public void consumeCollectable(Collectable collectable){
+        SoundManager.getInstance().playSoundEffect(SoundEffects.CONSUME);
         collectable.consume(this);
     }
 
@@ -95,6 +98,7 @@ public class Game {
             updateWalls();
             if(godModeSteps == GOD_MODE_MAX_STEPS) {
                 isInGodMode = false;
+                SoundManager.getInstance().stopGodModeSound();
             }
         }
     }
@@ -103,5 +107,6 @@ public class Game {
         isInGodMode = true;
         godModeSteps = 0;
         updateWalls();
+        SoundManager.getInstance().playGodModeSound();
     }
 }

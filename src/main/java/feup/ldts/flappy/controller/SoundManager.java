@@ -14,6 +14,9 @@ public class SoundManager {
     private Sound startEffectSound;
     private Sound gameOverSound;
     private Sound flapSound;
+    private Sound consumeSound;
+
+    private Sound godModeSound;
 
     private SoundManager() {
         this.menuBackgroundMusic = new Sound("src/main/resources/sounds/menu_background.wav");
@@ -23,6 +26,10 @@ public class SoundManager {
         this.startEffectSound = new Sound("src/main/resources/sounds/start_effect.wav");
         this.gameOverSound = new Sound("src/main/resources/sounds/game_over_effect.wav");
         this.flapSound = new Sound("src/main/resources/sounds/flap_effect.wav");
+        this.consumeSound = new Sound("src/main/resources/sounds/consume_effect.wav");
+        this.godModeSound = new Sound("src/main/resources/sounds/god_mode_background.wav");
+
+        this.menuBackgroundMusic.setVolume(0.05);
     }
 
     public static SoundManager getInstance() {
@@ -43,15 +50,15 @@ public class SoundManager {
                 gameBackgroundMusic.loop();
                 break;
         }
-        menuBackgroundMusic.setVolume(0.05);
     }
 
     public void pauseBackgroundSound() {
         gameBackgroundMusic.stop();
+        godModeSound.stop();
     }
 
     public void resumeBackgroundSound() {
-        gameBackgroundMusic.resume();
+        gameBackgroundMusic.loop();
     }
 
     public void playSoundEffect(SoundEffects effect) {
@@ -71,11 +78,27 @@ public class SoundManager {
             case FLAP:
                 flapSound.play();
                 break;
+            case CONSUME:
+                consumeSound.play();
+                break;
         }
+    }
+
+    public void playGodModeSound() {
+        pauseBackgroundSound();
+        if (!godModeSound.isRunning()) {
+            godModeSound.loop();
+        }
+    }
+
+    public void stopGodModeSound() {
+        godModeSound.stop();
+        resumeBackgroundSound();
     }
 
     public void stopAll() {
         menuBackgroundMusic.stop();
         gameBackgroundMusic.stop();
+        godModeSound.stop();
     }
 }

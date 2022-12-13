@@ -11,7 +11,7 @@ public class Sound {
 
     public Sound(String soundFile) {
         this.sound = load(soundFile);
-        setVolume(0.1);
+        setVolume(0.2);
     }
 
     private Clip load(String soundFile) throws NullPointerException {
@@ -55,7 +55,7 @@ public class Sound {
         gainControl.setValue((float) (Math.log(volume) / Math.log(10.0) * 20.0));
     }
 
-    public boolean isPlaying() {
+    public boolean isRunning() {
         return sound.isRunning();
     }
 }
