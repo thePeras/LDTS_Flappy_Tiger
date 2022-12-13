@@ -7,8 +7,10 @@ import java.util.List;
 public enum Colors {
     ORANGE("#FC6A03"),
     BLUE("#8ECAE6"),
-    GREEN("#3B5110"),
-    WHITE("#FFFFFF"),
+    DARK_BLUE("#08001f"),
+    GREEN("#6b9e06"),
+    DARK_GREEN("#3B5110"),
+    WHITE("#e8e8e8"),
     MENU_BACKGROUND("#101010"),
     BROWN("#624226"),
     GREY("#969696");

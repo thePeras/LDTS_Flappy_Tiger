@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Game {
-    private static final int GOD_MODE_MAX_STEPS = 60;
+    private static final int GOD_MODE_MAX_STEPS = 100;
     private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
     private boolean isPlaying;

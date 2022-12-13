@@ -25,15 +25,25 @@ public class PauseController extends Controller<Pause> {
         if (key == null) return;
         if (key.getKeyType() == KeyType.ArrowUp) {
             getModel().previousOption();
-        } else if (key.getKeyType() == KeyType.ArrowDown) {
+        }
+        if (key.getKeyType() == KeyType.ArrowDown) {
             getModel().nextOption();
-        } else if (key.getKeyType() == KeyType.Enter) {
+        }
+        if (key.getKeyType() == KeyType.Enter) {
             SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
             if (getModel().isSelectedResume()) {
                 game.setState(PrevGameState);
             }
             if (getModel().isSelectedRestart()) game.setState(GameState);
             if (getModel().isSelectedExit()) game.setState(MenuState);
+        }
+        if(key.getKeyType() == KeyType.Character) {
+            if(key.getCharacter() == 'm') {
+                SoundManager.getInstance().toggleMenuMusicMute();
+            }
+            if(key.getCharacter() == 's') {
+                SoundManager.getInstance().toggleSoundMute();
+            }
         }
     }
 }
