@@ -18,9 +18,6 @@ and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
 - **Leaderboard** - The game keeps track of the top 10 scores, and displays them in a leaderboard.
 - **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by pressing the
   space bar key.
-
-### PLANNED FEATURES
-
 - **Random Walls** - The walls are randomly generated, with a minimum distance between them.
 - **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.
 - **Sound effects** - The game has sound effects. The sound effects can be turned on and off by pressing the 's' key.
@@ -32,6 +29,10 @@ and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
     - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased,
       making the game easier.
 - **Curiosities** - There is curiosities about animals that can be found on the main mainMenu.
+
+### PLANNED FEATURES
+
+- All of the features were implemented.
 
 ### MOCKUPS
 
