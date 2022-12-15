@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CollectableCreator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.model.game.creators</a> &gt; <span class="el_source">CollectableCreator.java</span></div><h1>CollectableCreator.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.model.game.creators;
+
+import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.collectables.Boar;
+import feup.ldts.flappy.model.game.collectables.Collectable;
+import feup.ldts.flappy.model.game.collectables.Lamb;
+import feup.ldts.flappy.model.game.collectables.PortoWine;
+
+import java.util.Random;
+
+public class CollectableCreator extends Creator&lt;Collectable&gt; {
+    private final static int margin = 5;
+    private final static int lambProbability = 20;
+
+    private final static int portoWineProbability = 10;
+
+    private final Random random;
+
+<span class="nc" id="L20">    public CollectableCreator() {</span>
+<span class="nc" id="L21">        this.random = new Random();</span>
+<span class="nc" id="L22">    }</span>
+
+    @Override
+    public Collectable create() {
+<span class="nc" id="L26">        int randomY = random.nextInt(LanternaGUI.height - 2*margin) + margin;</span>
+<span class="nc" id="L27">        Position randomPosition = new Position(LanternaGUI.width, randomY);</span>
+
+<span class="nc" id="L29">        int randomType = random.nextInt(100);</span>
+
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if(randomType &lt; portoWineProbability) {</span>
+<span class="nc" id="L32">            return new PortoWine(randomPosition);</span>
+        }
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if(randomType &lt; lambProbability + portoWineProbability) {</span>
+<span class="nc" id="L35">            return new Lamb(randomPosition);</span>
+        }
+        else {
+<span class="nc" id="L38">            return new Boar(randomPosition);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
