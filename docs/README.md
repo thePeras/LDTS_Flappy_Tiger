@@ -151,7 +151,7 @@ playing the music and sound effects.
 
 Singleton pattern ensures that only one instance of the class managing the music and sound effects is created. This
 object is also accessible from everywhere.
-In resume, there is onyl a single point to access the music and sound effects.
+In resume, there is only a single point to access the music and sound effects.
 
 **Implementation**
 
@@ -164,6 +164,49 @@ effects and we can be easily access them from anywhere in the code.
 Also, because there is only a single object of the class, it is imposible to have two background musics playing at the
 same time, for example.
 Changing the music and sound effects turns out to be a easy task now.
+
+------
+
+#### Collectables Command Pattern
+
+**Problem in Context**
+
+Different collectables have different effects on the game. For example, the Food increases the score and the PortoWine start the god mode. So, we need to have a way to execute the effect of the collectable without having to check the type of the collectable in the game.
+
+**The Pattern**
+
+With the command pattern, each collectable has its own consume command that is executed when the player collides with it. 
+That command is responsible for producing the effect of the collectable.
+
+**Implementation**
+
+![img](./images/patterns/Command%20Pattern.png)
+
+**Consequences**
+
+Because each collectable has its own command we can easily add new collectables without having to change the code of the game. So, the code becomes more flexible and maintainable.
+Also, another benefit of this pattern is that the consume code is isolated from the rest of the game.
+
+------
+
+#### Elements Factory Method
+
+**Problem in Context**
+
+The game has several elements that are created in different ways and probabilities. For example, no two collectables are created in the same x position and also the walls are created alternating with the collectables. We decided to centralize the creation of the game elements in a single class, ElementsFactory.
+
+**The Pattern**
+
+Factory Method defines an interface for creating an object, but lets subclasses decide which class to instantiate.
+For example, the createCollectable method is defined in the ElementsFactory class, but the subclass CollectableCreator decide which collectable to create based on probability. It can create a Food or a PortoWine.
+
+**Implementation**
+
+![img](./images/patterns/Factory%20Method.png)
+
+**Consequences**
+
+The creation of elements is centralized in the ElementsFactory class and all the logic of the creation is isolated from the rest of the code.
 
 ------
 

@@ -19,12 +19,10 @@ public class PlayerController extends Controller<Game> {
 
     private final Player player;
     private int waitingCounter = 0;
-    private CollisionController collisionController;
 
     public PlayerController(Game game) {
         super(game);
         this.player = game.getPlayer();
-        this.collisionController = new CollisionController(game);
     }
 
     public void jumpPlayer() {

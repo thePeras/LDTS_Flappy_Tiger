@@ -19,11 +19,6 @@ public class MovingElementsController extends Controller<Game> {
         super(model);
     }
 
-    @Override
-    public Game getModel() {
-        return super.getModel();
-    }
-
     private void moveWalls(){
         Iterator<Wall> wallIterator = getModel().getWalls().iterator();
         while (wallIterator.hasNext()){
