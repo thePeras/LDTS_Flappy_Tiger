@@ -1,10 +1,20 @@
 ## LDTS_0402 - Flappy Tiger
 
-This project was developed as a project for the Software Design and Testing Laboratory course, at FEUP. It is a remake
-of the well known flappy bird game, with a few twists.
+The Flappy Tiger is game trully inspired by the Flappy Bird game, but with a few twists.
+The objective of the game is to maneuver a small tiger, the protagonist, through a series of walls coming from the right.
 
-This project was developed by *Francisco da Ana* (*up202108762*@fe.up.pt), *João Torre Pereira* (*up202108848*@fe.up.pt)
-and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
+Each wall has a gap and the player must pass through the gap to score a point. The game ends when the player collides with a wall or hits the floor. 
+The player can also collect collectables, that give the player points or start a god mode, where the gap between the walls is increased, making the game easier.
+
+Be aware that Flappy Tiger is an addicting game that tests the player's reflexes and patience. It's a great way to challenge yourself.
+
+Developed by 
+- **Francisco da Ana** (up202108762)
+- **João Torre Pereira** (up202108848)
+- **José Pedro Evans** (up202108848) 
+
+LDTS 2022⁄23 <br>
+Software Design and Testing Laboratory
 
 ### IMPLEMENTED FEATURES
 
