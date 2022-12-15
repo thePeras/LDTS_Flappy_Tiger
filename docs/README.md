@@ -8,26 +8,24 @@ and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
 
 ### IMPLEMENTED FEATURES
 
-- **Playable Character** - Currently the game chracter already jumps, but it is not a tiger.
+- **Playable Character** - The game has a playable character, which is a tiger, that can be controlled by the player. The
+  player can control the tiger by pressing the space bar key.
 - **Main Menu** - The game has a main mainMenu, that can be accessed by pressing the escape key. The main mainMenu has
   the following options:
     - **Play** - Starts a new game.
-    - **Leaderboard** - Displays the top 10 scores.
+    - **Leaderboard** - Displays the top 5 scores.
     - **Instructions** - Displays the instructions of the game.
     - **Exit** - Exits the game.
-- **Leaderboard** - The game keeps track of the top 10 scores, and displays them in a leaderboard.
-- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by pressing the
-  space bar key.
+- **Leaderboard** - The game keeps track of the top 5 scores, and displays them in a leaderboard, ordered by descending order of score.
+- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by selecting the 'Resume' option in the main mainMenu. The player can also exit the game by selecting the 'Exit' option and restart the game by selecting the 'Restart' option.
 - **Random Walls** - The walls are randomly generated, with a minimum distance between them.
-- **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.
+- **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.The music is different for the main mainMenu and the game.
 - **Sound effects** - The game has sound effects. The sound effects can be turned on and off by pressing the 's' key.
-- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the
-  player and the collectable objects. When the player collides with the walls or floor, the game ends.
-- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor.
+- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the  player and the collectable objects. When the player collides with the walls or floor, the game ends.
+- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor. The player can input its userName and if the score is greater than the  lowest score in the leaderboard, the score will be added to the leaderboard.
 - **Collectable Objects** - The game has collectable objects, that can be collected by the player:
     - **Deer** and **Boar** - The deer can be collected by the player, and gives the player 5 points.
-    - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased,
-      making the game easier.
+    - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased, making the game easier.
 - **Curiosities** - There is curiosities about animals that can be found on the main mainMenu.
 
 ### PLANNED FEATURES
