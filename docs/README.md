@@ -36,10 +36,11 @@ and *José Pedro Evans* (*up202108848*@fe.up.pt) LDTS 2022⁄23.
 
 ### MOCKUPS
 
-![img](./images/mockups/Main_Menu2.png)
-![img](./images/mockups/Leaderboard.png)
-![img](./images/mockups/Instructions.png)
-![img](./images/mockups/Game.png)
+![img](./images/mockups/Main_Menu.png) { width: 200px; }
+![img](./images/mockups/Leaderboard.png) { width: 200px; }
+![img](./images/mockups/Instructions.png) { width: 200px; }
+![img](./images/mockups/Game.png) { width: 200px; }
+![img](./images/mockups/GameOver_Menu.png) { width: 200px; }
 
 ### UML
 
