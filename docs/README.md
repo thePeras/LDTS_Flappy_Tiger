@@ -11,7 +11,7 @@ Be aware that Flappy Tiger is an addicting game that tests the player's reflexes
 Developed by 
 - **Francisco da Ana** (up202108762)
 - **João Torre Pereira** (up202108848)
-- **José Pedro Evans** (up202108848) 
+- **José Pedro Evans** (up202108818) 
 
 LDTS 2022⁄23 <br>
 Software Design and Testing Laboratory
