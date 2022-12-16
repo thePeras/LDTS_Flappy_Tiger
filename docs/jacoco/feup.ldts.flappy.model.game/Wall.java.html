@@ -11,48 +11,48 @@ public class Wall extends Element implements Collidable {
 
 
     public Wall(int height) {
-<span class="nc" id="L14">        super(new Position(LanternaGUI.width, 0));</span>
-<span class="nc" id="L15">        this.height = height;</span>
-<span class="nc" id="L16">        this.space = normalSpace;</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L14">        super(new Position(LanternaGUI.width, 0));</span>
+<span class="fc" id="L15">        this.height = height;</span>
+<span class="fc" id="L16">        this.space = normalSpace;</span>
+<span class="fc" id="L17">    }</span>
 
     public void setSpace(int newSpace) {
-<span class="nc" id="L20">        this.space = newSpace;</span>
-<span class="nc" id="L21">        int newHeight = this.getHeight() - newSpace/2;</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        this.height = newHeight &gt; 0 ? newHeight : 1;</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L20">        this.space = newSpace;</span>
+<span class="fc" id="L21">        int newHeight = this.getHeight() - newSpace/2;</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        this.height = newHeight &gt; 0 ? newHeight : 1;</span>
+<span class="fc" id="L23">    }</span>
 
     public int getHeight() {
-<span class="nc" id="L26">        return height;</span>
+<span class="fc" id="L26">        return height;</span>
     }
 
     public static int getSpeed() {
-<span class="nc" id="L30">        return speed;</span>
+<span class="fc" id="L30">        return speed;</span>
     }
 
     public void setX(int x) {
-<span class="nc" id="L34">        this.setPosition(new Position(x, this.getPosition().getY()));</span>
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L34">        this.setPosition(new Position(x, this.getPosition().getY()));</span>
+<span class="fc" id="L35">    }</span>
 
     public boolean isGapHeight(int y) {
-<span class="nc bnc" id="L38" title="All 4 branches missed.">        return y &gt; this.height &amp;&amp; y &lt;= this.height + this.space;</span>
+<span class="pc bpc" id="L38" title="1 of 4 branches missed.">        return y &gt; this.height &amp;&amp; y &lt;= this.height + this.space;</span>
     }
 
     public boolean isOutOfScreen() {
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        return this.getPosition().getX() &lt; -1;</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        return this.getPosition().getX() &lt; -1;</span>
     }
     public void move() {
-<span class="nc" id="L45">        this.setX(this.getPosition().getX() + getSpeed());</span>
-<span class="nc" id="L46">    }</span>
+<span class="fc" id="L45">        this.setX(this.getPosition().getX() + getSpeed());</span>
+<span class="fc" id="L46">    }</span>
 
     public boolean isCollidingWithPlayer(Player player) {
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        for (int y = 0; y &lt; LanternaGUI.height; y++) {</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">            if(isGapHeight(y)) continue;</span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||</span>
-<span class="nc bnc" id="L52" title="All 2 branches missed.">                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {</span>
-<span class="nc" id="L53">                return true;</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        for (int y = 0; y &lt; LanternaGUI.height; y++) {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if(isGapHeight(y)) continue;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {</span>
+<span class="fc" id="L53">                return true;</span>
             }
-<span class="nc bnc" id="L55" title="All 4 branches missed.">            if(player.getPosition().getY() &lt; 0 &amp;&amp; this.getPosition().getX() == player.getPosition().getX()) {</span>
+<span class="pc bpc" id="L55" title="3 of 4 branches missed.">            if(player.getPosition().getY() &lt; 0 &amp;&amp; this.getPosition().getX() == player.getPosition().getX()) {</span>
 <span class="nc" id="L56">                return true;</span>
             }
         }
