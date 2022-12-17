@@ -238,20 +238,20 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_16'/>
 16
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_16'>1</a>
 <span>
-1. getVelocity : replaced int return with 0 for feup/ldts/flappy/model/game/Player::getVelocity &rarr; NO_COVERAGE<br/>
+1. getVelocity : replaced int return with 0 for feup/ldts/flappy/model/game/Player::getVelocity &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return velocity;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return velocity;</span></pre></td></tr>
 
 
 <tr>
@@ -300,7 +300,7 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_20'/>
 20
 </td>
@@ -311,11 +311,11 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.velocity = Math.min(velocity, maxVelocity);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.velocity = Math.min(velocity, maxVelocity);</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_21'/>
 21
 </td>
@@ -326,7 +326,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -360,20 +360,20 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_24'/>
 24
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_24'>1</a>
 <span>
-1. getGravity : replaced int return with 0 for feup/ldts/flappy/model/game/Player::getGravity &rarr; NO_COVERAGE<br/>
+1. getGravity : replaced int return with 0 for feup/ldts/flappy/model/game/Player::getGravity &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return gravity;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return gravity;</span></pre></td></tr>
 
 
 <tr>
@@ -426,16 +426,16 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_28'/>
 28
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_28'>1</a>
 <span>
-1. getPositions : replaced return value with Collections.emptyList for feup/ldts/flappy/model/game/Player::getPositions &rarr; SURVIVED<br/>
+1. getPositions : replaced return value with Collections.emptyList for feup/ldts/flappy/model/game/Player::getPositions &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='survived'>        return List.of(</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return List.of(</span></pre></td></tr>
 
 
 <tr>
@@ -458,16 +458,16 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_30'/>
 30
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_30'>1</a>
 <span>
-1. getPositions : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+1. getPositions : Replaced integer addition with subtraction &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='survived'>                new Position(this.getPosition().getX() + 1, this.getPosition().getY()),</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                new Position(this.getPosition().getX() + 1, this.getPosition().getY()),</span></pre></td></tr>
 
 
 <tr>
@@ -475,16 +475,16 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_31'/>
 31
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_31'>1</a>
 <span>
-1. getPositions : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+1. getPositions : Replaced integer addition with subtraction &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='survived'>                new Position(this.getPosition().getX(), this.getPosition().getY() + 1),</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                new Position(this.getPosition().getX(), this.getPosition().getY() + 1),</span></pre></td></tr>
 
 
 <tr>
@@ -492,17 +492,17 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@330c1f61_32'/>
 32
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_32'>2</a>
 <span>
-1. getPositions : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
-2. getPositions : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+1. getPositions : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. getPositions : Replaced integer addition with subtraction &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='survived'>                new Position(this.getPosition().getX() + 1, this.getPosition().getY() + 1)</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                new Position(this.getPosition().getX() + 1, this.getPosition().getY() + 1)</span></pre></td></tr>
 
 
 <tr>
@@ -560,7 +560,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_16'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getVelocity<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Player::getVelocity &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getVelocity<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_1]</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Player::getVelocity &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -570,7 +570,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_24'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGravity<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Player::getGravity &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGravity<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_3]</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Player::getGravity &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -580,7 +580,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_28'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>none</span></span> replaced return value with Collections.emptyList for feup/ldts/flappy/model/game/Player::getPositions &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_4]</span></span> replaced return value with Collections.emptyList for feup/ldts/flappy/model/game/Player::getPositions &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -590,7 +590,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_30'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_4]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -600,7 +600,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_31'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_4]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -610,7 +610,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@330c1f61_32'/> 
 
-<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_4]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getPositions<br/><b>Killed by : </b>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_4]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -635,7 +635,7 @@
 
 <h2>Tests examined</h2>
 <ul>
-<li>feup.ldts.flappy.gui.LanternaGUITest.[engine:spock]/[spec:feup.ldts.flappy.gui.LanternaGUITest]/[feature:$spock_feature_0_0] (10 ms)</li><li>feup.ldts.flappy.view.game.GameViewerTest.[engine:junit-jupiter]/[class:feup.ldts.flappy.view.game.GameViewerTest]/[method:testDraw()] (8 ms)</li><li>feup.ldts.flappy.view.game.GameViewerTest.[engine:junit-jupiter]/[class:feup.ldts.flappy.view.game.GameViewerTest]/[method:refreshAndClear()] (21 ms)</li><li>feup.ldts.flappy.view.game.PlayerViewerTest.[engine:junit-jupiter]/[class:feup.ldts.flappy.view.game.PlayerViewerTest]/[method:testDraw()] (16 ms)</li>
+<li>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_2] (7 ms)</li><li>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_3] (2 ms)</li><li>feup.ldts.flappy.gui.LanternaGUITest.[engine:spock]/[spec:feup.ldts.flappy.gui.LanternaGUITest]/[feature:$spock_feature_0_0] (6 ms)</li><li>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_4] (2 ms)</li><li>feup.ldts.flappy.view.game.GameViewerTest.[engine:junit-jupiter]/[class:feup.ldts.flappy.view.game.GameViewerTest]/[method:testDraw()] (10 ms)</li><li>feup.ldts.flappy.view.game.GameViewerTest.[engine:junit-jupiter]/[class:feup.ldts.flappy.view.game.GameViewerTest]/[method:refreshAndClear()] (17 ms)</li><li>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_0] (5 ms)</li><li>feup.ldts.flappy.view.game.PlayerViewerTest.[engine:junit-jupiter]/[class:feup.ldts.flappy.view.game.PlayerViewerTest]/[method:testDraw()] (9 ms)</li><li>feup.ldts.flappy.model.game.PlayerTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.PlayerTest]/[feature:$spock_feature_0_1] (2 ms)</li>
 </ul>
 
 <br/>

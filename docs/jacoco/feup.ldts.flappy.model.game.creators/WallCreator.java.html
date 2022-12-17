@@ -8,16 +8,12 @@ import java.util.Random;
 
 public class WallCreator extends Creator&lt;Wall&gt; {
     private final static int margin = 5;
-
     private Random random;
-
-<span class="nc" id="L14">    public WallCreator() {this.random = new Random();}</span>
-
-
+<span class="nc" id="L12">    public WallCreator() {this.random = new Random();}</span>
     @Override
     public Wall create() {
-<span class="nc" id="L19">        int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;</span>
-<span class="nc" id="L20">        return new Wall(randomHeight);</span>
+<span class="nc" id="L15">        int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;</span>
+<span class="nc" id="L16">        return new Wall(randomHeight);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

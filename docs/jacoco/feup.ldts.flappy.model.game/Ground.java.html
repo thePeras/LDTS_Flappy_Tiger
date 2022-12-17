@@ -8,12 +8,12 @@ public class Ground extends Element implements Collidable {
 
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-<span class="nc bnc" id="L11" title="All 2 branches missed.">        for (Position position : player.getPositions()) {</span>
-<span class="nc bnc" id="L12" title="All 2 branches missed.">            if (position.getY() == this.getPosition().getY()) {</span>
-<span class="nc" id="L13">                return true;</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (Position position : player.getPositions()) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            if (position.getY() == this.getPosition().getY()) {</span>
+<span class="fc" id="L13">                return true;</span>
             }
-<span class="nc" id="L15">        }</span>
-<span class="nc" id="L16">        return false;</span>
+<span class="fc" id="L15">        }</span>
+<span class="fc" id="L16">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

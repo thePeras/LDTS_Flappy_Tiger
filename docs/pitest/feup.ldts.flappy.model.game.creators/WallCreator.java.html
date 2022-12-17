@@ -174,11 +174,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    private Random random;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_12'/>
 12
 </td>
@@ -189,7 +189,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private Random random;</span></pre></td></tr>
+<td class='uncovered'><pre><span  class=''>    public WallCreator() {this.random = new Random();}</span></pre></td></tr>
 
 
 <tr>
@@ -204,11 +204,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_14'/>
 14
 </td>
@@ -219,37 +219,41 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    public WallCreator() {this.random = new Random();}</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public Wall create() {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_15'/>
 15
 </td>
-<td class=''>
+<td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_15'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_15'>1</a>
 <span>
+1. create : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='uncovered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_16'/>
 16
 </td>
-<td class=''>
+<td class='survived'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_16'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_16'>1</a>
 <span>
+1. create : replaced return value with null for feup/ldts/flappy/model/game/creators/WallCreator::create &rarr; NO_COVERAGE<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='uncovered'><pre><span  class='survived'>        return new Wall(randomHeight);</span></pre></td></tr>
 
 
 <tr>
@@ -264,7 +268,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -279,70 +283,6 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public Wall create() {</span></pre></td></tr>
-
-
-<tr>
-<td class='uncovered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_19'/>
-19
-</td>
-<td class='survived'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_19'>1</a>
-<span>
-1. create : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
-
-</span>
-</span>
-</td>
-<td class='uncovered'><pre><span  class='survived'>        int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;</span></pre></td></tr>
-
-
-<tr>
-<td class='uncovered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_20'/>
-20
-</td>
-<td class='survived'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_20'>1</a>
-<span>
-1. create : replaced return value with null for feup/ldts/flappy/model/game/creators/WallCreator::create &rarr; NO_COVERAGE<br/>
-
-</span>
-</span>
-</td>
-<td class='uncovered'><pre><span  class='survived'>        return new Wall(randomHeight);</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_21'/>
-21
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_21'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@63d5874f_22'/>
-22
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_22'></a>
-<span>
-</span>
-</span>
-</td>
 <td class=''><pre><span  class=''>}</span></pre></td></tr>
 
 
@@ -350,21 +290,21 @@
 <tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@63d5874f_19'>19</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@63d5874f_15'>15</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_19'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_15'/> 
 
 <p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>create<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@63d5874f_20'>20</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@63d5874f_16'>16</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_20'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@63d5874f_16'/> 
 
 <p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>create<br/><b>Killed by : </b>none</span></span> replaced return value with null for feup/ldts/flappy/model/game/creators/WallCreator::create &rarr; NO_COVERAGE</p> 
 </td>
