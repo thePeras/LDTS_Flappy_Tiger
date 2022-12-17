@@ -208,7 +208,7 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_14'/>
 14
 </td>
@@ -219,11 +219,11 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        super(new Position(LanternaGUI.width, 0));</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        super(new Position(LanternaGUI.width, 0));</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_15'/>
 15
 </td>
@@ -234,11 +234,11 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.height = height;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.height = height;</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_16'/>
 16
 </td>
@@ -249,11 +249,11 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.space = normalSpace;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.space = normalSpace;</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_17'/>
 17
 </td>
@@ -264,7 +264,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -298,7 +298,7 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_20'/>
 20
 </td>
@@ -309,29 +309,29 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>        this.space = newSpace;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.space = newSpace;</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_21'/>
 21
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_21'>2</a>
 <span>
-1. setSpace : Replaced integer division with multiplication &rarr; NO_COVERAGE<br/>
-2. setSpace : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+1. setSpace : Replaced integer division with multiplication &rarr; KILLED<br/>
+2. setSpace : Replaced integer subtraction with addition &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        int newHeight = this.getHeight() - newSpace/2;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        int newHeight = this.getHeight() - newSpace/2;</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_22'/>
 22
 </td>
@@ -339,17 +339,17 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_22'>2</a>
 <span>
-1. setSpace : changed conditional boundary &rarr; NO_COVERAGE<br/>
-2. setSpace : negated conditional &rarr; NO_COVERAGE<br/>
+1. setSpace : changed conditional boundary &rarr; SURVIVED<br/>
+2. setSpace : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        this.height = newHeight &#62; 0 ? newHeight : 1;</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>        this.height = newHeight &#62; 0 ? newHeight : 1;</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_23'/>
 23
 </td>
@@ -360,7 +360,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -394,20 +394,20 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_26'/>
 26
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_26'>1</a>
 <span>
-1. getHeight : replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getHeight &rarr; NO_COVERAGE<br/>
+1. getHeight : replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getHeight &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return height;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return height;</span></pre></td></tr>
 
 
 <tr>
@@ -456,20 +456,20 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_30'/>
 30
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_30'>1</a>
 <span>
-1. getSpeed : replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getSpeed &rarr; NO_COVERAGE<br/>
+1. getSpeed : replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getSpeed &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return speed;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return speed;</span></pre></td></tr>
 
 
 <tr>
@@ -518,24 +518,24 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_34'/>
 34
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_34'>1</a>
 <span>
-1. setX : removed call to feup/ldts/flappy/model/game/Wall::setPosition &rarr; NO_COVERAGE<br/>
+1. setX : removed call to feup/ldts/flappy/model/game/Wall::setPosition &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        this.setPosition(new Position(x, this.getPosition().getY()));</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        this.setPosition(new Position(x, this.getPosition().getY()));</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_35'/>
 35
 </td>
@@ -546,7 +546,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -580,7 +580,7 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_38'/>
 38
 </td>
@@ -588,17 +588,17 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_38'>6</a>
 <span>
-1. isGapHeight : changed conditional boundary &rarr; NO_COVERAGE<br/>
-2. isGapHeight : changed conditional boundary &rarr; NO_COVERAGE<br/>
-3. isGapHeight : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
-4. isGapHeight : negated conditional &rarr; NO_COVERAGE<br/>
-5. isGapHeight : negated conditional &rarr; NO_COVERAGE<br/>
-6. isGapHeight : replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isGapHeight &rarr; NO_COVERAGE<br/>
+1. isGapHeight : changed conditional boundary &rarr; SURVIVED<br/>
+2. isGapHeight : changed conditional boundary &rarr; KILLED<br/>
+3. isGapHeight : Replaced integer addition with subtraction &rarr; KILLED<br/>
+4. isGapHeight : negated conditional &rarr; KILLED<br/>
+5. isGapHeight : negated conditional &rarr; KILLED<br/>
+6. isGapHeight : replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isGapHeight &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return y &#62; this.height &#38;&#38; y &#60;= this.height + this.space;</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>        return y &#62; this.height &#38;&#38; y &#60;= this.height + this.space;</span></pre></td></tr>
 
 
 <tr>
@@ -647,22 +647,22 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_42'/>
 42
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_42'>3</a>
 <span>
-1. isOutOfScreen : changed conditional boundary &rarr; NO_COVERAGE<br/>
-2. isOutOfScreen : negated conditional &rarr; NO_COVERAGE<br/>
-3. isOutOfScreen : replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isOutOfScreen &rarr; NO_COVERAGE<br/>
+1. isOutOfScreen : changed conditional boundary &rarr; KILLED<br/>
+2. isOutOfScreen : negated conditional &rarr; KILLED<br/>
+3. isOutOfScreen : replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isOutOfScreen &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        return this.getPosition().getX() &#60; -1;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return this.getPosition().getX() &#60; -1;</span></pre></td></tr>
 
 
 <tr>
@@ -696,25 +696,25 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_45'/>
 45
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_45'>2</a>
 <span>
-1. move : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
-2. move : removed call to feup/ldts/flappy/model/game/Wall::setX &rarr; NO_COVERAGE<br/>
+1. move : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. move : removed call to feup/ldts/flappy/model/game/Wall::setX &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        this.setX(this.getPosition().getX() + getSpeed());</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        this.setX(this.getPosition().getX() + getSpeed());</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_46'/>
 46
 </td>
@@ -725,7 +725,7 @@
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -759,7 +759,7 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_49'/>
 49
 </td>
@@ -767,17 +767,17 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_49'>2</a>
 <span>
-1. isCollidingWithPlayer : changed conditional boundary &rarr; NO_COVERAGE<br/>
-2. isCollidingWithPlayer : negated conditional &rarr; NO_COVERAGE<br/>
+1. isCollidingWithPlayer : changed conditional boundary &rarr; SURVIVED<br/>
+2. isCollidingWithPlayer : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>        for (int y = 0; y &#60; LanternaGUI.height; y++) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>        for (int y = 0; y &#60; LanternaGUI.height; y++) {</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_50'/>
 50
 </td>
@@ -785,16 +785,16 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_50'>1</a>
 <span>
-1. isCollidingWithPlayer : negated conditional &rarr; NO_COVERAGE<br/>
+1. isCollidingWithPlayer : negated conditional &rarr; SURVIVED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>            if(isGapHeight(y)) continue;</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>            if(isGapHeight(y)) continue;</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_51'/>
 51
 </td>
@@ -802,16 +802,16 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_51'>1</a>
 <span>
-1. isCollidingWithPlayer : negated conditional &rarr; NO_COVERAGE<br/>
+1. isCollidingWithPlayer : negated conditional &rarr; SURVIVED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_52'/>
 52
 </td>
@@ -819,30 +819,30 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_52'>2</a>
 <span>
-1. isCollidingWithPlayer : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
-2. isCollidingWithPlayer : negated conditional &rarr; NO_COVERAGE<br/>
+1. isCollidingWithPlayer : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+2. isCollidingWithPlayer : negated conditional &rarr; SURVIVED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {</span></pre></td></tr>
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_53'/>
 53
 </td>
-<td class='survived'>
+<td class='killed'>
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_53'>1</a>
 <span>
-1. isCollidingWithPlayer : replaced boolean return with false for feup/ldts/flappy/model/game/Wall::isCollidingWithPlayer &rarr; NO_COVERAGE<br/>
+1. isCollidingWithPlayer : replaced boolean return with false for feup/ldts/flappy/model/game/Wall::isCollidingWithPlayer &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>                return true;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
 
 
 <tr>
@@ -861,7 +861,7 @@
 
 
 <tr>
-<td class='uncovered'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@7e4c72d6_55'/>
 55
 </td>
@@ -869,14 +869,14 @@
 <span class='pop'>
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_55'>3</a>
 <span>
-1. isCollidingWithPlayer : changed conditional boundary &rarr; NO_COVERAGE<br/>
-2. isCollidingWithPlayer : negated conditional &rarr; NO_COVERAGE<br/>
+1. isCollidingWithPlayer : changed conditional boundary &rarr; SURVIVED<br/>
+2. isCollidingWithPlayer : negated conditional &rarr; SURVIVED<br/>
 3. isCollidingWithPlayer : negated conditional &rarr; NO_COVERAGE<br/>
 
 </span>
 </span>
 </td>
-<td class='uncovered'><pre><span  class='survived'>            if(player.getPosition().getY() &#60; 0 &#38;&#38; this.getPosition().getX() == player.getPosition().getX()) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='survived'>            if(player.getPosition().getY() &#60; 0 &#38;&#38; this.getPosition().getX() == player.getPosition().getX()) {</span></pre></td></tr>
 
 
 <tr>
@@ -983,7 +983,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_21'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>none</span></span> Replaced integer division with multiplication &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_1]</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_1]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -993,7 +993,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_22'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setSpace<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_1]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1003,7 +1003,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_26'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getHeight<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getHeight &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getHeight<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_1]</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getHeight &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1013,7 +1013,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_30'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSpeed<br/><b>Killed by : </b>none</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getSpeed &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSpeed<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_5]</span></span> replaced int return with 0 for feup/ldts/flappy/model/game/Wall::getSpeed &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1023,7 +1023,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_34'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setX<br/><b>Killed by : </b>none</span></span> removed call to feup/ldts/flappy/model/game/Wall::setPosition &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setX<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_5]</span></span> removed call to feup/ldts/flappy/model/game/Wall::setPosition &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1033,7 +1033,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_38'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isGapHeight &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_6]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_2]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_3]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_2]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>isGapHeight<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_3]</span></span> replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isGapHeight &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1043,7 +1043,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_42'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isOutOfScreen<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isOutOfScreen<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isOutOfScreen<br/><b>Killed by : </b>none</span></span> replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isOutOfScreen &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isOutOfScreen<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:1]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isOutOfScreen<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:0]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isOutOfScreen<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:1]</span></span> replaced boolean return with true for feup/ldts/flappy/model/game/Wall::isOutOfScreen &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1053,7 +1053,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_45'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>move<br/><b>Killed by : </b>none</span></span> removed call to feup/ldts/flappy/model/game/Wall::setX &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>move<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_5]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>move<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_5]</span></span> removed call to feup/ldts/flappy/model/game/Wall::setX &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1063,7 +1063,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_49'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_6]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1073,7 +1073,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_50'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
 </td>
 </tr>
 <tr>
@@ -1083,7 +1083,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_51'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
 </td>
 </tr>
 <tr>
@@ -1093,7 +1093,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_52'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> 
 </td>
 </tr>
 <tr>
@@ -1103,7 +1103,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_53'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> replaced boolean return with false for feup/ldts/flappy/model/game/Wall::isCollidingWithPlayer &rarr; NO_COVERAGE</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_6]</span></span> replaced boolean return with false for feup/ldts/flappy/model/game/Wall::isCollidingWithPlayer &rarr; KILLED</p> 
 </td>
 </tr>
 <tr>
@@ -1113,7 +1113,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@7e4c72d6_55'/> 
 
-<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isCollidingWithPlayer<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> 
 </td>
 </tr>
 <tr>
@@ -1158,6 +1158,7 @@
 
 <h2>Tests examined</h2>
 <ul>
+<li>feup.ldts.flappy.gui.LanternaGUITest.[engine:spock]/[spec:feup.ldts.flappy.gui.LanternaGUITest]/[feature:$spock_feature_0_0] (10 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_2] (3 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_1] (2 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_0] (11 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_6] (3 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:2] (16 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_5] (11 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:1] (3 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4] (3 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_3] (7 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:3] (3 ms)</li><li>feup.ldts.flappy.model.game.WallTest.[engine:spock]/[spec:feup.ldts.flappy.model.game.WallTest]/[feature:$spock_feature_0_4]/[iteration:0] (7 ms)</li>
 </ul>
 
 <br/>

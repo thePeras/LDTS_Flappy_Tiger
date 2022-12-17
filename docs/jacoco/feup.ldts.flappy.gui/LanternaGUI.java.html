@@ -64,45 +64,45 @@ public class LanternaGUI implements GUI {
     }
 
     public KeyStroke getNextAction() throws IOException {
-<span class="nc" id="L67">        return screen.pollInput();</span>
+<span class="fc" id="L67">        return screen.pollInput();</span>
     }
 
     public void drawText(Position position, String text, String color, String backgroundColor) {
-<span class="nc" id="L71">        TextGraphics tg = screen.newTextGraphics();</span>
-<span class="nc" id="L72">        tg.setForegroundColor(TextColor.Factory.fromString(color));</span>
-<span class="nc" id="L73">        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));</span>
-<span class="nc" id="L74">        tg.putString(position.getX(), position.getY(), text);</span>
-<span class="nc" id="L75">    }</span>
+<span class="fc" id="L71">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="fc" id="L72">        tg.setForegroundColor(TextColor.Factory.fromString(color));</span>
+<span class="fc" id="L73">        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));</span>
+<span class="fc" id="L74">        tg.putString(position.getX(), position.getY(), text);</span>
+<span class="fc" id="L75">    }</span>
 
     public void drawMenuText(Position position, String text, String color) {
-<span class="nc" id="L78">        drawText(position, text, color, Colors.MENU_BACKGROUND.getHex());</span>
-<span class="nc" id="L79">    }</span>
+<span class="fc" id="L78">        drawText(position, text, color, Colors.MENU_BACKGROUND.getHex());</span>
+<span class="fc" id="L79">    }</span>
 
     public void drawLine(Position position, String text, String color) {
-<span class="nc" id="L82">        drawPixel(position, (char) 138, Colors.ORANGE.getHex(), Colors.MENU_BACKGROUND.getHex());</span>
-<span class="nc" id="L83">        Position startTextPosition = new Position(position.getX() + 1, position.getY());</span>
-<span class="nc" id="L84">        drawText(startTextPosition, text, color, Colors.MENU_BACKGROUND.getHex());</span>
-<span class="nc" id="L85">    }</span>
+<span class="fc" id="L82">        drawPixel(position, (char) 138, Colors.ORANGE.getHex(), Colors.MENU_BACKGROUND.getHex());</span>
+<span class="fc" id="L83">        Position startTextPosition = new Position(position.getX() + 1, position.getY());</span>
+<span class="fc" id="L84">        drawText(startTextPosition, text, color, Colors.MENU_BACKGROUND.getHex());</span>
+<span class="fc" id="L85">    }</span>
 
     public void paintBackground(String color) {
-<span class="nc" id="L88">        TextGraphics tg = screen.newTextGraphics();</span>
-<span class="nc" id="L89">        tg.setBackgroundColor(TextColor.Factory.fromString(color));</span>
-<span class="nc" id="L90">        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height+1), ' ');</span>
-<span class="nc" id="L91">    }</span>
+<span class="fc" id="L88">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="fc" id="L89">        tg.setBackgroundColor(TextColor.Factory.fromString(color));</span>
+<span class="fc" id="L90">        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height+1), ' ');</span>
+<span class="fc" id="L91">    }</span>
 
     public void drawRectangle(Position position, int width, int height, String color) {
-<span class="nc" id="L94">        TextGraphics tg = screen.newTextGraphics();</span>
-<span class="nc" id="L95">        tg.setBackgroundColor(TextColor.Factory.fromString(color));</span>
-<span class="nc" id="L96">        tg.drawRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), ' ');</span>
-<span class="nc" id="L97">    }</span>
+<span class="fc" id="L94">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="fc" id="L95">        tg.setBackgroundColor(TextColor.Factory.fromString(color));</span>
+<span class="fc" id="L96">        tg.drawRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), ' ');</span>
+<span class="fc" id="L97">    }</span>
 
     @Override
     public void drawPixel(Position position, char c, String color, String backgroundColor) {
-<span class="nc" id="L101">        TextGraphics tg = screen.newTextGraphics();</span>
-<span class="nc" id="L102">        tg.setForegroundColor(TextColor.Factory.fromString(color));</span>
-<span class="nc" id="L103">        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));</span>
-<span class="nc" id="L104">        tg.putString(position.getX(), position.getY(), &quot;&quot; + c);</span>
-<span class="nc" id="L105">    }</span>
+<span class="fc" id="L101">        TextGraphics tg = screen.newTextGraphics();</span>
+<span class="fc" id="L102">        tg.setForegroundColor(TextColor.Factory.fromString(color));</span>
+<span class="fc" id="L103">        tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));</span>
+<span class="fc" id="L104">        tg.putString(position.getX(), position.getY(), &quot;&quot; + c);</span>
+<span class="fc" id="L105">    }</span>
 
     @Override
     public int getWidth() {
