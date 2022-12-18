@@ -8,19 +8,27 @@ import java.util.List;
 public class Boar extends Food{
     private final static int POINTS = 3;
     public Boar(Position position) {
-<span class="nc" id="L11">        super(position, POINTS);</span>
-<span class="nc" id="L12">    }</span>
+<span class="fc" id="L11">        super(position, POINTS);</span>
+<span class="fc" id="L12">    }</span>
 
     public List&lt;Position&gt; getPositions(){
-<span class="nc" id="L15">        return List.of(</span>
-<span class="nc" id="L16">                new Position(this.getPosition().getX(), this.getPosition().getY()),</span>
-<span class="nc" id="L17">                new Position(this.getPosition().getX() + 1, this.getPosition().getY())</span>
+<span class="fc" id="L15">        return List.of(</span>
+<span class="fc" id="L16">                new Position(this.getPosition().getX(), this.getPosition().getY()),</span>
+<span class="fc" id="L17">                new Position(this.getPosition().getX() + 1, this.getPosition().getY())</span>
         );
     }
 
+    // TODO: extract this method to collectable abstract class
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-<span class="nc" id="L23">        return player.getPositions().stream().anyMatch(this.getPositions()::contains);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for(Position playerPosition : player.getPositions()){</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            for(Position boarPosition : this.getPositions()){</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">               if(boarPosition.equals(playerPosition)){</span>
+<span class="fc" id="L27">                   return true;</span>
+               }
+<span class="fc" id="L29">            }</span>
+<span class="fc" id="L30">        }</span>
+<span class="fc" id="L31">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

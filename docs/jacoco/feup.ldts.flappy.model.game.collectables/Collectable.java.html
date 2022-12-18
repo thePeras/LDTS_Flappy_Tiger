@@ -8,8 +8,8 @@ import feup.ldts.flappy.model.game.Position;
 public abstract class Collectable extends Element implements Collidable {
     private static final int speed = -1;
     public Collectable(Position position) {
-<span class="nc" id="L11">        super(position);</span>
-<span class="nc" id="L12">    }</span>
+<span class="fc" id="L11">        super(position);</span>
+<span class="fc" id="L12">    }</span>
     public void move(){
 <span class="nc" id="L14">        this.setPosition(this.getPosition().addX(speed));</span>
 <span class="nc" id="L15">    }</span>

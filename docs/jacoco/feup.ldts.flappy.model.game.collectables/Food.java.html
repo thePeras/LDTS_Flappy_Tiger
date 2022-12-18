@@ -8,18 +8,23 @@ public abstract class Food extends Collectable {
     private final int points;
 
     public Food(Position position, int points) {
-<span class="nc" id="L11">        super(position);</span>
-<span class="nc" id="L12">        this.points = points;</span>
-<span class="nc" id="L13">    }</span>
+<span class="fc" id="L11">        super(position);</span>
+<span class="fc" id="L12">        this.points = points;</span>
+<span class="fc" id="L13">    }</span>
 
     @Override
     public void consume(Game game) {
-<span class="nc" id="L17">        game.incrementScore(points);</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L17">        game.incrementScore(points);</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-<span class="nc" id="L22">        return player.getPositions().contains(this.getPosition());</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        for(Position position : player.getPositions()){</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">            if(position.equals(this.getPosition())){</span>
+<span class="fc" id="L24">                return true;</span>
+            }
+<span class="fc" id="L26">        }</span>
+<span class="fc" id="L27">        return false;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

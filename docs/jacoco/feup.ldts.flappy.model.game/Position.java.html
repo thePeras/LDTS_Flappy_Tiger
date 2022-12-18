@@ -46,5 +46,10 @@ public class Position {
 <span class="fc" id="L46">        Position position = (Position) obj;</span>
 <span class="fc bfc" id="L47" title="All 4 branches covered.">        return position.getX() == this.getX() &amp;&amp; position.getY() == this.getY();</span>
     }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L52">        return x * 31 + y;</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
