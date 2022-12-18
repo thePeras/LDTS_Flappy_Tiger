@@ -46,4 +46,9 @@ public class Position {
         Position position = (Position) obj;
         return position.getX() == this.getX() && position.getY() == this.getY();
     }
+
+    @Override
+    public int hashCode() {
+        return x * 31 + y;
+    }
 }
