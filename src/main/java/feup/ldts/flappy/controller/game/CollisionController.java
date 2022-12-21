@@ -15,8 +15,11 @@ import java.net.URISyntaxException;
 import java.util.Iterator;
 
 public class CollisionController extends Controller<Game> {
-    public CollisionController(Game model) {
+    private PlayerController playerController;
+
+    public CollisionController(Game model, PlayerController playerController) {
         super(model);
+        this.playerController = playerController;
     }
 
     @Override
@@ -24,18 +27,17 @@ public class CollisionController extends Controller<Game> {
         Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
         while (collectableIterator.hasNext()){
             Collectable collectable = collectableIterator.next();
-            if(collectable.isCollidingWithPlayer(getModel().getPlayer())){
+            if(playerController.isCollidingWith(collectable)){
                 getModel().consumeCollectable(collectable);
                 collectableIterator.remove();
             }
         }
 
-        // TODO: Check if the player is colliding with the ground
-        if(getModel().getGround().isCollidingWithPlayer(getModel().getPlayer())){
+        if(playerController.isCollidingWith(getModel().getGround())){
             app.setState(AppState.GameOverState);
         }
         for(Wall wall : getModel().getWalls()){
-            if(wall.isCollidingWithPlayer(getModel().getPlayer())){
+            if(playerController.isCollidingWith(wall)){
                 app.setState(AppState.GameOverState);
             }
         }

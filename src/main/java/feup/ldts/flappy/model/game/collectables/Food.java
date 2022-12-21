@@ -16,14 +16,4 @@ public abstract class Food extends Collectable {
     public void consume(Game game) {
         game.incrementScore(points);
     }
-
-    @Override
-    public boolean isCollidingWithPlayer(Player player) {
-        for(Position position : player.getPositions()){
-            if(position.equals(this.getPosition())){
-                return true;
-            }
-        }
-        return false;
-    }
 }

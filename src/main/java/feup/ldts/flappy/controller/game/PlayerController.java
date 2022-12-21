@@ -6,14 +6,8 @@ import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.Player;
-import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.*;
 import feup.ldts.flappy.model.sound.SoundEffects;
-
-import java.awt.*;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class PlayerController extends Controller<Game> {
 
@@ -49,6 +43,17 @@ public class PlayerController extends Controller<Game> {
             position.setY(LanternaGUI.height - 1);
             player.setVelocity(0);
         }
+    }
+
+    public boolean isCollidingWith(Collidable collidable){
+        for(Position playerPosition : player.getPositions()){
+            for(Position elementPosition : collidable.getPositions()){
+                if(elementPosition.equals(playerPosition)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override

@@ -1,6 +1,10 @@
 package feup.ldts.flappy.model.game;
 
 import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.Colors;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Wall extends Element implements Collidable {
 
@@ -45,17 +49,17 @@ public class Wall extends Element implements Collidable {
         this.setX(this.getPosition().getX() + getSpeed());
     }
 
-    public boolean isCollidingWithPlayer(Player player) {
-        for (int y = 0; y < LanternaGUI.height; y++) {
-            if(isGapHeight(y)) continue;
-            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||
-                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
-                return true;
-            }
-            if(player.getPosition().getY() < 0 && this.getPosition().getX() == player.getPosition().getX()) {
-                return true;
-            }
+    public List<Position> getPositions(){
+        List<Position> positions = new ArrayList<>();
+
+        int x = this.getPosition().getX();
+
+        for (int y = 0; y <= LanternaGUI.height; y++) {
+            if (this.isGapHeight(y)) continue;
+            positions.add(new Position(x, y));
+            positions.add(new Position(x+1, y));
         }
-        return false;
+
+        return positions;
     }
 }
