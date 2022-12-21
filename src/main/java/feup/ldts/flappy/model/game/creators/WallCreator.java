@@ -8,12 +8,8 @@ import java.util.Random;
 
 public class WallCreator extends Creator<Wall> {
     private final static int margin = 5;
-
     private Random random;
-
     public WallCreator() {this.random = new Random();}
-
-
     @Override
     public Wall create() {
         int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;

@@ -1,51 +1,113 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
-    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
-    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
-    <title>Game.java</title>
-    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
-    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
-</head>
-<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
-<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
-                                                              href="../jacoco-sessions.html">Sessions</a></span><a
-        class="el_report" href="../index.html">project-l04gr02</a> &gt; <a class="el_package" href="index.source.html">feup.ldts.flappy.model.game</a>
-    &gt; <span class="el_source">Game.java</span></div>
-<h1>Game.java</h1>
-<pre class="source lang-java linenums">package feup.ldts.flappy.model.game;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.model.game</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.model.game;
 
+import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.collectables.Collectable;
+import feup.ldts.flappy.model.sound.SoundEffects;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Game {
-
-    private boolean isPlaying;
-
+    private static final int GOD_MODE_MAX_STEPS = 100;
+    private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
+    private boolean isPlaying;
+    private boolean isInGodMode;
+    private final List&lt;Wall&gt; wallsList;
+    private final List&lt;Collectable&gt; collectablesList;
 
-<span class="fc" id="L12">    public Game() {</span>
-<span class="fc" id="L13">        this.isPlaying = false;</span>
-<span class="fc" id="L14">        this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));</span>
-<span class="fc" id="L15">    }</span>
+    private Ground ground;
+    private int score;
+    private int steps;
+
+<span class="fc" id="L25">    private int godModeSteps = 0;</span>
+
+<span class="fc" id="L27">    public Game() {</span>
+<span class="fc" id="L28">        this.isPlaying = false;</span>
+<span class="fc" id="L29">        this.isInGodMode = false;</span>
+<span class="fc" id="L30">        this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));</span>
+<span class="fc" id="L31">        this.wallsList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L32">        this.collectablesList = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L33">        this.score = 0;</span>
+<span class="fc" id="L34">        this.steps = 0;</span>
+<span class="fc" id="L35">        this.ground = new Ground(LanternaGUI.height);</span>
+<span class="fc" id="L36">    }</span>
 
     public Player getPlayer() {
-<span class="fc" id="L18">        return player;</span>
+<span class="fc" id="L39">        return player;</span>
     }
 
     public boolean isPlaying() {
-<span class="fc" id="L22">        return isPlaying;</span>
+<span class="nc" id="L43">        return isPlaying;</span>
     }
-<span class="fc" id="L24">    public void setPlaying(boolean playing){this.isPlaying = playing; }</span>
+
+    public void setPlaying(boolean playing) {
+<span class="nc" id="L47">        this.isPlaying = playing;</span>
+<span class="nc" id="L48">    }</span>
 
     public void startPlaying() {
-<span class="fc" id="L27">        isPlaying = true;</span>
-<span class="fc" id="L28">    }</span>
+<span class="nc" id="L51">        isPlaying = true;</span>
+<span class="nc" id="L52">    }</span>
+
+    public List&lt;Wall&gt; getWalls(){
+<span class="fc" id="L55">        return wallsList;</span>
+    }
+<span class="nc" id="L57">    public void addWall(Wall wall){ wallsList.add(wall);}</span>
+<span class="nc" id="L58">    public void removeWall(Iterator&lt;Wall&gt; iterator){ iterator.remove();}</span>
+
+    public List&lt;Collectable&gt; getCollectables(){
+<span class="fc" id="L61">        return collectablesList;</span>
+    }
+<span class="nc" id="L63">    public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}</span>
+
+<span class="nc" id="L65">    public void removeCollectable(Iterator&lt;Collectable&gt; collectable){ collectable.remove();}</span>
+
+    public void consumeCollectable(Collectable collectable){
+<span class="nc" id="L68">        SoundManager.getInstance().playSoundEffect(SoundEffects.CONSUME);</span>
+<span class="nc" id="L69">        collectable.consume(this);</span>
+<span class="nc" id="L70">    }</span>
+
+<span class="nc" id="L72">    public void incrementScore(int points){ score += points; }</span>
+
+<span class="fc" id="L74">    public int getScore(){ return score; }</span>
+
+    public int getSteps() {
+<span class="nc" id="L77">       return steps;</span>
+    }
+
+    public Ground getGround() {
+<span class="fc" id="L81">        return ground;</span>
+    }
+
+    private void updateWalls(){
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        for (Wall wall : wallsList) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">            if(wall.getPosition().getX() &gt; player.getPosition().getX()) {</span>
+<span class="nc" id="L87">                wall.setSpace(GOD_MODE_WALL_SPACE);</span>
+            }
+<span class="nc" id="L89">        }</span>
+<span class="nc" id="L90">    }</span>
+
+    public void incrementSteps() {
+<span class="nc" id="L93">        steps++;</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        if(steps == 20) steps = 0;</span>
+
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        if(isInGodMode) {</span>
+<span class="nc" id="L97">            godModeSteps++;</span>
+<span class="nc" id="L98">            updateWalls();</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">            if(godModeSteps == GOD_MODE_MAX_STEPS) {</span>
+<span class="nc" id="L100">                isInGodMode = false;</span>
+<span class="nc" id="L101">                SoundManager.getInstance().stopGodModeSound();</span>
+            }
+        }
+<span class="nc" id="L104">    }</span>
+
+    public void startGodMode() {
+<span class="nc" id="L107">        isInGodMode = true;</span>
+<span class="nc" id="L108">        godModeSteps = 0;</span>
+<span class="nc" id="L109">        updateWalls();</span>
+<span class="nc" id="L110">        SoundManager.getInstance().playGodModeSound();</span>
+<span class="nc" id="L111">    }</span>
 }
-</pre>
-<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>
-</div>
-</body>
-</html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

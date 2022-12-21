@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Wall.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.model.game</a> &gt; <span class="el_source">Wall.java</span></div><h1>Wall.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.model.game;
+
+import feup.ldts.flappy.gui.LanternaGUI;
+
+public class Wall extends Element implements Collidable {
+
+    private final static int normalSpace = 11;
+    private final static int speed = -1;
+    private int height;
+    private int space;
+
+
+    public Wall(int height) {
+<span class="fc" id="L14">        super(new Position(LanternaGUI.width, 0));</span>
+<span class="fc" id="L15">        this.height = height;</span>
+<span class="fc" id="L16">        this.space = normalSpace;</span>
+<span class="fc" id="L17">    }</span>
+
+    public void setSpace(int newSpace) {
+<span class="fc" id="L20">        this.space = newSpace;</span>
+<span class="fc" id="L21">        int newHeight = this.getHeight() - newSpace/2;</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        this.height = newHeight &gt; 0 ? newHeight : 1;</span>
+<span class="fc" id="L23">    }</span>
+
+    public int getHeight() {
+<span class="fc" id="L26">        return height;</span>
+    }
+
+    public static int getSpeed() {
+<span class="fc" id="L30">        return speed;</span>
+    }
+
+    public void setX(int x) {
+<span class="fc" id="L34">        this.setPosition(new Position(x, this.getPosition().getY()));</span>
+<span class="fc" id="L35">    }</span>
+
+    public boolean isGapHeight(int y) {
+<span class="pc bpc" id="L38" title="1 of 4 branches missed.">        return y &gt; this.height &amp;&amp; y &lt;= this.height + this.space;</span>
+    }
+
+    public boolean isOutOfScreen() {
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        return this.getPosition().getX() &lt; -1;</span>
+    }
+    public void move() {
+<span class="fc" id="L45">        this.setX(this.getPosition().getX() + getSpeed());</span>
+<span class="fc" id="L46">    }</span>
+
+    public boolean isCollidingWithPlayer(Player player) {
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        for (int y = 0; y &lt; LanternaGUI.height; y++) {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if(isGapHeight(y)) continue;</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {</span>
+<span class="fc" id="L53">                return true;</span>
+            }
+<span class="pc bpc" id="L55" title="3 of 4 branches missed.">            if(player.getPosition().getY() &lt; 0 &amp;&amp; this.getPosition().getX() == player.getPosition().getX()) {</span>
+<span class="nc" id="L56">                return true;</span>
+            }
+        }
+<span class="nc" id="L59">        return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

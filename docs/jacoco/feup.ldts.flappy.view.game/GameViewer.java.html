@@ -1,50 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
-    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
-    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
-    <title>GameViewer.java</title>
-    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
-    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
-</head>
-<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
-<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
-                                                              href="../jacoco-sessions.html">Sessions</a></span><a
-        class="el_report" href="../index.html">project-l04gr02</a> &gt; <a class="el_package" href="index.source.html">feup.ldts.flappy.view.game</a>
-    &gt; <span class="el_source">GameViewer.java</span></div>
-<h1>GameViewer.java</h1>
-<pre class="source lang-java linenums">package feup.ldts.flappy.view.game;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.view.game</a> &gt; <span class="el_source">GameViewer.java</span></div><h1>GameViewer.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
+import feup.ldts.flappy.model.Colors;
 import feup.ldts.flappy.model.game.Element;
 import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.collectables.Boar;
+import feup.ldts.flappy.model.game.collectables.Collectable;
+import feup.ldts.flappy.model.game.collectables.Lamb;
+import feup.ldts.flappy.model.game.collectables.PortoWine;
 import feup.ldts.flappy.view.Viewer;
 
 import java.util.List;
 
 public class GameViewer extends Viewer&lt;Game&gt; {
     public GameViewer(Game model) {
-<span class="fc" id="L12">        super(model);</span>
-<span class="fc" id="L13">    }</span>
+<span class="fc" id="L18">        super(model);</span>
+<span class="fc" id="L19">    }</span>
 
     @Override
     public void drawElements(GUI gui) {
-<span class="fc" id="L17">        drawElement(gui, getModel().getPlayer(), new PlayerViewer());</span>
-<span class="fc" id="L18">    }</span>
+<span class="fc" id="L23">        drawSky(gui);</span>
+<span class="fc" id="L24">        drawElement(gui, getModel().getPlayer(), new PlayerViewer());</span>
+<span class="fc" id="L25">        drawElements(gui, getModel().getWalls(), new WallViewer());</span>
+<span class="fc" id="L26">        drawElement(gui, getModel().getGround(), new GroundViewer());</span>
+<span class="fc" id="L27">        drawCollectables(gui, getModel().getCollectables());</span>
+<span class="fc" id="L28">        drawScore(gui);</span>
+<span class="fc" id="L29">    }</span>
 
     private &lt;T extends Element&gt; void drawElements(GUI gui, List&lt;T&gt; elements, ElementViewer&lt;T&gt; viewer) {
-<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (T element : elements)</span>
-<span class="nc" id="L22">            drawElement(gui, element, viewer);</span>
-<span class="nc" id="L23">    }</span>
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        for (T element : elements)</span>
+<span class="nc" id="L33">            drawElement(gui, element, viewer);</span>
+<span class="fc" id="L34">    }</span>
 
     private &lt;T extends Element&gt; void drawElement(GUI gui, T element, ElementViewer&lt;T&gt; viewer) {
-<span class="fc" id="L26">        viewer.draw(element, gui);</span>
-<span class="fc" id="L27">    }</span>
+<span class="fc" id="L37">        viewer.draw(element, gui);</span>
+<span class="fc" id="L38">    }</span>
+
+    private void drawScore(GUI gui) {
+<span class="fc" id="L41">        String scoreText = &quot;SCORE: &quot; + getModel().getScore();</span>
+<span class="fc" id="L42">        gui.drawRectangle(new Position(0, 0), scoreText.length() + 2,3, Colors.WHITE.getHex());</span>
+<span class="fc" id="L43">        gui.drawText(new Position(1,1), scoreText, &quot;#FC6A03&quot;, Colors.WHITE.getHex());</span>
+<span class="fc" id="L44">    }</span>
+
+    private void drawCollectables(GUI gui, List&lt;Collectable&gt; collectables) {
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        for (Collectable collectable : collectables){</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if(collectable.getClass() == Lamb.class){</span>
+<span class="nc" id="L49">                new LambViewer().draw((Lamb) collectable, gui);</span>
+            }
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            else if(collectable.getClass() == Boar.class){</span>
+<span class="nc" id="L52">                new BoarViewer().draw((Boar) collectable, gui);</span>
+            }
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            else if(collectable.getClass() == PortoWine.class){</span>
+<span class="nc" id="L55">                new PortoWineViewer().draw((PortoWine) collectable, gui);</span>
+            }
+<span class="nc" id="L57">        }</span>
+<span class="fc" id="L58">    }</span>
+
+    private void drawSky(GUI gui) {
+<span class="fc" id="L61">        gui.paintBackground(Colors.BLUE.getHex());</span>
+<span class="fc" id="L62">    }</span>
 }
-</pre>
-<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>
-</div>
-</body>
-</html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

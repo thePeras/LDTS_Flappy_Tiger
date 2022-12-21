@@ -12,11 +12,8 @@ import java.util.Random;
 public class CollectableCreator extends Creator<Collectable> {
     private final static int margin = 5;
     private final static int lambProbability = 20;
-
     private final static int portoWineProbability = 10;
-
     private final Random random;
-
     public CollectableCreator() {
         this.random = new Random();
     }

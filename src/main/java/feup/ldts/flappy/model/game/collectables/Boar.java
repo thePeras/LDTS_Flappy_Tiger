@@ -18,8 +18,16 @@ public class Boar extends Food{
         );
     }
 
+    // TODO: extract this method to collectable abstract class
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-        return player.getPositions().stream().anyMatch(this.getPositions()::contains);
+        for(Position playerPosition : player.getPositions()){
+            for(Position boarPosition : this.getPositions()){
+               if(boarPosition.equals(playerPosition)){
+                   return true;
+               }
+            }
+        }
+        return false;
     }
 }

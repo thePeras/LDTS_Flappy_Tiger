@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameOver.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.model.menu</a> &gt; <span class="el_source">GameOver.java</span></div><h1>GameOver.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.model.menu;
+
+import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.Menu;
+
+import java.util.Arrays;
+
+public class GameOver extends Menu {
+    public static final int MARGIN = 6;
+    private static final int MAXLENGTH = LanternaGUI.width - 2*MARGIN;
+    private String username;
+    private Integer score;
+
+<span class="nc" id="L14">    public GameOver(int score) {</span>
+<span class="nc" id="L15">        this.username = &quot;&quot;;</span>
+<span class="nc" id="L16">        this.score = score;</span>
+<span class="nc" id="L17">        this.options = Arrays.asList(&quot;Restart&quot;, &quot;Main Menu&quot;);</span>
+<span class="nc" id="L18">    }</span>
+
+    public String getUsername() {
+<span class="nc" id="L21">        return username;</span>
+    }
+
+    public void addChar(Character character) {
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(username.length() &lt; MAXLENGTH) {</span>
+<span class="nc" id="L26">            username += character;</span>
+        }
+<span class="nc" id="L28">    }</span>
+
+    public void removeChar() {
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (username.length() &gt; 0) {</span>
+<span class="nc" id="L32">            username = username.substring(0, username.length() - 1);</span>
+        }
+<span class="nc" id="L34">    }</span>
+
+    public Integer getScore() {
+<span class="nc" id="L37">        return score;</span>
+    }
+    public boolean isSelectedRestart() {
+<span class="nc" id="L40">        return isSelected(0);</span>
+    }
+<span class="nc" id="L42">    public boolean isSelectedExit() { return isSelected(1); }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
