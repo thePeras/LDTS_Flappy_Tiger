@@ -5,19 +5,16 @@ import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
-import feup.ldts.flappy.model.menu.MainMenu;
+import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.model.sound.SoundEffects;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.*;
-
-public class MenuController extends Controller<MainMenu> {
-
-    public MenuController(MainMenu mainMenu) {
-        super(mainMenu);
+public abstract class MenuController<T extends Menu> extends Controller<T> implements MenuInterface {
+    public MenuController(T model) {
+        super(model);
     }
 
     @Override
@@ -31,24 +28,26 @@ public class MenuController extends Controller<MainMenu> {
         }
         if (key.getKeyType() == KeyType.Enter) {
             SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
-            if (getModel().isSelectedStart()) {
-                game.setState(GameState);
-                SoundManager.getInstance().playSoundEffect(SoundEffects.GAME_START);
-                return;
-            }
-            if (getModel().isSelectedExit()) game.exit();
-            if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);
-            if (getModel().isSelectedInstructions()) game.setState(InstructionsState);
+            optionSelected(game);
         }
-        if(key.getKeyType() == KeyType.Character) {
-            if(key.getCharacter() == 'm') {
-                SoundManager.getInstance().toggleMenuMusicMute();
-            }
-            if(key.getCharacter() == 's') {
-                SoundManager.getInstance().toggleSoundMute();
-            }
+        if (key.getKeyType() == KeyType.Character) {
+            if (key.getCharacter() == null) return;
+            charSelected(key);
+        }
+        if (key.getKeyType() == KeyType.Escape) {
+            escapePressed(game);
+        }
+        if (key.getKeyType() == KeyType.Backspace) {
+            backspacePressed(game);
         }
     }
 
-
+    public void charSelected(KeyStroke key) {
+        if (key.getCharacter() == 'm') {
+            SoundManager.getInstance().toggleMenuMusicMute();
+        }
+        if (key.getCharacter() == 's') {
+            SoundManager.getInstance().toggleSoundMute();
+        }
+    }
 }

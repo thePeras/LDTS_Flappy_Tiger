@@ -14,8 +14,6 @@ public interface GUI {
 
     void drawText(Position position, String text, String color, String backgroundColor);
 
-    void drawMenuText(Position position, String text, String color);
-
     void drawLine(Position position, String text, String color);
 
     void paintBackground(String color);

@@ -114,18 +114,6 @@ class LanternaGUITest extends Specification {
             2 | 3
     }
 
-    def "drawMenuText"(){
-        given:
-            def position = new Position(1, 2)
-            def text = "text"
-            def color = "#ffffff"
-        when:
-            gui.drawMenuText(position, text, color)
-        then:
-            1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
-            1 * textGraphics.putString(1, 2, text)
-    }
-
     def "drawText"(){
         given:
             def position = new Position(1, 2)

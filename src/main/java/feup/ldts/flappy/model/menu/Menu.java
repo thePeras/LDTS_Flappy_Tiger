@@ -1,11 +1,11 @@
-package feup.ldts.flappy.model;
+package feup.ldts.flappy.model.menu;
 
 import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.sound.SoundEffects;
 
 import java.util.List;
 
-public class Menu {
+public abstract class Menu {
     protected List<String> options;
     protected int option = 0;
 

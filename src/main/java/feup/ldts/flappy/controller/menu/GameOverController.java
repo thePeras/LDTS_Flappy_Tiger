@@ -1,52 +1,46 @@
 package feup.ldts.flappy.controller.menu;
 
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
-import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.menu.GameOver;
-import feup.ldts.flappy.model.sound.SoundEffects;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
 import static feup.ldts.flappy.state.AppState.*;
 
-public class GameOverController extends Controller<GameOver> {
+public class GameOverController extends MenuController<GameOver> {
 
     public GameOverController(GameOver model) {
         super(model);
     }
-    public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-        if (key == null) return;
-        if(key.getKeyType() == KeyType.ArrowUp) {
-            getModel().previousOption();
-        }
-        if (key.getKeyType() == KeyType.ArrowDown) {
-            getModel().nextOption();
-        }
-        if (key.getKeyType() == KeyType.Escape) {
-            game.setState(MenuState);
-        }
-        if (key.getCharacter() != null && (isLetter(key) || isNumber(key) || isSpace(key))) {
+
+    @Override
+    public void optionSelected(App game) throws IOException {
+        if (getModel().getUsername().trim().length() > 0) updateLeaderboard();
+        if (getModel().isSelectedRestart()) game.setState(GameState);
+        if (getModel().isSelectedExit()) game.setState(MenuState);
+    }
+
+    @Override
+    public void charSelected(KeyStroke key) {
+        if (isLetter(key) || isNumber(key) || isSpace(key)) {
             getModel().addChar(key.getCharacter());
         }
-        if (key.getKeyType() == KeyType.Backspace) {
-            getModel().removeChar();
-        }
-        if (key.getKeyType() == KeyType.Enter) {
-            if(getModel().getUsername().trim().length() > 0) updateLeaderboard();
-            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
-            if (getModel().isSelectedRestart()) game.setState(GameState);
-            if (getModel().isSelectedExit()) game.setState(MenuState);
-        }
+    }
+
+    @Override
+    public void escapePressed(App game) throws IOException {
+        game.setState(MenuState);
+    }
+
+    @Override
+    public void backspacePressed(App game) {
+        getModel().removeChar();
     }
 
     public void updateLeaderboard() throws IOException {
@@ -61,7 +55,7 @@ public class GameOverController extends Controller<GameOver> {
             usernames.add(parts[1].trim());
         }
 
-        if(scores.size() < 5){
+        if (scores.size() < 5) {
             FileWriter writer = new FileWriter(leaderboard, true);
             writer.write(getModel().getScore() + " - " + getModel().getUsername() + "\n");
             writer.close();
@@ -71,11 +65,11 @@ public class GameOverController extends Controller<GameOver> {
         int minimumScore = Collections.min(scores);
         int minimumScoreIndex = scores.indexOf(minimumScore);
 
-        if(getModel().getScore() > minimumScore){
+        if (getModel().getScore() > minimumScore) {
             scores.set(minimumScoreIndex, getModel().getScore());
             usernames.set(minimumScoreIndex, getModel().getUsername());
             FileWriter writer = new FileWriter(leaderboard);
-            for(int i = 0; i < scores.size(); i++){
+            for (int i = 0; i < scores.size(); i++) {
                 writer.write(scores.get(i) + " - " + usernames.get(i) + "\n");
             }
             writer.close();
@@ -87,8 +81,7 @@ public class GameOverController extends Controller<GameOver> {
     }
 
     private boolean isLetter(KeyStroke key) {
-        return (key.getCharacter() >= 'a' && key.getCharacter() <= 'z')
-                || (key.getCharacter() >= 'A' && key.getCharacter() <= 'Z');
+        return (key.getCharacter() >= 'a' && key.getCharacter() <= 'z') || (key.getCharacter() >= 'A' && key.getCharacter() <= 'Z');
     }
 
     private boolean isSpace(KeyStroke key) {
