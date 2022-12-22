@@ -47,7 +47,7 @@ Software Design and Testing Laboratory
 <img src="./images/mockups/Main_Menu.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Leaderboard.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Instructions.png" alt="drawing" width="400"/>
-<img src="./images/mockups/Game.png" alt="drawing" width="400"/>
+<img src="./images/mockups/Game.gif" alt="drawing" width="400"/>
 <img src="./images/mockups/GameOver_Menu.png" alt="drawing" width="400"/>
 
 
