@@ -36,8 +36,8 @@ public class App {
         this.gui = new LanternaGUI();
         this.state = MenuState;
         this.mainMenu = new MainMenu();
-        this.controller = new MenuController(mainMenu);
-        this.viewer = new MenuViewer(mainMenu);
+        this.controller = new MainMenuController(mainMenu);
+        this.viewer = new MainMenuViewer(mainMenu);
         SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
     }
 
@@ -87,8 +87,8 @@ public class App {
             case MenuState:
                 SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
                 this.mainMenu = new MainMenu();
-                this.controller = new MenuController(mainMenu);
-                this.viewer = new MenuViewer(mainMenu);
+                this.controller = new MainMenuController(mainMenu);
+                this.viewer = new MainMenuViewer(mainMenu);
                 break;
             case GameState:
                 SoundManager.getInstance().setBackgroundSound(Musics.GAME_MUSIC);
@@ -104,12 +104,12 @@ public class App {
                 break;
             case LeaderboardState:
                 Leaderboard leaderboard = new Leaderboard();
-                this.controller = new LeaderboardController(leaderboard);
+                this.controller = new TextMenuController(leaderboard);
                 this.viewer = new LeaderboardViewer(leaderboard);
                 break;
             case InstructionsState:
                 Instructions instructions = new Instructions();
-                this.controller = new InstructionsController(instructions);
+                this.controller = new TextMenuController(instructions);
                 this.viewer = new InstructionsViewer(instructions);
                 break;
             case PauseState:

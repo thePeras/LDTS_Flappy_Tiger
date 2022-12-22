@@ -4,20 +4,23 @@ import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.model.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Instructions;
-import feup.ldts.flappy.view.Viewer;
 
-public class InstructionsViewer extends Viewer<Instructions> {
+public class InstructionsViewer extends MenuViewer<Instructions> {
 
     public InstructionsViewer(Instructions model) {
-        super(model);
+        super(model, new Position(2, 7));
     }
 
-    public void drawElements(GUI gui) {
-        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());
+    public void drawInsideElements(GUI gui) {
+        drawTitle(gui, "Instructions", Colors.WHITE.getHex());
 
-        gui.drawMenuText(new Position(2, 5), "Instructions", "#FFFFFF");
-        for (int i = 0; i < getModel().getNumberEntries(); i++) {
-            gui.drawMenuText(new Position(2, 7 + i), getModel().getEntry(i), "#FC6A03");
+        for (int i = 0; i < getModel().getSize(); i++) {
+            drawText(gui, new Position(2, 7 + i), getModel().getLine(i), "#FC6A03");
         }
+    }
+
+    @Override
+    public void drawOptions(GUI gui) {
+
     }
 }

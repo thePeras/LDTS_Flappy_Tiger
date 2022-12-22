@@ -1,7 +1,6 @@
 package feup.ldts.flappy.model.menu;
 
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.Menu;
 
 import java.util.Arrays;
 

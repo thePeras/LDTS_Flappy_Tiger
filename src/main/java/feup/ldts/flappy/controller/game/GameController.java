@@ -50,11 +50,7 @@ public class GameController extends Controller<Game> {
                 app.setState(PauseState);
             }
             if (key.getKeyType() == KeyType.Character) {
-                if (key.getCharacter() == 'p') {
-                    getModel().setPlaying(false);
-                    app.setState(PauseState);
-                }
-                if (key.getCharacter() == 'q') {
+                if (key.getCharacter() == 'p' || key.getCharacter() == 'q') {
                     getModel().setPlaying(false);
                     app.setState(PauseState);
                 }

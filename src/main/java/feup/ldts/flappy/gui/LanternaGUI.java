@@ -73,10 +73,6 @@ public class LanternaGUI implements GUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    public void drawMenuText(Position position, String text, String color) {
-        drawText(position, text, color, Colors.MENU_BACKGROUND.getHex());
-    }
-
     public void drawLine(Position position, String text, String color) {
         drawPixel(position, (char) 138, Colors.ORANGE.getHex(), Colors.MENU_BACKGROUND.getHex());
         Position startTextPosition = new Position(position.getX() + 1, position.getY());
