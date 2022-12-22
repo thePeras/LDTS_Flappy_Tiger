@@ -6,14 +6,10 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.Wall;
 
 public class WallViewer implements ElementViewer<Wall> {
-    //TODO: use drawRectangle here
     @Override
     public void draw(Wall wall, GUI gui) {
-        int x = wall.getPosition().getX();
-        for (int y = 0; y <= gui.getHeight(); y++) {
-            if (wall.isGapHeight(y)) continue;
-            gui.paintPixel(new Position(x, y), Colors.GREEN.getHex());
-            gui.paintPixel(new Position(x+1, y), Colors.GREEN.getHex());
-        }
+        gui.drawRectangle(wall.getPosition(), wall.getWidth(), wall.getHeight(), Colors.GREEN.getHex());
+        int newY = wall.getHeight() + wall.getSpace();
+        gui.drawRectangle(new Position(wall.getPosition().getX(), newY), wall.getWidth(), gui.getHeight() - (wall.getHeight() + wall.getSpace()), Colors.GREEN.getHex());
     }
 }

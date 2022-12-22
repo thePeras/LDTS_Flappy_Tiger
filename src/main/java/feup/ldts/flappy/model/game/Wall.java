@@ -6,6 +6,8 @@ public class Wall extends Element implements Collidable {
 
     private final static int normalSpace = 11;
     private final static int speed = -1;
+    private final static int width = 2;
+
     private int height;
     private int space;
 
@@ -30,12 +32,20 @@ public class Wall extends Element implements Collidable {
         return speed;
     }
 
+    public static int getWidth() {
+        return width;
+    }
+
+    public int getSpace(){
+        return space;
+    }
+
     public void setX(int x) {
         this.setPosition(new Position(x, this.getPosition().getY()));
     }
 
     public boolean isGapHeight(int y) {
-        return y > this.height && y <= this.height + this.space;
+        return y > this.height && y < this.height + this.space;
     }
 
     public boolean isOutOfScreen() {
