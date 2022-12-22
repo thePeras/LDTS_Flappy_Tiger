@@ -9,14 +9,12 @@ import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.menu.*;
 import feup.ldts.flappy.model.sound.Musics;
-import feup.ldts.flappy.model.sound.SoundEffects;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
 import feup.ldts.flappy.view.menu.*;
 
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -80,11 +78,7 @@ public class App {
         SoundManager.getInstance().stopAll();
     }
 
-    public AppState getState() {
-        return state;
-    }
-
-    public void setState(AppState state) throws IOException, URISyntaxException, FontFormatException {
+    public void setState(AppState state) throws IOException {
         if (state == PauseState) {
             this.prevGame = this.game;
         }

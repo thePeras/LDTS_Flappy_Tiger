@@ -6,8 +6,6 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Leaderboard;
 import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
 public class LeaderboardViewer extends Viewer<Leaderboard> {
 
     public LeaderboardViewer(Leaderboard model) {

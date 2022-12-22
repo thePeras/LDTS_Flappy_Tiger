@@ -15,7 +15,6 @@ public class SoundManager {
     private Sound gameOverSound;
     private Sound flapSound;
     private Sound consumeSound;
-
     private Sound godModeSound;
 
     private SoundManager() {
@@ -102,7 +101,7 @@ public class SoundManager {
         godModeSound.stop();
     }
 
-    public void toggleSoundMute(){
+    public void toggleSoundMute() {
         selectEffectSound.toggleMute();
         choiceEffectSound.toggleMute();
         startEffectSound.toggleMute();
@@ -111,10 +110,12 @@ public class SoundManager {
         consumeSound.toggleMute();
         godModeSound.toggleMute();
     }
+
     public void toggleGameMusicMute() {
         gameBackgroundMusic.toggleMute();
         godModeSound.toggleMute();
     }
+
     public void toggleMenuMusicMute() {
         menuBackgroundMusic.toggleMute();
     }

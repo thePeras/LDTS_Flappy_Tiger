@@ -3,7 +3,6 @@ package feup.ldts.flappy.controller.game;
 import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
@@ -22,20 +21,19 @@ public class CollisionController extends Controller<Game> {
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
-        while (collectableIterator.hasNext()){
+        while (collectableIterator.hasNext()) {
             Collectable collectable = collectableIterator.next();
-            if(collectable.isCollidingWithPlayer(getModel().getPlayer())){
+            if (collectable.isCollidingWithPlayer(getModel().getPlayer())) {
                 getModel().consumeCollectable(collectable);
                 collectableIterator.remove();
             }
         }
 
-        // TODO: Check if the player is colliding with the ground
-        if(getModel().getGround().isCollidingWithPlayer(getModel().getPlayer())){
+        if (getModel().getGround().isCollidingWithPlayer(getModel().getPlayer())) {
             app.setState(AppState.GameOverState);
         }
-        for(Wall wall : getModel().getWalls()){
-            if(wall.isCollidingWithPlayer(getModel().getPlayer())){
+        for (Wall wall : getModel().getWalls()) {
+            if (wall.isCollidingWithPlayer(getModel().getPlayer())) {
                 app.setState(AppState.GameOverState);
             }
         }

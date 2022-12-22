@@ -49,10 +49,6 @@ public class Sound {
         sound.stop();
     }
 
-    public void resume() {
-        sound.start();
-    }
-
     public void setVolume(double volume) {
         if (volume < 0.0 || volume > 1.0) throw new IllegalArgumentException("Volume not valid: " + volume);
         float value = (float) (Math.log(volume) / Math.log(10.0) * 20.0);
@@ -65,7 +61,7 @@ public class Sound {
     }
 
     public void toggleMute() {
-        if(floatControl.getValue() == -80.0) {
+        if (floatControl.getValue() == -80.0) {
             floatControl.setValue(volume);
         } else {
             floatControl.setValue(-80.0f);

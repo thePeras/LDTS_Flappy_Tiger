@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class GameOver extends Menu {
     public static final int MARGIN = 6;
-    private static final int MAXLENGTH = LanternaGUI.width - 2*MARGIN;
+    private static final int MAXLENGTH = LanternaGUI.width - 2 * MARGIN;
     private String username;
     private Integer score;
 
@@ -22,7 +22,7 @@ public class GameOver extends Menu {
     }
 
     public void addChar(Character character) {
-        if(username.length() < MAXLENGTH) {
+        if (username.length() < MAXLENGTH) {
             username += character;
         }
     }
@@ -36,8 +36,12 @@ public class GameOver extends Menu {
     public Integer getScore() {
         return score;
     }
+
     public boolean isSelectedRestart() {
         return isSelected(0);
     }
-    public boolean isSelectedExit() { return isSelected(1); }
+
+    public boolean isSelectedExit() {
+        return isSelected(1);
+    }
 }

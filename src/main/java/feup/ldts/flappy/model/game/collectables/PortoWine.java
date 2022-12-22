@@ -6,12 +6,12 @@ import feup.ldts.flappy.model.game.Position;
 
 import java.util.List;
 
-public class PortoWine extends Collectable{
+public class PortoWine extends Collectable {
     public PortoWine(Position position) {
         super(position);
     }
 
-    public List<Position> getPositions(){
+    public List<Position> getPositions() {
         return List.of(
                 new Position(this.getPosition().getX(), this.getPosition().getY()),
                 new Position(this.getPosition().getX(), this.getPosition().getY() + 1)
@@ -26,9 +26,9 @@ public class PortoWine extends Collectable{
     // TODO: extract this method to collectable abstract class
     @Override
     public boolean isCollidingWithPlayer(Player player) {
-        for(Position playerPosition : player.getPositions()){
-            for(Position winePosition : this.getPositions()){
-                if(winePosition.equals(playerPosition)){
+        for (Position playerPosition : player.getPositions()) {
+            for (Position winePosition : this.getPositions()) {
+                if (winePosition.equals(playerPosition)) {
                     return true;
                 }
             }

@@ -1,9 +1,5 @@
 package feup.ldts.flappy.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public enum Colors {
     ORANGE("#FC6A03"),
     BLUE("#8ECAE6"),

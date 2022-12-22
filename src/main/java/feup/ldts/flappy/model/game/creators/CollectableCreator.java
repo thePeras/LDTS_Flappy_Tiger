@@ -14,24 +14,24 @@ public class CollectableCreator extends Creator<Collectable> {
     private final static int lambProbability = 20;
     private final static int portoWineProbability = 10;
     private final Random random;
+
     public CollectableCreator() {
         this.random = new Random();
     }
 
     @Override
     public Collectable create() {
-        int randomY = random.nextInt(LanternaGUI.height - 2*margin) + margin;
+        int randomY = random.nextInt(LanternaGUI.height - 2 * margin) + margin;
         Position randomPosition = new Position(LanternaGUI.width, randomY);
 
         int randomType = random.nextInt(100);
 
-        if(randomType < portoWineProbability) {
+        if (randomType < portoWineProbability) {
             return new PortoWine(randomPosition);
         }
-        if(randomType < lambProbability + portoWineProbability) {
+        if (randomType < lambProbability + portoWineProbability) {
             return new Lamb(randomPosition);
-        }
-        else {
+        } else {
             return new Boar(randomPosition);
         }
     }

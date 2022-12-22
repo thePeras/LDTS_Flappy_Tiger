@@ -9,7 +9,7 @@ public class PlayerViewer implements ElementViewer<Player> {
     @Override
     public void draw(Player player, GUI gui) {
         char playerChar = 128;
-        for(Position position : player.getPositions()) {
+        for (Position position : player.getPositions()) {
             gui.drawPixel(position, playerChar++, Colors.ORANGE.getHex(), Colors.BLUE.getHex());
         }
     }

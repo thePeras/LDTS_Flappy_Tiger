@@ -18,7 +18,7 @@ public class Wall extends Element implements Collidable {
 
     public void setSpace(int newSpace) {
         this.space = newSpace;
-        int newHeight = this.getHeight() - newSpace/2;
+        int newHeight = this.getHeight() - newSpace / 2;
         this.height = newHeight > 0 ? newHeight : 1;
     }
 
@@ -41,18 +41,18 @@ public class Wall extends Element implements Collidable {
     public boolean isOutOfScreen() {
         return this.getPosition().getX() < -1;
     }
+
     public void move() {
         this.setX(this.getPosition().getX() + getSpeed());
     }
 
     public boolean isCollidingWithPlayer(Player player) {
         for (int y = 0; y < LanternaGUI.height; y++) {
-            if(isGapHeight(y)) continue;
-            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) ||
-                    player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
+            if (isGapHeight(y)) continue;
+            if (player.getPositions().contains(new Position(this.getPosition().getX(), y)) || player.getPositions().contains(new Position(this.getPosition().getX() + 1, y))) {
                 return true;
             }
-            if(player.getPosition().getY() < 0 && this.getPosition().getX() == player.getPosition().getX()) {
+            if (player.getPosition().getY() < 0 && this.getPosition().getX() == player.getPosition().getX()) {
                 return true;
             }
         }

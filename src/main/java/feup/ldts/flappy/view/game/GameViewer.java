@@ -39,19 +39,17 @@ public class GameViewer extends Viewer<Game> {
 
     private void drawScore(GUI gui) {
         String scoreText = "SCORE: " + getModel().getScore();
-        gui.drawRectangle(new Position(0, 0), scoreText.length() + 2,3, Colors.WHITE.getHex());
-        gui.drawText(new Position(1,1), scoreText, "#FC6A03", Colors.WHITE.getHex());
+        gui.drawRectangle(new Position(0, 0), scoreText.length() + 2, 3, Colors.WHITE.getHex());
+        gui.drawText(new Position(1, 1), scoreText, "#FC6A03", Colors.WHITE.getHex());
     }
 
     private void drawCollectables(GUI gui, List<Collectable> collectables) {
-        for (Collectable collectable : collectables){
-            if(collectable.getClass() == Lamb.class){
+        for (Collectable collectable : collectables) {
+            if (collectable.getClass() == Lamb.class) {
                 new LambViewer().draw((Lamb) collectable, gui);
-            }
-            else if(collectable.getClass() == Boar.class){
+            } else if (collectable.getClass() == Boar.class) {
                 new BoarViewer().draw((Boar) collectable, gui);
-            }
-            else if(collectable.getClass() == PortoWine.class){
+            } else if (collectable.getClass() == PortoWine.class) {
                 new PortoWineViewer().draw((PortoWine) collectable, gui);
             }
         }
