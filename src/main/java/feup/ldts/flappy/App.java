@@ -2,13 +2,13 @@ package feup.ldts.flappy;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.SoundManager;
+import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.controller.game.GameController;
 import feup.ldts.flappy.controller.menu.*;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.menu.*;
-import feup.ldts.flappy.model.sound.Musics;
+import feup.ldts.flappy.controller.sound.Musics;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;

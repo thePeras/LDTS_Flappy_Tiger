@@ -1,5 +1,7 @@
-package feup.ldts.flappy.model.game
+package feup.ldts.flappy.model.game.elements
 
+import feup.ldts.flappy.model.game.elements.Ground
+import feup.ldts.flappy.model.game.elements.Player
 import spock.lang.Specification
 
 class GroundTest extends Specification{

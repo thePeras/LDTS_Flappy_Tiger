@@ -4,10 +4,13 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.SoundManager;
+import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.*;
-import feup.ldts.flappy.model.sound.SoundEffects;
+import feup.ldts.flappy.model.game.elements.Collidable;
+import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.game.elements.Player;
+import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.controller.sound.SoundEffects;
 
 public class PlayerController extends Controller<Game> {
 

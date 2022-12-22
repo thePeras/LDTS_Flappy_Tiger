@@ -1,7 +1,6 @@
 package feup.ldts.flappy.model.game.collectables
 
 import feup.ldts.flappy.model.game.Game
-import feup.ldts.flappy.model.game.Player
 import feup.ldts.flappy.model.game.Position
 import spock.lang.Specification
 

@@ -1,7 +1,7 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.Colors;
+import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Instructions;
 
@@ -15,7 +15,7 @@ public class InstructionsViewer extends MenuViewer<Instructions> {
         drawTitle(gui, "Instructions", Colors.WHITE.getHex());
 
         for (int i = 0; i < getModel().getSize(); i++) {
-            drawText(gui, new Position(2, 7 + i), getModel().getLine(i), "#FC6A03");
+            drawText(gui, new Position(2, 7 + i), getModel().getLine(i), Colors.ORANGE.getHex());
         }
     }
 

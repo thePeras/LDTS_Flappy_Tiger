@@ -1,7 +1,7 @@
-package feup.ldts.flappy.model.game;
+package feup.ldts.flappy.model.game.elements;
 
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.Colors;
+import feup.ldts.flappy.model.game.Position;
 
 import java.util.ArrayList;
 import java.util.List;

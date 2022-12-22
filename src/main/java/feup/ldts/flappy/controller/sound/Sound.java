@@ -1,4 +1,4 @@
-package feup.ldts.flappy.model.sound;
+package feup.ldts.flappy.controller.sound;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;

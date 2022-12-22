@@ -1,9 +1,13 @@
 package feup.ldts.flappy.model.game;
 
-import feup.ldts.flappy.controller.SoundManager;
+import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Collectable;
-import feup.ldts.flappy.model.sound.SoundEffects;
+import feup.ldts.flappy.controller.sound.SoundEffects;
+import feup.ldts.flappy.model.game.elements.Ground;
+import feup.ldts.flappy.model.game.elements.Player;
+import feup.ldts.flappy.model.game.elements.Wall;
 
 import java.util.ArrayList;
 import java.util.Iterator;

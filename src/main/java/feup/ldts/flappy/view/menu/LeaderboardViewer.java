@@ -1,7 +1,7 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.Colors;
+import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Leaderboard;
 
@@ -15,7 +15,7 @@ public class LeaderboardViewer extends MenuViewer<Leaderboard> {
         drawTitle(gui, "Leaderboard", Colors.WHITE.getHex());
 
         for (int i = 0; i < getModel().getSize(); i++) {
-            drawText(gui, new Position(8, 13 + i), getModel().getLine(i), "#FC6A03");
+            drawText(gui, new Position(8, 13 + i), getModel().getLine(i), Colors.ORANGE.getHex());
         }
     }
 

@@ -1,5 +1,8 @@
-package feup.ldts.flappy.model.game
+package feup.ldts.flappy.model.game.elements
 
+import feup.ldts.flappy.model.game.Position
+import feup.ldts.flappy.model.game.elements.Player
+import feup.ldts.flappy.model.game.elements.Wall
 import spock.lang.Specification
 
 class WallTest extends Specification {
