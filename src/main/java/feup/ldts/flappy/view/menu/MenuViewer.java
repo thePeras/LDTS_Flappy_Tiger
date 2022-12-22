@@ -27,9 +27,9 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
     public void drawOptions(GUI gui) {
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             if (getModel().isSelected(i)) {
-                drawText(gui, new Position(options_x, options_y + i), ">" + getModel().getEntry(i), "#FC6A03");
+                drawText(gui, new Position(options_x, options_y + i), ">" + getModel().getEntry(i), Colors.ORANGE.getHex());
             } else {
-                drawText(gui, new Position(options_x + 1, options_y + i), getModel().getEntry(i), "#FFFFFF");
+                drawText(gui, new Position(options_x + 1, options_y + i), getModel().getEntry(i), Colors.WHITE.getHex());
             }
         }
     }

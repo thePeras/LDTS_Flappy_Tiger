@@ -15,7 +15,7 @@ public class LeaderboardViewer extends MenuViewer<Leaderboard> {
         drawTitle(gui, "Leaderboard", Colors.WHITE.getHex());
 
         for (int i = 0; i < getModel().getSize(); i++) {
-            drawText(gui, new Position(8, 13 + i), getModel().getLine(i), "#FC6A03");
+            drawText(gui, new Position(8, 13 + i), getModel().getLine(i), Colors.ORANGE.getHex());
         }
     }
 

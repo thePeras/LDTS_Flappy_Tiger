@@ -40,7 +40,7 @@ public class GameViewer extends Viewer<Game> {
     private void drawScore(GUI gui) {
         String scoreText = "SCORE: " + getModel().getScore();
         gui.drawRectangle(new Position(0, 0), scoreText.length() + 2, 3, Colors.WHITE.getHex());
-        gui.drawText(new Position(1, 1), scoreText, "#FC6A03", Colors.WHITE.getHex());
+        gui.drawText(new Position(1, 1), scoreText, Colors.ORANGE.getHex(), Colors.WHITE.getHex());
     }
 
     private void drawCollectables(GUI gui, List<Collectable> collectables) {
