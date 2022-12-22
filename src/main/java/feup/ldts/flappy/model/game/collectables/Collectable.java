@@ -1,8 +1,8 @@
 package feup.ldts.flappy.model.game.collectables;
 
-import feup.ldts.flappy.model.game.Collidable;
-import feup.ldts.flappy.model.game.Element;
-import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.model.game.elements.Collidable;
+import feup.ldts.flappy.model.game.elements.Element;
+import feup.ldts.flappy.model.game.elements.Game;
 import feup.ldts.flappy.model.game.Position;
 
 public abstract class Collectable extends Element implements Collidable {

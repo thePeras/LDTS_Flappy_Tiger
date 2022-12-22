@@ -1,5 +1,7 @@
 package feup.ldts.flappy.model.game
 
+import feup.ldts.flappy.model.game.elements.Ground
+import feup.ldts.flappy.model.game.elements.Player
 import spock.lang.Specification
 
 class GroundTest extends Specification{
@@ -16,12 +18,12 @@ class GroundTest extends Specification{
 
     def "isCollidingWithPlayer in (#x, #y)"() {
         given:
-            Ground ground = new Ground(0)
+        Ground ground = new Ground(0)
             Position pos1 = new Position(x, y)
             Position pos2 = new Position(x+1, y)
             Position pos3 = new Position(x, y + 1)
             Position pos4 = new Position(x+1, y + 1)
-            Player player = Mock(Player)
+        Player player = Mock(Player)
             player.getPositions() >> [pos1, pos2, pos3, pos4]
         when:
             def result = ground.isCollidingWithPlayer(player)

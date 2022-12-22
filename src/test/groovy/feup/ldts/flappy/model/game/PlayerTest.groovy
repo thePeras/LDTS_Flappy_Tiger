@@ -1,5 +1,6 @@
 package feup.ldts.flappy.model.game
 
+import feup.ldts.flappy.model.game.elements.Player
 import spock.lang.Specification
 
 class PlayerTest extends Specification{

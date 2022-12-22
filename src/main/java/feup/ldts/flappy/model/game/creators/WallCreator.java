@@ -1,7 +1,7 @@
 package feup.ldts.flappy.model.game.creators;
 
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Wall;
+import feup.ldts.flappy.model.game.elements.Wall;
 
 import java.util.Random;
 

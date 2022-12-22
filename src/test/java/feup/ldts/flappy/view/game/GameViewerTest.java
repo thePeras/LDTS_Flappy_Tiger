@@ -1,8 +1,7 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.elements.Game;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

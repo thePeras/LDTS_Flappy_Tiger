@@ -1,7 +1,7 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.game.Player;
+import feup.ldts.flappy.model.game.elements.Player;
 import feup.ldts.flappy.model.game.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

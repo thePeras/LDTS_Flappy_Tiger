@@ -1,6 +1,7 @@
-package feup.ldts.flappy.model.game;
+package feup.ldts.flappy.model.game.elements;
 
 import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.game.Position;
 
 public class Wall extends Element implements Collidable {
 

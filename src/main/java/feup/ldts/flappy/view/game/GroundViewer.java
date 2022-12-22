@@ -1,8 +1,8 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.Colors;
-import feup.ldts.flappy.model.game.Ground;
+import feup.ldts.flappy.view.Colors;
+import feup.ldts.flappy.model.game.elements.Ground;
 import feup.ldts.flappy.model.game.Position;
 
 public class GroundViewer implements ElementViewer<Ground> {

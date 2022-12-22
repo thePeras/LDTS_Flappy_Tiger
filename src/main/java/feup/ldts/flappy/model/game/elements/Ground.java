@@ -1,4 +1,6 @@
-package feup.ldts.flappy.model.game;
+package feup.ldts.flappy.model.game.elements;
+
+import feup.ldts.flappy.model.game.Position;
 
 public class Ground extends Element implements Collidable {
 

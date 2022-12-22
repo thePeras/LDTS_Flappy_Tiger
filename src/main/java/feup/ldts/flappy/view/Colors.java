@@ -1,4 +1,4 @@
-package feup.ldts.flappy.model;
+package feup.ldts.flappy.view;
 
 public enum Colors {
     ORANGE("#FC6A03"),

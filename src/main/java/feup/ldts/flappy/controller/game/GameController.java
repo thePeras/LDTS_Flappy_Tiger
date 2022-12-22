@@ -4,8 +4,8 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.SoundManager;
-import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.controller.sound.SoundManager;
+import feup.ldts.flappy.model.game.elements.Game;
 
 import java.awt.*;
 import java.io.IOException;

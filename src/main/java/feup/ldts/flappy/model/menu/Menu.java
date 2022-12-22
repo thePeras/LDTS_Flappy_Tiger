@@ -1,7 +1,7 @@
 package feup.ldts.flappy.model.menu;
 
-import feup.ldts.flappy.controller.SoundManager;
-import feup.ldts.flappy.model.sound.SoundEffects;
+import feup.ldts.flappy.controller.sound.SoundManager;
+import feup.ldts.flappy.controller.sound.SoundEffects;
 
 import java.util.List;
 

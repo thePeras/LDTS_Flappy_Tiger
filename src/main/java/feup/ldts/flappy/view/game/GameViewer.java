@@ -1,9 +1,9 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.model.Colors;
-import feup.ldts.flappy.model.game.Element;
-import feup.ldts.flappy.model.game.Game;
+import feup.ldts.flappy.view.Colors;
+import feup.ldts.flappy.model.game.elements.Element;
+import feup.ldts.flappy.model.game.elements.Game;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Boar;
 import feup.ldts.flappy.model.game.collectables.Collectable;

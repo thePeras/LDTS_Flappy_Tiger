@@ -3,8 +3,8 @@ package feup.ldts.flappy.controller.game;
 import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.Wall;
+import feup.ldts.flappy.model.game.elements.Game;
+import feup.ldts.flappy.model.game.elements.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.state.AppState;
 

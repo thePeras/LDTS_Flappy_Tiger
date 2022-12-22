@@ -1,8 +1,4 @@
-package feup.ldts.flappy.controller;
-
-import feup.ldts.flappy.model.sound.Musics;
-import feup.ldts.flappy.model.sound.Sound;
-import feup.ldts.flappy.model.sound.SoundEffects;
+package feup.ldts.flappy.controller.sound;
 
 public class SoundManager {
     private static SoundManager instance = null;
