@@ -5,7 +5,7 @@ import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.sound.SoundManager;
-import feup.ldts.flappy.model.game.elements.Game;
+import feup.ldts.flappy.model.game.Game;
 
 import java.awt.*;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class GameController extends Controller<Game> {
     public GameController(Game game) {
         super(game);
         this.playerController = new PlayerController(game);
-        this.collisionController = new CollisionController(game);
+        this.collisionController = new CollisionController(game, this.playerController);
         this.elementsFactory = new ElementsFactory(game);
         this.movingElementsController = new MovingElementsController(game);
     }

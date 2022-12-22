@@ -1,6 +1,6 @@
 package feup.ldts.flappy.controller.game;
 
-import feup.ldts.flappy.model.game.elements.Game;
+import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.creators.CollectableCreator;
 import feup.ldts.flappy.model.game.creators.WallCreator;
 

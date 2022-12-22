@@ -1,12 +1,13 @@
-package feup.ldts.flappy.model.game
+package feup.ldts.flappy.model.game.elements
 
+import feup.ldts.flappy.model.game.Position
 import spock.lang.Specification
 
 class PositionTest extends Specification{
 
     def "addX()"(){
         given:
-            Position pos = new Position(2,3)
+        Position pos = new Position(2,3)
         when:
             pos.addX(7)
         then:
