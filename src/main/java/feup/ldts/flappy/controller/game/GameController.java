@@ -6,7 +6,6 @@ import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.SoundManager;
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.Wall;
 
 import java.awt.*;
 import java.io.IOException;
@@ -36,7 +35,7 @@ public class GameController extends Controller<Game> {
         for (var wall : walls) {
             int wallX = wall.getPosition().getX() + 1;
 
-            if (playerX == wallX+1) {
+            if (playerX == wallX + 1) {
                 getModel().incrementScore(1);
                 break;
             }
@@ -46,23 +45,23 @@ public class GameController extends Controller<Game> {
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
         if (key != null) {
-            if(key.getKeyType() == KeyType.Escape) {
+            if (key.getKeyType() == KeyType.Escape) {
                 getModel().setPlaying(false);
                 app.setState(PauseState);
             }
-            if(key.getKeyType() == KeyType.Character) {
-                if(key.getCharacter() == 'p') {
+            if (key.getKeyType() == KeyType.Character) {
+                if (key.getCharacter() == 'p') {
                     getModel().setPlaying(false);
                     app.setState(PauseState);
                 }
-                if(key.getCharacter() == 'q') {
+                if (key.getCharacter() == 'q') {
                     getModel().setPlaying(false);
                     app.setState(PauseState);
                 }
-                if(key.getCharacter() == 'm') {
+                if (key.getCharacter() == 'm') {
                     SoundManager.getInstance().toggleGameMusicMute();
                 }
-                if(key.getCharacter() == 's') {
+                if (key.getCharacter() == 's') {
                     SoundManager.getInstance().toggleSoundMute();
                 }
             }

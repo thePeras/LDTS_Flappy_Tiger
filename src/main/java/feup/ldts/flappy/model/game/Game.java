@@ -17,11 +17,9 @@ public class Game {
     private boolean isInGodMode;
     private final List<Wall> wallsList;
     private final List<Collectable> collectablesList;
-
     private Ground ground;
     private int score;
     private int steps;
-
     private int godModeSteps = 0;
 
     public Game() {
@@ -51,39 +49,54 @@ public class Game {
         isPlaying = true;
     }
 
-    public List<Wall> getWalls(){
+    public List<Wall> getWalls() {
         return wallsList;
     }
-    public void addWall(Wall wall){ wallsList.add(wall);}
-    public void removeWall(Iterator<Wall> iterator){ iterator.remove();}
 
-    public List<Collectable> getCollectables(){
+    public void addWall(Wall wall) {
+        wallsList.add(wall);
+    }
+
+    public void removeWall(Iterator<Wall> iterator) {
+        iterator.remove();
+    }
+
+    public List<Collectable> getCollectables() {
         return collectablesList;
     }
-    public void addCollectable(Collectable collectable){ collectablesList.add(collectable);}
 
-    public void removeCollectable(Iterator<Collectable> collectable){ collectable.remove();}
+    public void addCollectable(Collectable collectable) {
+        collectablesList.add(collectable);
+    }
 
-    public void consumeCollectable(Collectable collectable){
+    public void removeCollectable(Iterator<Collectable> collectable) {
+        collectable.remove();
+    }
+
+    public void consumeCollectable(Collectable collectable) {
         SoundManager.getInstance().playSoundEffect(SoundEffects.CONSUME);
         collectable.consume(this);
     }
 
-    public void incrementScore(int points){ score += points; }
+    public void incrementScore(int points) {
+        score += points;
+    }
 
-    public int getScore(){ return score; }
+    public int getScore() {
+        return score;
+    }
 
     public int getSteps() {
-       return steps;
+        return steps;
     }
 
     public Ground getGround() {
         return ground;
     }
 
-    private void updateWalls(){
+    private void updateWalls() {
         for (Wall wall : wallsList) {
-            if(wall.getPosition().getX() > player.getPosition().getX()) {
+            if (wall.getPosition().getX() > player.getPosition().getX()) {
                 wall.setSpace(GOD_MODE_WALL_SPACE);
             }
         }
@@ -91,12 +104,12 @@ public class Game {
 
     public void incrementSteps() {
         steps++;
-        if(steps == 20) steps = 0;
+        if (steps == 20) steps = 0;
 
-        if(isInGodMode) {
+        if (isInGodMode) {
             godModeSteps++;
             updateWalls();
-            if(godModeSteps == GOD_MODE_MAX_STEPS) {
+            if (godModeSteps == GOD_MODE_MAX_STEPS) {
                 isInGodMode = false;
                 SoundManager.getInstance().stopGodModeSound();
             }

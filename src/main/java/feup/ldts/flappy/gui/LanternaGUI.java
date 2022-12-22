@@ -45,8 +45,7 @@ public class LanternaGUI implements GUI {
 
     private Terminal createTerminal(AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
-                .setInitialTerminalSize(terminalSize);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         return terminalFactory.createTerminal();
@@ -87,7 +86,7 @@ public class LanternaGUI implements GUI {
     public void paintBackground(String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
-        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height+1), ' ');
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height + 1), ' ');
     }
 
     public void drawRectangle(Position position, int width, int height, String color) {

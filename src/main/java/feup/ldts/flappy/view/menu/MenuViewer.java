@@ -6,8 +6,6 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.MainMenu;
 import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
 public class MenuViewer extends Viewer<MainMenu> {
 
     public MenuViewer(MainMenu mainMenu) {

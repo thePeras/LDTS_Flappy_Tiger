@@ -9,7 +9,7 @@ public class BoarViewer implements ElementViewer<Boar> {
     @Override
     public void draw(Boar element, GUI gui) {
         char boarChar = 134;
-        for(Position position : element.getPositions()) {
+        for (Position position : element.getPositions()) {
             gui.drawPixel(position, boarChar++, Colors.BROWN.getHex(), Colors.BLUE.getHex());
         }
     }

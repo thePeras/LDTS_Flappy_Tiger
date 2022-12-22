@@ -6,8 +6,6 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Pause;
 import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
 public class PauseViewer extends Viewer<Pause> {
 
     public PauseViewer(Pause model) {

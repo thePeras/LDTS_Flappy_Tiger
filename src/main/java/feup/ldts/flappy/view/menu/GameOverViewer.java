@@ -22,7 +22,7 @@ public class GameOverViewer extends Viewer<GameOver> {
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             if (getModel().isSelected(i)) {
-                gui.drawMenuText(new Position(getModel().MARGIN-1, 21 + i), ">" + getModel().getEntry(i), "#FC6A03");
+                gui.drawMenuText(new Position(getModel().MARGIN - 1, 21 + i), ">" + getModel().getEntry(i), "#FC6A03");
             } else {
                 gui.drawMenuText(new Position(getModel().MARGIN, 21 + i), getModel().getEntry(i), "#FFFFFF");
             }

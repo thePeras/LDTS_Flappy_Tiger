@@ -6,8 +6,6 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Instructions;
 import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
 public class InstructionsViewer extends Viewer<Instructions> {
 
     public InstructionsViewer(Instructions model) {

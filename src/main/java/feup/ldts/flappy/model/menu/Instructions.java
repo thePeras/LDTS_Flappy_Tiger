@@ -24,8 +24,4 @@ public class Instructions {
     public String getEntry(int i) {
         return inst.get(i);
     }
-
-    public ArrayList<String> getInstructions() {
-        return inst;
-    }
 }

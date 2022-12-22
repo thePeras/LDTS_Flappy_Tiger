@@ -7,14 +7,18 @@ import feup.ldts.flappy.model.game.Position;
 
 public abstract class Collectable extends Element implements Collidable {
     private static final int speed = -1;
+
     public Collectable(Position position) {
         super(position);
     }
-    public void move(){
+
+    public void move() {
         this.setPosition(this.getPosition().addX(speed));
     }
+
     public boolean isOutOfScreen() {
         return this.getPosition().getX() < -1;
     }
+
     public abstract void consume(Game game);
 }
