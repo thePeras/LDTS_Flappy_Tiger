@@ -11,12 +11,16 @@ import java.util.Random;
 
 public class CollectableCreator extends Creator<Collectable> {
     private final static int margin = 5;
-    private final static int lambProbability = 20;
-    private final static int portoWineProbability = 10;
+    private final double portoWineProbability;
+
+    private final double lambProbability;
+
     private final Random random;
 
     public CollectableCreator() {
         this.random = new Random();
+        this.portoWineProbability = 0.15;
+        this.lambProbability = (1 - portoWineProbability) * 0.4;
     }
 
     @Override
@@ -24,12 +28,12 @@ public class CollectableCreator extends Creator<Collectable> {
         int randomY = random.nextInt(LanternaGUI.height - 2 * margin) + margin;
         Position randomPosition = new Position(LanternaGUI.width, randomY);
 
-        int randomType = random.nextInt(100);
+        double randomCollectableType = random.nextDouble();
 
-        if (randomType < portoWineProbability) {
+        if (randomCollectableType < portoWineProbability) {
             return new PortoWine(randomPosition);
         }
-        if (randomType < lambProbability + portoWineProbability) {
+        if (randomCollectableType < lambProbability + portoWineProbability) {
             return new Lamb(randomPosition);
         } else {
             return new Boar(randomPosition);
