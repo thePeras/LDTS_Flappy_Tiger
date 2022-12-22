@@ -23,7 +23,7 @@ public class GameController extends Controller<Game> {
     public GameController(Game game) {
         super(game);
         this.playerController = new PlayerController(game);
-        this.collisionController = new CollisionController(game);
+        this.collisionController = new CollisionController(game, this.playerController);
         this.elementsFactory = new ElementsFactory(game);
         this.movingElementsController = new MovingElementsController(game);
     }

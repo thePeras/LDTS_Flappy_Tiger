@@ -18,17 +18,4 @@ public class Boar extends Food {
                 new Position(this.getPosition().getX() + 1, this.getPosition().getY())
         );
     }
-
-    // TODO: extract this method to collectable abstract class
-    @Override
-    public boolean isCollidingWithPlayer(Player player) {
-        for (Position playerPosition : player.getPositions()) {
-            for (Position boarPosition : this.getPositions()) {
-                if (boarPosition.equals(playerPosition)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }

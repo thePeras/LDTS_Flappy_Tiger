@@ -62,19 +62,4 @@ class WallTest extends Specification {
         then:
             wall.getPosition().x == 9
     }
-
-    //TODO: test more cases here (when not colliding, y<0)
-    def 'isCollidingWithPlayer'(){
-        given:
-            def wall = new Wall(10)
-            wall.setPosition(new Position(10, 0))
-            def player = Mock(Player)
-            player.getPositions() >> [new Position(10,10), new Position(10,11)]
-            player.getPosition() >> new Position(10, 10)
-            wall.setPosition(new Position(10, 0))
-        when:
-            boolean colliding = wall.isCollidingWithPlayer(player)
-        then:
-            colliding == true
-    }
 }

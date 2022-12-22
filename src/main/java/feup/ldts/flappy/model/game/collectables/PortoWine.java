@@ -22,17 +22,4 @@ public class PortoWine extends Collectable {
     public void consume(Game game) {
         game.startGodMode();
     }
-
-    // TODO: extract this method to collectable abstract class
-    @Override
-    public boolean isCollidingWithPlayer(Player player) {
-        for (Position playerPosition : player.getPositions()) {
-            for (Position winePosition : this.getPositions()) {
-                if (winePosition.equals(playerPosition)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 }
