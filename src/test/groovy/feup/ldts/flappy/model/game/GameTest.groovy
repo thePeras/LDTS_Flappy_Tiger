@@ -1,6 +1,8 @@
 package feup.ldts.flappy.model.game
 
 import feup.ldts.flappy.gui.LanternaGUI
+import feup.ldts.flappy.model.game.collectables.Collectable
+import feup.ldts.flappy.model.game.collectables.PortoWine
 import feup.ldts.flappy.model.game.elements.Wall
 import spock.lang.Specification
 
