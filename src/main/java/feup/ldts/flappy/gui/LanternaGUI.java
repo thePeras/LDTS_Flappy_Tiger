@@ -10,8 +10,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.view.Colors;
 
 import java.awt.*;
 import java.io.File;

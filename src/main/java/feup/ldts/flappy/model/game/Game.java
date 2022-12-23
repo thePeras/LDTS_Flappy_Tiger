@@ -1,25 +1,24 @@
 package feup.ldts.flappy.model.game;
 
+import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.collectables.Collectable;
-import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.model.game.elements.Ground;
 import feup.ldts.flappy.model.game.elements.Player;
 import feup.ldts.flappy.model.game.elements.Wall;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Game {
     private static final int GOD_MODE_MAX_STEPS = 100;
     private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
-    private boolean isPlaying;
-    private boolean isInGodMode;
     private final List<Wall> wallsList;
     private final List<Collectable> collectablesList;
+    private boolean isPlaying;
+    private boolean isInGodMode;
     private Ground ground;
     private int score;
     private int steps;

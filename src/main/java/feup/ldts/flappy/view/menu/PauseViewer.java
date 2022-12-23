@@ -1,9 +1,9 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Pause;
+import feup.ldts.flappy.view.Colors;
 
 public class PauseViewer extends MenuViewer<Pause> {
 

@@ -1,11 +1,15 @@
 package feup.ldts.flappy.controller.menu
 
+import com.googlecode.lanterna.input.KeyStroke
+import com.googlecode.lanterna.input.KeyType
 import feup.ldts.flappy.App
+import feup.ldts.flappy.controller.sound.SoundManager
 import feup.ldts.flappy.model.menu.MainMenu
 import feup.ldts.flappy.model.menu.Menu
-import spock.lang.Specification
-//Import appState
 import feup.ldts.flappy.state.AppState
+import spock.lang.Specification
+
+//Import appState
 
 class MainMenuControllerTest extends Specification {
     def "test optionSelected sets game state to GameState when start option is selected"() {
@@ -65,5 +69,29 @@ class MainMenuControllerTest extends Specification {
         1 * game.exit()
     }
 
+    def "step should move to the next option when arrow down is pressed"() {
+        given:
+        def menu = new MainMenu()
+        menu.options = ['Option 1', 'Option 2', 'Option 3']
+        def controller = new MainMenuController(menu)
 
+        when:
+        controller.step(null, new KeyStroke(KeyType.ArrowDown, false, false))
+
+        then:
+        menu.option == 1
+    }
+
+    def "step should move to the previous option when arrow up is pressed"() {
+        given:
+        def menu = new MainMenu()
+        menu.options = ['Option 1', 'Option 2', 'Option 3']
+        def controller = new MainMenuController(menu)
+
+        when:
+        controller.step(null, new KeyStroke(KeyType.ArrowUp, false, false))
+
+        then:
+        menu.option == 2
+    }
 }

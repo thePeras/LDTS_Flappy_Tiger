@@ -4,8 +4,8 @@ import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.elements.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
+import feup.ldts.flappy.model.game.elements.Wall;
 import feup.ldts.flappy.state.AppState;
 
 import java.awt.*;
@@ -26,18 +26,22 @@ public class CollisionController extends Controller<Game> {
         Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
         while (collectableIterator.hasNext()) {
             Collectable collectable = collectableIterator.next();
-            if(playerController.isCollidingWith(collectable)){
+            if (playerController.isCollidingWith(collectable)) {
                 getModel().consumeCollectable(collectable);
                 collectableIterator.remove();
             }
         }
 
-        if(playerController.isCollidingWith(getModel().getGround())){
+        if (playerController.isCollidingWith(getModel().getGround())) {
             app.setState(AppState.GAME_OVER_STATE);
+            return;
         }
-        for(Wall wall : getModel().getWalls()){
-            if(playerController.isCollidingWith(wall)){
+
+        for (Wall wall : getModel().getWalls()) {
+
+            if (playerController.isCollidingWith(wall)) {
                 app.setState(AppState.GAME_OVER_STATE);
+                return;
             }
         }
     }

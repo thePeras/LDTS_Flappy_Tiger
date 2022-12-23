@@ -7,13 +7,8 @@ import feup.ldts.flappy.controller.menu.TextMenuController
 import feup.ldts.flappy.model.game.Game
 import feup.ldts.flappy.state.AppState
 import feup.ldts.flappy.view.game.GameViewer
-import feup.ldts.flappy.view.menu.GameOverViewer
-import feup.ldts.flappy.view.menu.InstructionsViewer
-import feup.ldts.flappy.view.menu.LeaderboardViewer
-import feup.ldts.flappy.view.menu.MainMenuViewer
-import feup.ldts.flappy.view.menu.PauseViewer
+import feup.ldts.flappy.view.menu.*
 import spock.lang.Specification
-
 
 class AppTest extends Specification {
 
@@ -42,12 +37,12 @@ class AppTest extends Specification {
         app.viewer in expectedViewer
 
         where:
-        state | expectedController | expectedViewer
-        AppState.GAME_STATE | GameController | GameViewer
-        AppState.LEADERBOARD_STATE |  TextMenuController | LeaderboardViewer
+        state                       | expectedController | expectedViewer
+        AppState.GAME_STATE         | GameController     | GameViewer
+        AppState.LEADERBOARD_STATE  | TextMenuController | LeaderboardViewer
         AppState.INSTRUCTIONS_STATE | TextMenuController | InstructionsViewer
-        AppState.PAUSE_STATE | PauseController | PauseViewer
-        AppState.GAME_OVER_STATE | GameOverController | GameOverViewer
+        AppState.PAUSE_STATE        | PauseController    | PauseViewer
+        AppState.GAME_OVER_STATE    | GameOverController | GameOverViewer
     }
 
     def "testExitMethod"() {

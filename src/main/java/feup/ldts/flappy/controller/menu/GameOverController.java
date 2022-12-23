@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import static feup.ldts.flappy.state.AppState.*;
+import static feup.ldts.flappy.state.AppState.GAME_STATE;
+import static feup.ldts.flappy.state.AppState.MENU_STATE;
 
 public class GameOverController extends MenuController<GameOver> {
 

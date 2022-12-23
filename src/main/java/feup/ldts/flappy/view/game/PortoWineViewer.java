@@ -1,8 +1,8 @@
 package feup.ldts.flappy.view.game;
 
-import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.PortoWine;
+import feup.ldts.flappy.view.Colors;
 
 public class PortoWineViewer implements ElementViewer<PortoWine> {
     @Override

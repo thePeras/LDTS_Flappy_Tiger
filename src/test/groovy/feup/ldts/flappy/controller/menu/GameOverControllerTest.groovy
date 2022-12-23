@@ -1,10 +1,9 @@
 package feup.ldts.flappy.controller.menu
 
-import com.googlecode.lanterna.input.KeyType
-import feup.ldts.flappy.App
+import com.googlecode.lanterna.input.KeyStroke
 import feup.ldts.flappy.model.menu.GameOver
-import feup.ldts.flappy.model.menu.Menu
 import spock.lang.Specification
+
 
 
 class GameOverControllerTest extends Specification {
@@ -55,5 +54,28 @@ class GameOverControllerTest extends Specification {
 
         assert scanner.findWithinHorizon("90 - test_user", 0) == null
     }
-}
+    // Test if the username is updated correctly
+    def "test update username"() {
+        given:
+        def gameOver = new GameOver(90)
+        gameOver.username = ""
+        GameOverController controller = new GameOverController(gameOver)
 
+        Character character = 'a'
+        Character character2 = 'b'
+        KeyStroke key = new KeyStroke(character, false, false)
+        KeyStroke key2 = new KeyStroke(character2, false, false)
+
+        when:
+        controller.charSelected(key)
+
+        then:
+        gameOver.username == "a"
+
+        when:
+        controller.charSelected(key2)
+
+        then:
+        gameOver.username == "ab"
+    }
+}

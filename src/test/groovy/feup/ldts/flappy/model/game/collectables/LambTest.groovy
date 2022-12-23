@@ -4,15 +4,15 @@ import feup.ldts.flappy.model.game.Game
 import feup.ldts.flappy.model.game.Position
 import spock.lang.Specification
 
-class LambTest extends Specification{
-    def 'consume method'(){
+class LambTest extends Specification {
+    def 'consume method'() {
         given:
-            Position position = Mock(Position)
-            Lamb lamb = new Lamb(position)
-            Game game = Mock(Game)
+        Position position = Mock(Position)
+        Lamb lamb = new Lamb(position)
+        Game game = Mock(Game)
         when:
-            lamb.consume(game)
+        lamb.consume(game)
         then:
-            1 * game.incrementScore(5)
+        1 * game.incrementScore(5)
     }
 }

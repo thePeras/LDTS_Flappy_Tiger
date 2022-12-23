@@ -1,7 +1,5 @@
-import feup.ldts.flappy.model.menu.Leaderboard
-import feup.ldts.flappy.view.menu.InstructionsViewer
-import feup.ldts.flappy.model.menu.Instructions
 import feup.ldts.flappy.gui.GUI
+import feup.ldts.flappy.model.menu.Leaderboard
 import feup.ldts.flappy.view.menu.LeaderboardViewer
 import spock.lang.Specification
 
@@ -18,8 +16,8 @@ class LeaderboardViewerTest extends Specification {
         viewer.drawInsideElements(gui)
 
         then:
-        1 * gui.drawText(_, 'Leaderboard', _,_)
-        5 * gui.drawText(_, _, _,_)
+        1 * gui.drawText(_, 'Leaderboard', _, _)
+        5 * gui.drawText(_, _, _, _)
     }
 
     def "drawOptions should not draw any options"() {
@@ -32,6 +30,6 @@ class LeaderboardViewerTest extends Specification {
         viewer.drawOptions(gui)
 
         then:
-        0 * gui.drawText(_, _, _,_)
+        0 * gui.drawText(_, _, _, _)
     }
 }

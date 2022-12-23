@@ -5,9 +5,9 @@ import feup.ldts.flappy.model.game.Position
 import feup.ldts.flappy.model.game.elements.Wall
 import spock.lang.Specification
 
-class GameControllerTest extends Specification{
+class GameControllerTest extends Specification {
 
-    def "should increment score when player's x coordinate is two more than wall's x coordinate"(){
+    def "should increment score when player's x coordinate is two more than wall's x coordinate"() {
         given:
         Game game = new Game()
         GameController gameController = new GameController(game)
@@ -15,15 +15,15 @@ class GameControllerTest extends Specification{
 
         when:
         game.addWall(wall)
-        wall.setPosition(new Position(1,1))
-        game.getPlayer().setPosition(new Position(3,1))
+        wall.setPosition(new Position(1, 1))
+        game.getPlayer().setPosition(new Position(3, 1))
         gameController.updateScore()
 
         then:
         game.getScore() == 1
     }
 
-    def "should not increment score when player's x coordinate is one more than wall's x coordinate"(){
+    def "should not increment score when player's x coordinate is one more than wall's x coordinate"() {
         given:
         Game game = new Game()
         GameController gameController = new GameController(game)
@@ -31,8 +31,8 @@ class GameControllerTest extends Specification{
 
         when:
         game.addWall(wall)
-        wall.setPosition(new Position(1,1))
-        game.getPlayer().setPosition(new Position(2,1))
+        wall.setPosition(new Position(1, 1))
+        game.getPlayer().setPosition(new Position(2, 1))
         gameController.updateScore()
 
         then:

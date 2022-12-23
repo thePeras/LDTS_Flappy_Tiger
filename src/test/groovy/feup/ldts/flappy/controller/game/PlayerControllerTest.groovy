@@ -1,17 +1,12 @@
 package feup.ldts.flappy.controller.game
 
 import com.googlecode.lanterna.input.KeyStroke
-import com.googlecode.lanterna.input.KeyType
 import feup.ldts.flappy.App
 import feup.ldts.flappy.model.game.Game
 import feup.ldts.flappy.model.game.Position
-import feup.ldts.flappy.model.game.collectables.Collectable
-import feup.ldts.flappy.model.game.elements.Collidable
+import feup.ldts.flappy.model.game.collectables.PortoWine
 import feup.ldts.flappy.model.game.elements.Player
 import spock.lang.Specification
-import feup.ldts.flappy.model.game.collectables.PortoWine
-import static org.junit.Assert.assertEquals
-
 
 class PlayerControllerTest extends Specification {
 

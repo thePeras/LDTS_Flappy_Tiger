@@ -1,9 +1,7 @@
 import feup.ldts.flappy.gui.GUI
 import feup.ldts.flappy.model.game.Position
-import feup.ldts.flappy.model.game.collectables.Boar
 import feup.ldts.flappy.model.game.collectables.Lamb
 import feup.ldts.flappy.view.Colors
-import feup.ldts.flappy.view.game.BoarViewer
 import feup.ldts.flappy.view.game.LambViewer
 import spock.lang.Specification
 

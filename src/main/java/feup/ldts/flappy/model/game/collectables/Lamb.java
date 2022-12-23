@@ -11,7 +11,7 @@ public class Lamb extends Food {
         super(position, POINTS);
     }
 
-    public List<Position> getPositions(){
+    public List<Position> getPositions() {
         return List.of(
                 new Position(this.getPosition().getX(), this.getPosition().getY())
         );

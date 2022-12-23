@@ -2,11 +2,7 @@ import feup.ldts.flappy.gui.GUI
 import feup.ldts.flappy.model.game.Game
 import feup.ldts.flappy.model.game.Position
 import feup.ldts.flappy.view.Colors
-import feup.ldts.flappy.view.Viewer
 import feup.ldts.flappy.view.game.GameViewer
-import feup.ldts.flappy.view.game.GroundViewer
-import feup.ldts.flappy.view.game.PlayerViewer
-import feup.ldts.flappy.view.game.WallViewer
 import spock.lang.Specification
 
 class GameViewerTest extends Specification {

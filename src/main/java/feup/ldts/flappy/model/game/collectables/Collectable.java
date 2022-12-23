@@ -1,9 +1,9 @@
 package feup.ldts.flappy.model.game.collectables;
 
-import feup.ldts.flappy.model.game.elements.Collidable;
-import feup.ldts.flappy.model.game.elements.Element;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.elements.Collidable;
+import feup.ldts.flappy.model.game.elements.Element;
 
 public abstract class Collectable extends Element implements Collidable {
     private static final int SPEED = -1;

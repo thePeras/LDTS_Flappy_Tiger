@@ -1,9 +1,9 @@
 package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Instructions;
+import feup.ldts.flappy.view.Colors;
 
 public class InstructionsViewer extends MenuViewer<Instructions> {
 

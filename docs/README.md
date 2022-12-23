@@ -1,24 +1,30 @@
 ## LDTS_0402 - Flappy Tiger
 
 The Flappy Tiger is game trully inspired by the Flappy Bird game, but with a few twists.
-The objective of the game is to maneuver a small tiger, the protagonist, through a series of walls coming from the right.
+The objective of the game is to maneuver a small tiger, the protagonist, through a series of walls coming from the
+right.
 
-Each wall has a gap and the player must pass through the gap to score a point. The game ends when the player collides with a wall or hits the floor. 
-The player can also collect collectables, that give the player points or start a god mode, where the gap between the walls is increased, making the game easier.
+Each wall has a gap and the player must pass through the gap to score a point. The game ends when the player collides
+with a wall or hits the floor.
+The player can also collect collectables, that give the player points or start a god mode, where the gap between the
+walls is increased, making the game easier.
 
-Be aware that Flappy Tiger is an addicting game that tests the player's reflexes and patience. It's a great way to challenge yourself.
+Be aware that Flappy Tiger is an addicting game that tests the player's reflexes and patience. It's a great way to
+challenge yourself.
 
-Developed by 
+Developed by
+
 - **Francisco da Ana** (up202108762)
 - **João Torre Pereira** (up202108848)
-- **José Pedro Evans** (up202108818) 
+- **José Pedro Evans** (up202108818)
 
 LDTS 2022⁄23 <br>
 Software Design and Testing Laboratory
 
 ### IMPLEMENTED FEATURES
 
-- **Playable Character** - The game has a playable character, which is a tiger, that can be controlled by the player. The
+- **Playable Character** - The game has a playable character, which is a tiger, that can be controlled by the player.
+  The
   player can control the tiger by pressing the space bar key.
 - **Main Menu** - The game has a main mainMenu, that can be accessed by pressing the escape key. The main mainMenu has
   the following options:
@@ -26,16 +32,24 @@ Software Design and Testing Laboratory
     - **Leaderboard** - Displays the top 5 scores.
     - **Instructions** - Displays the instructions of the game.
     - **Exit** - Exits the game.
-- **Leaderboard** - The game keeps track of the top 5 scores, and displays them in a leaderboard, ordered by descending order of score.
-- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by selecting the 'Resume' option in the main mainMenu. The player can also exit the game by selecting the 'Exit' option and restart the game by selecting the 'Restart' option.
+- **Leaderboard** - The game keeps track of the top 5 scores, and displays them in a leaderboard, ordered by descending
+  order of score.
+- **Pause Screen** - The game can be paused by pressing the escape key, and the game can be resumed by selecting the '
+  Resume' option in the main mainMenu. The player can also exit the game by selecting the 'Exit' option and restart the
+  game by selecting the 'Restart' option.
 - **Random Walls** - The walls are randomly generated, with a minimum distance between them.
-- **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.The music is different for the main mainMenu and the game.
+- **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key.The music
+  is different for the main mainMenu and the game.
 - **Sound effects** - The game has sound effects. The sound effects can be turned on and off by pressing the 's' key.
-- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the  player and the collectable objects. When the player collides with the walls or floor, the game ends.
-- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor. The player can input its userName and if the score is greater than the  lowest score in the leaderboard, the score will be added to the leaderboard.
+- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the
+  player and the collectable objects. When the player collides with the walls or floor, the game ends.
+- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor.
+  The player can input its userName and if the score is greater than the lowest score in the leaderboard, the score will
+  be added to the leaderboard.
 - **Collectable Objects** - The game has collectable objects, that can be collected by the player:
     - **Deer** and **Boar** - The deer can be collected by the player, and gives the player 5 points.
-    - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased, making the game easier.
+    - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased,
+      making the game easier.
 - **Curiosities** - There is curiosities about animals that can be found on the main mainMenu.
 
 ### PLANNED FEATURES
@@ -49,7 +63,6 @@ Software Design and Testing Laboratory
 <img src="./images/mockups/Instructions.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Game.gif" alt="drawing" width="400"/>
 <img src="./images/mockups/GameOver_Menu.png" alt="drawing" width="400"/>
-
 
 ### UML
 
@@ -181,11 +194,14 @@ Changing the music and sound effects turns out to be a easy task now.
 
 **Problem in Context**
 
-Different collectables have different effects on the game. For example, the Food increases the score and the PortoWine start the god mode. So, we need to have a way to execute the effect of the collectable without having to check the type of the collectable in the game.
+Different collectables have different effects on the game. For example, the Food increases the score and the PortoWine
+start the god mode. So, we need to have a way to execute the effect of the collectable without having to check the type
+of the collectable in the game.
 
 **The Pattern**
 
-With the command pattern, each collectable has its own consume command that is executed when the player collides with it. 
+With the command pattern, each collectable has its own consume command that is executed when the player collides with
+it.
 That command is responsible for producing the effect of the collectable.
 
 **Implementation**
@@ -194,7 +210,8 @@ That command is responsible for producing the effect of the collectable.
 
 **Consequences**
 
-Because each collectable has its own command we can easily add new collectables without having to change the code of the game. So, the code becomes more flexible and maintainable.
+Because each collectable has its own command we can easily add new collectables without having to change the code of the
+game. So, the code becomes more flexible and maintainable.
 Also, another benefit of this pattern is that the consume code is isolated from the rest of the game.
 
 ------
@@ -203,12 +220,15 @@ Also, another benefit of this pattern is that the consume code is isolated from 
 
 **Problem in Context**
 
-The game has several elements that are created in different ways and probabilities. For example, no two collectables are created in the same x position and also the walls are created alternating with the collectables. We decided to centralize the creation of the game elements in a single class, ElementsFactory.
+The game has several elements that are created in different ways and probabilities. For example, no two collectables are
+created in the same x position and also the walls are created alternating with the collectables. We decided to
+centralize the creation of the game elements in a single class, ElementsFactory.
 
 **The Pattern**
 
 Factory Method defines an interface for creating an object, but lets subclasses decide which class to instantiate.
-For example, the createCollectable method is defined in the ElementsFactory class, but the subclass CollectableCreator decide which collectable to create based on probability. It can create a Food or a PortoWine.
+For example, the createCollectable method is defined in the ElementsFactory class, but the subclass CollectableCreator
+decide which collectable to create based on probability. It can create a Food or a PortoWine.
 
 **Implementation**
 
@@ -216,31 +236,45 @@ For example, the createCollectable method is defined in the ElementsFactory clas
 
 **Consequences**
 
-The creation of elements is centralized in the ElementsFactory class and all the logic of the creation is isolated from the rest of the code.
+The creation of elements is centralized in the ElementsFactory class and all the logic of the creation is isolated from
+the rest of the code.
 
 ------
 
 ### REFACTORING
 
-Some of the changes made in the refactoring phase were remove dead code, extract methods and classes, remove duplicated code, substitute hardcoded values with constants, etc.
+Some of the changes made in the refactoring phase were remove dead code, extract methods and classes, remove duplicated
+code, substitute hardcoded values with constants, etc.
 
 #### Menu Viewers
 
-In the game there are five different menus: main menu, game over menu, leaderboard menu, pause menu and instructions menu. 
-Because all of them have a similar structure, there was a lot of duplicated code. For example, to draw the menu options we had to iterate over the options list and draw each option in each menu.
-To solve this problem we use the *extract superclass* technique. We created a MenuViewer class that is responsible for drawing the menu. The menus viewers now extend the MenuViewer class and override the drawInsideElements method to draw the menu specific elements. This way we solve the duplicated code problem and classes became smaller.
+In the game there are five different menus: main menu, game over menu, leaderboard menu, pause menu and instructions
+menu.
+Because all of them have a similar structure, there was a lot of duplicated code. For example, to draw the menu options
+we had to iterate over the options list and draw each option in each menu.
+To solve this problem we use the *extract superclass* technique. We created a MenuViewer class that is responsible for
+drawing the menu. The menus viewers now extend the MenuViewer class and override the drawInsideElements method to draw
+the menu specific elements. This way we solve the duplicated code problem and classes became smaller.
 
 #### Menu Controllers
 
-Menu controllers had a similiar problem. All of them resumed in the same code, which was to handle the user input, but in different ways. In adition to that, every menu the possibility to mute sounds and music, and the code to handle that was duplicated in all the controllers.
-Again, to solve this problem we use the *extract superclass* technique. We created a MenuController class that is responsible for handling the user input and the mute buttons. The menus controllers now extend the MenuController class and override the optionSelected method to handle the menu specific input. In adition to that, we also use *extract interface* technique to create a interface that is implemented by the menus controllers.
+Menu controllers had a similiar problem. All of them resumed in the same code, which was to handle the user input, but
+in different ways. In adition to that, every menu the possibility to mute sounds and music, and the code to handle that
+was duplicated in all the controllers.
+Again, to solve this problem we use the *extract superclass* technique. We created a MenuController class that is
+responsible for handling the user input and the mute buttons. The menus controllers now extend the MenuController class
+and override the optionSelected method to handle the menu specific input. In adition to that, we also use *extract
+interface* technique to create a interface that is implemented by the menus controllers.
 
-
-The changes of the last two refactorings can be found in this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/16).
+The changes of the last two refactorings can be found in
+this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/16).
 
 #### IsColliding
 
-Previous, each collidable element had its own isCollidingWithPlayer method that checked if the element was colliding with the player. But thinking about the game we notice that the Player is the only element that can collide with other elements. So, we decided to *move the method* to the PlayerController class and make it generic. Now, the Player class has a isCollidingWith method that checks if the player is colliding with any other element.
+Previous, each collidable element had its own isCollidingWithPlayer method that checked if the element was colliding
+with the player. But thinking about the game we notice that the Player is the only element that can collide with other
+elements. So, we decided to *move the method* to the PlayerController class and make it generic. Now, the Player class
+has a isCollidingWith method that checks if the player is colliding with any other element.
 
 The changes can be found in this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/15).
 
@@ -252,8 +286,9 @@ The changes can be found in this [pull request](https://github.com/FEUP-LDTS-202
 
 The sounds and musics played in the game are saved in .wav files. Each file needed to be loaded and then played.
 If we loaded each sound before playing it, there would be a delay in the sound effect, decreasing the user experience.
-So all the sounds are loaded in the SoundManager class and then played when needed. 
-The problem resulting from that is that the SoundManager class has a lot of switch statements. Each switch statement is responsible for playing a specific sound effect.
+So all the sounds are loaded in the SoundManager class and then played when needed.
+The problem resulting from that is that the SoundManager class has a lot of switch statements. Each switch statement is
+responsible for playing a specific sound effect.
 Switch statements are not good and this one is no exception as it has many cases and therefore is a code smell.
 
 ------

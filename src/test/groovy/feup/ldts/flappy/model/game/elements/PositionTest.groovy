@@ -3,45 +3,45 @@ package feup.ldts.flappy.model.game.elements
 import feup.ldts.flappy.model.game.Position
 import spock.lang.Specification
 
-class PositionTest extends Specification{
+class PositionTest extends Specification {
 
-    def "addX()"(){
+    def "addX()"() {
         given:
-        Position pos = new Position(2,3)
+        Position pos = new Position(2, 3)
         when:
-            pos.addX(7)
+        pos.addX(7)
         then:
-            pos.x == 9
-            pos.y == 3
+        pos.x == 9
+        pos.y == 3
     }
 
-    def "addY()"(){
+    def "addY()"() {
         given:
-            Position pos = new Position(2,3)
+        Position pos = new Position(2, 3)
         when:
-            pos.addY(9)
+        pos.addY(9)
         then:
-            pos.y == 12
-            pos.x == 2
+        pos.y == 12
+        pos.x == 2
     }
 
-    def "equals true"(){
+    def "equals true"() {
         given:
-            Position pos = new Position(2,3)
-            Position pos2 = new Position(2,3)
+        Position pos = new Position(2, 3)
+        Position pos2 = new Position(2, 3)
         when:
-            boolean result = pos == pos2
+        boolean result = pos == pos2
         then:
-            result == true
+        result == true
     }
 
-    def "equals false"(){
+    def "equals false"() {
         given:
-            Position pos = new Position(2,3)
-            Position pos2 = new Position(2,4)
+        Position pos = new Position(2, 3)
+        Position pos2 = new Position(2, 4)
         when:
-            boolean result = pos == pos2
+        boolean result = pos == pos2
         then:
-            result == false
+        result == false
     }
 }

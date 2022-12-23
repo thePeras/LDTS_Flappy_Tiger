@@ -1,9 +1,9 @@
 package feup.ldts.flappy.controller.menu;
 
 import feup.ldts.flappy.App;
+import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.model.menu.MainMenu;
-import feup.ldts.flappy.controller.sound.SoundEffects;
 
 import java.io.IOException;
 
@@ -30,6 +30,7 @@ public class MainMenuController extends MenuController<MainMenu> {
     @Override
     public void escapePressed(App game) {
     }
+
     @Override
     public void backspacePressed(App game) {
     }

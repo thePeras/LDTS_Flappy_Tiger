@@ -1,6 +1,5 @@
 package feup.ldts.flappy.model.game.collectables;
 
-import feup.ldts.flappy.model.game.elements.Player;
 import feup.ldts.flappy.model.game.Position;
 
 import java.util.List;

@@ -16,7 +16,7 @@ class PauseViewerTest extends Specification {
         viewer.drawInsideElements(gui)
 
         then:
-        1 * gui.drawText(_, 'Pause', _,_)
+        1 * gui.drawText(_, 'Pause', _, _)
     }
 
     def "drawOptions should draw the options"() {
@@ -29,8 +29,8 @@ class PauseViewerTest extends Specification {
         viewer.drawOptions(gui)
 
         then:
-        1 * gui.drawText(_, ">Resume", _,_)
-        1 * gui.drawText(_, "Restart", _,_)
-        1 * gui.drawText(_, "Main Menu", _,_)
+        1 * gui.drawText(_, ">Resume", _, _)
+        1 * gui.drawText(_, "Restart", _, _)
+        1 * gui.drawText(_, "Main Menu", _, _)
     }
 }
