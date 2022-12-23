@@ -14,7 +14,7 @@ public class MainMenu extends Menu {
         this.options = Arrays.asList("Start", "Leaderboard", "Instructions", "Exit");
     }
 
-    private void fillCuriosity() throws IOException {
+    void fillCuriosity() throws IOException {
         Path path_ = Path.of("src/main/resources/text/curiosities.txt");
         String contents = Files.readString(path_);
         String[] curiosities = contents.split("###");
