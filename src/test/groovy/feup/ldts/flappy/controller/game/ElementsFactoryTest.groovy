@@ -6,6 +6,7 @@ import spock.lang.Specification
 
 
 class ElementsFactoryTest extends Specification{
+
     def 'generateWall() should create a wall'() {
         given:
         ElementsFactory factory = new ElementsFactory(new Game())
@@ -17,6 +18,7 @@ class ElementsFactoryTest extends Specification{
         WallCreator wallCreator = new WallCreator()
         wallCreator.create() != null
     }
+
     def "When game is playing, generate wall and collectable at appropriate steps"() {
         given:
         Game game = Mock(Game)
@@ -53,11 +55,8 @@ class ElementsFactoryTest extends Specification{
         Game game = Mock(Game)
         ElementsFactory factory = new ElementsFactory(game)
         def random = Mock(Random)
-        random.nextInt(100) >> 1
+        random.nextInt(100) >> ElementsFactory.GENERATE_COLLECTABLE_PROBABILITY - 1
         factory.random = random
-
-        when:
-
 
         when:
         factory.generateCollectable()
@@ -72,18 +71,13 @@ class ElementsFactoryTest extends Specification{
         Game game = Mock(Game)
         ElementsFactory factory = new ElementsFactory(game)
         def random = Mock(Random)
-        random.nextInt(100) >> 61
+        random.nextInt(100) >> ElementsFactory.GENERATE_COLLECTABLE_PROBABILITY + 1
         factory.random = random
-
-        when:
-
 
         when:
         factory.generateCollectable()
 
-
         then:
         0 * game.addCollectable(_)
     }
-
 }
