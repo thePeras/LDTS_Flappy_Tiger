@@ -8,15 +8,14 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public abstract class Controller&lt;T&gt; {
-
     private final T model;
 
-<span class="nc" id="L14">    public Controller(T model) {</span>
-<span class="nc" id="L15">        this.model = model;</span>
-<span class="nc" id="L16">    }</span>
+<span class="nc" id="L13">    public Controller(T model) {</span>
+<span class="nc" id="L14">        this.model = model;</span>
+<span class="nc" id="L15">    }</span>
 
     public T getModel() {
-<span class="nc" id="L19">        return model;</span>
+<span class="nc" id="L18">        return model;</span>
     }
 
     public abstract void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException;

@@ -3,7 +3,6 @@
 import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.elements.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
@@ -15,30 +14,32 @@ import java.net.URISyntaxException;
 import java.util.Iterator;
 
 public class CollisionController extends Controller&lt;Game&gt; {
-    public CollisionController(Game model) {
-<span class="nc" id="L19">        super(model);</span>
-<span class="nc" id="L20">    }</span>
+    private PlayerController playerController;
+
+    public CollisionController(Game model, PlayerController playerController) {
+<span class="nc" id="L20">        super(model);</span>
+<span class="nc" id="L21">        this.playerController = playerController;</span>
+<span class="nc" id="L22">    }</span>
 
     @Override
     public void step(App app, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-<span class="nc" id="L24">        Iterator&lt;Collectable&gt; collectableIterator = getModel().getCollectables().iterator();</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        while (collectableIterator.hasNext()){</span>
-<span class="nc" id="L26">            Collectable collectable = collectableIterator.next();</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">            if(collectable.isCollidingWithPlayer(getModel().getPlayer())){</span>
-<span class="nc" id="L28">                getModel().consumeCollectable(collectable);</span>
-<span class="nc" id="L29">                collectableIterator.remove();</span>
+<span class="nc" id="L26">        Iterator&lt;Collectable&gt; collectableIterator = getModel().getCollectables().iterator();</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        while (collectableIterator.hasNext()) {</span>
+<span class="nc" id="L28">            Collectable collectable = collectableIterator.next();</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            if(playerController.isCollidingWith(collectable)){</span>
+<span class="nc" id="L30">                getModel().consumeCollectable(collectable);</span>
+<span class="nc" id="L31">                collectableIterator.remove();</span>
             }
-<span class="nc" id="L31">        }</span>
+<span class="nc" id="L33">        }</span>
 
-        // TODO: Check if the player is colliding with the ground
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        if(getModel().getGround().isCollidingWithPlayer(getModel().getPlayer())){</span>
-<span class="nc" id="L35">            app.setState(AppState.GameOverState);</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        if(playerController.isCollidingWith(getModel().getGround())){</span>
+<span class="nc" id="L36">            app.setState(AppState.GameOverState);</span>
         }
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for(Wall wall : getModel().getWalls()){</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">            if(wall.isCollidingWithPlayer(getModel().getPlayer())){</span>
-<span class="nc" id="L39">                app.setState(AppState.GameOverState);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for(Wall wall : getModel().getWalls()){</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if(playerController.isCollidingWith(wall)){</span>
+<span class="nc" id="L40">                app.setState(AppState.GameOverState);</span>
             }
-<span class="nc" id="L41">        }</span>
-<span class="nc" id="L42">    }</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc" id="L43">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

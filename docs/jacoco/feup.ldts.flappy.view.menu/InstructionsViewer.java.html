@@ -4,23 +4,24 @@ import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Instructions;
-import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
-public class InstructionsViewer extends Viewer&lt;Instructions&gt; {
+public class InstructionsViewer extends MenuViewer&lt;Instructions&gt; {
 
     public InstructionsViewer(Instructions model) {
-<span class="fc" id="L14">        super(model);</span>
-<span class="fc" id="L15">    }</span>
+<span class="fc" id="L11">        super(model, new Position(2, 7));</span>
+<span class="fc" id="L12">    }</span>
 
-    public void drawElements(GUI gui) {
-<span class="fc" id="L18">        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());</span>
+    public void drawInsideElements(GUI gui) {
+<span class="fc" id="L15">        drawTitle(gui, &quot;Instructions&quot;, Colors.WHITE.getHex());</span>
 
-<span class="fc" id="L20">        gui.drawMenuText(new Position(2, 5), &quot;Instructions&quot;, &quot;#FFFFFF&quot;);</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (int i = 0; i &lt; getModel().getNumberEntries(); i++) {</span>
-<span class="fc" id="L22">            gui.drawMenuText(new Position(2, 7 + i), getModel().getEntry(i), &quot;#FC6A03&quot;);</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (int i = 0; i &lt; getModel().getSize(); i++) {</span>
+<span class="fc" id="L18">            drawText(gui, new Position(2, 7 + i), getModel().getLine(i), Colors.ORANGE.getHex());</span>
         }
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L20">    }</span>
+
+    @Override
+    public void drawOptions(GUI gui) {
+
+<span class="fc" id="L25">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

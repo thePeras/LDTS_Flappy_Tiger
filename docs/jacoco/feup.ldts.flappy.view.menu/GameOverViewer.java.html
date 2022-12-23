@@ -4,29 +4,18 @@ import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.GameOver;
-import feup.ldts.flappy.view.Viewer;
 
-public class GameOverViewer extends Viewer&lt;GameOver&gt; {
+public class GameOverViewer extends MenuViewer&lt;GameOver&gt; {
 
     public GameOverViewer(GameOver model) {
-<span class="nc" id="L12">        super(model);</span>
-<span class="nc" id="L13">    }</span>
+<span class="nc" id="L11">        super(model, new Position(model.MARGIN - 1, 21));</span>
+<span class="nc" id="L12">    }</span>
 
-    public void drawElements(GUI gui) {
-<span class="nc" id="L16">        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());</span>
-
-<span class="nc" id="L18">        gui.drawMenuText(new Position(getModel().MARGIN, 13), &quot;G A M E   O V E R&quot;, &quot;#FC6A03&quot;);</span>
-<span class="nc" id="L19">        gui.drawMenuText(new Position(getModel().MARGIN, 15), &quot;Score: &quot; + getModel().getScore(), &quot;#FFFFFF&quot;);</span>
-<span class="nc" id="L20">        gui.drawMenuText(new Position(getModel().MARGIN, 17), &quot;Enter your name:&quot;, &quot;#FFFFFF&quot;);</span>
-<span class="nc" id="L21">        gui.drawMenuText(new Position(getModel().MARGIN, 19), getModel().getUsername(), &quot;#FC6A03&quot;);</span>
-
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (int i = 0; i &lt; getModel().getNumberEntries(); i++) {</span>
-<span class="nc bnc" id="L24" title="All 2 branches missed.">            if (getModel().isSelected(i)) {</span>
-<span class="nc" id="L25">                gui.drawMenuText(new Position(getModel().MARGIN-1, 21 + i), &quot;&gt;&quot; + getModel().getEntry(i), &quot;#FC6A03&quot;);</span>
-            } else {
-<span class="nc" id="L27">                gui.drawMenuText(new Position(getModel().MARGIN, 21 + i), getModel().getEntry(i), &quot;#FFFFFF&quot;);</span>
-            }
-        }
-<span class="nc" id="L30">    }</span>
+    public void drawInsideElements(GUI gui) {
+<span class="nc" id="L15">        drawText(gui, new Position(getModel().MARGIN, 13), &quot;G A M E   O V E R&quot;, Colors.ORANGE.getHex());</span>
+<span class="nc" id="L16">        drawText(gui, new Position(getModel().MARGIN, 15), &quot;Score: &quot; + getModel().getScore(), Colors.WHITE.getHex());</span>
+<span class="nc" id="L17">        drawText(gui, new Position(getModel().MARGIN, 17), &quot;Enter your name:&quot;, Colors.WHITE.getHex());</span>
+<span class="nc" id="L18">        drawText(gui, new Position(getModel().MARGIN, 19), getModel().getUsername(), Colors.ORANGE.getHex());</span>
+<span class="nc" id="L19">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

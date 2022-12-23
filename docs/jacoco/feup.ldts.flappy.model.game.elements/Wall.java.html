@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Wall.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.model.game.elements</a> &gt; <span class="el_source">Wall.java</span></div><h1>Wall.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.model.game.elements;
+
+import feup.ldts.flappy.gui.LanternaGUI;
+import feup.ldts.flappy.model.game.Position;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Wall extends Element implements Collidable {
+
+    private final static int normalSpace = 11;
+    private final static int speed = -1;
+    private final static int width = 2;
+
+    private int height;
+    private int space;
+
+
+    public Wall(int height) {
+<span class="fc" id="L20">        super(new Position(LanternaGUI.width, 0));</span>
+<span class="fc" id="L21">        this.height = height;</span>
+<span class="fc" id="L22">        this.space = normalSpace;</span>
+<span class="fc" id="L23">    }</span>
+
+    public void setSpace(int newSpace) {
+<span class="fc" id="L26">        this.space = newSpace;</span>
+<span class="fc" id="L27">        int newHeight = this.getHeight() - newSpace / 2;</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        this.height = newHeight &gt; 0 ? newHeight : 1;</span>
+<span class="fc" id="L29">    }</span>
+
+    public int getHeight() {
+<span class="fc" id="L32">        return height;</span>
+    }
+
+    public static int getSpeed() {
+<span class="fc" id="L36">        return speed;</span>
+    }
+
+    public static int getWidth() {
+<span class="nc" id="L40">        return width;</span>
+    }
+
+    public int getSpace(){
+<span class="fc" id="L44">        return space;</span>
+    }
+
+    public void setX(int x) {
+<span class="fc" id="L48">        this.setPosition(new Position(x, this.getPosition().getY()));</span>
+<span class="fc" id="L49">    }</span>
+
+    public boolean isGapHeight(int y) {
+<span class="pc bpc" id="L52" title="1 of 4 branches missed.">        return y &gt; this.height &amp;&amp; y &lt; this.height + this.space;</span>
+    }
+
+    public boolean isOutOfScreen() {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        return this.getPosition().getX() &lt; -1;</span>
+    }
+
+    public void move() {
+<span class="fc" id="L60">        this.setX(this.getPosition().getX() + getSpeed());</span>
+<span class="fc" id="L61">    }</span>
+
+    public List&lt;Position&gt; getPositions(){
+<span class="nc" id="L64">        List&lt;Position&gt; positions = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L66">        int x = this.getPosition().getX();</span>
+
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        for (int y = 0; y &lt;= LanternaGUI.height; y++) {</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            if (this.isGapHeight(y)) continue;</span>
+<span class="nc" id="L70">            positions.add(new Position(x, y));</span>
+<span class="nc" id="L71">            positions.add(new Position(x+1, y));</span>
+        }
+     
+<span class="nc" id="L74">        return positions;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

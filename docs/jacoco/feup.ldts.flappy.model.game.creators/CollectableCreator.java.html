@@ -11,28 +11,32 @@ import java.util.Random;
 
 public class CollectableCreator extends Creator&lt;Collectable&gt; {
     private final static int margin = 5;
-    private final static int lambProbability = 20;
-    private final static int portoWineProbability = 10;
+    private final double portoWineProbability;
+
+    private final double lambProbability;
+
     private final Random random;
-<span class="nc" id="L17">    public CollectableCreator() {</span>
-<span class="nc" id="L18">        this.random = new Random();</span>
-<span class="nc" id="L19">    }</span>
+
+<span class="nc" id="L20">    public CollectableCreator() {</span>
+<span class="nc" id="L21">        this.random = new Random();</span>
+<span class="nc" id="L22">        this.portoWineProbability = 0.15;</span>
+<span class="nc" id="L23">        this.lambProbability = (1 - portoWineProbability) * 0.4;</span>
+<span class="nc" id="L24">    }</span>
 
     @Override
     public Collectable create() {
-<span class="nc" id="L23">        int randomY = random.nextInt(LanternaGUI.height - 2*margin) + margin;</span>
-<span class="nc" id="L24">        Position randomPosition = new Position(LanternaGUI.width, randomY);</span>
+<span class="nc" id="L28">        int randomY = random.nextInt(LanternaGUI.height - 2 * margin) + margin;</span>
+<span class="nc" id="L29">        Position randomPosition = new Position(LanternaGUI.width, randomY);</span>
 
-<span class="nc" id="L26">        int randomType = random.nextInt(100);</span>
+<span class="nc" id="L31">        double randomCollectableType = random.nextDouble();</span>
 
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        if(randomType &lt; portoWineProbability) {</span>
-<span class="nc" id="L29">            return new PortoWine(randomPosition);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (randomCollectableType &lt; portoWineProbability) {</span>
+<span class="nc" id="L34">            return new PortoWine(randomPosition);</span>
         }
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        if(randomType &lt; lambProbability + portoWineProbability) {</span>
-<span class="nc" id="L32">            return new Lamb(randomPosition);</span>
-        }
-        else {
-<span class="nc" id="L35">            return new Boar(randomPosition);</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if (randomCollectableType &lt; lambProbability + portoWineProbability) {</span>
+<span class="nc" id="L37">            return new Lamb(randomPosition);</span>
+        } else {
+<span class="nc" id="L39">            return new Boar(randomPosition);</span>
         }
     }
 }

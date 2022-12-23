@@ -4,28 +4,16 @@ import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Pause;
-import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
-public class PauseViewer extends Viewer&lt;Pause&gt; {
+public class PauseViewer extends MenuViewer&lt;Pause&gt; {
 
     public PauseViewer(Pause model) {
-<span class="nc" id="L14">        super(model);</span>
-<span class="nc" id="L15">    }</span>
+<span class="nc" id="L11">        super(model, new Position(8, 13));</span>
+<span class="nc" id="L12">    }</span>
 
-    protected void drawElements(GUI gui) {
-<span class="nc" id="L18">        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());</span>
-
-<span class="nc" id="L20">        gui.drawMenuText(new Position(8, 11), &quot;Pause&quot;, &quot;#FC6A03&quot;);</span>
-
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        for (int i = 0; i &lt; getModel().getNumberEntries(); i++) {</span>
-<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (getModel().isSelected(i)) {</span>
-<span class="nc" id="L24">                gui.drawMenuText(new Position(8, 13 + i), &quot;&gt;&quot; + getModel().getEntry(i), &quot;#FC6A03&quot;);</span>
-            } else {
-<span class="nc" id="L26">                gui.drawMenuText(new Position(9, 13 + i), getModel().getEntry(i), &quot;#FFFFFF&quot;);</span>
-            }
-        }
-<span class="nc" id="L29">    }</span>
+    @Override
+    protected void drawInsideElements(GUI gui) {
+<span class="nc" id="L16">        drawTitle(gui, &quot;Pause&quot;, Colors.ORANGE.getHex());</span>
+<span class="nc" id="L17">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

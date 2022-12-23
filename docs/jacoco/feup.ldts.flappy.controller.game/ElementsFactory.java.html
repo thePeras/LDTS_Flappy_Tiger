@@ -7,36 +7,35 @@ import feup.ldts.flappy.model.game.creators.WallCreator;
 import java.util.Random;
 
 public class ElementsFactory {
-
     private static final int GENERATE_COLLECTABLE_PROBABILITY = 60;
     private final Game game;
     private final WallCreator wallCreator;
     private final CollectableCreator collectableCreator;
 
-<span class="nc" id="L16">    public ElementsFactory(Game game) {</span>
-<span class="nc" id="L17">        this.game = game;</span>
-<span class="nc" id="L18">        this.wallCreator = new WallCreator();</span>
-<span class="nc" id="L19">        this.collectableCreator = new CollectableCreator();</span>
-<span class="nc" id="L20">    }</span>
+<span class="nc" id="L15">    public ElementsFactory(Game game) {</span>
+<span class="nc" id="L16">        this.game = game;</span>
+<span class="nc" id="L17">        this.wallCreator = new WallCreator();</span>
+<span class="nc" id="L18">        this.collectableCreator = new CollectableCreator();</span>
+<span class="nc" id="L19">    }</span>
 
-    public void generateCollectable(){
+    public void generateCollectable() {
         // TODO: refactor probabilities and creators classes
-<span class="nc" id="L24">        int randomNum = new Random().nextInt(100);</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if(randomNum &lt; GENERATE_COLLECTABLE_PROBABILITY) {</span>
-<span class="nc" id="L26">            game.addCollectable(collectableCreator.create());</span>
+<span class="nc" id="L23">        int randomNum = new Random().nextInt(100);</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (randomNum &lt; GENERATE_COLLECTABLE_PROBABILITY) {</span>
+<span class="nc" id="L25">            game.addCollectable(collectableCreator.create());</span>
         }
-<span class="nc" id="L28">    }</span>
+<span class="nc" id="L27">    }</span>
 
-    public void generateWall(){
-<span class="nc" id="L31">        game.addWall(wallCreator.create());</span>
-<span class="nc" id="L32">    }</span>
+    public void generateWall() {
+<span class="nc" id="L30">        game.addWall(wallCreator.create());</span>
+<span class="nc" id="L31">    }</span>
 
     public void step() {
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if(game.isPlaying()) {</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">            if(game.getSteps() == 0) generateWall();</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            else if(game.getSteps() == 10) generateCollectable();</span>
-<span class="nc" id="L38">            game.incrementSteps();</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (game.isPlaying()) {</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">            if (game.getSteps() == 0) generateWall();</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">            else if (game.getSteps() == 10) generateCollectable();</span>
+<span class="nc" id="L37">            game.incrementSteps();</span>
         }
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L39">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

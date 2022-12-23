@@ -6,15 +6,11 @@ import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.elements.Wall;
 
 <span class="fc" id="L8">public class WallViewer implements ElementViewer&lt;Wall&gt; {</span>
-    //TODO: use drawRectangle here
     @Override
     public void draw(Wall wall, GUI gui) {
-<span class="nc" id="L12">        int x = wall.getPosition().getX();</span>
-<span class="nc bnc" id="L13" title="All 2 branches missed.">        for (int y = 0; y &lt;= gui.getHeight(); y++) {</span>
-<span class="nc bnc" id="L14" title="All 2 branches missed.">            if (wall.isGapHeight(y)) continue;</span>
-<span class="nc" id="L15">            gui.paintPixel(new Position(x, y), Colors.GREEN.getHex());</span>
-<span class="nc" id="L16">            gui.paintPixel(new Position(x+1, y), Colors.GREEN.getHex());</span>
-        }
-<span class="nc" id="L18">    }</span>
+<span class="nc" id="L11">        gui.drawRectangle(wall.getPosition(), wall.getWidth(), wall.getHeight(), Colors.GREEN.getHex());</span>
+<span class="nc" id="L12">        int newY = wall.getHeight() + wall.getSpace();</span>
+<span class="nc" id="L13">        gui.drawRectangle(new Position(wall.getPosition().getX(), newY), wall.getWidth(), gui.getHeight() - (wall.getHeight() + wall.getSpace()), Colors.GREEN.getHex());</span>
+<span class="nc" id="L14">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

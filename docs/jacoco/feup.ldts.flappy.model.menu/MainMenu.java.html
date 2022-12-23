@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MainMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.model.menu</a> &gt; <span class="el_source">MainMenu.java</span></div><h1>MainMenu.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.model.menu;
 
-import feup.ldts.flappy.model.menu.Menu;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,38 +9,38 @@ import java.util.Random;
 public class MainMenu extends Menu {
     String curiosity;
 
-<span class="fc" id="L14">    public MainMenu() throws IOException {</span>
-<span class="fc" id="L15">        fillCuriosity();</span>
-<span class="fc" id="L16">        this.options = Arrays.asList(&quot;Start&quot;, &quot;Leaderboard&quot;, &quot;Instructions&quot;, &quot;Exit&quot;);</span>
-<span class="fc" id="L17">    }</span>
+<span class="fc" id="L12">    public MainMenu() throws IOException {</span>
+<span class="fc" id="L13">        fillCuriosity();</span>
+<span class="fc" id="L14">        this.options = Arrays.asList(&quot;Start&quot;, &quot;Leaderboard&quot;, &quot;Instructions&quot;, &quot;Exit&quot;);</span>
+<span class="fc" id="L15">    }</span>
 
     private void fillCuriosity() throws IOException {
-<span class="fc" id="L20">        Path path_ = Path.of(&quot;src/main/resources/text/curiosities.txt&quot;);</span>
-<span class="fc" id="L21">        String contents = Files.readString(path_);</span>
-<span class="fc" id="L22">        String[] curiosities = contents.split(&quot;###&quot;);</span>
-<span class="fc" id="L23">        Random random = new Random();</span>
-<span class="fc" id="L24">        int randomValue = random.nextInt(curiosities.length);</span>
-<span class="fc" id="L25">        this.curiosity = curiosities[randomValue];</span>
-<span class="fc" id="L26">    }</span>
+<span class="fc" id="L18">        Path path_ = Path.of(&quot;src/main/resources/text/curiosities.txt&quot;);</span>
+<span class="fc" id="L19">        String contents = Files.readString(path_);</span>
+<span class="fc" id="L20">        String[] curiosities = contents.split(&quot;###&quot;);</span>
+<span class="fc" id="L21">        Random random = new Random();</span>
+<span class="fc" id="L22">        int randomValue = random.nextInt(curiosities.length);</span>
+<span class="fc" id="L23">        this.curiosity = curiosities[randomValue];</span>
+<span class="fc" id="L24">    }</span>
 
     public boolean isSelectedExit() {
-<span class="nc" id="L29">        return isSelected(3);</span>
+<span class="nc" id="L27">        return isSelected(3);</span>
     }
 
     public boolean isSelectedInstructions() {
-<span class="nc" id="L33">        return isSelected(2);</span>
+<span class="nc" id="L31">        return isSelected(2);</span>
     }
 
     public boolean isSelectedStart() {
-<span class="nc" id="L37">        return isSelected(0);</span>
+<span class="nc" id="L35">        return isSelected(0);</span>
     }
 
     public boolean isSelectedLeaderboard() {
-<span class="nc" id="L41">        return isSelected(1);</span>
+<span class="nc" id="L39">        return isSelected(1);</span>
     }
 
     public String getCuriosity() {
-<span class="fc" id="L45">        return curiosity;</span>
+<span class="fc" id="L43">        return curiosity;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

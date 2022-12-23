@@ -2,10 +2,19 @@
 
 import feup.ldts.flappy.model.game.Position;
 
-public class Lamb extends Food{
+import java.util.List;
+
+public class Lamb extends Food {
     private final static int POINTS = 5;
+
     public Lamb(Position position) {
-<span class="fc" id="L8">        super(position, POINTS);</span>
-<span class="fc" id="L9">    }</span>
+<span class="fc" id="L11">        super(position, POINTS);</span>
+<span class="fc" id="L12">    }</span>
+
+    public List&lt;Position&gt; getPositions(){
+<span class="nc" id="L15">        return List.of(</span>
+<span class="nc" id="L16">                new Position(this.getPosition().getX(), this.getPosition().getY())</span>
+        );
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

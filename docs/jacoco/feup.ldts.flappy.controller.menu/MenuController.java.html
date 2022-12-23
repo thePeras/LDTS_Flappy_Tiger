@@ -5,51 +5,50 @@ import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.controller.sound.SoundManager;
-import feup.ldts.flappy.model.menu.MainMenu;
+import feup.ldts.flappy.model.menu.Menu;
 import feup.ldts.flappy.controller.sound.SoundEffects;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.*;
-
-public class MenuController extends Controller&lt;MainMenu&gt; {
-
-    public MenuController(MainMenu mainMenu) {
-<span class="nc" id="L20">        super(mainMenu);</span>
-<span class="nc" id="L21">    }</span>
+public abstract class MenuController&lt;T extends Menu&gt; extends Controller&lt;T&gt; implements MenuInterface {
+    public MenuController(T model) {
+<span class="nc" id="L17">        super(model);</span>
+<span class="nc" id="L18">    }</span>
 
     @Override
     public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (key == null) return;</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.ArrowUp) {</span>
-<span class="nc" id="L27">            getModel().previousOption();</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (key == null) return;</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.ArrowUp) {</span>
+<span class="nc" id="L24">            getModel().previousOption();</span>
         }
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.ArrowDown) {</span>
-<span class="nc" id="L30">            getModel().nextOption();</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.ArrowDown) {</span>
+<span class="nc" id="L27">            getModel().nextOption();</span>
         }
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Enter) {</span>
-<span class="nc" id="L33">            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">            if (getModel().isSelectedStart()) {</span>
-<span class="nc" id="L35">                game.setState(GameState);</span>
-<span class="nc" id="L36">                SoundManager.getInstance().playSoundEffect(SoundEffects.GAME_START);</span>
-<span class="nc" id="L37">                return;</span>
-            }
-<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (getModel().isSelectedExit()) game.exit();</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">            if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);</span>
-<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (getModel().isSelectedInstructions()) game.setState(InstructionsState);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Enter) {</span>
+<span class="nc" id="L30">            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);</span>
+<span class="nc" id="L31">            optionSelected(game);</span>
         }
-<span class="nc bnc" id="L43" title="All 2 branches missed.">        if(key.getKeyType() == KeyType.Character) {</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">            if(key.getCharacter() == 'm') {</span>
-<span class="nc" id="L45">                SoundManager.getInstance().toggleMenuMusicMute();</span>
-            }
-<span class="nc bnc" id="L47" title="All 2 branches missed.">            if(key.getCharacter() == 's') {</span>
-<span class="nc" id="L48">                SoundManager.getInstance().toggleSoundMute();</span>
-            }
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Character) {</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">            if (key.getCharacter() == null) return;</span>
+<span class="nc" id="L35">            charSelected(key);</span>
         }
-<span class="nc" id="L51">    }</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Escape) {</span>
+<span class="nc" id="L38">            escapePressed(game);</span>
+        }
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Backspace) {</span>
+<span class="nc" id="L41">            backspacePressed(game);</span>
+        }
+<span class="nc" id="L43">    }</span>
 
-
+    public void charSelected(KeyStroke key) {
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (key.getCharacter() == 'm') {</span>
+<span class="nc" id="L47">            SoundManager.getInstance().toggleMenuMusicMute();</span>
+        }
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (key.getCharacter() == 's') {</span>
+<span class="nc" id="L50">            SoundManager.getInstance().toggleSoundMute();</span>
+        }
+<span class="nc" id="L52">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

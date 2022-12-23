@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Sound.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.controller.sound</a> &gt; <span class="el_source">Sound.java</span></div><h1>Sound.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.controller.sound;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import java.io.File;
+
+public class Sound {
+    private Clip sound;
+    private float volume;
+
+    private FloatControl floatControl;
+
+<span class="nc" id="L15">    public Sound(String soundFile) {</span>
+<span class="nc" id="L16">        this.sound = load(soundFile);</span>
+<span class="nc" id="L17">        this.floatControl = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);</span>
+<span class="nc" id="L18">        setVolume(0.2);</span>
+<span class="nc" id="L19">    }</span>
+
+    private Clip load(String soundFile) throws NullPointerException {
+        try {
+<span class="nc" id="L23">            File file = new File(soundFile);</span>
+
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (!file.exists()) throw new RuntimeException(&quot;Sound: file not found: &quot; + soundFile);</span>
+
+<span class="nc" id="L27">            AudioInputStream audioInput = AudioSystem.getAudioInputStream(file);</span>
+<span class="nc" id="L28">            Clip soundClip = AudioSystem.getClip();</span>
+<span class="nc" id="L29">            soundClip.open(audioInput);</span>
+
+<span class="nc" id="L31">            return soundClip;</span>
+
+<span class="nc" id="L33">        } catch (Exception e) {</span>
+<span class="nc" id="L34">            System.out.println(e);</span>
+        }
+<span class="nc" id="L36">        return null;</span>
+    }
+
+    public void play() {
+<span class="nc" id="L40">        sound.setFramePosition(0);</span>
+<span class="nc" id="L41">        sound.start();</span>
+<span class="nc" id="L42">    }</span>
+
+    public void loop() {
+<span class="nc" id="L45">        sound.loop(Clip.LOOP_CONTINUOUSLY);</span>
+<span class="nc" id="L46">    }</span>
+
+    public void stop() {
+<span class="nc" id="L49">        sound.stop();</span>
+<span class="nc" id="L50">    }</span>
+
+    public void setVolume(double volume) {
+<span class="nc bnc" id="L53" title="All 4 branches missed.">        if (volume &lt; 0.0 || volume &gt; 1.0) throw new IllegalArgumentException(&quot;Volume not valid: &quot; + volume);</span>
+<span class="nc" id="L54">        float value = (float) (Math.log(volume) / Math.log(10.0) * 20.0);</span>
+<span class="nc" id="L55">        floatControl.setValue(value);</span>
+<span class="nc" id="L56">        this.volume = value;</span>
+<span class="nc" id="L57">    }</span>
+
+    public boolean isRunning() {
+<span class="nc" id="L60">        return sound.isRunning();</span>
+    }
+
+    public void toggleMute() {
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (floatControl.getValue() == -80.0) {</span>
+<span class="nc" id="L65">            floatControl.setValue(volume);</span>
+        } else {
+<span class="nc" id="L67">            floatControl.setValue(-80.0f);</span>
+        }
+<span class="nc" id="L69">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

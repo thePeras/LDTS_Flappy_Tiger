@@ -39,26 +39,24 @@ public class GameViewer extends Viewer&lt;Game&gt; {
 
     private void drawScore(GUI gui) {
 <span class="fc" id="L41">        String scoreText = &quot;SCORE: &quot; + getModel().getScore();</span>
-<span class="fc" id="L42">        gui.drawRectangle(new Position(0, 0), scoreText.length() + 2,3, Colors.WHITE.getHex());</span>
-<span class="fc" id="L43">        gui.drawText(new Position(1,1), scoreText, &quot;#FC6A03&quot;, Colors.WHITE.getHex());</span>
+<span class="fc" id="L42">        gui.drawRectangle(new Position(0, 0), scoreText.length() + 2, 3, Colors.WHITE.getHex());</span>
+<span class="fc" id="L43">        gui.drawText(new Position(1, 1), scoreText, Colors.ORANGE.getHex(), Colors.WHITE.getHex());</span>
 <span class="fc" id="L44">    }</span>
 
     private void drawCollectables(GUI gui, List&lt;Collectable&gt; collectables) {
-<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        for (Collectable collectable : collectables){</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">            if(collectable.getClass() == Lamb.class){</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        for (Collectable collectable : collectables) {</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (collectable.getClass() == Lamb.class) {</span>
 <span class="nc" id="L49">                new LambViewer().draw((Lamb) collectable, gui);</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            } else if (collectable.getClass() == Boar.class) {</span>
+<span class="nc" id="L51">                new BoarViewer().draw((Boar) collectable, gui);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            } else if (collectable.getClass() == PortoWine.class) {</span>
+<span class="nc" id="L53">                new PortoWineViewer().draw((PortoWine) collectable, gui);</span>
             }
-<span class="nc bnc" id="L51" title="All 2 branches missed.">            else if(collectable.getClass() == Boar.class){</span>
-<span class="nc" id="L52">                new BoarViewer().draw((Boar) collectable, gui);</span>
-            }
-<span class="nc bnc" id="L54" title="All 2 branches missed.">            else if(collectable.getClass() == PortoWine.class){</span>
-<span class="nc" id="L55">                new PortoWineViewer().draw((PortoWine) collectable, gui);</span>
-            }
-<span class="nc" id="L57">        }</span>
-<span class="fc" id="L58">    }</span>
+<span class="nc" id="L55">        }</span>
+<span class="fc" id="L56">    }</span>
 
     private void drawSky(GUI gui) {
-<span class="fc" id="L61">        gui.paintBackground(Colors.BLUE.getHex());</span>
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L59">        gui.paintBackground(Colors.BLUE.getHex());</span>
+<span class="fc" id="L60">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

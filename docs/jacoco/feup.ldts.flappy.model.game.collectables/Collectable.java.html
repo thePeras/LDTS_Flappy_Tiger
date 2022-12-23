@@ -7,15 +7,19 @@ import feup.ldts.flappy.model.game.Position;
 
 public abstract class Collectable extends Element implements Collidable {
     private static final int speed = -1;
+
     public Collectable(Position position) {
-<span class="fc" id="L11">        super(position);</span>
-<span class="fc" id="L12">    }</span>
-    public void move(){
-<span class="nc" id="L14">        this.setPosition(this.getPosition().addX(speed));</span>
-<span class="nc" id="L15">    }</span>
+<span class="fc" id="L12">        super(position);</span>
+<span class="fc" id="L13">    }</span>
+
+    public void move() {
+<span class="nc" id="L16">        this.setPosition(this.getPosition().addX(speed));</span>
+<span class="nc" id="L17">    }</span>
+
     public boolean isOutOfScreen() {
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        return this.getPosition().getX() &lt; -1;</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">        return this.getPosition().getX() &lt; -1;</span>
     }
+
     public abstract void consume(Game game);
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

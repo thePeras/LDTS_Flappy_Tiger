@@ -5,22 +5,21 @@ import feup.ldts.flappy.gui.GUI;
 import java.io.IOException;
 
 public abstract class Viewer&lt;T&gt; {
-
     private final T model;
 
-<span class="fc" id="L11">    public Viewer(T model) {</span>
-<span class="fc" id="L12">        this.model = model;</span>
-<span class="fc" id="L13">    }</span>
+<span class="fc" id="L10">    public Viewer(T model) {</span>
+<span class="fc" id="L11">        this.model = model;</span>
+<span class="fc" id="L12">    }</span>
 
     public T getModel() {
-<span class="fc" id="L16">        return model;</span>
+<span class="fc" id="L15">        return model;</span>
     }
 
     public void draw(GUI gui) throws IOException {
-<span class="fc" id="L20">        gui.clear();</span>
-<span class="fc" id="L21">        drawElements(gui);</span>
-<span class="fc" id="L22">        gui.refresh();</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L19">        gui.clear();</span>
+<span class="fc" id="L20">        drawElements(gui);</span>
+<span class="fc" id="L21">        gui.refresh();</span>
+<span class="fc" id="L22">    }</span>
 
     protected abstract void drawElements(GUI gui);
 }
