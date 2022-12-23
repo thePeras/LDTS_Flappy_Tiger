@@ -2,15 +2,16 @@ import feup.ldts.flappy.App
 import feup.ldts.flappy.controller.game.GameController
 import feup.ldts.flappy.controller.menu.GameOverController
 import feup.ldts.flappy.controller.menu.MainMenuController
+import feup.ldts.flappy.controller.menu.PauseController
 import feup.ldts.flappy.controller.menu.TextMenuController
-import feup.ldts.flappy.controller.sound.Musics
-import feup.ldts.flappy.controller.sound.SoundEffects
-import feup.ldts.flappy.controller.sound.SoundManager
 import feup.ldts.flappy.model.game.Game
-import feup.ldts.flappy.model.menu.GameOver
 import feup.ldts.flappy.state.AppState
+import feup.ldts.flappy.view.game.GameViewer
+import feup.ldts.flappy.view.menu.GameOverViewer
+import feup.ldts.flappy.view.menu.InstructionsViewer
 import feup.ldts.flappy.view.menu.LeaderboardViewer
 import feup.ldts.flappy.view.menu.MainMenuViewer
+import feup.ldts.flappy.view.menu.PauseViewer
 import spock.lang.Specification
 
 
@@ -22,44 +23,43 @@ class AppTest extends Specification {
 
         expect:
         app.state == AppState.MenuState
-    }
-
-
-    def "testControllerAndViewerAreSetOnMenuState"() {
-        given:
-        def app = new App()
-
-        when:
-        app.setState(AppState.MenuState)
-
-        then:
         app.controller instanceof MainMenuController
         app.viewer instanceof MainMenuViewer
     }
 
-    def "testControllerAndViewerAreSetOnLeaderboardState"() {
+    def "setState method"() {
+        given:
+        def app = new App()
+        def game = Mock(Game)
+        game.getScore() >> 0
+        app.game = game
+
+        when:
+        app.setState(state)
+
+        then:
+        app.controller in expectedController
+        app.viewer in expectedViewer
+
+        where:
+        state | expectedController | expectedViewer
+        AppState.GameState | GameController | GameViewer
+        AppState.LeaderboardState |  TextMenuController | LeaderboardViewer
+        AppState.InstructionsState | TextMenuController | InstructionsViewer
+        AppState.PauseState | PauseController | PauseViewer
+        AppState.GameOverState | GameOverController | GameOverViewer
+    }
+
+    def "testExitMethod"() {
         given:
         def app = new App()
 
         when:
-        app.setState(AppState.LeaderboardState)
+        app.exit()
 
         then:
-        app.controller instanceof TextMenuController
-        app.viewer instanceof LeaderboardViewer
+        app.state == null
     }
-     def "test new game"() {
-            given:
-            App app = new App()
 
-            when:
-            app.setState(AppState.GameState)
-            Game game = app.game
-
-            then:
-            app.setState(AppState.GameOverState)
-            assert app.controller instanceof GameOverController
-
-        }
-    }
+}
 

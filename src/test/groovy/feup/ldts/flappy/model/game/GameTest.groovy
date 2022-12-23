@@ -62,20 +62,18 @@ class GameTest extends Specification {
     }
 
 
-    /** def 'addCollectable and removeCollectable methods should modify the collectables list correctly'() {
+    def 'addCollectable method'() {
         given:
         def game = new Game()
         def collectable = (Collectable) new PortoWine(Mock(Position))
 
         when:
         game.addCollectable(collectable)
-        game.removeCollectable(game.getCollectables().iterator())
 
         then:
-        game.getCollectables().size() == 0
-        !game.getCollectables().contains(collectable)
+        game.getCollectables().size() == 1
+        game.getCollectables().contains(collectable)
     }
- **/
 
     def "test that the startGodMode method sets the isInGodMode field to true, the godModeSteps field to 0, and updates the walls in the wallsList field"() {
         given:

@@ -61,20 +61,12 @@ public class Game {
         wallsList.add(wall);
     }
 
-    public void removeWall(Iterator<Wall> iterator) {
-        iterator.remove();
-    }
-
     public List<Collectable> getCollectables() {
         return collectablesList;
     }
 
     public void addCollectable(Collectable collectable) {
         collectablesList.add(collectable);
-    }
-
-    public void removeCollectable(Iterator<Collectable> collectable) {
-        collectable.remove();
     }
 
     public void consumeCollectable(Collectable collectable) {

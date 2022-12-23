@@ -1,8 +1,6 @@
 package feup.ldts.flappy.controller.menu
 
 import feup.ldts.flappy.App
-import feup.ldts.flappy.controller.sound.SoundEffects
-import feup.ldts.flappy.controller.sound.SoundManager
 import feup.ldts.flappy.model.menu.MainMenu
 import feup.ldts.flappy.model.menu.Menu
 import spock.lang.Specification
