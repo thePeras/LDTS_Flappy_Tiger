@@ -1,5 +1,5 @@
 package feup.ldts.flappy.state;
 
 public enum AppState {
-    MenuState, GameState, LeaderboardState, InstructionsState, PauseState, PrevGameState, GameOverState
+    MENU_STATE, GAME_STATE, LEADERBOARD_STATE, INSTRUCTIONS_STATE, PAUSE_STATE, PREV_GAME_STATE, GAME_OVER_STATE
 }

@@ -1,13 +1,8 @@
 import feup.ldts.flappy.App
-import feup.ldts.flappy.controller.game.GameController
 import feup.ldts.flappy.controller.menu.GameOverController
 import feup.ldts.flappy.controller.menu.MainMenuController
 import feup.ldts.flappy.controller.menu.TextMenuController
-import feup.ldts.flappy.controller.sound.Musics
-import feup.ldts.flappy.controller.sound.SoundEffects
-import feup.ldts.flappy.controller.sound.SoundManager
 import feup.ldts.flappy.model.game.Game
-import feup.ldts.flappy.model.menu.GameOver
 import feup.ldts.flappy.state.AppState
 import feup.ldts.flappy.view.menu.LeaderboardViewer
 import feup.ldts.flappy.view.menu.MainMenuViewer
@@ -21,7 +16,7 @@ class AppTest extends Specification {
         def app = new App()
 
         expect:
-        app.state == AppState.MenuState
+        app.state == AppState.MENU_STATE
     }
 
 
@@ -30,7 +25,7 @@ class AppTest extends Specification {
         def app = new App()
 
         when:
-        app.setState(AppState.MenuState)
+        app.setState(AppState.MENU_STATE)
 
         then:
         app.controller instanceof MainMenuController
@@ -42,7 +37,7 @@ class AppTest extends Specification {
         def app = new App()
 
         when:
-        app.setState(AppState.LeaderboardState)
+        app.setState(AppState.LEADERBOARD_STATE)
 
         then:
         app.controller instanceof TextMenuController
@@ -53,11 +48,11 @@ class AppTest extends Specification {
             App app = new App()
 
             when:
-            app.setState(AppState.GameState)
+            app.setState(AppState.GAME_STATE)
             Game game = app.game
 
             then:
-            app.setState(AppState.GameOverState)
+            app.setState(AppState.GAME_OVER_STATE)
             assert app.controller instanceof GameOverController
 
         }

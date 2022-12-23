@@ -18,13 +18,13 @@ public class MainMenuController extends MenuController<MainMenu> {
     public void optionSelected(App game) throws IOException {
         SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);
         if (getModel().isSelectedStart()) {
-            game.setState(GameState);
+            game.setState(GAME_STATE);
             SoundManager.getInstance().playSoundEffect(SoundEffects.GAME_START);
             return;
         }
         if (getModel().isSelectedExit()) game.exit();
-        if (getModel().isSelectedLeaderboard()) game.setState(LeaderboardState);
-        if (getModel().isSelectedInstructions()) game.setState(InstructionsState);
+        if (getModel().isSelectedLeaderboard()) game.setState(LEADERBOARD_STATE);
+        if (getModel().isSelectedInstructions()) game.setState(INSTRUCTIONS_STATE);
     }
 
     @Override

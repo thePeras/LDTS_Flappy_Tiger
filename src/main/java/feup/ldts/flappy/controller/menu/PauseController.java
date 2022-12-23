@@ -15,15 +15,15 @@ public class PauseController extends MenuController<Pause> {
 
     public void optionSelected(App game) throws IOException {
         if (getModel().isSelectedResume()) {
-            game.setState(PrevGameState);
+            game.setState(PREV_GAME_STATE);
         }
-        if (getModel().isSelectedRestart()) game.setState(GameState);
-        if (getModel().isSelectedExit()) game.setState(MenuState);
+        if (getModel().isSelectedRestart()) game.setState(GAME_STATE);
+        if (getModel().isSelectedExit()) game.setState(MENU_STATE);
     }
 
     @Override
     public void escapePressed(App game) throws IOException {
-        game.setState(PrevGameState);
+        game.setState(PREV_GAME_STATE);
     }
 
     @Override

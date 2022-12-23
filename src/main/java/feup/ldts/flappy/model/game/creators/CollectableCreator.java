@@ -10,7 +10,7 @@ import feup.ldts.flappy.model.game.collectables.PortoWine;
 import java.util.Random;
 
 public class CollectableCreator extends Creator<Collectable> {
-    private final static int margin = 5;
+    private final static int MARGIN = 5;
     private final double portoWineProbability;
 
     private final double lambProbability;
@@ -25,8 +25,8 @@ public class CollectableCreator extends Creator<Collectable> {
 
     @Override
     public Collectable create() {
-        int randomY = random.nextInt(LanternaGUI.height - 2 * margin) + margin;
-        Position randomPosition = new Position(LanternaGUI.width, randomY);
+        int randomY = random.nextInt(LanternaGUI.HEIGHT - 2 * MARGIN) + MARGIN;
+        Position randomPosition = new Position(LanternaGUI.WIDTH, randomY);
 
         double randomCollectableType = random.nextDouble();
 

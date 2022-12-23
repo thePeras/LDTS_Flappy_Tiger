@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class GameOver extends Menu {
     public static final int MARGIN = 6;
-    private static final int MAXLENGTH = LanternaGUI.width - 2 * MARGIN;
+    private static final int MAX_LENGTH = LanternaGUI.WIDTH - 2 * MARGIN;
     private String username;
     private Integer score;
 
@@ -21,7 +21,7 @@ public class GameOver extends Menu {
     }
 
     public void addChar(Character character) {
-        if (username.length() < MAXLENGTH) {
+        if (username.length() < MAX_LENGTH) {
             username += character;
         }
     }

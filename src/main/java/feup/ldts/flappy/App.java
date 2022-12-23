@@ -18,8 +18,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.MenuState;
-import static feup.ldts.flappy.state.AppState.PauseState;
+import static feup.ldts.flappy.state.AppState.MENU_STATE;
+import static feup.ldts.flappy.state.AppState.PAUSE_STATE;
 
 public class App {
     private final LanternaGUI gui;
@@ -34,7 +34,7 @@ public class App {
 
     public App() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
-        this.state = MenuState;
+        this.state = MENU_STATE;
         this.mainMenu = new MainMenu();
         this.controller = new MainMenuController(mainMenu);
         this.viewer = new MainMenuViewer(mainMenu);
@@ -79,46 +79,46 @@ public class App {
     }
 
     public void setState(AppState state) throws IOException {
-        if (state == PauseState) {
+        if (state == PAUSE_STATE) {
             this.prevGame = this.game;
         }
         this.state = state;
         switch (state) {
-            case MenuState:
+            case MENU_STATE:
                 SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);
                 this.mainMenu = new MainMenu();
                 this.controller = new MainMenuController(mainMenu);
                 this.viewer = new MainMenuViewer(mainMenu);
                 break;
-            case GameState:
+            case GAME_STATE:
                 SoundManager.getInstance().setBackgroundSound(Musics.GAME_MUSIC);
                 this.game = new Game();
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
                 break;
-            case PrevGameState:
+            case PREV_GAME_STATE:
                 SoundManager.getInstance().resumeBackgroundSound();
                 this.game = this.prevGame;
                 this.controller = new GameController(game);
                 this.viewer = new GameViewer(game);
                 break;
-            case LeaderboardState:
+            case LEADERBOARD_STATE:
                 Leaderboard leaderboard = new Leaderboard();
                 this.controller = new TextMenuController(leaderboard);
                 this.viewer = new LeaderboardViewer(leaderboard);
                 break;
-            case InstructionsState:
+            case INSTRUCTIONS_STATE:
                 Instructions instructions = new Instructions();
                 this.controller = new TextMenuController(instructions);
                 this.viewer = new InstructionsViewer(instructions);
                 break;
-            case PauseState:
+            case PAUSE_STATE:
                 SoundManager.getInstance().pauseBackgroundSound();
                 this.pause = new Pause();
                 this.controller = new PauseController(pause);
                 this.viewer = new PauseViewer(pause);
                 break;
-            case GameOverState:
+            case GAME_OVER_STATE:
                 SoundManager.getInstance().pauseBackgroundSound();
                 GameOver gameOver = new GameOver(this.game.getScore());
                 this.controller = new GameOverController(gameOver);
