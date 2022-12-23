@@ -20,7 +20,7 @@ public class MovingElementsController extends Controller<Game> {
             Wall wall = wallIterator.next();
             wall.move();
             if (wall.isOutOfScreen()) {
-                getModel().removeWall(wallIterator);
+                wallIterator.remove();
             }
         }
     }
@@ -31,7 +31,7 @@ public class MovingElementsController extends Controller<Game> {
             Collectable collectable = collectableIterator.next();
             collectable.move();
             if (collectable.isOutOfScreen()) {
-                getModel().removeCollectable(collectableIterator);
+                collectableIterator.remove();
             }
         }
     }
