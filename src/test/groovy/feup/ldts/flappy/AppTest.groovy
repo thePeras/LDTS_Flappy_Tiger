@@ -22,7 +22,7 @@ class AppTest extends Specification {
         def app = new App()
 
         expect:
-        app.state == AppState.MenuState
+        app.state == AppState.MENU_STATE
         app.controller instanceof MainMenuController
         app.viewer instanceof MainMenuViewer
     }
@@ -43,11 +43,11 @@ class AppTest extends Specification {
 
         where:
         state | expectedController | expectedViewer
-        AppState.GameState | GameController | GameViewer
-        AppState.LeaderboardState |  TextMenuController | LeaderboardViewer
-        AppState.InstructionsState | TextMenuController | InstructionsViewer
-        AppState.PauseState | PauseController | PauseViewer
-        AppState.GameOverState | GameOverController | GameOverViewer
+        AppState.GAME_STATE | GameController | GameViewer
+        AppState.LEADERBOARD_STATE |  TextMenuController | LeaderboardViewer
+        AppState.INSTRUCTIONS_STATE | TextMenuController | InstructionsViewer
+        AppState.PAUSE_STATE | PauseController | PauseViewer
+        AppState.GAME_OVER_STATE | GameOverController | GameOverViewer
     }
 
     def "testExitMethod"() {

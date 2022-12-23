@@ -20,7 +20,7 @@ class MainMenuControllerTest extends Specification {
         controller.optionSelected(game)
 
         then:
-        1 * game.setState(AppState.GameState)
+        1 * game.setState(AppState.GAME_STATE)
     }
 
     def "test optionSelected sets game state to LeaderboardState when leaderboard option is selected"() {
@@ -34,7 +34,7 @@ class MainMenuControllerTest extends Specification {
         controller.optionSelected(game)
 
         then:
-        1 * game.setState(AppState.LeaderboardState)
+        1 * game.setState(AppState.LEADERBOARD_STATE)
     }
 
     def "test optionSelected sets game state to InstructionsState when instructions option is selected"() {
@@ -48,7 +48,7 @@ class MainMenuControllerTest extends Specification {
         controller.optionSelected(game)
 
         then:
-        1 * game.setState(AppState.InstructionsState)
+        1 * game.setState(AppState.INSTRUCTIONS_STATE)
     }
 
     def "test optionSelected closes the application when exit option is selected"() {

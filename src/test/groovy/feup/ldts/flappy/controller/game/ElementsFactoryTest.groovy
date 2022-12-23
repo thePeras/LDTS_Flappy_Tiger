@@ -48,4 +48,42 @@ class ElementsFactoryTest extends Specification{
         1 * game.addCollectable(_)
         1 * game.incrementSteps()
     }
+    def "generateCollectable() should call game.addCollectable() once when the random number is lower than GENERATE_COLLECTABLE_PROBABILITY"(){
+        given:
+        Game game = Mock(Game)
+        ElementsFactory factory = new ElementsFactory(game)
+        def random = Mock(Random)
+        random.nextInt(100) >> 1
+        factory.random = random
+
+        when:
+
+
+        when:
+        factory.generateCollectable()
+
+
+        then:
+        1 * game.addCollectable(_)
+    }
+
+    def "generateCollectable() should not call game.addCollectable() once when the random number is higher than GENERATE_COLLECTABLE_PROBABILITY"(){
+        given:
+        Game game = Mock(Game)
+        ElementsFactory factory = new ElementsFactory(game)
+        def random = Mock(Random)
+        random.nextInt(100) >> 61
+        factory.random = random
+
+        when:
+
+
+        when:
+        factory.generateCollectable()
+
+
+        then:
+        0 * game.addCollectable(_)
+    }
+
 }

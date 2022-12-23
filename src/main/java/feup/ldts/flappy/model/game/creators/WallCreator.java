@@ -6,7 +6,7 @@ import feup.ldts.flappy.model.game.elements.Wall;
 import java.util.Random;
 
 public class WallCreator extends Creator<Wall> {
-    private final static int margin = 5;
+    private final static int MARGIN = 5;
     private Random random;
 
     public WallCreator() {
@@ -15,7 +15,7 @@ public class WallCreator extends Creator<Wall> {
 
     @Override
     public Wall create() {
-        int randomHeight = random.nextInt((LanternaGUI.height - margin) / 2) + margin;
+        int randomHeight = random.nextInt((LanternaGUI.HEIGHT - MARGIN) / 2) + MARGIN;
         return new Wall(randomHeight);
     }
 }

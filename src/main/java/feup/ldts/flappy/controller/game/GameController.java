@@ -11,7 +11,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.PauseState;
+import static feup.ldts.flappy.state.AppState.PAUSE_STATE;
 
 public class GameController extends Controller<Game> {
 
@@ -47,12 +47,12 @@ public class GameController extends Controller<Game> {
         if (key != null) {
             if (key.getKeyType() == KeyType.Escape) {
                 getModel().setPlaying(false);
-                app.setState(PauseState);
+                app.setState(PAUSE_STATE);
             }
             if (key.getKeyType() == KeyType.Character) {
                 if (key.getCharacter() == 'p' || key.getCharacter() == 'q') {
                     getModel().setPlaying(false);
-                    app.setState(PauseState);
+                    app.setState(PAUSE_STATE);
                 }
                 if (key.getCharacter() == 'm') {
                     SoundManager.getInstance().toggleGameMusicMute();

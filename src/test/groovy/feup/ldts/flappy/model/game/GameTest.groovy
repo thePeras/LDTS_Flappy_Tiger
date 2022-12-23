@@ -1,8 +1,6 @@
 package feup.ldts.flappy.model.game
 
 import feup.ldts.flappy.gui.LanternaGUI
-import feup.ldts.flappy.model.game.collectables.Collectable
-import feup.ldts.flappy.model.game.collectables.PortoWine
 import feup.ldts.flappy.model.game.elements.Wall
 import spock.lang.Specification
 
@@ -10,7 +8,7 @@ class GameTest extends Specification {
     def 'player should be initialized with the correct position'() {
         given:
         def gui = Mock(LanternaGUI)
-        gui.height >> LanternaGUI.height / 2 - 1
+        gui.height >> LanternaGUI.HEIGHT / 2 - 1
 
         when:
         def game = new Game()

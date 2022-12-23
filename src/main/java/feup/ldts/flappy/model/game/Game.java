@@ -2,7 +2,6 @@ package feup.ldts.flappy.model.game;
 
 import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.model.game.elements.Ground;
@@ -29,12 +28,12 @@ public class Game {
     public Game() {
         this.isPlaying = false;
         this.isInGodMode = false;
-        this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
+        this.player = new Player(new Position(9, LanternaGUI.HEIGHT / 2 - 1));
         this.wallsList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
         this.score = 0;
         this.steps = 0;
-        this.ground = new Ground(LanternaGUI.height);
+        this.ground = new Ground(LanternaGUI.HEIGHT);
     }
 
     public Player getPlayer() {
