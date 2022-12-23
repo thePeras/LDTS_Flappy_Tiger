@@ -18,6 +18,5 @@ class PortoWineViewerTest extends Specification {
         then:
         1 * gui.drawPixel(_, 132, Colors.DARK_BLUE.getHex(), Colors.BLUE.getHex())
         1 * gui.drawPixel(_, 133, Colors.DARK_BLUE.getHex(), Colors.BLUE.getHex())
-        // and so on for each position in portoWine.getPositions()
     }
 }

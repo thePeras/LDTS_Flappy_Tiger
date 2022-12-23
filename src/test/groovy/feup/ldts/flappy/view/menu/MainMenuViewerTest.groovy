@@ -24,7 +24,7 @@ def "drawInsideElements should draw the title and the curiosity message"() {
     size * gui.drawLine(_, _, _)
 
 }
-    //Test if the options are being drawn
+
     def "drawOptions should draw the options"() {
         given:
         def mainMenu = new MainMenu()

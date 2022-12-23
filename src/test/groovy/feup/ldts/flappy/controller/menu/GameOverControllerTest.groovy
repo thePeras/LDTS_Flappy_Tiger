@@ -14,7 +14,6 @@ class GameOverControllerTest extends Specification {
         gameOver.username = "test_user"
         GameOverController controller = new GameOverController(gameOver)
 
-        // Populate the leaderboard with scores lower than the new score
         File leaderboard = new File("src/main/resources/text/leaderboard.txt")
         FileWriter writer = new FileWriter(leaderboard)
         writer.write("99 - user1\n")
@@ -30,7 +29,6 @@ class GameOverControllerTest extends Specification {
         then:
         Scanner scanner = new Scanner(leaderboard)
 
-// Verify that the leaderboard file contains the correct information
         assert scanner.findWithinHorizon("100 - test_user", 0) != null
     }
 
@@ -40,7 +38,6 @@ class GameOverControllerTest extends Specification {
         gameOver.username = "test_user"
         GameOverController controller = new GameOverController(gameOver)
 
-        // Populate the leaderboard with scores lower than the new score
         File leaderboard = new File("src/main/resources/text/leaderboard.txt")
         FileWriter writer = new FileWriter(leaderboard)
         writer.write("99 - user1\n")
@@ -56,7 +53,6 @@ class GameOverControllerTest extends Specification {
         then:
         Scanner scanner = new Scanner(leaderboard)
 
-// Verify that the leaderboard file contains the correct information
         assert scanner.findWithinHorizon("90 - test_user", 0) == null
     }
 }
