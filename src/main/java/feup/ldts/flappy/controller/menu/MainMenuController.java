@@ -30,7 +30,6 @@ public class MainMenuController extends MenuController<MainMenu> {
     @Override
     public void escapePressed(App game) {
     }
-
     @Override
     public void backspacePressed(App game) {
     }
