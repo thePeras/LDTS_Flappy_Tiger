@@ -19,7 +19,6 @@ public class ElementsFactory {
     }
 
     public void generateCollectable() {
-        // TODO: refactor probabilities and creators classes
         int randomNum = new Random().nextInt(100);
         if (randomNum < GENERATE_COLLECTABLE_PROBABILITY) {
             game.addCollectable(collectableCreator.create());

@@ -33,11 +33,11 @@ public class CollisionController extends Controller<Game> {
         }
 
         if(playerController.isCollidingWith(getModel().getGround())){
-            app.setState(AppState.GameOverState);
+            app.setState(AppState.GAME_OVER_STATE);
         }
         for(Wall wall : getModel().getWalls()){
             if(playerController.isCollidingWith(wall)){
-                app.setState(AppState.GameOverState);
+                app.setState(AppState.GAME_OVER_STATE);
             }
         }
     }

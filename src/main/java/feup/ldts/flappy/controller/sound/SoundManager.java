@@ -1,7 +1,7 @@
 package feup.ldts.flappy.controller.sound;
 
 public class SoundManager {
-    private static SoundManager instance = null;
+    private static SoundManager INSTANCE = null;
 
     private Sound menuBackgroundMusic;
     private Sound gameBackgroundMusic;
@@ -28,10 +28,10 @@ public class SoundManager {
     }
 
     public static SoundManager getInstance() {
-        if (instance == null) {
-            instance = new SoundManager();
+        if (INSTANCE == null) {
+            INSTANCE = new SoundManager();
         }
-        return instance;
+        return INSTANCE;
     }
 
     public void setBackgroundSound(Musics music) {

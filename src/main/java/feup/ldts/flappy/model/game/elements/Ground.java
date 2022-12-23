@@ -15,7 +15,7 @@ public class Ground extends Element implements Collidable {
 
     public List<Position> getPositions(){
         List<Position> positions = new ArrayList<>();
-        for(int i = 0; i < LanternaGUI.width; i++){
+        for(int i = 0; i < LanternaGUI.WIDTH; i++){
             positions.add(new Position(i, this.getPosition().getY()));
         }
         return positions;
