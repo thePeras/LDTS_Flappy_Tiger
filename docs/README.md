@@ -220,6 +220,44 @@ The creation of elements is centralized in the ElementsFactory class and all the
 
 ------
 
+### REFACTORING
+
+Some of the changes made in the refactoring phase were remove dead code, extract methods and classes, remove duplicated code, substitute hardcoded values with constants, etc.
+
+#### Menu Viewers
+
+In the game there are five different menus: main menu, game over menu, leaderboard menu, pause menu and instructions menu. 
+Because all of them have a similar structure, there was a lot of duplicated code. For example, to draw the menu options we had to iterate over the options list and draw each option in each menu.
+To solve this problem we use the *extract superclass* technique. We created a MenuViewer class that is responsible for drawing the menu. The menus viewers now extend the MenuViewer class and override the drawInsideElements method to draw the menu specific elements. This way we solve the duplicated code problem and classes became smaller.
+
+#### Menu Controllers
+
+Menu controllers had a similiar problem. All of them resumed in the same code, which was to handle the user input, but in different ways. In adition to that, every menu the possibility to mute sounds and music, and the code to handle that was duplicated in all the controllers.
+Again, to solve this problem we use the *extract superclass* technique. We created a MenuController class that is responsible for handling the user input and the mute buttons. The menus controllers now extend the MenuController class and override the optionSelected method to handle the menu specific input. In adition to that, we also use *extract interface* technique to create a interface that is implemented by the menus controllers.
+
+
+The changes of the last two refactorings can be found in this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/16).
+
+#### IsColliding
+
+Previous, each collidable element had its own isCollidingWithPlayer method that checked if the element was colliding with the player. But thinking about the game we notice that the Player is the only element that can collide with other elements. So, we decided to *move the method* to the PlayerController class and make it generic. Now, the Player class has a isCollidingWith method that checks if the player is colliding with any other element.
+
+The changes can be found in this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/15).
+
+------
+
+### CODE SMELLS
+
+#### Sound Manager Switch
+
+The sounds and musics played in the game are saved in .wav files. Each file needed to be loaded and then played.
+If we loaded each sound before playing it, there would be a delay in the sound effect, decreasing the user experience.
+So all the sounds are loaded in the SoundManager class and then played when needed. 
+The problem resulting from that is that the SoundManager class has a lot of switch statements. Each switch statement is responsible for playing a specific sound effect.
+Switch statements are not good and this one is no exception as it has many cases and therefore is a code smell.
+
+------
+
 ### TESTING
 
 ![img](images/pitest.png)
