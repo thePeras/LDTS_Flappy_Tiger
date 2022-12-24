@@ -8,15 +8,14 @@ import spock.lang.Specification
 class GroundViewerTest extends Specification {
     def 'draw method should paint the Ground element at the correct position with the correct color'() {
         given:
-        def ground = new Ground(1)
-        def gui = Mock(GUI)
-        def groundViewer = new GroundViewer()
+        GUI gui = Mock(GUI)
+        Ground ground = Mock(Ground)
+        Position position = Mock(Position)
+        ground.getPosition() >> position
+        position.getY() >> 10
         when:
-        groundViewer.draw(ground, gui)
-
+        new GroundViewer().draw(ground, gui)
         then:
-        for (int x = 0; x <= gui.getWidth(); x++) {
-            1 * gui.paintPixel(new Position(x, ground.getPosition().getY()), Colors.DARK_GREEN.getHex())
-        }
+        1 * gui.paintPixel(_, Colors.DARK_GREEN.getHex()) >> _
     }
 }
