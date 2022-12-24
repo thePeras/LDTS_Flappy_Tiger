@@ -1,21 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
-    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
-    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
-    <title>LanternaGUI.java</title>
-    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
-    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
-</head>
-<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
-<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
-                                                              href="../jacoco-sessions.html">Sessions</a></span><a
-        class="el_report" href="../index.html">project-l04gr02</a> &gt; <a class="el_package" href="index.source.html">feup.ldts.flappy.gui</a>
-    &gt; <span class="el_source">LanternaGUI.java</span></div>
-<h1>LanternaGUI.java</h1>
-<pre class="source lang-java linenums">package feup.ldts.flappy.gui;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LanternaGUI.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.gui</a> &gt; <span class="el_source">LanternaGUI.java</span></div><h1>LanternaGUI.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.gui;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
@@ -27,8 +10,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.view.Colors;
 
 import java.awt.*;
 import java.io.File;
@@ -37,47 +20,46 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI {
-    public static final int height = 35, width = 30, fontSize = 17;
+    public static final int HEIGHT = 35, WIDTH = 30, FONT_SIZE = 17;
     private final Screen screen;
 
 <span class="fc" id="L26">    public LanternaGUI(Screen screen) {</span>
 <span class="fc" id="L27">        this.screen = screen;</span>
 <span class="fc" id="L28">    }</span>
 
-<span class="nc" id="L30">    public LanternaGUI() throws IOException, FontFormatException, URISyntaxException {</span>
-<span class="nc" id="L31">        AWTTerminalFontConfiguration fontConfig = loadSquareFont();</span>
-<span class="nc" id="L32">        Terminal terminal = createTerminal(fontConfig);</span>
-<span class="nc" id="L33">        this.screen = createScreen(terminal);</span>
-<span class="nc" id="L34">    }</span>
+<span class="fc" id="L30">    public LanternaGUI() throws IOException, FontFormatException, URISyntaxException {</span>
+<span class="fc" id="L31">        AWTTerminalFontConfiguration fontConfig = loadSquareFont();</span>
+<span class="fc" id="L32">        Terminal terminal = createTerminal(fontConfig);</span>
+<span class="fc" id="L33">        this.screen = createScreen(terminal);</span>
+<span class="fc" id="L34">    }</span>
 
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
-<span class="nc" id="L38">        screen = new TerminalScreen(terminal);</span>
+<span class="fc" id="L38">        screen = new TerminalScreen(terminal);</span>
 
-<span class="nc" id="L40">        screen.setCursorPosition(null);</span>
-<span class="nc" id="L41">        screen.startScreen();</span>
-<span class="nc" id="L42">        screen.doResizeIfNecessary();</span>
-<span class="nc" id="L43">        return screen;</span>
+<span class="fc" id="L40">        screen.setCursorPosition(null);</span>
+<span class="fc" id="L41">        screen.startScreen();</span>
+<span class="fc" id="L42">        screen.doResizeIfNecessary();</span>
+<span class="fc" id="L43">        return screen;</span>
     }
 
     private Terminal createTerminal(AWTTerminalFontConfiguration fontConfig) throws IOException {
-<span class="nc" id="L47">        TerminalSize terminalSize = new TerminalSize(width, height + 1);</span>
-<span class="nc" id="L48">        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);</span>
-<span class="nc" id="L49">        terminalFactory.setForceAWTOverSwing(true);</span>
-<span class="nc" id="L50">        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);</span>
-<span class="nc" id="L51">        return terminalFactory.createTerminal();</span>
+<span class="fc" id="L47">        TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT + 1);</span>
+<span class="fc" id="L48">        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);</span>
+<span class="fc" id="L49">        terminalFactory.setForceAWTOverSwing(true);</span>
+<span class="fc" id="L50">        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);</span>
+<span class="fc" id="L51">        return terminalFactory.createTerminal();</span>
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-<span class="nc"
-      id="L55">        URL resource = getClass().getClassLoader().getResource(&quot;fonts/square.ttf&quot;);</span>
-<span class="nc" id="L56">        File fontFile = new File(resource.toURI());</span>
-<span class="nc" id="L57">        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);</span>
+<span class="fc" id="L55">        URL resource = getClass().getClassLoader().getResource(&quot;fonts/square.ttf&quot;);</span>
+<span class="fc" id="L56">        File fontFile = new File(resource.toURI());</span>
+<span class="fc" id="L57">        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);</span>
 
-<span class="nc" id="L59">        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();</span>
-<span class="nc" id="L60">        ge.registerFont(font);</span>
-<span class="nc" id="L61">        Font loadedFont = font.deriveFont(Font.PLAIN, fontSize);</span>
-<span class="nc" id="L62">        return AWTTerminalFontConfiguration.newInstance(loadedFont);</span>
+<span class="fc" id="L59">        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();</span>
+<span class="fc" id="L60">        ge.registerFont(font);</span>
+<span class="fc" id="L61">        Font loadedFont = font.deriveFont(Font.PLAIN, FONT_SIZE);</span>
+<span class="fc" id="L62">        return AWTTerminalFontConfiguration.newInstance(loadedFont);</span>
     }
 
     public KeyStroke getNextAction() throws IOException {
@@ -93,15 +75,14 @@ public class LanternaGUI implements GUI {
 
     public void drawLine(Position position, String text, String color) {
 <span class="fc" id="L77">        drawPixel(position, (char) 138, Colors.ORANGE.getHex(), Colors.MENU_BACKGROUND.getHex());</span>
-<span class="fc"
-      id="L78">        Position startTextPosition = new Position(position.getX() + 1, position.getY());</span>
+<span class="fc" id="L78">        Position startTextPosition = new Position(position.getX() + 1, position.getY());</span>
 <span class="fc" id="L79">        drawText(startTextPosition, text, color, Colors.MENU_BACKGROUND.getHex());</span>
 <span class="fc" id="L80">    }</span>
 
     public void paintBackground(String color) {
 <span class="fc" id="L83">        TextGraphics tg = screen.newTextGraphics();</span>
 <span class="fc" id="L84">        tg.setBackgroundColor(TextColor.Factory.fromString(color));</span>
-<span class="fc" id="L85">        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height + 1), ' ');</span>
+<span class="fc" id="L85">        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(WIDTH, HEIGHT + 1), ' ');</span>
 <span class="fc" id="L86">    }</span>
 
     public void drawRectangle(Position position, int width, int height, String color) {
@@ -120,12 +101,12 @@ public class LanternaGUI implements GUI {
 
     @Override
     public int getWidth() {
-<span class="nc" id="L104">        return width;</span>
+<span class="nc" id="L104">        return WIDTH;</span>
     }
 
     @Override
     public int getHeight() {
-<span class="nc" id="L109">        return height;</span>
+<span class="nc" id="L109">        return HEIGHT;</span>
     }
 
     public void paintPixel(Position position, String color) {
@@ -149,8 +130,4 @@ public class LanternaGUI implements GUI {
 <span class="fc" id="L130">        screen.close();</span>
 <span class="fc" id="L131">    }</span>
 }
-</pre>
-<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>
-</div>
-</body>
-</html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

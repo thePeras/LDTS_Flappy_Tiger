@@ -10,14 +10,14 @@ html, body, div, span, p, blockquote, pre {
     vertical-align: baseline;
 }
 
-body {
+body{
     line-height: 1;
     color: black;
     background: white;
     margin-left: 20px;
 }
 
-.src {
+.src { 
     border: 1px solid #dddddd;
     padding-top: 10px;
     padding-right: 5px;
@@ -66,8 +66,7 @@ body {
 }
 
 .not_started, .NO_STARTED {
-    background-color: #dde7ef;
-    color: red
+    background-color: #dde7ef; color : red
 }
 
 .no_coverage, .NO_COVERAGE {
@@ -127,7 +126,7 @@ body {
 }
 
 .pop {
-    outline: none;
+    outline:none;
 }
 
 .pop strong {

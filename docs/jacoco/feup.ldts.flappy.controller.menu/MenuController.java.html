@@ -1,29 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
-    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
-    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
-    <title>MenuController.java</title>
-    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
-    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
-</head>
-<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
-<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
-                                                              href="../jacoco-sessions.html">Sessions</a></span><a
-        class="el_report" href="../index.html">project-l04gr02</a> &gt; <a class="el_package" href="index.source.html">feup.ldts.flappy.controller.menu</a>
-    &gt; <span class="el_source">MenuController.java</span></div>
-<h1>MenuController.java</h1>
-<pre class="source lang-java linenums">package feup.ldts.flappy.controller.menu;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MenuController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.controller.menu</a> &gt; <span class="el_source">MenuController.java</span></div><h1>MenuController.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.controller.menu;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
+import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.model.menu.Menu;
-import feup.ldts.flappy.controller.sound.SoundEffects;
 
 import java.awt.*;
 import java.io.IOException;
@@ -31,33 +14,33 @@ import java.net.URISyntaxException;
 
 public abstract class MenuController&lt;T extends Menu&gt; extends Controller&lt;T&gt; implements MenuInterface {
     public MenuController(T model) {
-<span class="nc" id="L17">        super(model);</span>
-<span class="nc" id="L18">    }</span>
+<span class="fc" id="L17">        super(model);</span>
+<span class="fc" id="L18">    }</span>
 
     @Override
     public void step(App game, KeyStroke key) throws IOException, URISyntaxException, FontFormatException {
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (key == null) return;</span>
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.ArrowUp) {</span>
-<span class="nc" id="L24">            getModel().previousOption();</span>
+<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (key == null) return;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if (key.getKeyType() == KeyType.ArrowUp) {</span>
+<span class="fc" id="L24">            getModel().previousOption();</span>
         }
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.ArrowDown) {</span>
-<span class="nc" id="L27">            getModel().nextOption();</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (key.getKeyType() == KeyType.ArrowDown) {</span>
+<span class="fc" id="L27">            getModel().nextOption();</span>
         }
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Enter) {</span>
+<span class="pc bpc" id="L29" title="1 of 2 branches missed.">        if (key.getKeyType() == KeyType.Enter) {</span>
 <span class="nc" id="L30">            SoundManager.getInstance().playSoundEffect(SoundEffects.MENU_CHOICE);</span>
 <span class="nc" id="L31">            optionSelected(game);</span>
         }
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Character) {</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (key.getKeyType() == KeyType.Character) {</span>
 <span class="nc bnc" id="L34" title="All 2 branches missed.">            if (key.getCharacter() == null) return;</span>
 <span class="nc" id="L35">            charSelected(key);</span>
         }
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Escape) {</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if (key.getKeyType() == KeyType.Escape) {</span>
 <span class="nc" id="L38">            escapePressed(game);</span>
         }
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (key.getKeyType() == KeyType.Backspace) {</span>
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        if (key.getKeyType() == KeyType.Backspace) {</span>
 <span class="nc" id="L41">            backspacePressed(game);</span>
         }
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L43">    }</span>
 
     public void charSelected(KeyStroke key) {
 <span class="nc bnc" id="L46" title="All 2 branches missed.">        if (key.getCharacter() == 'm') {</span>
@@ -68,8 +51,4 @@ public abstract class MenuController&lt;T extends Menu&gt; extends Controller&lt
         }
 <span class="nc" id="L52">    }</span>
 }
-</pre>
-<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>
-</div>
-</body>
-</html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

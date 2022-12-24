@@ -271,13 +271,13 @@ Switch statements are not good and this one is not an exception as it has many c
 
 ### TESTING
 
-![img](images/pitest.png)
-
-[Pitest report](pitest/index.html)
-
 ![img](images/jacoco.png)
 
 [Jacoco report](jacoco/index.html)
+
+![img](images/pitest.png)
+
+[Pitest report](pitest/index.html)
 
 ### SELF-EVALUATION
 

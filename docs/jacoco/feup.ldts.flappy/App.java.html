@@ -1,31 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
-    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
-    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
-    <title>App.java</title>
-    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
-    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
-</head>
-<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
-<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
-                                                              href="../jacoco-sessions.html">Sessions</a></span><a
-        class="el_report" href="../index.html">project-l04gr02</a> &gt; <a class="el_package" href="index.source.html">feup.ldts.flappy</a>
-    &gt; <span class="el_source">App.java</span></div>
-<h1>App.java</h1>
-<pre class="source lang-java linenums">package feup.ldts.flappy;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.controller.Controller;
-import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.controller.game.GameController;
-import feup.ldts.flappy.controller.menu.*;
+import feup.ldts.flappy.controller.menu.GameOverController;
+import feup.ldts.flappy.controller.menu.MainMenuController;
+import feup.ldts.flappy.controller.menu.PauseController;
+import feup.ldts.flappy.controller.menu.TextMenuController;
+import feup.ldts.flappy.controller.sound.Musics;
+import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.menu.*;
-import feup.ldts.flappy.controller.sound.Musics;
 import feup.ldts.flappy.state.AppState;
 import feup.ldts.flappy.view.Viewer;
 import feup.ldts.flappy.view.game.GameViewer;
@@ -35,8 +21,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static feup.ldts.flappy.state.AppState.MenuState;
-import static feup.ldts.flappy.state.AppState.PauseState;
+import static feup.ldts.flappy.state.AppState.MENU_STATE;
+import static feup.ldts.flappy.state.AppState.PAUSE_STATE;
 
 public class App {
     private final LanternaGUI gui;
@@ -49,103 +35,99 @@ public class App {
     private Game game;
     private Game prevGame;
 
-<span class="nc" id="L35">    public App() throws IOException, URISyntaxException, FontFormatException {</span>
-<span class="nc" id="L36">        this.gui = new LanternaGUI();</span>
-<span class="nc" id="L37">        this.state = MenuState;</span>
-<span class="nc" id="L38">        this.mainMenu = new MainMenu();</span>
-<span class="nc" id="L39">        this.controller = new MainMenuController(mainMenu);</span>
-<span class="nc" id="L40">        this.viewer = new MainMenuViewer(mainMenu);</span>
-<span class="nc" id="L41">        SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);</span>
-<span class="nc" id="L42">    }</span>
+<span class="fc" id="L38">    public App() throws IOException, URISyntaxException, FontFormatException {</span>
+<span class="fc" id="L39">        this.gui = new LanternaGUI();</span>
+<span class="fc" id="L40">        this.state = MENU_STATE;</span>
+<span class="fc" id="L41">        this.mainMenu = new MainMenu();</span>
+<span class="fc" id="L42">        this.controller = new MainMenuController(mainMenu);</span>
+<span class="fc" id="L43">        this.viewer = new MainMenuViewer(mainMenu);</span>
+<span class="fc" id="L44">        SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);</span>
+<span class="fc" id="L45">    }</span>
 
     public static void main(String[] args) {
         try {
-<span class="nc" id="L46">            new App().start();</span>
-<span class="nc" id="L47">        } catch (Exception e) {</span>
-<span class="nc" id="L48">            e.printStackTrace();</span>
-<span class="nc" id="L49">        }</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L49">            new App().start();</span>
+<span class="nc" id="L50">        } catch (Exception e) {</span>
+<span class="nc" id="L51">            e.printStackTrace();</span>
+<span class="nc" id="L52">        }</span>
+<span class="nc" id="L53">    }</span>
 
     private void start() throws Exception {
-<span class="nc" id="L53">        int FPS = 14;</span>
-<span class="nc" id="L54">        int frameTime = 1000 / FPS;</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">        while (this.state != null) {</span>
-<span class="nc" id="L56">            long startTime = System.currentTimeMillis();</span>
+<span class="nc" id="L56">        int FPS = 14;</span>
+<span class="nc" id="L57">        int frameTime = 1000 / FPS;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">        while (this.state != null) {</span>
+<span class="nc" id="L59">            long startTime = System.currentTimeMillis();</span>
 
-<span class="nc" id="L58">            KeyStroke next_key = gui.getNextAction();</span>
+<span class="nc" id="L61">            KeyStroke next_key = gui.getNextAction();</span>
 
-<span class="nc" id="L60">            controller.step(this, next_key);</span>
-<span class="nc" id="L61">            viewer.draw(gui);</span>
+<span class="nc" id="L63">            controller.step(this, next_key);</span>
+<span class="nc" id="L64">            viewer.draw(gui);</span>
 
 
-<span class="nc" id="L64">            long elapsedTime = System.currentTimeMillis() - startTime;</span>
-<span class="nc" id="L65">            long sleepTime = frameTime - elapsedTime;</span>
+<span class="nc" id="L67">            long elapsedTime = System.currentTimeMillis() - startTime;</span>
+<span class="nc" id="L68">            long sleepTime = frameTime - elapsedTime;</span>
 
             try {
-<span class="nc bnc" id="L68" title="All 2 branches missed.">                if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
-<span class="nc" id="L69">            } catch (InterruptedException e) {</span>
-<span class="nc" id="L70">                e.printStackTrace();</span>
-<span class="nc" id="L71">            }</span>
-<span class="nc" id="L72">        }</span>
-<span class="nc" id="L73">        gui.close();</span>
-<span class="nc" id="L74">    }</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">                if (sleepTime &gt; 0) Thread.sleep(sleepTime);</span>
+<span class="nc" id="L72">            } catch (InterruptedException e) {</span>
+<span class="nc" id="L73">                e.printStackTrace();</span>
+<span class="nc" id="L74">            }</span>
+<span class="nc" id="L75">        }</span>
+<span class="nc" id="L76">        gui.close();</span>
+<span class="nc" id="L77">    }</span>
 
     public void exit() {
-<span class="nc" id="L77">        this.state = null;</span>
-<span class="nc" id="L78">        SoundManager.getInstance().stopAll();</span>
-<span class="nc" id="L79">    }</span>
+<span class="fc" id="L80">        this.state = null;</span>
+<span class="fc" id="L81">        SoundManager.getInstance().stopAll();</span>
+<span class="fc" id="L82">    }</span>
 
     public void setState(AppState state) throws IOException {
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        if (state == PauseState) {</span>
-<span class="nc" id="L83">            this.prevGame = this.game;</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        if (state == PAUSE_STATE) {</span>
+<span class="fc" id="L86">            this.prevGame = this.game;</span>
         }
-<span class="nc" id="L85">        this.state = state;</span>
-<span class="nc bnc" id="L86" title="All 8 branches missed.">        switch (state) {</span>
-            case MenuState:
-<span class="nc" id="L88">                SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);</span>
-<span class="nc" id="L89">                this.mainMenu = new MainMenu();</span>
-<span class="nc" id="L90">                this.controller = new MainMenuController(mainMenu);</span>
-<span class="nc" id="L91">                this.viewer = new MainMenuViewer(mainMenu);</span>
-<span class="nc" id="L92">                break;</span>
-            case GameState:
-<span class="nc" id="L94">                SoundManager.getInstance().setBackgroundSound(Musics.GAME_MUSIC);</span>
-<span class="nc" id="L95">                this.game = new Game();</span>
-<span class="nc" id="L96">                this.controller = new GameController(game);</span>
-<span class="nc" id="L97">                this.viewer = new GameViewer(game);</span>
-<span class="nc" id="L98">                break;</span>
-            case PrevGameState:
-<span class="nc" id="L100">                SoundManager.getInstance().resumeBackgroundSound();</span>
-<span class="nc" id="L101">                this.game = this.prevGame;</span>
-<span class="nc" id="L102">                this.controller = new GameController(game);</span>
-<span class="nc" id="L103">                this.viewer = new GameViewer(game);</span>
-<span class="nc" id="L104">                break;</span>
-            case LeaderboardState:
-<span class="nc" id="L106">                Leaderboard leaderboard = new Leaderboard();</span>
-<span class="nc" id="L107">                this.controller = new TextMenuController(leaderboard);</span>
-<span class="nc" id="L108">                this.viewer = new LeaderboardViewer(leaderboard);</span>
-<span class="nc" id="L109">                break;</span>
-            case InstructionsState:
-<span class="nc" id="L111">                Instructions instructions = new Instructions();</span>
-<span class="nc" id="L112">                this.controller = new TextMenuController(instructions);</span>
-<span class="nc" id="L113">                this.viewer = new InstructionsViewer(instructions);</span>
-<span class="nc" id="L114">                break;</span>
-            case PauseState:
-<span class="nc" id="L116">                SoundManager.getInstance().pauseBackgroundSound();</span>
-<span class="nc" id="L117">                this.pause = new Pause();</span>
-<span class="nc" id="L118">                this.controller = new PauseController(pause);</span>
-<span class="nc" id="L119">                this.viewer = new PauseViewer(pause);</span>
-<span class="nc" id="L120">                break;</span>
-            case GameOverState:
-<span class="nc" id="L122">                SoundManager.getInstance().pauseBackgroundSound();</span>
-<span class="nc" id="L123">                GameOver gameOver = new GameOver(this.game.getScore());</span>
-<span class="nc" id="L124">                this.controller = new GameOverController(gameOver);</span>
-<span class="nc" id="L125">                this.viewer = new GameOverViewer(gameOver);</span>
+<span class="fc" id="L88">        this.state = state;</span>
+<span class="pc bpc" id="L89" title="3 of 8 branches missed.">        switch (state) {</span>
+            case MENU_STATE:
+<span class="nc" id="L91">                SoundManager.getInstance().setBackgroundSound(Musics.MENU_MUSIC);</span>
+<span class="nc" id="L92">                this.mainMenu = new MainMenu();</span>
+<span class="nc" id="L93">                this.controller = new MainMenuController(mainMenu);</span>
+<span class="nc" id="L94">                this.viewer = new MainMenuViewer(mainMenu);</span>
+<span class="nc" id="L95">                break;</span>
+            case GAME_STATE:
+<span class="fc" id="L97">                SoundManager.getInstance().setBackgroundSound(Musics.GAME_MUSIC);</span>
+<span class="fc" id="L98">                this.game = new Game();</span>
+<span class="fc" id="L99">                this.controller = new GameController(game);</span>
+<span class="fc" id="L100">                this.viewer = new GameViewer(game);</span>
+<span class="fc" id="L101">                break;</span>
+            case PREV_GAME_STATE:
+<span class="nc" id="L103">                SoundManager.getInstance().resumeBackgroundSound();</span>
+<span class="nc" id="L104">                this.game = this.prevGame;</span>
+<span class="nc" id="L105">                this.controller = new GameController(game);</span>
+<span class="nc" id="L106">                this.viewer = new GameViewer(game);</span>
+<span class="nc" id="L107">                break;</span>
+            case LEADERBOARD_STATE:
+<span class="fc" id="L109">                Leaderboard leaderboard = new Leaderboard();</span>
+<span class="fc" id="L110">                this.controller = new TextMenuController(leaderboard);</span>
+<span class="fc" id="L111">                this.viewer = new LeaderboardViewer(leaderboard);</span>
+<span class="fc" id="L112">                break;</span>
+            case INSTRUCTIONS_STATE:
+<span class="fc" id="L114">                Instructions instructions = new Instructions();</span>
+<span class="fc" id="L115">                this.controller = new TextMenuController(instructions);</span>
+<span class="fc" id="L116">                this.viewer = new InstructionsViewer(instructions);</span>
+<span class="fc" id="L117">                break;</span>
+            case PAUSE_STATE:
+<span class="fc" id="L119">                SoundManager.getInstance().pauseBackgroundSound();</span>
+<span class="fc" id="L120">                this.pause = new Pause();</span>
+<span class="fc" id="L121">                this.controller = new PauseController(pause);</span>
+<span class="fc" id="L122">                this.viewer = new PauseViewer(pause);</span>
+<span class="fc" id="L123">                break;</span>
+            case GAME_OVER_STATE:
+<span class="fc" id="L125">                SoundManager.getInstance().pauseBackgroundSound();</span>
+<span class="fc" id="L126">                GameOver gameOver = new GameOver(this.game.getScore());</span>
+<span class="fc" id="L127">                this.controller = new GameOverController(gameOver);</span>
+<span class="fc" id="L128">                this.viewer = new GameOverViewer(gameOver);</span>
                 break;
         }
-<span class="nc" id="L128">    }</span>
+<span class="fc" id="L131">    }</span>
 }
-</pre>
-<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>
-</div>
-</body>
-</html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
