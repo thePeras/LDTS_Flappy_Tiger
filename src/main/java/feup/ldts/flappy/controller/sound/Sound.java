@@ -7,10 +7,10 @@ import javax.sound.sampled.FloatControl;
 import java.io.File;
 
 public class Sound {
-    private Clip sound;
+    private final Clip sound;
     private float volume;
 
-    private FloatControl floatControl;
+    private final FloatControl floatControl;
 
     public Sound(String soundFile) {
         this.sound = load(soundFile);

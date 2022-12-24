@@ -19,7 +19,7 @@ public class Game {
     private final List<Collectable> collectablesList;
     private boolean isPlaying;
     private boolean isInGodMode;
-    private Ground ground;
+    private final Ground ground;
     private int score;
     private int steps;
     private int godModeSteps = 0;

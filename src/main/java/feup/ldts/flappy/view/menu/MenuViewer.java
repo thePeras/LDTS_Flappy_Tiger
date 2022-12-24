@@ -7,8 +7,8 @@ import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.view.Viewer;
 
 public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
-    private Integer options_x;
-    private Integer options_y;
+    private final Integer options_x;
+    private final Integer options_y;
 
     public MenuViewer(T model, Position optionsPosition) {
         super(model);

@@ -8,7 +8,7 @@ public class GameOver extends Menu {
     public static final int MARGIN = 6;
     private static final int MAX_LENGTH = LanternaGUI.WIDTH - 2 * MARGIN;
     private String username;
-    private Integer score;
+    private final Integer score;
 
     public GameOver(int score) {
         this.username = "";

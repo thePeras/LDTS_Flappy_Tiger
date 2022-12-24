@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 import java.util.Iterator;
 
 public class CollisionController extends Controller<Game> {
-    private PlayerController playerController;
+    private final PlayerController playerController;
 
     public CollisionController(Game model, PlayerController playerController) {
         super(model);

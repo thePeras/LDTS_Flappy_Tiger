@@ -3,15 +3,15 @@ package feup.ldts.flappy.controller.sound;
 public class SoundManager {
     private static SoundManager INSTANCE = null;
 
-    private Sound menuBackgroundMusic;
-    private Sound gameBackgroundMusic;
-    private Sound selectEffectSound;
-    private Sound choiceEffectSound;
-    private Sound startEffectSound;
-    private Sound gameOverSound;
-    private Sound flapSound;
-    private Sound consumeSound;
-    private Sound godModeSound;
+    private final Sound menuBackgroundMusic;
+    private final Sound gameBackgroundMusic;
+    private final Sound selectEffectSound;
+    private final Sound choiceEffectSound;
+    private final Sound startEffectSound;
+    private final Sound gameOverSound;
+    private final Sound flapSound;
+    private final Sound consumeSound;
+    private final Sound godModeSound;
 
     private SoundManager() {
         this.menuBackgroundMusic = new Sound("src/main/resources/sounds/menu_background.wav");

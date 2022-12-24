@@ -25,7 +25,7 @@ public class PlayerController extends Controller<Game> {
     public void jumpPlayer() {
         if (!getModel().isPlaying())
             getModel().startPlaying();
-        if(player.getPosition().getY() < 0) return;
+        if (player.getPosition().getY() < 0) return;
         player.setVelocity(-3);
         SoundManager.getInstance().playSoundEffect(SoundEffects.FLAP);
     }

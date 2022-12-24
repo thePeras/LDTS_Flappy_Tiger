@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class WallCreator extends Creator<Wall> {
     private final static int MARGIN = 5;
-    private Random random;
+    private final Random random;
 
     public WallCreator() {
         this.random = new Random();

@@ -11,7 +11,7 @@ public class ElementsFactory {
     private final Game game;
     private final WallCreator wallCreator;
     private final CollectableCreator collectableCreator;
-    private Random random;
+    private final Random random;
 
     public ElementsFactory(Game game) {
         this.game = game;

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class TextMenu extends Menu {
-    private ArrayList<String> text;
+    private final ArrayList<String> text;
 
     public TextMenu(String text) throws FileNotFoundException {
         this.text = sortText(readFile(text));
