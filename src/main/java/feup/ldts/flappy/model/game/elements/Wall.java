@@ -17,19 +17,9 @@ public class Wall extends Element implements Collidable {
 
 
     public Wall(int height) {
-        super(new Position(LanternaGUI.width, 0));
+        super(new Position(LanternaGUI.WIDTH, 0));
         this.height = height;
         this.space = normalSpace;
-    }
-
-    public void setSpace(int newSpace) {
-        this.space = newSpace;
-        int newHeight = this.getHeight() - newSpace / 2;
-        this.height = newHeight > 0 ? newHeight : 1;
-    }
-
-    public int getHeight() {
-        return height;
     }
 
     public static int getSpeed() {
@@ -40,8 +30,18 @@ public class Wall extends Element implements Collidable {
         return width;
     }
 
-    public int getSpace(){
+    public int getHeight() {
+        return height;
+    }
+
+    public int getSpace() {
         return space;
+    }
+
+    public void setSpace(int newSpace) {
+        this.space = newSpace;
+        int newHeight = this.getHeight() - newSpace / 2;
+        this.height = newHeight > 0 ? newHeight : 1;
     }
 
     public void setX(int x) {
@@ -60,17 +60,17 @@ public class Wall extends Element implements Collidable {
         this.setX(this.getPosition().getX() + getSpeed());
     }
 
-    public List<Position> getPositions(){
+    public List<Position> getPositions() {
         List<Position> positions = new ArrayList<>();
 
         int x = this.getPosition().getX();
 
-        for (int y = -5; y <= LanternaGUI.height; y++) {
+        for (int y = -5; y <= LanternaGUI.HEIGHT; y++) {
             if (this.isGapHeight(y)) continue;
             positions.add(new Position(x, y));
-            positions.add(new Position(x+1, y));
+            positions.add(new Position(x + 1, y));
         }
-     
+
         return positions;
     }
 }

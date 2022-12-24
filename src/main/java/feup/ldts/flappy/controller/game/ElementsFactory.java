@@ -11,17 +11,17 @@ public class ElementsFactory {
     private final Game game;
     private final WallCreator wallCreator;
     private final CollectableCreator collectableCreator;
+    private Random random;
 
     public ElementsFactory(Game game) {
         this.game = game;
         this.wallCreator = new WallCreator();
         this.collectableCreator = new CollectableCreator();
+        this.random = new Random();
     }
 
     public void generateCollectable() {
-        // TODO: refactor probabilities and creators classes
-        int randomNum = new Random().nextInt(100);
-        if (randomNum < GENERATE_COLLECTABLE_PROBABILITY) {
+        if (random.nextInt(100) < GENERATE_COLLECTABLE_PROBABILITY) {
             game.addCollectable(collectableCreator.create());
         }
     }

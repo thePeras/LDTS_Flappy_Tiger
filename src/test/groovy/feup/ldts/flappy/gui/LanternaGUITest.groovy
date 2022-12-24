@@ -4,8 +4,8 @@ import com.googlecode.lanterna.TextColor
 import com.googlecode.lanterna.graphics.TextGraphics
 import com.googlecode.lanterna.input.KeyStroke
 import com.googlecode.lanterna.screen.Screen
-import feup.ldts.flappy.model.game.Position;
-import spock.lang.Specification;
+import feup.ldts.flappy.model.game.Position
+import spock.lang.Specification
 
 class LanternaGUITest extends Specification {
     def gui, screen, textGraphics
@@ -19,123 +19,123 @@ class LanternaGUITest extends Specification {
 
     def "screen clear"() {
         when:
-            gui.clear()
+        gui.clear()
         then:
-            1 * screen.clear()
+        1 * screen.clear()
     }
 
     def "screen refresh"() {
         when:
-            gui.refresh()
+        gui.refresh()
         then:
-            1 * screen.refresh()
+        1 * screen.refresh()
     }
 
     def "screen close"() {
         when:
-            gui.close()
+        gui.close()
         then:
-            1 * screen.close()
+        1 * screen.close()
     }
 
-    def "paint pixel (#x, #y)"(){
+    def "paint pixel (#x, #y)"() {
         given:
-            def position = new Position(x, y)
+        def position = new Position(x, y)
         when:
-            gui.paintPixel(position, '#ffffff')
+        gui.paintPixel(position, '#ffffff')
         then:
-            1 * textGraphics.setBackgroundColor(_)
-            1 * textGraphics.putString(x, y, " ")
+        1 * textGraphics.setBackgroundColor(_)
+        1 * textGraphics.putString(x, y, " ")
         where:
-            x | y
-            1 | 2
-            2 | 3
+        x | y
+        1 | 2
+        2 | 3
     }
 
-    def "draw pixel (#x, #y)"(){
+    def "draw pixel (#x, #y)"() {
         given:
-            def position = new Position(x, y)
-            def color = "#ffffff"
-            def backgroundColor = "#000000"
-            char myChar = 'a'
+        def position = new Position(x, y)
+        def color = "#ffffff"
+        def backgroundColor = "#000000"
+        char myChar = 'a'
         when:
-            gui.drawPixel(position, myChar, color, backgroundColor)
+        gui.drawPixel(position, myChar, color, backgroundColor)
         then:
-            1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
-            1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(backgroundColor))
-            1 * textGraphics.putString(x, y, "" + myChar);
+        1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
+        1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(backgroundColor))
+        1 * textGraphics.putString(x, y, "" + myChar);
         where:
-            x | y
-            1 | 2
-            2 | 3
+        x | y
+        1 | 2
+        2 | 3
     }
 
-    def "drawRectangle"(){
+    def "drawRectangle"() {
         given:
-            def position = new Position(1, 2)
-            def width = 3
-            def height = 4
-            def color = "#ffffff"
+        def position = new Position(1, 2)
+        def width = 3
+        def height = 4
+        def color = "#ffffff"
         when:
-            gui.drawRectangle(position, width, height, color)
+        gui.drawRectangle(position, width, height, color)
         then:
-            1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(color))
-            1 * textGraphics.drawRectangle(_, _, _)
+        1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(color))
+        1 * textGraphics.drawRectangle(_, _, _)
     }
 
-    def "paintBackground"(){
+    def "paintBackground"() {
         given:
-            def color = "#ffffff"
+        def color = "#ffffff"
         when:
-            gui.paintBackground(color)
+        gui.paintBackground(color)
         then:
-            1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(color))
-            1 * textGraphics.fillRectangle(_, _, _)
+        1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(color))
+        1 * textGraphics.fillRectangle(_, _, _)
     }
 
 
-    def "drawLine (#x, #y)"(){
+    def "drawLine (#x, #y)"() {
         given:
-            def position = new Position(x, y)
-            def text = "random text here"
-            def color = "#ffffff"
+        def position = new Position(x, y)
+        def text = "random text here"
+        def color = "#ffffff"
         when:
-            gui.drawLine(position, text, color)
+        gui.drawLine(position, text, color)
         then:
-            1 * textGraphics.setForegroundColor(_)
-            1 * textGraphics.setBackgroundColor(_)
-            1 * textGraphics.putString(x, y, "" + (char) 138)
-            1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
-            1 * textGraphics.setBackgroundColor(_)
-            1 * textGraphics.putString(x+1, y, text)
+        1 * textGraphics.setForegroundColor(_)
+        1 * textGraphics.setBackgroundColor(_)
+        1 * textGraphics.putString(x, y, "" + (char) 138)
+        1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
+        1 * textGraphics.setBackgroundColor(_)
+        1 * textGraphics.putString(x + 1, y, text)
         where:
-            x | y
-            1 | 2
-            2 | 3
+        x | y
+        1 | 2
+        2 | 3
     }
 
-    def "drawText"(){
+    def "drawText"() {
         given:
-            def position = new Position(1, 2)
-            def text = "text"
-            def color = "#ffffff"
-            def backgroundColor = "#000000"
+        def position = new Position(1, 2)
+        def text = "text"
+        def color = "#ffffff"
+        def backgroundColor = "#000000"
         when:
-            gui.drawText(position, text, color, backgroundColor)
+        gui.drawText(position, text, color, backgroundColor)
         then:
-            1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
-            1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(backgroundColor))
-            1 * textGraphics.putString(1, 2, text)
+        1 * textGraphics.setForegroundColor(TextColor.Factory.fromString(color))
+        1 * textGraphics.setBackgroundColor(TextColor.Factory.fromString(backgroundColor))
+        1 * textGraphics.putString(1, 2, text)
     }
 
-    def "getNextAction"(){
+    def "getNextAction"() {
         given:
-            def action = KeyStroke.fromString("a")
-            screen.pollInput() >> action
+        def action = KeyStroke.fromString("a")
+        screen.pollInput() >> action
         when:
-            def result = gui.getNextAction()
+        def result = gui.getNextAction()
         then:
-            result == action
+        result == action
     }
 }
 

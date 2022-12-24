@@ -1,14 +1,14 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.view.Colors;
-import feup.ldts.flappy.model.game.elements.Element;
 import feup.ldts.flappy.model.game.Game;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Boar;
 import feup.ldts.flappy.model.game.collectables.Collectable;
 import feup.ldts.flappy.model.game.collectables.Lamb;
 import feup.ldts.flappy.model.game.collectables.PortoWine;
+import feup.ldts.flappy.model.game.elements.Element;
+import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.view.Viewer;
 
 import java.util.List;

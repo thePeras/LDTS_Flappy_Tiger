@@ -29,6 +29,4 @@ public interface GUI {
     int getWidth();
 
     int getHeight();
-
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, JUMP, ESCAPE, SELECT}
 }

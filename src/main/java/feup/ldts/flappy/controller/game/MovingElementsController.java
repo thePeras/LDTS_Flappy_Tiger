@@ -4,8 +4,8 @@ import com.googlecode.lanterna.input.KeyStroke;
 import feup.ldts.flappy.App;
 import feup.ldts.flappy.controller.Controller;
 import feup.ldts.flappy.model.game.Game;
-import feup.ldts.flappy.model.game.elements.Wall;
 import feup.ldts.flappy.model.game.collectables.Collectable;
+import feup.ldts.flappy.model.game.elements.Wall;
 
 import java.util.Iterator;
 
@@ -20,7 +20,7 @@ public class MovingElementsController extends Controller<Game> {
             Wall wall = wallIterator.next();
             wall.move();
             if (wall.isOutOfScreen()) {
-                getModel().removeWall(wallIterator);
+                wallIterator.remove();
             }
         }
     }
@@ -31,7 +31,7 @@ public class MovingElementsController extends Controller<Game> {
             Collectable collectable = collectableIterator.next();
             collectable.move();
             if (collectable.isOutOfScreen()) {
-                getModel().removeCollectable(collectableIterator);
+                collectableIterator.remove();
             }
         }
     }

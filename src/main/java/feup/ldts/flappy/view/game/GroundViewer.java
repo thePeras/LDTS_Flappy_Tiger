@@ -1,9 +1,9 @@
 package feup.ldts.flappy.view.game;
 
 import feup.ldts.flappy.gui.GUI;
-import feup.ldts.flappy.view.Colors;
-import feup.ldts.flappy.model.game.elements.Ground;
 import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.model.game.elements.Ground;
+import feup.ldts.flappy.view.Colors;
 
 public class GroundViewer implements ElementViewer<Ground> {
     @Override

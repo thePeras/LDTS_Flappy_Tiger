@@ -10,8 +10,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
+import feup.ldts.flappy.view.Colors;
 
 import java.awt.*;
 import java.io.File;
@@ -20,7 +20,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI {
-    public static final int height = 35, width = 30, fontSize = 17;
+    public static final int HEIGHT = 35, WIDTH = 30, FONT_SIZE = 17;
     private final Screen screen;
 
     public LanternaGUI(Screen screen) {
@@ -44,7 +44,7 @@ public class LanternaGUI implements GUI {
     }
 
     private Terminal createTerminal(AWTTerminalFontConfiguration fontConfig) throws IOException {
-        TerminalSize terminalSize = new TerminalSize(width, height + 1);
+        TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
@@ -58,7 +58,7 @@ public class LanternaGUI implements GUI {
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-        Font loadedFont = font.deriveFont(Font.PLAIN, fontSize);
+        Font loadedFont = font.deriveFont(Font.PLAIN, FONT_SIZE);
         return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
@@ -82,7 +82,7 @@ public class LanternaGUI implements GUI {
     public void paintBackground(String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
-        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height + 1), ' ');
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(WIDTH, HEIGHT + 1), ' ');
     }
 
     public void drawRectangle(Position position, int width, int height, String color) {
@@ -101,12 +101,12 @@ public class LanternaGUI implements GUI {
 
     @Override
     public int getWidth() {
-        return width;
+        return WIDTH;
     }
 
     @Override
     public int getHeight() {
-        return height;
+        return HEIGHT;
     }
 
     public void paintPixel(Position position, String color) {

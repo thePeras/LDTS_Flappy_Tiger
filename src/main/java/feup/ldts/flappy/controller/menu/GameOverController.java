@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import static feup.ldts.flappy.state.AppState.*;
+import static feup.ldts.flappy.state.AppState.GAME_STATE;
+import static feup.ldts.flappy.state.AppState.MENU_STATE;
 
 public class GameOverController extends MenuController<GameOver> {
 
@@ -22,8 +23,8 @@ public class GameOverController extends MenuController<GameOver> {
     @Override
     public void optionSelected(App game) throws IOException {
         if (getModel().getUsername().trim().length() > 0) updateLeaderboard();
-        if (getModel().isSelectedRestart()) game.setState(GameState);
-        if (getModel().isSelectedExit()) game.setState(MenuState);
+        if (getModel().isSelectedRestart()) game.setState(GAME_STATE);
+        if (getModel().isSelectedExit()) game.setState(MENU_STATE);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class GameOverController extends MenuController<GameOver> {
 
     @Override
     public void escapePressed(App game) throws IOException {
-        game.setState(MenuState);
+        game.setState(MENU_STATE);
     }
 
     @Override

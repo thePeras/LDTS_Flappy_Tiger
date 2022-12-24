@@ -12,7 +12,6 @@ public enum Colors {
     GREY("#969696");
 
     private final String hex;
-    private int lastPlayerColor;
 
     Colors(String hex) {
         this.hex = hex;

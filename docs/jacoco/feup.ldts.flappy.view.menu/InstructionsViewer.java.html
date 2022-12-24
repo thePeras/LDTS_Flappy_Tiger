@@ -1,26 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InstructionsViewer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-l04gr02</a> &gt; <a href="index.source.html" class="el_package">feup.ldts.flappy.view.menu</a> &gt; <span class="el_source">InstructionsViewer.java</span></div><h1>InstructionsViewer.java</h1><pre class="source lang-java linenums">package feup.ldts.flappy.view.menu;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"/>
+    <link href="../jacoco-resources/report.css" rel="stylesheet" type="text/css"/>
+    <link href="../jacoco-resources/report.gif" rel="shortcut icon" type="image/gif"/>
+    <title>InstructionsViewer.java</title>
+    <link href="../jacoco-resources/prettify.css" rel="stylesheet" type="text/css"/>
+    <script src="../jacoco-resources/prettify.js" type="text/javascript"></script>
+</head>
+<body onload="window['PR_TAB_WIDTH']=4;prettyPrint()">
+<div class="breadcrumb" id="breadcrumb"><span class="info"><a class="el_session"
+                                                              href="../jacoco-sessions.html">Sessions</a></span><a
+        class="el_report" href="../index.html">project-l04gr02</a> &gt; <a class="el_package" href="index.source.html">feup.ldts.flappy.view.menu</a>
+    &gt; <span class="el_source">InstructionsViewer.java</span></div>
+<h1>InstructionsViewer.java</h1>
+<pre class="source lang-java linenums">package feup.ldts.flappy.view.menu;
 
 import feup.ldts.flappy.gui.GUI;
 import feup.ldts.flappy.view.Colors;
 import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.menu.Instructions;
-import feup.ldts.flappy.view.Viewer;
 
-import java.io.IOException;
-
-public class InstructionsViewer extends Viewer&lt;Instructions&gt; {
+public class InstructionsViewer extends MenuViewer&lt;Instructions&gt; {
 
     public InstructionsViewer(Instructions model) {
-<span class="fc" id="L14">        super(model);</span>
-<span class="fc" id="L15">    }</span>
+<span class="fc" id="L11">        super(model, new Position(2, 7));</span>
+<span class="fc" id="L12">    }</span>
 
-    public void drawElements(GUI gui) {
-<span class="fc" id="L18">        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());</span>
+    public void drawInsideElements(GUI gui) {
+<span class="fc" id="L15">        drawTitle(gui, &quot;Instructions&quot;, Colors.WHITE.getHex());</span>
 
-<span class="fc" id="L20">        gui.drawMenuText(new Position(2, 5), &quot;Instructions&quot;, &quot;#FFFFFF&quot;);</span>
-<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (int i = 0; i &lt; getModel().getNumberEntries(); i++) {</span>
-<span class="fc" id="L22">            gui.drawMenuText(new Position(2, 7 + i), getModel().getEntry(i), &quot;#FC6A03&quot;);</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        for (int i = 0; i &lt; getModel().getSize(); i++) {</span>
+<span class="fc" id="L18">            drawText(gui, new Position(2, 7 + i), getModel().getLine(i), Colors.ORANGE.getHex());</span>
         }
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L20">    }</span>
+
+    @Override
+    public void drawOptions(GUI gui) {
+
+<span class="fc" id="L25">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre>
+<div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span>
+</div>
+</body>
+</html>

@@ -3,22 +3,25 @@
 The Flappy Tiger is game truly inspired by the Flappy Bird game, but with a few twists.
 The objective of the game is to maneuver a small tiger, the protagonist, through a series of walls coming from the right.
 
-Each wall has a gap and the player must pass through the gap to score a point. The game ends when the player collides with a wall or hits the floor. 
-The player can also collect collectables, that give the player points or start a god mode, where the gap between the walls is increased, making the game easier.
+Each wall has a gap and the player must pass through the gap to score a point. The game ends when the player collides
+with a wall or hits the floor.
+The player can also collect collectables, that give the player points or start a god mode, where the gap between the
+walls is increased, making the game easier.
 
 Be aware that Flappy Tiger is an addictive game that tests the player's reflexes and patience. It's a great way to challenge yourself.
 
-Developed by 
+Developed by
 - **Francisco da Ana** (up202108762)
 - **João Torre Pereira** (up202108848)
-- **José Pedro Evans** (up202108818) 
+- **José Pedro Evans** (up202108818)
 
 LDTS 2022⁄23 <br>
 Software Design and Testing Laboratory
 
 ### IMPLEMENTED FEATURES
 
-- **Playable Character** - The game has a playable character, which is a tiger, that can be controlled by the player. The
+- **Playable Character** - The game has a playable character, which is a tiger, that can be controlled by the player.
+  The
   player can control the tiger by pressing the space bar key.
 - **Main Menu** - The game has a main mainMenu, that can be accessed by pressing the escape key. The main mainMenu has
   the following options:
@@ -31,8 +34,11 @@ Software Design and Testing Laboratory
 - **Random Walls** - The walls are generated with a constant distance between themselves but the height of their gap is generated randomly.
 - **Background music** - The game has background music, that can be turned on and off by pressing the 'm' key. The music is different for the menus and the game.
 - **Sound effects** - The game has sound effects. The sound effects can be turned on and off by pressing the 's' key.
-- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the  player and the collectable objects. When the player collides with the walls or floor, the game ends.
-- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor. The player can input its userName and if the score is greater than the  lowest score in the leaderboard, the score will be added to the leaderboard.
+- **Collision Detection** - The game detects collisions between the player and the walls and floor, and between the
+  player and the collectable objects. When the player collides with the walls or floor, the game ends.
+- **Game Over Screen** - The game displays a game over screen when the player collides with a wall or hits the floor.
+  The player can input its userName and if the score is greater than the lowest score in the leaderboard, the score will
+  be added to the leaderboard.
 - **Collectable Objects** - The game has collectable objects, that can be collected by the player:
     - **Lamb** and **Boar** - If collected by the player, the Lamb gives the player 5 points and the Boar 3 points.
     - **Porto wine - God mode** - If you catch a bottle of Porto wine, the gap between the walls will be increased, making the game easier.
@@ -44,13 +50,16 @@ Software Design and Testing Laboratory
 
 ### MOCKUPS
 
-<div>
+<p align="center">
+<img src="./images/mockups/Game.gif" alt="drawing" width="400" margin="center"/>
+</p>
+<div align="center">
 <img src="./images/mockups/Main_Menu.png" alt="drawing" width="400"/>
+<img src="./images/mockups/GameOver_Menu.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Leaderboard.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Instructions.png" alt="drawing" width="400"/>
-<img src="./images/mockups/Game.gif" alt="drawing" width="400"/>
-<img src="./images/mockups/GameOver_Menu.png" alt="drawing" width="400"/>
 </div>
+
 
 ### UML
 
@@ -125,7 +134,7 @@ The code is also more flexible by the possibility of changing the GUI library.
 
 It easy to see that the whole game has several states, such as the main menu, the game itself, the game over screen,
 leaderboard screen, etc. So, the program should be able to handle these states in a simple and efficient way.
-Also we need to easily change the game state when the user interacts with the game. For example, if the player has died,
+Also, we need to easily change the game state when the user interacts with the game. For example, if the player has died,
 the game state should be set to the game over screen.
 
 **The Pattern**
@@ -186,7 +195,7 @@ Different collectables have different effects on the game. For example, the Food
 
 **The Pattern**
 
-With the Command pattern, each collectable has its own consume command that is executed when the player collides with it. 
+With the Command pattern, each collectable has its own consume command that is executed when the player collides with it.
 That command is responsible for producing the effect of the collectable.
 
 **Implementation**
@@ -217,7 +226,8 @@ For example, the createCollectable method is defined in the ElementsFactory clas
 
 **Consequences**
 
-The creation of elements is centralized in the ElementsFactory class and all the logic of the creation is isolated from the rest of the code.
+The creation of elements is centralized in the ElementsFactory class and all the logic of the creation is isolated from
+the rest of the code.
 
 ------
 
@@ -233,11 +243,11 @@ To solve this problem we use the *extract superclass* technique. We created a Me
 
 #### Menu Controllers
 
-Menu controllers had a similar problem. All of them resumed in the same code, which was to handle the user input, but in different ways. In adition to that, every menu has the possibility to mute sounds and music, and the code to handle that feature was duplicated in all these controllers.
-Again, to solve this problem we use the *extract superclass* technique. We created a MenuController class that is responsible for handling the user input and the mute buttons. The menus' controllers now extend the MenuController class and override the optionSelected method to handle the menu specific input. In adition to that, we also use *extract interface* technique to create a interface that is implemented by the menus' controllers.
+Menu controllers had a similar problem. All of them resumed in the same code, which was to handle the user input, but in different ways. In addition to that, every menu has the possibility to mute sounds and music, and the code to handle that feature was duplicated in all these controllers.
+Again, to solve this problem we use the *extract superclass* technique. We created a MenuController class that is responsible for handling the user input and the mute buttons. The menus' controllers now extend the MenuController class and override the optionSelected method to handle the menu specific input. In addition to that, we also use *extract interface* technique to create a interface that is implemented by the menus' controllers.
 
-
-The changes of the last two refactorings can be found in this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/16).
+The changes of the last two refactorings can be found in
+this [pull request](https://github.com/FEUP-LDTS-2022/project-l04gr02/pull/16).
 
 #### IsColliding
 

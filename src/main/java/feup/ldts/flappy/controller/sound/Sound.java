@@ -32,8 +32,8 @@ public class Sound {
 
         } catch (Exception e) {
             System.out.println(e);
+            return null;
         }
-        return null;
     }
 
     public void play() {

@@ -5,7 +5,7 @@ import feup.ldts.flappy.model.menu.TextMenu;
 
 import java.io.IOException;
 
-import static feup.ldts.flappy.state.AppState.MenuState;
+import static feup.ldts.flappy.state.AppState.MENU_STATE;
 
 public class TextMenuController extends MenuController<TextMenu> {
 
@@ -15,7 +15,7 @@ public class TextMenuController extends MenuController<TextMenu> {
 
     @Override
     public void escapePressed(App game) throws IOException {
-        game.setState(MenuState);
+        game.setState(MENU_STATE);
     }
 
     @Override

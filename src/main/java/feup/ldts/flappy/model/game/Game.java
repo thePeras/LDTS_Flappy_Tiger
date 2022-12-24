@@ -1,26 +1,24 @@
 package feup.ldts.flappy.model.game;
 
+import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.controller.sound.SoundManager;
 import feup.ldts.flappy.gui.LanternaGUI;
-import feup.ldts.flappy.model.game.Position;
 import feup.ldts.flappy.model.game.collectables.Collectable;
-import feup.ldts.flappy.controller.sound.SoundEffects;
 import feup.ldts.flappy.model.game.elements.Ground;
 import feup.ldts.flappy.model.game.elements.Player;
 import feup.ldts.flappy.model.game.elements.Wall;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Game {
     private static final int GOD_MODE_MAX_STEPS = 100;
     private static final int GOD_MODE_WALL_SPACE = 28;
     private final Player player;
-    private boolean isPlaying;
-    private boolean isInGodMode;
     private final List<Wall> wallsList;
     private final List<Collectable> collectablesList;
+    private boolean isPlaying;
+    private boolean isInGodMode;
     private Ground ground;
     private int score;
     private int steps;
@@ -29,12 +27,12 @@ public class Game {
     public Game() {
         this.isPlaying = false;
         this.isInGodMode = false;
-        this.player = new Player(new Position(9, LanternaGUI.height / 2 - 1));
+        this.player = new Player(new Position(9, LanternaGUI.HEIGHT / 2 - 1));
         this.wallsList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
         this.score = 0;
         this.steps = 0;
-        this.ground = new Ground(LanternaGUI.height);
+        this.ground = new Ground(LanternaGUI.HEIGHT);
     }
 
     public Player getPlayer() {
@@ -61,20 +59,12 @@ public class Game {
         wallsList.add(wall);
     }
 
-    public void removeWall(Iterator<Wall> iterator) {
-        iterator.remove();
-    }
-
     public List<Collectable> getCollectables() {
         return collectablesList;
     }
 
     public void addCollectable(Collectable collectable) {
         collectablesList.add(collectable);
-    }
-
-    public void removeCollectable(Iterator<Collectable> collectable) {
-        collectable.remove();
     }
 
     public void consumeCollectable(Collectable collectable) {
