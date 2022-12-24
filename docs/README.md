@@ -1,12 +1,12 @@
 ## LDTS_0402 - Flappy Tiger
 
-The Flappy Tiger is game trully inspired by the Flappy Bird game, but with a few twists.
+The Flappy Tiger is game truly inspired by the Flappy Bird game, but with a few twists.
 The objective of the game is to maneuver a small tiger, the protagonist, through a series of walls coming from the right.
 
 Each wall has a gap and the player must pass through the gap to score a point. The game ends when the player collides with a wall or hits the floor. 
 The player can also collect collectables, that give the player points or start a god mode, where the gap between the walls is increased, making the game easier.
 
-Be aware that Flappy Tiger is an addicting game that tests the player's reflexes and patience. It's a great way to challenge yourself.
+Be aware that Flappy Tiger is an addictive game that tests the player's reflexes and patience. It's a great way to challenge yourself.
 
 Developed by 
 - **Francisco da Ana** (up202108762)
@@ -40,24 +40,25 @@ Software Design and Testing Laboratory
 
 ### PLANNED FEATURES
 
-- All of the features were implemented.
+- All the features were implemented.
 
 ### MOCKUPS
 
+<div>
 <img src="./images/mockups/Main_Menu.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Leaderboard.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Instructions.png" alt="drawing" width="400"/>
 <img src="./images/mockups/Game.gif" alt="drawing" width="400"/>
 <img src="./images/mockups/GameOver_Menu.png" alt="drawing" width="400"/>
-
+</div>
 
 ### UML
 
-![img](./images/UML/basic_model_structure.png)
+![img](./images/UML/structure.drawio.png)
 
 ### DESIGN
 
-#### Sctructure of the code
+#### Structure of the code
 
 **Problem in Context**
 
@@ -66,13 +67,13 @@ So, we need to find an appropriate pattern to organize it.
 
 **The Pattern**
 
-The MVC is usefull because it divides the code in three parts: the model, the view and the controller. The model is
+The MVC is usefully because it divides the code in three parts: the model, the view and the controller. The model is
 responsible for the data, the view is responsible for the visual interface and the controller for the logic of the game.
-All of the three packages are independent and work together to make the game work.
+All the three packages are independent and work together to make the game work.
 
 **Implementation**
 
-![img](./images/patterns/MVC.png)
+![img](./images/patterns/MVC.drawio.png)
 
 These packages can be found in the following folders:
 
@@ -82,7 +83,7 @@ These packages can be found in the following folders:
 
 **Consequences**
 
-A modular sctructure of the code allowing us to divide the code in different files can be very usefull for many reasons
+A modular structure of the code allowing us to divide the code in different files can be very usefull for many reasons,
 but it can also not be an easy task to do. This means that when we are developing the code we need to think about the
 structure of the code and how we are going to divide it. This is, in fact, a problem for people who aren't used to work with this
 kind of structure. However, as the times goes on we will get used to it and benefit from it.
@@ -91,13 +92,13 @@ kind of structure. However, as the times goes on we will get used to it and bene
 
 **Problem in Context**
 
-The game shouldn't depend on the specific implementation of the GUI library (Lanterna). The appllication UI framework
+The game shouldn't depend on the specific implementation of the GUI library (Lanterna). The application UI framework
 should be easily interchangeable without affecting the rest of the code.
 
 **The Pattern**
 
 The Facade pattern was ideal for this problem as it provides a unified interface to a set of diverse interfaces in a
-choosed library. This way, the rest of the code doesn't need to know the specifics of the library, and can be easily
+chose library. This way, the rest of the code doesn't need to know the specifics of the library, and can be easily
 changed.
 
 **Implementation**
@@ -132,7 +133,7 @@ the game state should be set to the game over screen.
 The State pattern allows the program to change the behavior of the application depending on the current state. For
 example, the main controller and viewer is defined depending on the current state and each state has its own controller
 and viewer.
-Also the fame can easily change the state by calling the setState method.
+Also, the fame can easily change the state by calling the setState method.
 
 **Implementation**
 
@@ -151,8 +152,8 @@ The downside is that we need to have access to the Game class context in order t
 **Problem in Context**
 
 Music and sound effects are a shared resource among the game states and classes. Dealing with sound effects in the
-independet classes is not a good idea because it would be hard to manage and change the sound effects. Also, the music
-should be played in the background and not be interrupted by independet game elements.
+independent classes is not a good idea because it would be hard to manage and change the sound effects. Also, the music
+should be played in the background and not be interrupted by independent game elements.
 So, the music and sound effects should be managed by a single class.
 This can be done by using the Singleton pattern. This way, we only need to create a class to be responsible for
 playing the music and sound effects.
@@ -170,7 +171,7 @@ In resume, there is only a single point to access the music and sound effects.
 **Consequences**
 
 One big good consequence of using the singleton pattern is that the code would be isolated from the music and sound
-effects and we can be easily access them from anywhere in the code.
+effects, and we can be easily access them from anywhere in the code.
 Also, because there is only a single object of the class, it is impossible to have two background musics playing at the
 same time, for example.
 Changing the music and sound effects turns out to be a easy task now.
@@ -195,7 +196,7 @@ That command is responsible for producing the effect of the collectable.
 **Consequences**
 
 Because each collectable has its own command we can easily add new collectables without having to change the code of the game. So, the code becomes more flexible and maintainable.
-Also, another benefit of this pattern is that the consume code is isolated from the rest of the game.
+Also, another benefit of this pattern is that to consume code is isolated from the rest of the game.
 
 ------
 
@@ -222,7 +223,7 @@ The creation of elements is centralized in the ElementsFactory class and all the
 
 ### REFACTORING
 
-Some of the changes made in the refactoring phase were remove dead code, extract methods and classes, remove duplicated code, substitute hardcoded values with constants, etc.
+Some changes made in the refactoring phase were remove dead code, extract methods and classes, remove duplicated code, substitute hardcoded values with constants, etc.
 
 #### Menu Viewers
 
@@ -232,7 +233,7 @@ To solve this problem we use the *extract superclass* technique. We created a Me
 
 #### Menu Controllers
 
-Menu controllers had a similiar problem. All of them resumed in the same code, which was to handle the user input, but in different ways. In adition to that, every menu has the possibility to mute sounds and music, and the code to handle that feature was duplicated in all these controllers.
+Menu controllers had a similar problem. All of them resumed in the same code, which was to handle the user input, but in different ways. In adition to that, every menu has the possibility to mute sounds and music, and the code to handle that feature was duplicated in all these controllers.
 Again, to solve this problem we use the *extract superclass* technique. We created a MenuController class that is responsible for handling the user input and the mute buttons. The menus' controllers now extend the MenuController class and override the optionSelected method to handle the menu specific input. In adition to that, we also use *extract interface* technique to create a interface that is implemented by the menus' controllers.
 
 
