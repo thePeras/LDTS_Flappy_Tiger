@@ -83,7 +83,7 @@ class GameTest extends Specification {
         expect:
         !game.isInGodMode
         game.godModeSteps == 0
-        wall.getSpace() == Wall.normalSpace
+        wall.getSpace() == Wall.NORMAL_SPACE
 
         when:
         game.startGodMode()

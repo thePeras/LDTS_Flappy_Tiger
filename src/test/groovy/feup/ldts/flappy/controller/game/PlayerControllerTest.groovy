@@ -82,24 +82,19 @@ class PlayerControllerTest extends Specification {
 
     def "test step"() {
         given:
-        // Create a PlayerController object
         Game game = Mock(Game)
         game.player >> new Player(new Position(5, 5))
         PlayerController playerController = new PlayerController(game)
 
-        // Create an App object
         App app = Mock(App)
 
-        // Create a KeyStroke object with the character ' '
         Character character = ' '
         KeyStroke key = new KeyStroke(character, false, false)
 
         when:
-        // Call the step method
         playerController.step(app, key)
 
         then:
-        // Assert that the player's position and velocity have been updated correctly
         playerController.getModel().getPlayer().getPosition().getY() == 4
         playerController.getModel().getPlayer().getVelocity() == -3
     }

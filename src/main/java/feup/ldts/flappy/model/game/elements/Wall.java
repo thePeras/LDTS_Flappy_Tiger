@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Wall extends Element implements Collidable {
 
-    private final static int normalSpace = 11;
-    private final static int speed = -1;
-    private final static int width = 2;
+    private final static int NORMAL_SPACE = 11;
+    private final static int SPEED = -1;
+    private final static int WIDTH = 2;
 
     private int height;
     private int space;
@@ -19,15 +19,15 @@ public class Wall extends Element implements Collidable {
     public Wall(int height) {
         super(new Position(LanternaGUI.WIDTH, 0));
         this.height = height;
-        this.space = normalSpace;
+        this.space = NORMAL_SPACE;
     }
 
     public static int getSpeed() {
-        return speed;
+        return SPEED;
     }
 
     public static int getWidth() {
-        return width;
+        return WIDTH;
     }
 
     public int getHeight() {
