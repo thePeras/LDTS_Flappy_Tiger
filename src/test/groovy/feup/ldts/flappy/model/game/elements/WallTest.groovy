@@ -82,7 +82,7 @@ class WallTest extends Specification {
 
         then:
         def expectedPositions = []
-        for (int y = 0; y <= 35; y++) {
+        for (int y = -5; y <= 35; y++) {
             if (!wall.isGapHeight(y)) {
                 expectedPositions << new Position(10, y)
                 expectedPositions << new Position(11, y)

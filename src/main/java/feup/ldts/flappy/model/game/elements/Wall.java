@@ -65,7 +65,7 @@ public class Wall extends Element implements Collidable {
 
         int x = this.getPosition().getX();
 
-        for (int y = 0; y <= LanternaGUI.HEIGHT; y++) {
+        for (int y = -5; y <= LanternaGUI.HEIGHT; y++) {
             if (this.isGapHeight(y)) continue;
             positions.add(new Position(x, y));
             positions.add(new Position(x + 1, y));
